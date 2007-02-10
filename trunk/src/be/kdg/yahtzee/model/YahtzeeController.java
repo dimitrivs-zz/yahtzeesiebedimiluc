@@ -1,16 +1,15 @@
 package be.kdg.yahtzee.model;
 
-import be.kdg.yahtzee.model.users.*;
-import be.kdg.yahtzee.model.game.GameManager;
-import be.kdg.yahtzee.model.game.Game;
 import be.kdg.yahtzee.model.game.Die;
+import be.kdg.yahtzee.model.game.Game;
+import be.kdg.yahtzee.model.game.GameManager;
+import be.kdg.yahtzee.model.users.Address;
+import be.kdg.yahtzee.model.users.Role;
+import be.kdg.yahtzee.model.users.User;
+import be.kdg.yahtzee.model.users.UserManager;
 
-import java.util.List;
 import java.util.Collection;
-import java.util.Map;
-
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import java.util.List;
 
 
 public class YahtzeeController {
@@ -87,23 +86,31 @@ public class YahtzeeController {
         return gameManager.createGame(gameName, number, user);
     }
 
-    public Collection getGames(){
+    public Collection getGames() {
         return gameManager.getGames();
     }
 
-    public boolean joinGame(String gameName, User user){
+    public boolean joinGame(String gameName, User user) {
         return gameManager.joinGame(gameName, user);
     }
 
-    public List<Die> playGameRound(String gameName){
+    public Game getGame(String gameName) {
+        return gameManager.getGame(gameName);
+    }
+
+    public void leaveGame(String gameName, User user) {
+        gameManager.leaveGame(gameName, user);
+    }
+
+    public List<Die> playGameRound(String gameName) {
         return gameManager.playRound(gameName);
     }
 
-    public boolean fixDie(String gameName, int dieId){
+    public boolean fixDie(String gameName, int dieId) {
         return gameManager.fixDie(gameName, dieId);
     }
 
-    public boolean unfixDie(String gameName, int dieId){
+    public boolean unfixDie(String gameName, int dieId) {
         return gameManager.unfixDie(gameName, dieId);
     }
 

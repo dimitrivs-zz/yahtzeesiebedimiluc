@@ -1,8 +1,8 @@
 package be.kdg.yahtzee.model.game;
 
-import be.kdg.yahtzee.model.users.User;
-import be.kdg.yahtzee.model.chat.Chat;
 import static be.kdg.util.ScorePoints.*;
+import be.kdg.yahtzee.model.chat.Chat;
+import be.kdg.yahtzee.model.users.User;
 
 import java.util.*;
 
@@ -76,6 +76,10 @@ public class Game {
 
     public void joinGame(User user) {
         users.add(user);
+    }
+
+    public void leaveGame(User user) {
+        users.remove(user);
     }
 
     public int getNumberOfPlayers() {
@@ -156,8 +160,8 @@ public class Game {
 
     public List<ScoreAspect> getScorePossibilities() {
         List<ScoreAspect> scorePossibilities = new ArrayList<ScoreAspect>();
-        for(String s : possibleScores.keySet()) {
-            scorePossibilities.add(new ScoreAspect(s,possibleScores.get(s)));
+        for (String s : possibleScores.keySet()) {
+            scorePossibilities.add(new ScoreAspect(s, possibleScores.get(s)));
         }
         return scorePossibilities;
     }

@@ -152,6 +152,14 @@
                             <input type="button" onclick="sendMessage()" value="send" name="btnSend">
                         </td>
                     </tr>
+                    <tr>
+                        <td><a href="/game/LeaveGameServlet?leave=${gameBean.gameName}">leave</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <yahtzee:showUsersOfGame/>
+                        </td>
+                    </tr>
                 </table>
             </td>
         </tr>

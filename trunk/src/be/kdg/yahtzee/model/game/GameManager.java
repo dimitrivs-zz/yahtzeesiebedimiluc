@@ -1,19 +1,16 @@
 package be.kdg.yahtzee.model.game;
 
 import be.kdg.yahtzee.model.users.User;
-import be.kdg.yahtzee.model.chat.ChatMessage;
-import be.kdg.yahtzee.model.chat.Chat;
-
-import java.util.*;
-import java.io.FileOutputStream;
-
-import org.apache.log4j.Level;
 import org.apache.log4j.HTMLLayout;
-import org.apache.log4j.WriterAppender;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.apache.log4j.WriterAppender;
+
+import java.io.FileOutputStream;
+import java.util.*;
 
 public class GameManager {
-    private  static Logger logger = Logger.getLogger(GameManager.class);
+    private static Logger logger = Logger.getLogger(GameManager.class);
     private Set<Game> games;
 
     public GameManager() {
@@ -36,11 +33,11 @@ public class GameManager {
     }
 
     public boolean createGame(String gameName, int maxPlayer, User user) {
-        if (!checkGameExists(gameName)){
+        if (!checkGameExists(gameName)) {
             logger.debug("Game : " + gameName + " kon niet worden gemaakt reden: het spel bestaat al");
             return false;
         }
-        if (!checkUserAlreadyInAgame(user)){
+        if (!checkUserAlreadyInAgame(user)) {
             logger.debug("Game : " + gameName + " kon niet worden gemaakt reden: de user doet al mee aan een ander spel");
             return false;
         }
@@ -50,16 +47,16 @@ public class GameManager {
         return true;
     }
 
-    public Collection getGames(){
+    public Collection getGames() {
         return Collections.unmodifiableSet(games);
     }
 
-    public boolean joinGame(String gameName, User user){
+    public boolean joinGame(String gameName, User user) {
         for (Game game : games) {
             if (game.getGameName().equals(gameName)) {
                 if (game.getNumberOfPlayers() < game.getMaxPlayer()) {
-                    if (!checkUserAlreadyInAgame(user)){
-                        logger.debug("User : " + user.getUsername() + " kon de game: " +  gameName + " niet joinen");
+                    if (!checkUserAlreadyInAgame(user)) {
+                        logger.debug("User : " + user.getUsername() + " kon de game: " + gameName + " niet joinen");
                         return false;
                     }
                     game.joinGame(user);
@@ -70,9 +67,18 @@ public class GameManager {
         return true;
     }
 
+    public void leaveGame(String gameName, User user) {
+        for (Game game : games) {
+            if (game.getGameName().equals(gameName)) {
+                game.leaveGame(user);
+            }
+        }
+        logger.info("User : " + user.getUsername() + " left game: " + gameName);
+    }
+
     private boolean checkGameExists(String gameName) {
-        for (Game game : games){
-            if (game.getGameName().equals(gameName)){
+        for (Game game : games) {
+            if (game.getGameName().equals(gameName)) {
                 return false;
             }
         }
@@ -80,9 +86,9 @@ public class GameManager {
     }
 
     private boolean checkUserAlreadyInAgame(User user) {
-        for (Game game : games){
-            for (User userInGame : game.getUsers()){
-                if (userInGame.getUsername().equals(user.getUsername())){
+        for (Game game : games) {
+            for (User userInGame : game.getUsers()) {
+                if (userInGame.getUsername().equals(user.getUsername())) {
                     return false;
                 }
             }
@@ -99,7 +105,7 @@ public class GameManager {
         return null;
     }
 
-    public List<Die> playRound(String gameName){
+    public List<Die> playRound(String gameName) {
         Game game = getGame(gameName);
 
         List<Die> diceList = game.playRound();
@@ -107,13 +113,13 @@ public class GameManager {
         return diceList;
     }
 
-    public boolean fixDie(String gameName, int dieId){
+    public boolean fixDie(String gameName, int dieId) {
         Game game = getGame(gameName);
 
         return game.fixDie(dieId);
     }
 
-    public boolean unfixDie(String gameName, int dieId){
+    public boolean unfixDie(String gameName, int dieId) {
         Game game = getGame(gameName);
 
         return game.unfixDie(dieId);
@@ -136,30 +142,28 @@ public class GameManager {
         return game.selectScore(scoreChoice);
     }
 
-    public void addMessage(String text, String gameName)
-    {
+    public void addMessage(String text, String gameName) {
         Game game = getGame(gameName);
         game.getChat().addMessage(text);
     }
 
-    public List getMessages(String gameName)
-    {
+    public List getMessages(String gameName) {
         Game game = getGame(gameName);
         return game.getChat().getMessages();
     }
-        /*
-        public List<ChatMessage> addMessage(String text, String gameName)
-    {
-        Game game = getGame(gameName);
-        Chat chat = game.getChat();
-        chat.addMessage(text);
-        return game.getChat().getMessages();
-    }
+    /*
+   public List<ChatMessage> addMessage(String text, String gameName)
+{
+   Game game = getGame(gameName);
+   Chat chat = game.getChat();
+   chat.addMessage(text);
+   return game.getChat().getMessages();
+}
 
-    public List getMessages(String gameName)
-    {
-        Game game = getGame(gameName);
-        Chat chat = game.getChat();
-        return chat.getMessages();
-    }     */
+public List getMessages(String gameName)
+{
+   Game game = getGame(gameName);
+   Chat chat = game.getChat();
+   return chat.getMessages();
+}     */
 }
