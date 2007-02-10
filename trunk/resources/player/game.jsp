@@ -1,4 +1,3 @@
-<%@ page import="be.kdg.yahtzee.model.game.Die" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="yahtzee" tagdir="/WEB-INF/tags" %>
 <jsp:useBean id="userBean" class="be.kdg.yahtzee.beans.UserBean" scope="session"/>
@@ -53,7 +52,7 @@
 
         function checkMessages()
         {
-            GameManager.getMessages('${gameBean.gameName}',gotMessages);
+            GameManager.getMessages('${gameBean.gameName}', gotMessages);
         }
 
         function gotMessages(messages)
@@ -71,7 +70,7 @@
         .dice {
             width: 20px;
             height: 20px;
-            font-family: arial,sans-serif;
+            font-family: arial, sans-serif;
             font-size: 12px;
             font-weight: bold;
             border: 1px solid #000000;
@@ -83,6 +82,7 @@
 
 <body onload="setTimeout('checkMessages()', 1000)">
 <center>
+    hallo
     <table>
         <tr>
             <td colspan="3" align="center"><h1>Good luck, ${userBean.name}</h1></td>
@@ -92,20 +92,30 @@
                 <table border="1">
                     <tr>
                         <td width="150" height="150">
-                            <span id="dice0notFixed" class="dice" onclick="fixDice(0, true)" style="visibility: hidden"></span>
-                            <span id="dice1notFixed" class="dice" onclick="fixDice(1, true)" style="visibility: hidden"></span>
-                            <span id="dice2notFixed" class="dice" onclick="fixDice(2, true)" style="visibility: hidden"></span>
-                            <span id="dice3notFixed" class="dice" onclick="fixDice(3, true)" style="visibility: hidden"></span>
-                            <span id="dice4notFixed" class="dice" onclick="fixDice(4, true)" style="visibility: hidden"></span>
+                            <span id="dice0notFixed" class="dice" onclick="fixDice(0, true)"
+                                  style="visibility: hidden"></span>
+                            <span id="dice1notFixed" class="dice" onclick="fixDice(1, true)"
+                                  style="visibility: hidden"></span>
+                            <span id="dice2notFixed" class="dice" onclick="fixDice(2, true)"
+                                  style="visibility: hidden"></span>
+                            <span id="dice3notFixed" class="dice" onclick="fixDice(3, true)"
+                                  style="visibility: hidden"></span>
+                            <span id="dice4notFixed" class="dice" onclick="fixDice(4, true)"
+                                  style="visibility: hidden"></span>
                         </td>
                     </tr>
                     <tr>
                         <td width="150" height="150">
-                            <span id="dice0fixed" class="dice" onclick="fixDice(0, false)" style="visibility: hidden"></span>
-                            <span id="dice1fixed" class="dice" onclick="fixDice(1, false)" style="visibility: hidden"></span>
-                            <span id="dice2fixed" class="dice" onclick="fixDice(2, false)" style="visibility: hidden"></span>
-                            <span id="dice3fixed" class="dice" onclick="fixDice(3, false)" style="visibility: hidden"></span>
-                            <span id="dice4fixed" class="dice" onclick="fixDice(4, false)" style="visibility: hidden"></span>
+                            <span id="dice0fixed" class="dice" onclick="fixDice(0, false)"
+                                  style="visibility: hidden"></span>
+                            <span id="dice1fixed" class="dice" onclick="fixDice(1, false)"
+                                  style="visibility: hidden"></span>
+                            <span id="dice2fixed" class="dice" onclick="fixDice(2, false)"
+                                  style="visibility: hidden"></span>
+                            <span id="dice3fixed" class="dice" onclick="fixDice(3, false)"
+                                  style="visibility: hidden"></span>
+                            <span id="dice4fixed" class="dice" onclick="fixDice(4, false)"
+                                  style="visibility: hidden"></span>
                         </td>
                     </tr>
                     <tr>
@@ -119,7 +129,7 @@
                 </table>
             </td>
             <td>
-                <yahtzee:scoreCard />
+                <yahtzee:scoreCard/>
 
             </td>
             <td>
