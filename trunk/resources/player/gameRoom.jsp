@@ -8,24 +8,33 @@
     <script type='text/javascript' src='/dwr/interface/GameManager.js'></script>
     <script type='text/javascript' src='/dwr/util.js'></script>
     <script type='text/javascript'>
-        function check() {
-            GameManager.getGameOfUser('${userBean.username}',handleGetGame);
-        }
-        function handleGetGame(str)  {
-            alert(str);
+        function checkMessages() {
+            var inorde = 0
+            if (inorde == 0) {
+                div = document.getElementById("testdiv")
+                inorde = 1
+            }
+            var text = "hallo"
+            var code =
+        <yahtzee:showGame href="/game/JoinGameServlet"/>
+            var newElement = document.createElement("div")
+            var newText = document.createTextNode(code)
+            newElement.appendChild(newText)
+            div.appendChild(newElement)
+            document.getElementById("testdiv").appendChild()
         }
     </script>
 </head>
-<body>
+<body onload="setTimeout('checkMessages()', 5000)">
 
 <p>
-    <table border ="1">
+    <table border="1">
         <tr>
             <td>Yahtzee</td>
             <td>Welkom ${userBean.name}</td>
             <td>
             <td>
-                <table border ="1">
+                <table border="1">
                     <tr>
                         <td><a href="/player/startNewGame.jsp">Start nieuw spel</a></td>
                     </tr>
@@ -33,18 +42,27 @@
                         <td>Wijzig profiel</td>
                     </tr>
                     <tr>
-                        <td><jsp:include page="/logout/logout.html" /></td>
+                        <td>
+                            <jsp:include page="/logout/logout.html"/>
+                        </td>
                     </tr>
                 </table>
             </td>
         </tr>
+
     </table>
 </p>
- <input type="button" onclick="check()">
+<!--<input type="button" onclick="check()">  -->
 <p>
+    <!--
     <yahtzee:showGame href="/game/JoinGameServlet"/>
-    <yahtzee:showUsers/>
+    <yahtzee:showUsers/> -->
 </p>
+
+<div id="testDiv">
+
+</div>
+
 
 <p>
     <font color="RED">${error}</font>
