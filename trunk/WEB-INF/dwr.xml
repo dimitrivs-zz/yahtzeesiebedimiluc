@@ -3,15 +3,16 @@
 
 <dwr>
     <allow>
-          <!--
-        <create creator="new" javascript="Chat">
-            <param name="class" value="be.kdg.yahtzee.model.chat.Chat"/>
-        </create>   -->
+        <!--
+     <create creator="new" javascript="Chat">
+         <param name="class" value="be.kdg.yahtzee.model.chat.Chat"/>
+     </create>   -->
         <convert converter="bean" match="be.kdg.yahtzee.model.chat.ChatMessage"/>
 
         <create creator="spring" javascript="GameManager">
             <param name="beanName" value="gameManager"/>
         </create>
+        <convert converter="bean" match="be.kdg.yahtzee.model.game.Game"/>
         <convert converter="bean" match="be.kdg.yahtzee.model.game.Die"/>
         <convert converter="bean" match="be.kdg.yahtzee.model.game.ScoreAspect"/>
     </allow>

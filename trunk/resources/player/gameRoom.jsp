@@ -9,8 +9,26 @@
     <script type='text/javascript' src='/dwr/engine.js'></script>
     <script type='text/javascript' src='/dwr/interface/GameManager.js'></script>
     <script type='text/javascript' src='/dwr/util.js'></script>
+    <script type="text/javascript">
+        var table = '<table border="1"><tr><th>Spelnaam</th><th>Aantal</th><th>Spelers in het spel</th><th>Status</th></tr>'
+
+        function checkMessages()
+        {
+            GameManager.getGames(gotMessages)
+            table += "</table>"
+            DWRUtil.setValue("testDiv", table)
+        }
+        function gotMessages(messages)
+        {
+            for (var game in messages)
+            {
+                table += "<tr><td>" + game.gameName + "</td></tr>"
+            }
+            setTimeout("checkMessages()", 1000);
+        }
+    </script>
 </head>
-<body>
+<body onload="setTimeout('checkMessages()', 1000)">
 
 <p>
     <table border="1">

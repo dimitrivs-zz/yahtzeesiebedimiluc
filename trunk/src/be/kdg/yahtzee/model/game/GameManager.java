@@ -54,18 +54,17 @@ public class GameManager {
     public boolean joinGame(String gameName, User user) {
         for (Game game : games) {
             if (checkUserAlreadyInAgame(user)) {
-                if (game.getNumberOfPlayers() < game.getMaxPlayer()) {
+                if (game.getState().equals("Full")) {
+                    return false;
+                } else {
                     if (game.getGameName().equals(gameName)) {
                         logger.info("User : " + user.getUsername() + " joined game: " + gameName);
-                        if (game.getNumberOfPlayers() < game.getMaxPlayer() - 1) {
+                        game.joinGame(user);
+                        if (game.getNumberOfPlayers() == game.getMaxPlayer()) {
                             game.setState(EnumState.VOL);
                         }
-                        game.joinGame(user);
                         return true;
                     }
-                } else {
-                    logger.info("The game is full");
-                    return false;
                 }
             } else {
                 logger.info("The user is already in the game");
@@ -79,6 +78,11 @@ public class GameManager {
         for (Game game : games) {
             if (game.getGameName().equals(gameName)) {
                 game.leaveGame(user);
+                if (game.getNumberOfPlayers() == 0) {
+                    game.setState(EnumState.LEEG);
+                } else {
+                    game.setState(EnumState.WACHTEN);
+                }
             }
         }
         logger.info("User : " + user.getUsername() + " left game: " + gameName);
@@ -160,18 +164,18 @@ public class GameManager {
         return game.getChat().getMessages();
     }
     /*
-  public List<ChatMessage> addMessage(String text, String gameName)
+ public List<ChatMessage> addMessage(String text, String gameName)
 {
-  Game game = getGame(gameName);
-  Chat chat = game.getChat();
-  chat.addMessage(text);
-  return game.getChat().getMessages();
+ Game game = getGame(gameName);
+ Chat chat = game.getChat();
+ chat.addMessage(text);
+ return game.getChat().getMessages();
 }
 
 public List getMessages(String gameName)
 {
-  Game game = getGame(gameName);
-  Chat chat = game.getChat();
-  return chat.getMessages();
+ Game game = getGame(gameName);
+ Chat chat = game.getChat();
+ return chat.getMessages();
 }     */
 }

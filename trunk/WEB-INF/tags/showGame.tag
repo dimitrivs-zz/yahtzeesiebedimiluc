@@ -17,7 +17,7 @@
     <% if (games.isEmpty()) {
     %>
     <tr>
-        <td colspan="4" align="center">Geen Games</td>
+        <td colspan="4" align="center">No Games</td>
     </tr>
     <% }
         for (Object game1 : games) {
@@ -36,7 +36,11 @@
         </td>
         <td><%= game.getState()%>
         </td>
-        <td><a href=${href}?join=<%= game.getGameName()%>>meedoen</a></td>
+        <td>
+            <% if (!game.getState().equals("Full")) {
+            %>
+            <a href=${href}?join=<%= game.getGameName()%>>meedoen</a></td>
+        <%}%>
     </tr>
     <%
         }
