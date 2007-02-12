@@ -7,6 +7,7 @@
 <center>
     ${fout}
     <a href="../login/login.html">Probeer opnieuw</a>.
+
 </center>
 </body>
 </html>
