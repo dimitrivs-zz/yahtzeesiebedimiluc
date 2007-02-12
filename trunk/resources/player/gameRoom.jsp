@@ -8,6 +8,7 @@
     <script type='text/javascript' src='/dwr/interface/GameManager.js'></script>
     <script type='text/javascript' src='/dwr/util.js'></script>
     <script type='text/javascript'>
+        <!--
         function checkMessages() {
             var inorde = 0
             if (inorde == 0) {
@@ -22,10 +23,10 @@
             newElement.appendChild(newText)
             div.appendChild(newElement)
             document.getElementById("testdiv").appendChild()
-        }
+        }    -->
     </script>
 </head>
-<body onload="setTimeout('checkMessages()', 5000)">
+<body>
 
 <p>
     <table border="1">
@@ -54,9 +55,8 @@
 </p>
 <!--<input type="button" onclick="check()">  -->
 <p>
-    <!--
     <yahtzee:showGame href="/game/JoinGameServlet"/>
-    <yahtzee:showUsers/> -->
+    <yahtzee:showUsers/>
 </p>
 
 <div id="testDiv">
