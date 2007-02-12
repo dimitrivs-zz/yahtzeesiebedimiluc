@@ -34,7 +34,11 @@ public class Game {
     public Game(String gameName, int maxPlayer, User user) {
         this.gameName = gameName;
         this.maxPlayer = maxPlayer;
-        this.state = EnumState.WACHTEN;
+        if (maxPlayer == 1) {
+            this.state = EnumState.VOL;
+        } else {
+            this.state = EnumState.WACHTEN;
+        }
         this.chat = new Chat();
         users = new HashSet<User>();
         users.add(user);
@@ -52,13 +56,15 @@ public class Game {
     public String getState() {
         switch (state) {
             case LEEG:
-                return "Leeg";
+                return "Empty";
             case WACHTEN:
-                return "Wachten";
+                return "Waiting";
+            case VOL:
+                return "Full";
             case IDLE:
                 return "Idle";
             default:
-                return "onbekende status";
+                return "Unknown state";
         }
     }
 

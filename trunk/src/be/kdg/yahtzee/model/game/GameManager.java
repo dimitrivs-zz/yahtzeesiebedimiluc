@@ -53,18 +53,26 @@ public class GameManager {
 
     public boolean joinGame(String gameName, User user) {
         for (Game game : games) {
-            if (game.getGameName().equals(gameName)) {
+            if (checkUserAlreadyInAgame(user)) {
                 if (game.getNumberOfPlayers() < game.getMaxPlayer()) {
-                    if (!checkUserAlreadyInAgame(user)) {
-                        logger.debug("User : " + user.getUsername() + " kon de game: " + gameName + " niet joinen");
-                        return false;
+                    if (game.getGameName().equals(gameName)) {
+                        logger.info("User : " + user.getUsername() + " joined game: " + gameName);
+                        if (game.getNumberOfPlayers() < game.getMaxPlayer() - 1) {
+                            game.setState(EnumState.VOL);
+                        }
+                        game.joinGame(user);
+                        return true;
                     }
-                    game.joinGame(user);
+                } else {
+                    logger.info("The game is full");
+                    return false;
                 }
+            } else {
+                logger.info("The user is already in the game");
+                return false;
             }
         }
-        logger.info("User : " + user.getUsername() + " joined game: " + gameName);
-        return true;
+        return false;
     }
 
     public void leaveGame(String gameName, User user) {
@@ -125,11 +133,11 @@ public class GameManager {
         return game.unfixDie(dieId);
     }
 
-    /*public Map<String, Integer> getScorePossibilities(String gameName) {
-        Game game = getGame(gameName);
+/*public Map<String, Integer> getScorePossibilities(String gameName) {
+    Game game = getGame(gameName);
 
-        return game.getScorePossibilities();
-    }*/
+    return game.getScorePossibilities();
+}*/
 
     public List<ScoreAspect> getScorePossibilities(String gameName) {
         Game game = getGame(gameName);
@@ -152,18 +160,18 @@ public class GameManager {
         return game.getChat().getMessages();
     }
     /*
-   public List<ChatMessage> addMessage(String text, String gameName)
+  public List<ChatMessage> addMessage(String text, String gameName)
 {
-   Game game = getGame(gameName);
-   Chat chat = game.getChat();
-   chat.addMessage(text);
-   return game.getChat().getMessages();
+  Game game = getGame(gameName);
+  Chat chat = game.getChat();
+  chat.addMessage(text);
+  return game.getChat().getMessages();
 }
 
 public List getMessages(String gameName)
 {
-   Game game = getGame(gameName);
-   Chat chat = game.getChat();
-   return chat.getMessages();
+  Game game = getGame(gameName);
+  Chat chat = game.getChat();
+  return chat.getMessages();
 }     */
 }

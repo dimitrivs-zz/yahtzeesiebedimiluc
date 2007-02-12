@@ -8,7 +8,7 @@ package be.kdg.yahtzee.model.game;
  * To change this template use File | Settings | File Templates.
  */
 public enum EnumState {
-    LEEG(0), WACHTEN(1), IDLE(2);
+    LEEG(0), WACHTEN(1), IDLE(2), VOL(3);
 
     private final int waarde;
 

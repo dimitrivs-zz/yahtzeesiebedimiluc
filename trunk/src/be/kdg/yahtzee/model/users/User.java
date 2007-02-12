@@ -10,7 +10,7 @@ public class User {
     User() {
     }
 
-    public User(String username, String encryptedPassword,String surname, String firstName, String email, String telephone, Role role, Address address) {
+    public User(String username, String encryptedPassword, String surname, String firstName, String email, String telephone, Role role, Address address) {
         this.person = new Person(surname, firstName, email, address, telephone);
         this.username = username;
         this.password = encryptedPassword;
@@ -100,6 +100,26 @@ public class User {
         hash = 31 * hash + (null == username ? 0 : username.hashCode());
         return hash;
     }*/
+    /*
+ public boolean equals(Object o) {
+     if (this == o) return true;
+     if (o == null || getClass() != o.getClass()) return false;
+
+     User user = (User) o;
+
+     if (userId != user.userId) return false;
+     if (!username.equals(user.username)) return false;
+
+     return true;
+ }   */
+    /*
+public int hashCode() {
+    int result;
+    //result = ;
+    result = 31 *  username.hashCode();
+    return result;
+}    */
+
 
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -107,16 +127,12 @@ public class User {
 
         User user = (User) o;
 
-        if (userId != user.userId) return false;
         if (!username.equals(user.username)) return false;
 
         return true;
     }
 
     public int hashCode() {
-        int result;
-        result = userId;
-        result = 31 * result + username.hashCode();
-        return result;
+        return username.hashCode();
     }
 }

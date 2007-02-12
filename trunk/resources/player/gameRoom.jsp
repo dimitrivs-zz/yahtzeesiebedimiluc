@@ -9,24 +9,6 @@
     <script type='text/javascript' src='/dwr/engine.js'></script>
     <script type='text/javascript' src='/dwr/interface/GameManager.js'></script>
     <script type='text/javascript' src='/dwr/util.js'></script>
-    <script type='text/javascript'>
-        <!--
-        function checkMessages() {
-            var inorde = 0
-            if (inorde == 0) {
-                div = document.getElementById("testdiv")
-                inorde = 1
-            }
-            var text = "hallo"
-            var code =
-        <yahtzee:showGame href="/game/JoinGameServlet"/>
-            var newElement = document.createElement("div")
-            var newText = document.createTextNode(code)
-            newElement.appendChild(newText)
-            div.appendChild(newElement)
-            document.getElementById("testdiv").appendChild()
-        }    -->
-    </script>
 </head>
 <body>
 
