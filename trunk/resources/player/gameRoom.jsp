@@ -2,6 +2,8 @@
 <%@ taglib prefix="yahtzee" tagdir="/WEB-INF/tags" %>
 <jsp:useBean id="userBean" class="be.kdg.yahtzee.beans.UserBean" scope="session"/>
 
+
+<!-- testje van dimi -->
 <html>
 <head><title>Spel overzicht</title>
     <script type='text/javascript' src='/dwr/engine.js'></script>
