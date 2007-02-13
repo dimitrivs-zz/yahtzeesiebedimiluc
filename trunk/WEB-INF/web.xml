@@ -98,6 +98,24 @@
         <url-pattern>/game/LeaveGameServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ChangeProfileServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.profile.ChangeProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangeProfileServlet</servlet-name>
+        <url-pattern>/profile/ChangeProfileServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ConfirmChangeProfileServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.profile.ConfirmChangeProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConfirmChangeProfileServlet</servlet-name>
+        <url-pattern>/profile/ConfirmChangeProfileServlet</url-pattern>
+    </servlet-mapping>
+
     <!-- JavaServer Faces Servlet -->
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>

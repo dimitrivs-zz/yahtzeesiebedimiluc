@@ -11,10 +11,31 @@
     <script type='text/javascript' src='/dwr/util.js'></script>
     <script type="text/javascript">
 
-        function checkMessages()
+        function refresh()
         {
-            GameManager.getGames(gotMessages)
+            getGames()
+            getOnlineUsers()
+            getGlobalChatMessages()
+        }
+
+        function getGames() {
+            GameManager.getGames(gotGames)
+
+        }
+
+        function getOnlineUsers() {
             UserManager.getOnlineUsers(onlineUserList)
+
+        }
+        function sendMessage()
+        {
+            var text = DWRUtil.getValue("text");
+            DWRUtil.setValue("text", "");
+            GameManager.addGlobalMessage("${userBean.name}: " + text + "\n", gotMessages);
+        }
+
+        function getGlobalChatMessages() {
+            GameManager.getGlobalMessages(gotMessages);
         }
 
         function onlineUserList(messages) {
@@ -24,9 +45,10 @@
             }
             table2 += '</td></tr></table>'
             DWRUtil.setValue("testDiv2", table2)
+            setTimeout("getOnlineUsers()", 5000);
         }
 
-        function gotMessages(messages)
+        function gotGames(messages)
         {
             var table = '<table border="1"><tr><th>Spelnaam</th><th>Aantal</th><th>Spelers in het spel</th><th>Status</th></tr>'
 
@@ -49,11 +71,22 @@
 
             table += "</table>"
             DWRUtil.setValue("testDiv", table)
-            setTimeout("checkMessages()", 5000);
+            setTimeout("getGames()", 5000);
+        }
+
+        function gotMessages(messages)
+        {
+            var chatlog = "";
+            for (var data in messages)
+            {
+                chatlog = messages[data].text + chatlog;
+            }
+            DWRUtil.setValue("chatlog", chatlog);
+            setTimeout("getGlobalChatMessages()", 1000);
         }
     </script>
 </head>
-<body onload='checkMessages()'>
+<body onload='refresh()'>
 <p>
     <table border="1">
         <tr>
@@ -66,7 +99,8 @@
                         <td><a href="/player/startNewGame.jsp">Start nieuw spel</a></td>
                     </tr>
                     <tr>
-                        <td>Wijzig profiel</td>
+                        <td><a href="/profile/ChangeProfileServlet?userName="${userBean.username}">Change profile</ a>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -92,7 +126,29 @@
 <div id="testDiv2">
 
 </div>
-
+<table border="1">
+    <tr>
+        <td>Chat</td>
+    </tr>
+    <tr>
+        <td>
+            <textarea id="chatlog" rows="10" cols="25"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input id="text" type="text" size="25">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" onclick="sendMessage()" value="send" name="btnSend">
+        </td>
+    </tr>
+    <tr>
+        <td><a href="/game/LeaveGameServlet?leave=${gameBean.gameName}">leave</a></td>
+    </tr>
+</table>
 
 <p>
     <font color="RED">${error}</font>

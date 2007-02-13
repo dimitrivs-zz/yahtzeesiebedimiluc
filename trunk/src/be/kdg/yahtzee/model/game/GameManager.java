@@ -1,5 +1,6 @@
 package be.kdg.yahtzee.model.game;
 
+import be.kdg.yahtzee.model.chat.Chat;
 import be.kdg.yahtzee.model.users.User;
 import org.apache.log4j.HTMLLayout;
 import org.apache.log4j.Level;
@@ -15,9 +16,11 @@ import java.util.Set;
 public class GameManager {
     private static Logger logger = Logger.getLogger(GameManager.class);
     private Set<Game> games;
+    private Chat GlobalChat;
 
     public GameManager() {
         games = new HashSet<Game>();
+        GlobalChat = new Chat();
         initLogger(Level.DEBUG);
         logger.info("GameManger started");
     }
@@ -188,6 +191,14 @@ public class GameManager {
 
     public int getNumberOfGames() {
         return games.size();
+    }
+
+    public void addGlobalMessage(String text) {
+        GlobalChat.addMessage(text);
+    }
+
+    public List getGlobalMessages() {
+        return GlobalChat.getMessages();
     }
     /*
  public List<ChatMessage> addMessage(String text, String gameName)
