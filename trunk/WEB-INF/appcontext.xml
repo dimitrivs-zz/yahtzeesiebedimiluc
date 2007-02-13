@@ -6,9 +6,15 @@
             <value>com.mysql.jdbc.Driver</value>
 
         </property>
-        <property name="url"><value>jdbc:mysql://localhost:3306/yahtzee</value></property>
-        <property name="username"><value>yahtzee</value></property>
-        <property name="password"><value>yahtzee</value></property>
+        <property name="url">
+            <value>jdbc:mysql://localhost:3306/yahtzee</value>
+        </property>
+        <property name="username">
+            <value>yahtzee</value>
+        </property>
+        <property name="password">
+            <value>yahtzee</value>
+        </property>
     </bean>
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
@@ -52,6 +58,4 @@
     <bean id="gameManager" class="be.kdg.yahtzee.model.game.GameManager" autowire="byName"/>
 
     <bean id="yahtzeeController" class="be.kdg.yahtzee.model.YahtzeeController" autowire="byName"/>
-
-    <bean id="onlineUsersBean" class="be.kdg.yahtzee.beans.OnlineUsersBean" autowire="byName"/>
 </beans>

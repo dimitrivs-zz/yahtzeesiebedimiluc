@@ -6,6 +6,7 @@ public class User {
     private String username;
     private String password;
     private Role role;
+    private boolean online;
 
     User() {
     }
@@ -19,6 +20,15 @@ public class User {
 
     public int getUserId() {
         return userId;
+    }
+
+
+    public boolean isOnline() {
+        return online;
+    }
+
+    public void setOnline(boolean online) {
+        this.online = online;
     }
 
     private void setUserId(int userId) {

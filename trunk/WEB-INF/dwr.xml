@@ -12,6 +12,10 @@
         <create creator="spring" javascript="GameManager">
             <param name="beanName" value="gameManager"/>
         </create>
+        <create creator="spring" javascript="UserManager">
+            <param name="beanName" value="userManager"/>
+        </create>
+        <convert converter="bean" match="be.kdg.yahtzee.model.users.User"/>
         <convert converter="bean" match="be.kdg.yahtzee.model.game.Game"/>
         <convert converter="bean" match="be.kdg.yahtzee.model.game.Die"/>
         <convert converter="bean" match="be.kdg.yahtzee.model.game.ScoreAspect"/>

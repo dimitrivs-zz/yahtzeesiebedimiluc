@@ -53,6 +53,15 @@
         function checkMessages()
         {
             GameManager.getMessages('${gameBean.gameName}', gotMessages);
+            GameManager.getUsersOfGame('${gameBean.gameName}', displayUsers);
+        }
+
+        function displayUsers(messages) {
+            var users = "";
+            for (var user in messages) {
+                users += messages[user].username + "\n"
+            }
+            DWRUtil.setValue("testDiv", users);
         }
 
         function gotMessages(messages)
@@ -80,7 +89,7 @@
 </head>
 
 
-<body onload="setTimeout('checkMessages()', 1000)">
+<body onload='checkMessages()'>
 <center>
     hallo
     <table>
@@ -157,7 +166,9 @@
                     </tr>
                     <tr>
                         <td>
-                            <yahtzee:showUsersOfGame/>
+                            <div id="testDiv">
+
+                            </div>
                         </td>
                     </tr>
                 </table>

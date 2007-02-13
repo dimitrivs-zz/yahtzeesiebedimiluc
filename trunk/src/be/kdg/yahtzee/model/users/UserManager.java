@@ -1,8 +1,8 @@
 package be.kdg.yahtzee.model.users;
 
-import be.kdg.yahtzee.dao.UserDao;
-import be.kdg.yahtzee.dao.RoleDao;
 import be.kdg.util.Security;
+import be.kdg.yahtzee.dao.RoleDao;
+import be.kdg.yahtzee.dao.UserDao;
 
 import java.util.*;
 
@@ -11,7 +11,7 @@ public class UserManager {
     private UserDao userDao;
     private RoleDao roleDao;
     private Set<User> users = new HashSet<User>();
-    private Map<String,Role> roles = new HashMap<String,Role>();
+    private Map<String, Role> roles = new HashMap<String, Role>();
 
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
@@ -40,16 +40,26 @@ public class UserManager {
         return role;
     }
 
+    public List<User> getOnlineUsers() {
+        List<User> onlineUsers = new ArrayList<User>();
+        for (User user : users) {
+            if (user.isOnline()) {
+                onlineUsers.add(user);
+            }
+        }
+        return onlineUsers;
+    }
+
     public void removeRole(String name) {
         Role role = roles.get(name);
         roleDao.deleteRole(role);
     }
 
     public Role getRole(String rolename) {
-        return roles.get(rolename);    
+        return roles.get(rolename);
     }
 
-    private User createUser(String username, String plainPassword,String surname, String firstName, String email, String telephone, Role role, Address address) {
+    private User createUser(String username, String plainPassword, String surname, String firstName, String email, String telephone, Role role, Address address) {
         Security security = Security.getInstance();
         User user = new User(username, security.encrypt(plainPassword), surname, firstName, email, telephone, role, address);
         if (!users.contains(user)) {
@@ -59,12 +69,12 @@ public class UserManager {
         return user;
     }
 
-    public User createAdministrator(String username, String plainPassword,String surname, String firstName, String email, String telephone, Address address) {
+    public User createAdministrator(String username, String plainPassword, String surname, String firstName, String email, String telephone, Address address) {
         Role role = roles.get("Administrator");
         return createUser(username, plainPassword, surname, firstName, email, telephone, role, address);
     }
 
-    public User createPlayer(String username, String plainPassword,String surname, String firstName, String email, String telephone, Address address) {
+    public User createPlayer(String username, String plainPassword, String surname, String firstName, String email, String telephone, Address address) {
         Role role = roles.get("Player");
         return createUser(username, plainPassword, surname, firstName, email, telephone, role, address);
     }

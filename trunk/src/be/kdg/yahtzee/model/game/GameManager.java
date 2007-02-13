@@ -7,7 +7,10 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.WriterAppender;
 
 import java.io.FileOutputStream;
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class GameManager {
     private static Logger logger = Logger.getLogger(GameManager.class);
@@ -47,9 +50,28 @@ public class GameManager {
         return true;
     }
 
-    public Collection getGames() {
+    public Set<Game> getGames() {
         return Collections.unmodifiableSet(games);
     }
+
+    public Set<User> getUsersOfGame(String gameName) {
+        for (Game game : games) {
+            if (game.getGameName().equals(gameName)) {
+                return game.getUsers();
+            }
+        }
+        return null;
+    }
+    /*
+    public List<Game> test(){
+        List<Game> gamesAjax = new ArrayList<Game>();
+        Iterator it = games.iterator();
+        while(it.hasNext()){
+            Game game = (Game)it.next();
+            gamesAjax.add(game);
+        }
+        return gamesAjax;
+    } */
 
     public boolean joinGame(String gameName, User user) {
         for (Game game : games) {
@@ -162,6 +184,10 @@ public class GameManager {
     public List getMessages(String gameName) {
         Game game = getGame(gameName);
         return game.getChat().getMessages();
+    }
+
+    public int getNumberOfGames() {
+        return games.size();
     }
     /*
  public List<ChatMessage> addMessage(String text, String gameName)

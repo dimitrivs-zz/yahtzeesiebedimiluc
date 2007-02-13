@@ -1,15 +1,14 @@
 package be.kdg.yahtzee.servlets.logout;
 
-import be.kdg.yahtzee.servlets.YahtzeeServlet;
-import be.kdg.yahtzee.beans.OnlineUsersBean;
 import be.kdg.yahtzee.beans.UserBean;
-import be.kdg.yahtzee.model.users.User;
 import be.kdg.yahtzee.model.YahtzeeController;
+import be.kdg.yahtzee.model.users.User;
+import be.kdg.yahtzee.servlets.YahtzeeServlet;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.ServletException;
 import java.io.IOException;
 
 /**
@@ -30,8 +29,9 @@ public class LogoutServlet extends YahtzeeServlet {
         YahtzeeController yahtzeeController = findYahtzeeController();
         UserBean userBean = (UserBean) session.getAttribute("userBean");
         User user = yahtzeeController.findUser(userBean.getUsername());
-        OnlineUsersBean onlineUsersBean = findOnlineUsersBean();
-        onlineUsersBean.removeUser(user);
+        user.setOnline(false);
+        //OnlineUsersBean onlineUsersBean = findOnlineUsersBean();
+        //onlineUsersBean.removeUser(user);
 
         session.removeAttribute("games");
         session.removeAttribute("userBean");
