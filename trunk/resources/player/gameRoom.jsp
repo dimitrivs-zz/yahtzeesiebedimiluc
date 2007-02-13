@@ -120,35 +120,48 @@
     <yahtzee:showUsers/>-->
 </p>
 
-<div id="testDiv">
+<table>
+    <tr>
+        <td>
 
-</div>
+
+            <div id="testDiv">
+
+            </div>
+        </td>
+        <td>
+            <table border="1">
+                <tr>
+                    <td>Chat</td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea id="chatlog" rows="10" cols="25"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="text" type="text" size="25">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" onclick="sendMessage()" value="send" name="btnSend">
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/game/LeaveGameServlet?leave=${gameBean.gameName}">leave</a></td>
+                </tr>
+            </table>
+
+        </td>
+
+    </tr>
+</table>
 <div id="testDiv2">
 
 </div>
-<table border="1">
-    <tr>
-        <td>Chat</td>
-    </tr>
-    <tr>
-        <td>
-            <textarea id="chatlog" rows="10" cols="25"></textarea>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <input id="text" type="text" size="25">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <input type="button" onclick="sendMessage()" value="send" name="btnSend">
-        </td>
-    </tr>
-    <tr>
-        <td><a href="/game/LeaveGameServlet?leave=${gameBean.gameName}">leave</a></td>
-    </tr>
-</table>
+
 
 <p>
     <font color="RED">${error}</font>

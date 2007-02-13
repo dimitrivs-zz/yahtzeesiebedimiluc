@@ -69,18 +69,26 @@ public class UserManager {
         return user;
     }
 
-    private User changeUser(User user, String username, String plainPassword, String surname, String firstName, String email, String telephone, Role role, Address address) {
-        Security security = Security.getInstance();
-        user.setPassword(plainPassword);
+    private User changeUser(User user, String username, String surname, String firstName, String email, String telephone, Role role, Address address) {
         user.setAddress(address);
         user.setFirstname(firstName);
-        user.setPassword(security.encrypt(plainPassword));
         user.setSurname(surname);
         user.setTelephone(telephone);
         user.getPerson().setEmail(email);
         userDao.saveUser(user);
         return user;
     }
+
+    private void changeUserPassword(User user, String orgPass, String password, String password2) {
+        Security security = Security.getInstance();
+        if (user.getPassword().equals(security.encrypt(orgPass))) {
+            if (password.equals(password2)) {
+                user.setPassword(security.encrypt(password));
+                userDao.saveUser(user);
+            }
+        }
+    }
+
 
     public User createAdministrator(String username, String plainPassword, String surname, String firstName, String email, String telephone, Address address) {
         Role role = roles.get("Administrator");
@@ -92,9 +100,13 @@ public class UserManager {
         return createUser(username, plainPassword, surname, firstName, email, telephone, role, address);
     }
 
-    public User changePlayer(User user, String username, String plainPassword, String surname, String firstName, String email, String telephone, Address address) {
+    public User changePlayer(User user, String username, String surname, String firstName, String email, String telephone, Address address) {
         Role role = roles.get("Player");
-        return changeUser(user, username, plainPassword, surname, firstName, email, telephone, role, address);
+        return changeUser(user, username, surname, firstName, email, telephone, role, address);
+    }
+
+    public void changePassword(User user, String orgPass, String password, String password2) {
+        changeUserPassword(user, orgPass, password, password2);
     }
 
     public void removeUser(String username) {

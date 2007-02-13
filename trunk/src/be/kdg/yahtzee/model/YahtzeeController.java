@@ -78,8 +78,12 @@ public class YahtzeeController {
         userManager.createPlayer(username, password, surname, firstName, email, telephone, address);
     }
 
-    public User changePlayer(User user, String username, String password, String surname, String firstName, String email, String telephone, Address address) {
-        return userManager.changePlayer(user, username, password, surname, firstName, email, telephone, address);
+    public User changePlayer(User user, String username, String surname, String firstName, String email, String telephone, Address address) {
+        return userManager.changePlayer(user, username, surname, firstName, email, telephone, address);
+    }
+
+    public void changePassWord(User user, String orgPass, String password, String password2) {
+        userManager.changePassword(user, orgPass, password, password2);
     }
 
     public int getNumberOfUsers() {

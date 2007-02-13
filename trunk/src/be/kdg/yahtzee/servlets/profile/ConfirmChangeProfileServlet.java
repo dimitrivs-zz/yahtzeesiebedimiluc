@@ -13,10 +13,12 @@ import java.io.IOException;
 
 public class ConfirmChangeProfileServlet extends YahtzeeServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String orgUsername = request.getParameter("orgUser");
         String username = request.getParameter("username");
-        String password = request.getParameter("pw");
-        String password2 = request.getParameter("pw2");
         String mail = request.getParameter("mail");
         String surname = request.getParameter("surname");
         String firstname = request.getParameter("firstname");
@@ -26,14 +28,10 @@ public class ConfirmChangeProfileServlet extends YahtzeeServlet {
         String zip = request.getParameter("zip");
         String city = request.getParameter("city");
         String country = request.getParameter("country");
-        if (username == null || password == null || password2 == null || mail == null) {
-            response.sendError(HttpServletResponse.SC_EXPECTATION_FAILED, "Parameters not found in request");
-            return;
-        }
         Address address = new Address(street, number, zip, city, country);
         YahtzeeController yahtzeeController = findYahtzeeController();
         User orgUser = yahtzeeController.findUser(orgUsername);
-        User changedUser = yahtzeeController.changePlayer(orgUser, username, password, surname, firstname, mail, telephone, address);
+        User changedUser = yahtzeeController.changePlayer(orgUser, username, surname, firstname, mail, telephone, address);
         HttpSession session = request.getSession();
         session.setAttribute("user", changedUser);
         session.setAttribute("message", "De gebruiker '" + username + "' werd succesvol aangemaakt.");

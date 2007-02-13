@@ -2,7 +2,6 @@
 
 <jsp:useBean id="userBean" class="be.kdg.yahtzee.beans.UserBean" scope="session"/>
 
-
 <html>
 <head>
     <title>
@@ -56,65 +55,68 @@
 <center>
     <h1>
     </h1>
-
+    <!--
     <form autocomplete="OFF" name="createUser"
           action="/profile/ConfirmChangeProfileServlet?orgUser=${userBean.username}" method="post"
-          onsubmit="return checkForm()">
-        <table>
-            <tr>
-                <th align="right">Username</th>
-                <td><input type="text" name="username" value="${userBean.username}" disabled="true"/></td>
-            </tr>
-            <tr>
-                <th align="right"> password</th>
-                <td><input type="password" name="pw"/></td>
-            </tr>
-            <tr>
-                <th align="right"> herhaal wachtwoord</th>
-                <td><input type="password" name="pw2"/></td>
-            </tr>
-            <tr>
-                <th align="right">mail</th>
-                <td><input type="text" name="mail"/></td>
-            </tr>
-            <tr>
-                <th align="right">surname</th>
-                <td><input type="text" name="surname"/></td>
-            </tr>
-            <tr>
-                <th align="right">firstname</th>
-                <td><input type="text" name="firstname"/></td>
-            </tr>
-            <tr>
-                <th align="right"> telephone</th>
-                <td><input type="text" name="telephone"/></td>
-            </tr>
-            <tr>
-                <th align="right"> street</th>
-                <td><input type="text" name="street"/></td>
-            </tr>
-            <tr>
-                <th align="right"> number</th>
-                <td><input type="text" name="number"/></td>
-            </tr>
-            <tr>
-                <th align="right"> zip</th>
-                <td><input type="text" name="zip"/></td>
-            </tr>
-            <tr>
-                <th align="right"> city</th>
-                <td><input type="text" name="city"/></td>
-            </tr>
-            <tr>
-                <th align="right">country</th>
-                <td><input type="text" name="city"/></td>
-            </tr>
-            <tr>
-                <th colspan=2><input type=submit value="wijzig"></th>
-            </tr>
-        </table>
-        ${message}
-    </form>
+          onsubmit="return checkForm()">  -->
+    <table>
+        <tr>
+            <th align="right">org pass</th>
+            <td><input type="password" name="orgPass"/></td>
+        </tr>
+        <tr>
+            <th align="right"> password</th>
+            <td><input type="password" name="pw"/></td>
+        </tr>
+        <tr>
+            <th align="right"> herhaal wachtwoord</th>
+            <td><input type="password" name="pw2"/></td>
+        </tr>
+        <tr>
+            <a href="/profile/ConfirmChangePasswordServlet?orgUser=${userBean.username}">verander pass</a>
+        </tr>
+        <tr>
+            <th align="right">mail</th>
+            <td><input type="text" name="mail" value="${userBean.email}"/></td>
+        </tr>
+        <tr>
+            <th align="right">surname</th>
+            <td><input type="text" name="surname" value="${userBean.surname}"/></td>
+        </tr>
+        <tr>
+            <th align="right">firstname</th>
+            <td><input type="text" name="firstname" value="${userBean.firstname}"/></td>
+        </tr>
+        <tr>
+            <th align="right"> telephone</th>
+            <td><input type="text" name="telephone" value="${userBean.telephone}"/></td>
+        </tr>
+        <tr>
+            <th align="right"> street</th>
+            <td><input type="text" name="street" value="${userBean.street}"/></td>
+        </tr>
+        <tr>
+            <th align="right"> number</th>
+            <td><input type="text" name="number" value="${userBean.number}"/></td>
+        </tr>
+        <tr>
+            <th align="right"> zip</th>
+            <td><input type="text" name="zip" value="${userBean.zip}"/></td>
+        </tr>
+        <tr>
+            <th align="right"> city</th>
+            <td><input type="text" name="city" value="${userBean.city}"/></td>
+        </tr>
+        <tr>
+            <th align="right">country</th>
+            <td><input type="text" name="city" value="${userBean.country}"/></td>
+        </tr>
+        <tr>
+            <a href="/profile/ConfirmChangeProfileServlet?orgUser=${userBean.username}">verander prof</a>
+        </tr>
+    </table>
+    ${message}
+    <!--</form>-->
 </center>
 </body>
 </html>

@@ -115,6 +115,14 @@
         <servlet-name>ConfirmChangeProfileServlet</servlet-name>
         <url-pattern>/profile/ConfirmChangeProfileServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ConfirmChangePasswordServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.profile.ConfirmChangePasswordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConfirmChangePasswordServlet</servlet-name>
+        <url-pattern>/profile/ConfirmChangePasswordServlet</url-pattern>
+    </servlet-mapping>
 
     <!-- JavaServer Faces Servlet -->
     <servlet>
