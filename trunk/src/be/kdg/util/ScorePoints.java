@@ -7,4 +7,6 @@ public class ScorePoints {
     public static final int smallStreetPoints = 30;
     public static final int largeStreetPoints = 40;
     public static final int yahtzeePoints = 50;
+
+    //GOE KIJKE SIEBE :D
 }
