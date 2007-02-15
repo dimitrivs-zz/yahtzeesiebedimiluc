@@ -19,19 +19,19 @@ import java.io.IOException;
  */
 public class ConfirmChangePasswordServlet extends YahtzeeServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-    protected void doGet(HttpServletRequest servletRequest, HttpServletResponse servletResponse) throws ServletException, IOException {
-        String orgUsername = servletRequest.getParameter("orgUser");
-        String orgPass = servletRequest.getParameter("orgPass");
-        String password = servletRequest.getParameter("pw");
-        String password2 = servletRequest.getParameter("pw2");
+        String orgUsername = request.getParameter("orgUser");
+        String orgPass = request.getParameter("orgPass");
+        String password = request.getParameter("pw");
+        String password2 = request.getParameter("pw2");
         YahtzeeController yahtzeeController = findYahtzeeController();
         User orgUser = yahtzeeController.findUser(orgUsername);
         yahtzeeController.changePassWord(orgUser, orgPass, password, password2);
-        HttpSession session = servletRequest.getSession();
+        HttpSession session = request.getSession();
         session.setAttribute("message", "Het wachtwoord werd succesvol gewijzigd");
-        servletResponse.sendRedirect("/faces/profile/changeProfile.jsp");
+        response.sendRedirect("/faces/profile/changeProfile.jsp");
+    }
+
+    protected void doGet(HttpServletRequest servletRequest, HttpServletResponse servletResponse) throws ServletException, IOException {
+
     }
 }
