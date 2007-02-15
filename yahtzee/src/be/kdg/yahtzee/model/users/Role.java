@@ -37,7 +37,6 @@ public class Role {
 
         Role role = (Role) o;
 
-        if (roleId != role.roleId) return false;
         if (!name.equals(role.name)) return false;
 
         return true;
