@@ -19,5 +19,6 @@
         <convert converter="bean" match="be.kdg.yahtzee.model.game.Game"/>
         <convert converter="bean" match="be.kdg.yahtzee.model.game.Die"/>
         <convert converter="bean" match="be.kdg.yahtzee.model.game.ScoreAspect"/>
+        <convert converter="bean" match="be.kdg.yahtzee.model.game.Score"/>        
     </allow>
 </dwr>
