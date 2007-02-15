@@ -79,6 +79,8 @@ public class Game {
                 return "Full";
             case IDLE:
                 return "Idle";
+            case BEZIG:
+                return "Busy";
             default:
                 return "Unknown state";
         }
@@ -98,6 +100,10 @@ public class Game {
 
     public User getActivePlayer() {
         return activePlayer;
+    }
+
+    public void startGame() {
+        setState(EnumState.BEZIG);   
     }
 
     public void joinGame(User user) {
@@ -127,10 +133,10 @@ public class Game {
     public int getMaxPlayer() {
         return maxPlayer;
     }
-
+    /*
     public List<Die> getDiceList() {
         return diceList;
-    }
+    }*/
 
     public int getNumberOfRolls() {
         return numberOfRolls;
@@ -463,7 +469,7 @@ public class Game {
         diceValueListWithoutDoubles.add(diceValueList.get(4));
     }
 
-    public boolean selectScore(String scoreChoice) {
+    public Score selectScore(String scoreChoice) {
         Score score = scores.get(activePlayer.getUsername());
 
         int scorePoints = possibleScores.get(scoreChoice);
@@ -499,12 +505,12 @@ public class Game {
 
         System.out.println("Score geregistreerd : " + scorePoints + " voor " + scoreChoice);
         resetRound();
-        //getNextPlayer();
+        getNextPlayer();
 
-        return true;
+        return score;
     }
 
-    public void getNextPlayer() {
+    private void getNextPlayer() {
         int currentPlayerIndex = 0;
         for (User tUser : userList) {
             if (tUser == activePlayer) {
@@ -524,7 +530,4 @@ public class Game {
         //return score;
     }
 
-    public Map getAllScores() {
-        return scores;
-    }
 }
