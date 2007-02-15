@@ -89,6 +89,16 @@ public class UserManager {
         }
     }
 
+    public List<User> findUsersByKeyword(String keyword) {
+        List<User> foundUsers = new ArrayList<User>();
+        for (User user : users) {
+            if (user.getUsername().contains(keyword)) {
+                foundUsers.add(user);
+            }
+        }
+        return foundUsers;
+    }
+
 
     public User createAdministrator(String username, String plainPassword, String surname, String firstName, String email, String telephone, Address address) {
         Role role = roles.get("Administrator");
