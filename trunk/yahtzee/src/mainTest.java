@@ -5,12 +5,13 @@ import be.kdg.yahtzee.model.users.Address;
 
 
 import java.util.List;
+import java.util.ArrayList;
 
 
 public class mainTest {
     private Game game;
     private List<Die> diceList;
-    private List<ScoreAspect> scorePossibilities;
+    private List<ScoreAspect> scorePossibilities = new ArrayList<ScoreAspect>();
     private GameManager gameManager;
 
 
@@ -37,12 +38,8 @@ public class mainTest {
         diceList = gameManager.playRound("testgamenaam");
 
         gameManager.fixDie("testgamenaam", diceList.get(0).getDieId());
-        //game.fixDie(diceList.get(0).getDieId());
         gameManager.fixDie("testgamenaam", diceList.get(1).getDieId());
-        //game.fixDie(diceList.get(1).getDieId());
         gameManager.fixDie("testgamenaam", diceList.get(2).getDieId());
-        //game.fixDie(diceList.get(2).getDieId());
-
 
         diceList = gameManager.playRound("testgamenaam");
 
@@ -50,18 +47,18 @@ public class mainTest {
         for (ScoreAspect sa : scorePossibilities) {
             System.out.println(sa.getDescription() + " / " + sa.getPoints());
         }
-        System.out.println(game.getActivePlayer());
+        System.out.println(gameManager.getActivePlayer("testgamenaam").getUsername());
 
         Score score = gameManager.selectScore("testgamenaam", "sixes");
 
         displayScore(score);
 
         diceList = gameManager.playRound("testgamenaam");
-        System.out.println(game.getActivePlayer());
+        System.out.println(gameManager.getActivePlayer("testgamenaam").getUsername());
     }
 
     private void displayScore(Score score) {
-        //System.out.println(game.getActivePlayer().getUsername());
+        System.out.println(gameManager.getActivePlayer("testgamenaam").getUsername());
         System.out.println(score.getOnes());
         System.out.println(score.getTwos());
         System.out.println(score.getThrees());
