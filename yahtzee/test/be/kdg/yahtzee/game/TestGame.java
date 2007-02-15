@@ -22,7 +22,7 @@ public class TestGame {
     public void tearDown(){
         game = null;
     }
-     /*
+
     @Test
     public void playNewRound(){
         game.playRound();
@@ -31,17 +31,17 @@ public class TestGame {
 
         int aDiceValueBefore = diceList.get(2).getValue();
 
-        game.fixDie(diceList.get(2));
-        game.fixDie(diceList.get(4));
+        game.fixDie(2);
+        game.fixDie(4);
 
-        game.unfixDie(diceList.get(4));   
+        game.unfixDie(4);
 
         game.playRound();
 
         int aDiceValueAfter = diceList.get(2).getValue();
 
         assertEquals("Aantal dobbelstenen moet <5> zijn", 5, diceList.size());
-        assertTrue("Fixed dobbelsteen moet <True> teruggeven", diceList.get(2).isDiceFixed());
+        assertTrue("Fixed dobbelsteen moet <True> teruggeven", diceList.get(2).isDieFixed());
         assertEquals("Fixed dobbelsteen moet zelfde waarde hebben als vorige beurt", aDiceValueBefore, aDiceValueAfter);
-    }  */
+    }  
 }

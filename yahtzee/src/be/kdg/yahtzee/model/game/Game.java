@@ -499,7 +499,18 @@ public class Game {
     }
 
     private void getNextPlayer() {
-
+        int currentPlayerIndex = 0;
+        for (User tUser : userList) {
+            if (tUser == activePlayer) {
+                currentPlayerIndex = userList.indexOf(tUser);
+            }
+        }
+        if (currentPlayerIndex == userList.size()-1) {
+            currentPlayerIndex = 0;
+        } else {
+            currentPlayerIndex++;
+        }
+        activePlayer = userList.get(currentPlayerIndex);
     }
 
     public Score getScore() {
