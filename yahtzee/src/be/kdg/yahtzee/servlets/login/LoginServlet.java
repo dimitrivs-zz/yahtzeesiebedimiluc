@@ -23,8 +23,8 @@ public class LoginServlet extends YahtzeeServlet {
         YahtzeeController yahtzeeController = findYahtzeeController();
 
         User user = yahtzeeController.findUser(username);
-        if (user != null){
-            loginOK = user.getPassword().equals(password);
+        if (user != null) {
+            loginOK = user.getPassword().equals(password) && !user.isBlocked();
         }
 
         //OnlineUsersBean onlineUsersBean = findOnlineUsersBean();
@@ -62,4 +62,4 @@ public class LoginServlet extends YahtzeeServlet {
             forward("/faces/login/loginError.jsp", request, response);
         }
     }
- }
+}
