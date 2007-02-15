@@ -112,12 +112,6 @@
 
     </table>
 </p>
-<!--<input type="button" onclick="check()">  -->
-<p>
-    <!--
-    <yahtzee:showGame href="/game/JoinGameServlet"/>
-    <yahtzee:showUsers/>-->
-</p>
 
 <table>
     <tr>
