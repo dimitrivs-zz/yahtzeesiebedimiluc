@@ -111,6 +111,7 @@ public class UserManager {
 
     public void removeUser(String username) {
         User user = getUser(username);
+        users.remove(user);
         userDao.deleteUser(user);
     }
 
