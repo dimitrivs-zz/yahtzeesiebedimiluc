@@ -35,6 +35,8 @@ public class Game {
         possibleScores = new HashMap<String, Integer>();
         numberOfRolls = 0;
         //score = new Score();
+        
+
     }
 
     public Game(String gameName, int maxPlayer, User user) {
@@ -94,6 +96,10 @@ public class Game {
         return users;
     }
 
+    public User getActivePlayer() {
+        return activePlayer;
+    }
+
     public void joinGame(User user) {
         users.add(user);
 
@@ -130,7 +136,7 @@ public class Game {
         return numberOfRolls;
     }
 
-    public void resetRound() {
+    private void resetRound() {
         numberOfRolls = 0;
         diceList.clear();
         diceValueList.clear();
@@ -158,7 +164,7 @@ public class Game {
         return diceList;
     }
 
-    public void fillDiceValues() {
+    private void fillDiceValues() {
         diceValueList = new ArrayList<Integer>();
 
         for (Die die : diceList) {
@@ -493,12 +499,12 @@ public class Game {
 
         System.out.println("Score geregistreerd : " + scorePoints + " voor " + scoreChoice);
         resetRound();
-        getNextPlayer();
+        //getNextPlayer();
 
         return true;
     }
 
-    private void getNextPlayer() {
+    public void getNextPlayer() {
         int currentPlayerIndex = 0;
         for (User tUser : userList) {
             if (tUser == activePlayer) {
@@ -516,5 +522,9 @@ public class Game {
     public Score getScore() {
         return scores.get(activePlayer.getUsername());
         //return score;
+    }
+
+    public Map getAllScores() {
+        return scores;
     }
 }
