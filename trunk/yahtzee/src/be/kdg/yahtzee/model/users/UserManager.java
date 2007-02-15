@@ -125,6 +125,18 @@ public class UserManager {
         return user.getAddress();
     }
 
+    public void blockUser(String username) {
+        User user = getUser(username);
+        user.setBlocked(true);
+        userDao.saveUser(user);
+    }
+
+    public void unblockUser(String username) {
+        User user = getUser(username);
+        user.setBlocked(false);
+        userDao.saveUser(user);
+    }
+
     public void setPasswordOfUser(String username, String plainPassword) {
         User user = getUser(username);
         Security security = Security.getInstance();

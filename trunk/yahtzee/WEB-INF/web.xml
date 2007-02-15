@@ -188,6 +188,15 @@
         <url-pattern>/admin/WatchGameServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>BlockUserServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.BlockUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BlockUserServlet</servlet-name>
+        <url-pattern>/admin/BlockUserServlet</url-pattern>
+    </servlet-mapping>
+
     <!-- JavaServer Faces Servlet -->
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
