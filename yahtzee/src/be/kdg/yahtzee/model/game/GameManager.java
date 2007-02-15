@@ -171,7 +171,10 @@ public class GameManager {
         return game.getScorePossibilities();
     }
 
-    
+    public User getActivePlayer(String gameName) {
+        Game game = getGame(gameName);
+        return game.getActivePlayer();
+    }
 
     /*public List<Integer> getTotals(String gameName) {
         Game game = getGame(gameName);
