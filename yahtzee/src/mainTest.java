@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 
 public class mainTest {
-    private Game game;
     private List<Die> diceList;
     private List<ScoreAspect> scorePossibilities = new ArrayList<ScoreAspect>();
     private GameManager gameManager;
@@ -25,7 +24,6 @@ public class mainTest {
 
         gameManager = new GameManager();
         gameManager.createGame("testgamenaam", 3, player1);
-        //game = new Game("testgamenaam", 3, player1);
 
         System.out.println("Game " + "testgamenaam" + " started by: " + player1.getUsername());
         gameManager.joinGame("testgamenaam", player2);
