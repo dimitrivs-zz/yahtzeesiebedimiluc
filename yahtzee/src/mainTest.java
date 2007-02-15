@@ -1,7 +1,4 @@
-import be.kdg.yahtzee.model.game.Game;
-import be.kdg.yahtzee.model.game.Die;
-import be.kdg.yahtzee.model.game.ScoreAspect;
-import be.kdg.yahtzee.model.game.Score;
+import be.kdg.yahtzee.model.game.*;
 import be.kdg.yahtzee.model.users.User;
 import be.kdg.yahtzee.model.users.Role;
 import be.kdg.yahtzee.model.users.Address;
@@ -14,6 +11,7 @@ public class mainTest {
     private Game game;
     private List<Die> diceList;
     private List<ScoreAspect> scorePossibilities;
+    private GameManager gameManager;
 
 
     public mainTest() {
@@ -24,54 +22,62 @@ public class mainTest {
         User player3 = new User("player3", "pw3", "Test", "User3", "test@test.com", "1234567890", role, address);
         User player4 = new User("player4", "pw4", "Test", "User4", "test@test.com", "1234567890", role, address);
 
-        game = new Game("testgamenaam", 3, player1);
-        System.out.println("Game " + game.getGameName() + " started by: " + player1.getUsername());
-        game.joinGame(player2);
+        gameManager = new GameManager();
+        gameManager.createGame("testgamenaam", 3, player1);
+        //game = new Game("testgamenaam", 3, player1);
+
+        System.out.println("Game " + "testgamenaam" + " started by: " + player1.getUsername());
+        gameManager.joinGame("testgamenaam", player2);
         System.out.println("player " + player2.getUsername() + " joined");
-        game.joinGame(player3);
+        gameManager.joinGame("testgamenaam", player3);
         System.out.println("player " + player3.getUsername() + " joined");
-        game.joinGame(player4);
+        gameManager.joinGame("testgamenaam", player4);
         System.out.println("player " + player4.getUsername() + " joined");
 
-        game.playRound();
-        diceList = game.getDiceList();
-        game.fixDie(diceList.get(0).getDieId());
-        game.fixDie(diceList.get(1).getDieId());
-        game.fixDie(diceList.get(2).getDieId());
-        game.playRound();
-        scorePossibilities = game.getScorePossibilities();
+        diceList = gameManager.playRound("testgamenaam");
+
+        gameManager.fixDie("testgamenaam", diceList.get(0).getDieId());
+        //game.fixDie(diceList.get(0).getDieId());
+        gameManager.fixDie("testgamenaam", diceList.get(1).getDieId());
+        //game.fixDie(diceList.get(1).getDieId());
+        gameManager.fixDie("testgamenaam", diceList.get(2).getDieId());
+        //game.fixDie(diceList.get(2).getDieId());
+
+
+        diceList = gameManager.playRound("testgamenaam");
+
+        scorePossibilities = gameManager.getScorePossibilities("testgamenaam");
         for (ScoreAspect sa : scorePossibilities) {
             System.out.println(sa.getDescription() + " / " + sa.getPoints());
         }
-        game.selectScore("sixes");
+        System.out.println(game.getActivePlayer());
 
-        displayScore();
+        Score score = gameManager.selectScore("testgamenaam", "sixes");
 
-        game.playRound();
-        game.getNextPlayer();
+        displayScore(score);
 
-        displayScore();
-
-
+        diceList = gameManager.playRound("testgamenaam");
+        System.out.println(game.getActivePlayer());
     }
 
-    private void displayScore() {
-        System.out.println(game.getScore().getOnes());
-        System.out.println(game.getScore().getTwos());
-        System.out.println(game.getScore().getThrees());
-        System.out.println(game.getScore().getFours());
-        System.out.println(game.getScore().getFives());
-        System.out.println(game.getScore().getSixes() + "\n---");
-        System.out.println(game.getScore().getTotalUpperHalf() + "\n");
-        System.out.println(game.getScore().getThreeOfAKind());
-        System.out.println(game.getScore().getCarre());
-        System.out.println(game.getScore().getFullHouse());
-        System.out.println(game.getScore().getSmallStreet());
-        System.out.println(game.getScore().getLargeStreet());
-        System.out.println(game.getScore().getYahtzee());
-        System.out.println(game.getScore().getYahtzeeBonus());
-        System.out.println(game.getScore().getChance() + "\n---");
-        System.out.println(game.getScore().getTotalLowerHalf() + "\n\n---");
-        System.out.println(game.getScore().getTotalScore());
+    private void displayScore(Score score) {
+        //System.out.println(game.getActivePlayer().getUsername());
+        System.out.println(score.getOnes());
+        System.out.println(score.getTwos());
+        System.out.println(score.getThrees());
+        System.out.println(score.getFours());
+        System.out.println(score.getFives());
+        System.out.println(score.getSixes() + "\n---");
+        System.out.println(score.getTotalUpperHalf() + "\n");
+        System.out.println(score.getThreeOfAKind());
+        System.out.println(score.getCarre());
+        System.out.println(score.getFullHouse());
+        System.out.println(score.getSmallStreet());
+        System.out.println(score.getLargeStreet());
+        System.out.println(score.getYahtzee());
+        System.out.println(score.getYahtzeeBonus());
+        System.out.println(score.getChance() + "\n---");
+        System.out.println(score.getTotalLowerHalf() + "\n\n---");
+        System.out.println(score.getTotalScore());
     }
 }
