@@ -2,6 +2,8 @@
 <%@ tag body-content="empty" %>
 <%@ attribute name="hrefRemove" required="true" %>
 <%@ attribute name="hrefChange" required="true" %>
+<%@ attribute name="hrefBlock" required="true" %>
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -11,7 +13,7 @@
     <tr>
         <td>User ID</td>
         <td>Username</td>
-        <td colspan="2" align="center">Actions</td>
+        <td colspan="3" align="center">Actions</td>
     </tr>
     <% if (allUsers.isEmpty()) {
     %>
@@ -20,13 +22,20 @@
     </tr>
     <% }
         for (Object user1 : allUsers) {
-                User user = (User) user1;
+            User user = (User) user1;
     %>
     <tr>
-        <td><%= user.getUserId()%></td>
-        <td><%= user.getUsername()%></td>
+        <td><%= user.getUserId()%>
+        </td>
+        <td><%= user.getUsername()%>
+        </td>
         <td><a href=${hrefRemove}?username=<%= user.getUsername()%>>Remove</a></td>
         <td><a href=${hrefChange}?username=<%= user.getUsername()%>>Change User</a></td>
+        <% if (user.isBlocked()) { %>
+        <td><a href=${hrefBlock}?username=<%= user.getUsername()%>&blocked=<%=false%>>Unblock</a></td>
+        <% } else { %>
+        <td><a href=${hrefBlock}?username=<%= user.getUsername()%>&blocked=<%=true%>>Block</a></td>
+        <% } %>
     </tr>
     <%
         }
