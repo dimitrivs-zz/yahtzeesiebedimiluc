@@ -41,7 +41,6 @@
         </property>
     </bean>
 
-
     <bean id="userDao" class="be.kdg.yahtzee.dao.UserDaoImpl">
         <property name="sessionFactory">
             <ref local="sessionFactory"/>

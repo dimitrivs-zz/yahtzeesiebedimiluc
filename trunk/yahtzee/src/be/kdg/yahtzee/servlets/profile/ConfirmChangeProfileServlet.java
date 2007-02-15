@@ -13,10 +13,6 @@ import java.io.IOException;
 
 public class ConfirmChangeProfileServlet extends YahtzeeServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("user");
         //Ik weet ni of da ge het weet, maar al de parameters da hierna komen zijn null
         //Ge geeft die ni mee in den url é :)
@@ -37,5 +33,9 @@ public class ConfirmChangeProfileServlet extends YahtzeeServlet {
         session.setAttribute("user", changedUser);
         session.setAttribute("message", "De gebruiker '" + username + "' werd succesvol gewijzigd.");
         response.sendRedirect("/faces/profile/changeProfile.jsp");
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
 }
