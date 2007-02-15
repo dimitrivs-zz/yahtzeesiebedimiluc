@@ -17,15 +17,6 @@ public class YahtzeeController {
     private GameManager gameManager;
 
     public YahtzeeController() {
-        /*
-        //userManager = new UserManager();
-        //gameManager = new GameManager();
-
-        // get beans from bean factory
-        userManager = (UserManager)beanFactory.getBean("userManager");
-        gameManager = (GameManager)beanFactory.getBean("GameManager");
-
-        populate();  */
     }
 
     public void setGameManager(GameManager gameManager) {
@@ -69,18 +60,6 @@ public class YahtzeeController {
     public List getUsers() {
         return userManager.getUsers();
     }
-
-    public void populate() {
-        //userManager.removeAll();
-
-        Address address = new Address("Nationalestraat", "5", "2000", "Antwerpen", "Belgium");
-        userManager.createAdministrator("admin", "administrator", "admin", "istrator", "admin@admin.be", "O498/24.36.43", address);
-        userManager.createPlayer("bla", "blablabla", "klant 1", "JAA", "klant1@klant.be", "7832723", address);
-        userManager.createPlayer("haha", "hahahahahaha", "klant 2", "NEEEE", "klant2@klant.be", "2439479", address);
-        userManager.createPlayer("siebe", "siebe123", "qsdf", "siebe", "klant2@klant.be", "2439479", address);
-        userManager.createPlayer("sander", "sander123", "kfdsddfqsdfnt 2", "sander", "klant2@klant.be", "2439479", address);
-    }
-
 
     public void createPlayer(String username, String password, String surname, String firstName, String email, String telephone, Address address) {
         userManager.createPlayer(username, password, surname, firstName, email, telephone, address);
