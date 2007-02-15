@@ -1,7 +1,7 @@
 package be.kdg.yahtzee.model.game;
 
 public enum EnumState {
-    LEEG(0), WACHTEN(1), IDLE(2), VOL(3);
+    LEEG(0), WACHTEN(1), IDLE(2), VOL(3), BEZIG(4);
 
     private final int waarde;
 
