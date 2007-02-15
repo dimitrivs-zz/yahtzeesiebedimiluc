@@ -129,4 +129,8 @@ public class YahtzeeController {
     public void removeGame(String gamename) {
         gameManager.removeGame(gamename);
     }
+
+    public List<User> findUsersByKeyword(String keyword) {
+        return userManager.findUsersByKeyword(keyword);
+    }
 }

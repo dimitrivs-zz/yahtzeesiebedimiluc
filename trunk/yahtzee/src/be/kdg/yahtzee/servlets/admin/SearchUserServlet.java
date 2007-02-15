@@ -14,15 +14,11 @@ import java.util.List;
 
 public class SearchUserServlet extends YahtzeeServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("searchUser");
+        String keyword = request.getParameter("searchUser");
 
         YahtzeeController yahtzeeController = findYahtzeeController();
 
-        User user = yahtzeeController.findUser(username);
-        List<User> allUsers = new ArrayList<User>();
-        if (user != null) {
-            allUsers.add(user);
-        }
+        List<User> allUsers = new ArrayList<User>(yahtzeeController.findUsersByKeyword(keyword));
 
         HttpSession session = request.getSession();
         session.setAttribute("allUsers", allUsers);
