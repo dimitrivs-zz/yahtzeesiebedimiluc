@@ -77,7 +77,7 @@ public class GameManager {
     public boolean joinGame(String gameName, User user) {
         for (Game game : games) {
             if (checkUserAlreadyInAgame(user)) {
-                if (game.getState().equals("Full")) {
+                if (game.getState().equals("Full") || game.getState().equals("Bezig")) {
                     return false;
                 } else {
                     if (game.getGameName().equals(gameName)) {
@@ -171,7 +171,9 @@ public class GameManager {
         return game.getScorePossibilities();
     }
 
-    public List<Integer> getTotals(String gameName) {
+    
+
+    /*public List<Integer> getTotals(String gameName) {
         Game game = getGame(gameName);
         List<Integer> totals = new ArrayList<Integer>();
         totals.add(0, game.getScore().getUpperHalf());
@@ -179,9 +181,9 @@ public class GameManager {
         totals.add(2, game.getScore().getTotalLowerHalf());
         totals.add(3, game.getScore().getTotalScore());
         return totals;
-    }
+    }*/
 
-    public boolean selectScore(String gameName, String scoreChoice) {
+    public Score selectScore(String gameName, String scoreChoice) {
         Game game = getGame(gameName);
 
         return game.selectScore(scoreChoice);
