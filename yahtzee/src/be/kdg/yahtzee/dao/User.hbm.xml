@@ -5,23 +5,24 @@
 <hibernate-mapping>
     <class name="be.kdg.yahtzee.model.users.User" table="users">
         <id name="userId">
-            <generator class="increment" />
+            <generator class="increment"/>
         </id>
-        <property name="username" />
-        <property name="password" />
+        <property name="username"/>
+        <property name="password"/>
+        <property name="blocked"/>
         <component name="person" class="be.kdg.yahtzee.model.users.Person">
-            <property name="surname" />
-            <property name="firstName" />
-            <property name="email" />
+            <property name="surname"/>
+            <property name="firstName"/>
+            <property name="email"/>
             <component name="address" class="be.kdg.yahtzee.model.users.Address">
-                <property name="street" />
-                <property name="number" />
-                <property name="zip" />
-                <property name="city" />
-                <property name="country" />
+                <property name="street"/>
+                <property name="number"/>
+                <property name="zip"/>
+                <property name="city"/>
+                <property name="country"/>
             </component>
-            <property name="telephone" />
+            <property name="telephone"/>
         </component>
-        <many-to-one name="role" lazy="false" />
+        <many-to-one name="role" lazy="false"/>
     </class>
 </hibernate-mapping>
