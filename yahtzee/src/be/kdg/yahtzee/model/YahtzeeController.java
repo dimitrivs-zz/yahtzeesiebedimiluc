@@ -118,7 +118,8 @@ public class YahtzeeController {
     }*/
 
     public boolean selectScore(String gameName, String scoreChoice) {
-        return gameManager.selectScore(gameName, scoreChoice);
+        gameManager.selectScore(gameName, scoreChoice);
+        return true;
     }
 
     public void removeUser(String username) {
