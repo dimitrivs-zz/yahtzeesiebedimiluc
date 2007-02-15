@@ -7,6 +7,7 @@ public class User {
     private String password;
     private Role role;
     private boolean online;
+    private boolean blocked;
 
     User() {
     }
@@ -16,6 +17,7 @@ public class User {
         this.username = username;
         this.password = encryptedPassword;
         this.role = role;
+        blocked = false;
     }
 
     public int getUserId() {
@@ -97,6 +99,14 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public boolean isBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
     }
 /*
     public boolean equals(Object o) {

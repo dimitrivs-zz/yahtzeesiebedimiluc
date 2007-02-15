@@ -44,6 +44,14 @@ public class YahtzeeController {
         return userManager.getAddressOfUser(username);
     }
 
+    public void blockUser(String username) {
+        userManager.blockUser(username);
+    }
+
+    public void unblockUser(String username) {
+        userManager.unblockUser(username);
+    }
+
     public boolean isPlayer(String username) {
         User user = userManager.getUser(username);
         Role role = userManager.getRole("Player");
@@ -85,7 +93,7 @@ public class YahtzeeController {
     public User changePlayer(User user, String username, String surname, String firstName, String email, String telephone, Address address) {
         return userManager.changePlayer(user, username, surname, firstName, email, telephone, address);
     }
-    
+
     public void changePassWord(User user, String orgPass, String password, String password2) {
         userManager.changePassword(user, orgPass, password, password2);
     }
@@ -134,7 +142,7 @@ public class YahtzeeController {
         return gameManager.selectScore(gameName, scoreChoice);
     }
 
-        public void removeUser(String username) {
+    public void removeUser(String username) {
         userManager.removeUser(username);
     }
 
