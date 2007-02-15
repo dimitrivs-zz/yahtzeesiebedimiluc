@@ -26,6 +26,11 @@ public class UserBean {
         return username;
     }
 
+    public int getUserId() {
+        User user = yahtzeeController.findUser(username);
+        return user.getUserId();
+    }
+
     public String getName() {
         User user = yahtzeeController.findUser(username);
         return user.getFirstname() + " " + user.getSurname();
