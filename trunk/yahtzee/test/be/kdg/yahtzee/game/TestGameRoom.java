@@ -63,13 +63,13 @@ public class TestGameRoom {
         Game game = new Game("testGame", 3, user1);
 
         game.setState(EnumState.LEEG);
-        assertEquals("De status moet <Leeg> zijn", "Leeg",  game.getState());
+        assertEquals("De status moet <Empty> zijn", "Empty",  game.getState());
 
         game.setState(EnumState.IDLE);
         assertEquals("De status moet <Idle> zijn", "Idle",  game.getState());
 
         game.setState(EnumState.WACHTEN);
-        assertEquals("De status moet <Wahten> zijn", "Wachten",  game.getState());
+        assertEquals("De status moet <Waiting> zijn", "Waiting",  game.getState());
     }
 
 }

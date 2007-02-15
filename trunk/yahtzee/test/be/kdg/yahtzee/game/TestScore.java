@@ -22,7 +22,6 @@ public class TestScore {
     @Test
     public void testOnes(){
         score.setOnes(3);
-        score.setOnesFixed();
 
         assertEquals("Totaal van enen moet <3> zijn", 3, score.getOnes());
         assertTrue("Enen moeten <fixed> zijn", score.isOnesFixed());
@@ -31,7 +30,6 @@ public class TestScore {
     @Test
     public void testTwos(){
         score.setTwos(4);
-        score.setTwosFixed();
 
         assertEquals("Totaal van twees moet <4> zijn", 4, score.getTwos());
         assertTrue("Twees moeten <fixed> zijn", score.isTwosFixed());
@@ -40,7 +38,6 @@ public class TestScore {
     @Test
     public void testThrees(){
         score.setThrees(12);
-        score.setThreesFixed();
 
         assertEquals("Totaal van drieën moet <12> zijn", 12, score.getThrees());
         assertTrue("Drieën moeten <fixed> zijn", score.isThreesFixed());
@@ -49,7 +46,6 @@ public class TestScore {
     @Test
     public void testFours(){
         score.setFours(12);
-        score.setFoursFixed();
 
         assertEquals("Totaal van vieren moet <12> zijn", 12, score.getFours());
         assertTrue("Vieren moeten <fixed> zijn", score.isFoursFixed());
@@ -58,7 +54,6 @@ public class TestScore {
     @Test
     public void testFives(){
         score.setFives(5);
-        score.setFivesFixed();
 
         assertEquals("Totaal van vijven moet <5> zijn", 5, score.getFives());
         assertTrue("Vijven moeten <fixed> zijn", score.isFivesFixed());
@@ -67,7 +62,6 @@ public class TestScore {
     @Test
     public void testSixes(){
         score.setSixes(18);
-        score.setSixesFixed();
 
         assertEquals("Totaal van zessen moet <18> zijn", 18, score.getSixes());
         assertTrue("Zessen moeten <fixed> zijn", score.isSixesFixed());
@@ -76,7 +70,6 @@ public class TestScore {
     @Test
     public void testThreeOfAKind(){
         score.setThreeOfAKind(24);
-        score.setThreeOfAKindFixed();
 
         assertEquals("Totaal van ThreeOfAKind moet <24> zijn", 24, score.getThreeOfAKind());
         assertTrue("ThreeOfAKind moeten <fixed> zijn", score.isThreeOfAKindFixed());
@@ -85,7 +78,6 @@ public class TestScore {
     @Test
     public void testCarre(){
         score.setCarre(26);
-        score.setCarreFixed();
 
         assertEquals("Totaal van Carre moet <26> zijn", 26, score.getCarre());
         assertTrue("Carre moeten <fixed> zijn", score.isCarreFixed());
@@ -94,7 +86,6 @@ public class TestScore {
     @Test
     public void testFullHouse(){
         score.setFullHouse(0);
-        score.setFullHouseFixed();
 
         assertEquals("Totaal van FullHouse moet <0> zijn", 0, score.getFullHouse());
         assertTrue("FullHouse moeten <fixed> zijn", score.isFullHouseFixed());
@@ -103,7 +94,6 @@ public class TestScore {
     @Test
     public void testSmallStreet(){
         score.setSmallStreet(30);
-        score.setSmallStreetFixed();
 
         assertEquals("Totaal van SmallStreet moet <30> zijn", 30, score.getSmallStreet());
         assertTrue("SmallStreet moeten <fixed> zijn", score.isSmallStreetFixed());
@@ -112,7 +102,6 @@ public class TestScore {
     @Test
     public void testLargeStreet(){
         score.setLargeStreet(40);
-        score.setLargeStreetFixed();
 
         assertEquals("Totaal van LargeStreet moet <40> zijn", 40, score.getLargeStreet());
         assertTrue("LargeStreet moeten <fixed> zijn", score.isLargeStreetFixed());
@@ -121,7 +110,6 @@ public class TestScore {
     @Test
     public void testYahtzee(){
         score.setYahtzee(50);
-        score.setYahtzeeFixed();
 
         score.addyahtzee();
 
@@ -133,7 +121,6 @@ public class TestScore {
     @Test
     public void testChance(){
         score.setChance(11);
-        score.setChanceFixed();
 
         assertEquals("Totaal van Chance moet <11> zijn", 11, score.getChance());
         assertTrue("Chance moeten <fixed> zijn", score.isChanceFixed());
