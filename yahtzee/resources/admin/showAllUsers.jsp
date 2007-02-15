@@ -8,7 +8,8 @@
 <body>
 <center>
     <h1>Gebruikersoverzicht</h1><br>
-    <yahtzee:showAllUsers hrefRemove="/admin/RemoveUserServlet" hrefChange="/admin/ChangeUserServlet"/>
+    <yahtzee:showAllUsers hrefRemove="/admin/RemoveUserServlet" hrefChange="/admin/ChangeUserServlet"
+                          hrefBlock="/admin/BlockUserServlet"/>
     <a href="userManagement.jsp">Naar Gebruikersoverzicht</a>
 </center>
 </body>
