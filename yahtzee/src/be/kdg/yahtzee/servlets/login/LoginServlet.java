@@ -23,12 +23,14 @@ public class LoginServlet extends YahtzeeServlet {
         YahtzeeController yahtzeeController = findYahtzeeController();
 
         User user = yahtzeeController.findUser(username);
+
         if (user != null) {
             loginOK = user.getPassword().equals(password) && !user.isBlocked();
         }
 
         //OnlineUsersBean onlineUsersBean = findOnlineUsersBean();
         //onlineUsersBean.addUser(user);
+
 
         if (loginOK) {
             user.setOnline(true);
