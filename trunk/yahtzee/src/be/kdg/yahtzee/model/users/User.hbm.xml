@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="be.kdg.yahtzee.model.users.User" table="users">
+        <id name="userId">
+            <generator class="increment"/>
+        </id>
+        <property name="username"/>
+        <property name="password"/>
+        <component name="person" class="be.kdg.yahtzee.model.users.Person">
+            <property name="surname"/>
+            <property name="firstName"/>
+            <property name="email"/>
+            <component name="address" class="be.kdg.yahtzee.model.users.Address">
+                <property name="street"/>
+                <property name="number"/>
+                <property name="zip"/>
+                <property name="city"/>
+                <property name="country"/>
+            </component>
+            <property name="telephone"/>
+        </component>
+        <many-to-one name="role" lazy="false"/>
+    </class>
+</hibernate-mapping>
