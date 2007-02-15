@@ -1,16 +1,23 @@
 package be.kdg.yahtzee.users;
 
-import static org.junit.Assert.assertTrue;
-import org.springframework.test.*;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-import be.kdg.yahtzee.model.users.UserManager;
+import be.kdg.yahtzee.dao.RoleDaoImpl;
+import be.kdg.yahtzee.dao.UserDaoImpl;
 import be.kdg.yahtzee.model.users.Address;
-import be.kdg.yahtzee.model.users.User;
 import be.kdg.yahtzee.model.users.Role;
-import be.kdg.yahtzee.model.YahtzeeController;
-import be.kdg.yahtzee.servlets.YahtzeeServlet;
+import be.kdg.yahtzee.model.users.User;
+import be.kdg.yahtzee.model.users.UserManager;
+import junit.framework.TestCase;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.cfg.Environment;
+import org.hibernate.dialect.HSQLDialect;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.orm.hibernate3.SessionFactoryUtils;
+import org.springframework.orm.hibernate3.SessionHolder;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 
 /**
@@ -20,28 +27,49 @@ import be.kdg.yahtzee.servlets.YahtzeeServlet;
  * Time: 21:33:11
  * To change this template use File | Settings | File Templates.
  */
-public class TestLogin extends AbstractDependencyInjectionSpringContextTests   {
+public class TestLogin extends TestCase {
     private UserManager userManager;
-    /*
+    private SessionFactory sessionFactory;
+    private Session session;
+
+    @Before
     public void setUp() {
         userManager = new UserManager();
-        UserDao userDao = new UserDaoImpl();
-        RoleDao roleDao = new RoleDaoImpl();
+        UserDaoImpl userDao = new UserDaoImpl();
+        RoleDaoImpl roleDao = new RoleDaoImpl();
+
+        Configuration configuration = new Configuration();
+        configuration.setProperty(Environment.DRIVER, "com.mysql.jdbc.Driver");
+        configuration.setProperty(Environment.URL, "jdbc:mysql://localhost:3306/yahtzee");
+        configuration.setProperty(Environment.USER, "yahtzee");
+        configuration.setProperty(Environment.PASS, "yahtzee");
+        configuration.setProperty(Environment.DIALECT, HSQLDialect.class.getName());
+        configuration.setProperty(Environment.SHOW_SQL, "true");
+        configuration.setProperty(Environment.HBM2DDL_AUTO, "create-drop");
+        configuration.addClass(User.class);
+        configuration.addClass(Role.class);
+
+        this.sessionFactory = configuration.buildSessionFactory();
+
+        userDao.setSessionFactory(sessionFactory);
+        roleDao.setSessionFactory(sessionFactory);
+
+        this.session = SessionFactoryUtils.getSession(sessionFactory, true);
+        TransactionSynchronizationManager.bindResource(sessionFactory,
+                new SessionHolder(session));
+
         userManager.setUserDao(userDao);
         userManager.setRoleDao(roleDao);
-    } */
-
-    public void setUserManager(UserManager userManager) {
-        this.userManager = userManager;
     }
 
-       /*
-    protected void onSetUp() throws Exception {
-        YahtzeeServlet yahtzeeServlet = new YahtzeeServlet() ;
-        YahtzeeController yahtzeeController = yahtzeeServlet.findYahtzeeController();
-    }    */
+    @After
+    protected void tearDown() throws Exception {
+        TransactionSynchronizationManager.unbindResource(sessionFactory);
+        SessionFactoryUtils.releaseSession(session, sessionFactory);
+    }
 
-    public void testLogInAdministrator() throws Exception{
+    @Test
+    public void testLogInAdministrator() throws Exception {
         Address address = new Address("Nationalestraat", "5", "2000", "Antwerpen", "Belgium");
         User user = userManager.createAdministrator("admin", "administrator", "admin", "istrator", "admin@admin.be", "O498/24.36.43", address);
 
@@ -50,7 +78,8 @@ public class TestLogin extends AbstractDependencyInjectionSpringContextTests   {
         assertTrue("De authenticatie moet <true> zijn", userManager.isUserInRole(user, role));
     }
 
-    public void testLogInPlayer() throws Exception{
+    @Test
+    public void testLogInPlayer() throws Exception {
         Address address = new Address("Nationalestraat", "5", "2000", "Antwerpen", "Belgium");
         User user = userManager.createPlayer("bla", "blablabla", "klant 1", "JAA", "klant1@klant.be", "7832723", address);
 
@@ -58,23 +87,4 @@ public class TestLogin extends AbstractDependencyInjectionSpringContextTests   {
 
         assertTrue("De authenticatie moet <true> zijn", userManager.isUserInRole(user, role));
     }
-
-    protected String[] getConfigLocations() {
-        return new String[] {"classpath:*/WEB-INF/appcontext.xml"};
-    }
-
-    /*
- public void setUp() throws Exception {
-     sessionFactory = (SessionFactory) findSessionFactory();
-     Session s = sessionFactory.openSession();
-     TransactionSynchronizationManager.bindResource(sessionFactory, new SessionHolder(s));
- }   */
-    /*
- @After
- public void tearDown() {
-     userManager = null;
- }   */
-
-
-
 }
