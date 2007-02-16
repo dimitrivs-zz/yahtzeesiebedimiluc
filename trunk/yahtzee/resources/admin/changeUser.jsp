@@ -1,21 +1,145 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<jsp:useBean id="userchangeBean" class="be.kdg.yahtzee.beans.UserBean" scope="session"/>
+
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+
+<f:view locale="#{language}">
+
+<f:loadBundle basename="bundles.resources" var="labels"/>
 <html>
-<head><title>Change User</title></head>
+<head>
+    <link href="../css/formStyle.css" rel="stylesheet" type="text/css"/>
+    <title>
+        <h:outputText value="#{labels.profileTitle}"/>
+    </title>
+</head>
+
 <body>
-<form autocomplete="OFF" name="createUser" action="/register/ChangePasswordServlet" method="post">
+<div id="register">
+
+<form name="changePassword" action="/admin/ChangeUserPasswordServlet?orgUser=${userchangeBean.username}" method="post">
     <table>
         <tr>
-            <td>New Password</td>
-            <td><input type="password" name="newPass"/></td>
+            <td colspan="2"><img src="../images/logo.png" class="logo" alt="Profile"/></td>
+            <td><h1>
+                <h:outputText value="#{labels.profile}"/>
+            </h1></td>
         </tr>
         <tr>
-            <td>Confirm Password</td>
-            <td><input type="password" name="confirmPass"></td>
+            <td colspan="2">
+                <h:outputText value="#{labels.userName}"/>
+            </td>
+            <td>${userchangeBean.username}</td>
         </tr>
         <tr>
-            <th colspan=2><input type=submit value="Confirm"></th>
+            <td colspan="2">
+                <h:outputText value="#{labels.profileNewPw}"/>
+            </td>
+            <td><input type="password" name="pw" class="text"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h:outputText value="#{labels.profileRePw}"/>
+            </td>
+            <td><input type="password" name="pw2" class="text"/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Change password"></td>
         </tr>
     </table>
 </form>
+
+<form name="changeProfile" action="/admin/ChangeUserProfileServlet?orgUser=${userchangeBean.username}" method="post">
+    <table>
+        <tr>
+            <td colspan="2">
+                <h:outputText value="#{labels.mail}"/>
+            </td>
+            <td><input type="text" name="mail" class="text" value="${userchangeBean.email}"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h:outputText value="#{labels.surname}"/>
+            </td>
+            <td><input type="text" name="surname" value="${userchangeBean.surname}" class="text"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h:outputText value="#{labels.firstname}"/>
+            </td>
+            <td><input type="text" name="firstname" value="${userchangeBean.firstname}" class="text"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h:outputText value="#{labels.telephone}"/>
+            </td>
+            <td><input type="text" name="telephone" value="${userchangeBean.telephone}" class="text"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h:outputText value="#{labels.street}"/>
+                +
+                <h:outputText value="#{labels.number}"/>
+            </td>
+            <td>
+                <input type="text" class="text" name="street" size="12" value="${userchangeBean.street}"/>&nbsp;
+                <input type="text" name="number" class="text" size="1" value="${userchangeBean.number}"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h:outputText value="#{labels.zip}"/>
+            </td>
+            <td><input type="text" name="zip" value="${userchangeBean.zip}" class="text"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h:outputText value="#{labels.city}"/>
+            </td>
+            <td><input type="text" name="city" value="${userchangeBean.city}" class="text"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h:outputText value="#{labels.country}"/>
+            </td>
+            <td><input type="text" name="city" value="${userchangeBean.country}" class="text"/></td>
+        </tr>
+        <tr>
+            <th align="right">Role</th>
+            <td><select name="role">
+                <jsp:if test=""
+                <option value="admin">Administrator</option>
+                <option value="player">Player</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h:outputText value="#{labels.language}"/>
+            </td>
+            <td><select name="taal">
+                <option>Nederlands</option>
+                <option>Fran&ccedil;ais</option>
+                <option>English</option>
+                <option>Deutsch</option>
+                <option>Espa&ntilde;ol</option>
+            </select>
+            </td>
+        </tr>
+        <td><input type="submit" value="Change profile"></td>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <td colspan="3" align="center" height="40px"><a href="/admin/userManagement.jsp">
+            Terug naar het gebruikersoverzicht
+        </a></td>
+        <tr>
+            <td colspan="3" align="center">${message}</td>
+        </tr>
+    </table>
+</form>
+</div>
 </body>
 </html>
+</f:view>

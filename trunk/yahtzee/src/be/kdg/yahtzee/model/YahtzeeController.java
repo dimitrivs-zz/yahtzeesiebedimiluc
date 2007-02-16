@@ -77,6 +77,10 @@ public class YahtzeeController {
         userManager.changePassword(user, orgPass, password, password2);
     }
 
+    public void changePassWord(User user, String password, String password2) {
+        userManager.changePassword(user, password, password2);
+    }
+
     public int getNumberOfUsers() {
         return userManager.getNumberOfUsers();
     }

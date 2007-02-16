@@ -59,7 +59,7 @@
 
 <body>
 <div id="register">
-<!--onsubmit="return checkForm()"-->
+z
 <form name="changePassword" action="/profile/ConfirmChangePasswordServlet?orgUser=${userBean.username}"
       method="post">
     <table>

@@ -119,6 +119,19 @@ public class UserManager {
         changeUserPassword(user, orgPass, password, password2);
     }
 
+    public void changePassword(User user, String password, String password2) {
+        changeUserPassword(user, password, password2);
+    }
+
+    private void changeUserPassword(User user, String password, String password2) {
+        Security security = Security.getInstance();
+
+        if (password.equals(password2)) {
+            user.setPassword(security.encrypt(password));
+            userDao.saveUser(user);
+        }
+    }
+
     public void removeUser(String username) {
         User user = getUser(username);
         users.remove(user);
