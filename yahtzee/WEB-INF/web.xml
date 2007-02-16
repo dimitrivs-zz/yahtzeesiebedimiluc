@@ -144,12 +144,30 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>ChangeUserPasswordServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.ChangeUserPasswordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangeUserPasswordServlet</servlet-name>
+        <url-pattern>/admin/ChangeUserPasswordServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>ChangeUserServlet</servlet-name>
         <servlet-class>be.kdg.yahtzee.servlets.admin.ChangeUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ChangeUserServlet</servlet-name>
         <url-pattern>/admin/ChangeUserServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ChangeUserProfileServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.ChangeUserProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangeUserProfileServlet</servlet-name>
+        <url-pattern>/admin/ChangeUserProfileServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>

@@ -1,7 +1,7 @@
 package be.kdg.yahtzee.servlets.admin;
 
+import be.kdg.yahtzee.beans.UserBean;
 import be.kdg.yahtzee.model.YahtzeeController;
-import be.kdg.yahtzee.model.users.User;
 import be.kdg.yahtzee.servlets.YahtzeeServlet;
 
 import javax.servlet.ServletException;
@@ -13,8 +13,8 @@ import java.io.IOException;
 /**
  * Created by IntelliJ IDEA.
  * User: Luc
- * Date: 13-feb-2007
- * Time: 16:24:40
+ * Date: 16-feb-2007
+ * Time: 10:54:30
  * To change this template use File | Settings | File Templates.
  */
 public class ChangeUserServlet extends YahtzeeServlet {
@@ -22,11 +22,11 @@ public class ChangeUserServlet extends YahtzeeServlet {
         String username = request.getParameter("username");
 
         YahtzeeController yahtzeeController = findYahtzeeController();
-        User user = yahtzeeController.findUser(username);
 
+        UserBean userBean = new UserBean(yahtzeeController, username);
         HttpSession session = request.getSession();
-        session.setAttribute("changeUser", user);
+        session.setAttribute("userchangeBean", userBean);
 
-        forward("/admin/changeUser.jsp", request, response);
+        forward("/faces/admin/changeUser.jsp", request, response);
     }
 }
