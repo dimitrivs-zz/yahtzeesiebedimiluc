@@ -1,6 +1,7 @@
 package be.kdg.yahtzee.servlets.game;
 
 import be.kdg.yahtzee.beans.UserBean;
+import be.kdg.yahtzee.beans.GameBean;
 import be.kdg.yahtzee.model.YahtzeeController;
 import be.kdg.yahtzee.model.users.User;
 import be.kdg.yahtzee.servlets.YahtzeeServlet;
@@ -28,6 +29,9 @@ public class JoinGameServlet extends YahtzeeServlet {
         Set<Game> games =  new HashSet<Game>(yahtzeeController.getGames());
         session.setAttribute("games", games);
           */
+        GameBean gameBean = new GameBean(yahtzeeController, gameName);
+        session.setAttribute("gameBean", gameBean);
+        
         forward("/player/game.jsp", request, response);
     }
 }
