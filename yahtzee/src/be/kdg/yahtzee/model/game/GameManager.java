@@ -2,13 +2,12 @@ package be.kdg.yahtzee.model.game;
 
 import be.kdg.yahtzee.model.chat.Chat;
 import be.kdg.yahtzee.model.users.User;
-import org.apache.log4j.HTMLLayout;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.WriterAppender;
 
-import java.io.FileOutputStream;
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class GameManager {
     private static Logger logger = Logger.getLogger(GameManager.class);
@@ -19,35 +18,35 @@ public class GameManager {
     public GameManager() {
         games = new HashSet<Game>();
         GlobalChat = new Chat();
-        initLogger(Level.DEBUG);
-        logger.info("GameManger started");
+        //initLogger(Level.DEBUG);
+        //logger.info("GameManger started");
     }
-
-    private void initLogger(Level level) {
-        HTMLLayout layout = new HTMLLayout();
-        WriterAppender appender = null;
-        try {
-            FileOutputStream output = new FileOutputStream("gameManagerLog.html");
-            appender = new WriterAppender(layout, output);
-        } catch (Exception e) {
-            // Empty catch block!
-        }
-        logger.addAppender(appender);
-        logger.setLevel(level);
-    }
+    /*
+ private void initLogger(Level level) {
+     HTMLLayout layout = new HTMLLayout();
+     WriterAppender appender = null;
+     try {
+         FileOutputStream output = new FileOutputStream("gameManagerLog.html");
+         appender = new WriterAppender(layout, output);
+     } catch (Exception e) {
+         // Empty catch block!
+     }
+     logger.addAppender(appender);
+     logger.setLevel(level);
+ }   */
 
     public boolean createGame(String gameName, int maxPlayer, User user) {
         if (!checkGameExists(gameName)) {
-            logger.debug("Game : " + gameName + " kon niet worden gemaakt reden: het spel bestaat al");
+            //logger.debug("Game : " + gameName + " kon niet worden gemaakt reden: het spel bestaat al");
             return false;
         }
         if (!checkUserAlreadyInAgame(user)) {
-            logger.debug("Game : " + gameName + " kon niet worden gemaakt reden: de user doet al mee aan een ander spel");
+            //logger.debug("Game : " + gameName + " kon niet worden gemaakt reden: de user doet al mee aan een ander spel");
             return false;
         }
         Game game = new Game(gameName, maxPlayer, user);
         games.add(game);
-        logger.info("Game : " + gameName + " was created");
+        //logger.info("Game : " + gameName + " was created");
         return true;
     }
 
@@ -81,7 +80,7 @@ public class GameManager {
                     return false;
                 } else {
                     if (game.getGameName().equals(gameName)) {
-                        logger.info("User : " + user.getUsername() + " joined game: " + gameName);
+                        //logger.info("User : " + user.getUsername() + " joined game: " + gameName);
                         game.joinGame(user);
                         if (game.getNumberOfPlayers() == game.getMaxPlayer()) {
                             game.setState(EnumState.VOL);
@@ -90,7 +89,7 @@ public class GameManager {
                     }
                 }
             } else {
-                logger.info("The user is already in the game");
+                //logger.info("The user is already in the game");
                 return false;
             }
         }
@@ -108,7 +107,7 @@ public class GameManager {
                 }
             }
         }
-        logger.info("User : " + user.getUsername() + " left game: " + gameName);
+        //logger.info("User : " + user.getUsername() + " left game: " + gameName);
     }
 
     private boolean checkGameExists(String gameName) {
@@ -213,20 +212,21 @@ public class GameManager {
     public List getGlobalMessages() {
         return GlobalChat.getMessages();
     }
+
     /*
- public List<ChatMessage> addMessage(String text, String gameName)
+public List<ChatMessage> addMessage(String text, String gameName)
 {
- Game game = getGame(gameName);
- Chat chat = game.getChat();
- chat.addMessage(text);
- return game.getChat().getMessages();
+Game game = getGame(gameName);
+Chat chat = game.getChat();
+chat.addMessage(text);
+return game.getChat().getMessages();
 }
 
 public List getMessages(String gameName)
 {
- Game game = getGame(gameName);
- Chat chat = game.getChat();
- return chat.getMessages();
+Game game = getGame(gameName);
+Chat chat = game.getChat();
+return chat.getMessages();
 }     */
     public void removeGame(String gamename) {
         Game game = getGame(gamename);

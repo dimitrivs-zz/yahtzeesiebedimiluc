@@ -1,6 +1,16 @@
+/*
+Exeption handeling: OK
+Logging: te kleine klasse om te loggen
+Java 5: OK
+Refacorting: nullUser  + setUserId
+Testen: OK
+ */
+
 package be.kdg.yahtzee.model.users;
 
 public class User {
+    public static final User NULL_USER = new User("null");
+
     private int userId;
     private Person person;
     private String username;
@@ -10,6 +20,15 @@ public class User {
     private boolean blocked;
 
     User() {
+    }
+
+    public User(String nullUser) {
+        this.person = Person.NULL_PERSON;
+        this.username = "username";
+        this.password = "password";
+        this.role = new Role("no role");
+        this.online = false;
+        this.blocked = true;
     }
 
     public User(String username, String encryptedPassword, String surname, String firstName, String email, String telephone, Role role, Address address) {
@@ -108,50 +127,19 @@ public class User {
     public void setBlocked(boolean blocked) {
         this.blocked = blocked;
     }
-/*
-    public boolean equals(Object o) {
-        User test = (User)o;
-        return username.equals(test.username);
-    }
 
-    public int hashCode() {
-        int hash = 7;
-        //hash = 31 * hash + userId;
-        hash = 31 * hash + (null == username ? 0 : username.hashCode());
-        return hash;
-    }*/
-    /*
- public boolean equals(Object o) {
-     if (this == o) return true;
-     if (o == null || getClass() != o.getClass()) return false;
-
-     User user = (User) o;
-
-     if (userId != user.userId) return false;
-     if (!username.equals(user.username)) return false;
-
-     return true;
- }   */
-    /*
-public int hashCode() {
-    int result;
-    //result = ;
-    result = 31 *  username.hashCode();
-    return result;
-}    */
-
-
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         User user = (User) o;
 
-        if (!username.equals(user.username)) return false;
+        return username.equals(user.username);
 
-        return true;
     }
 
+    @Override
     public int hashCode() {
         return username.hashCode();
     }

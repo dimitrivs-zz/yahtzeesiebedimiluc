@@ -1,13 +1,23 @@
+/*
+Exeption handeling: OK
+Logging: te kleine klasse om te loggen
+Java 5: OK
+Refacorting: OK
+Testen: OK
+ */
+
 package be.kdg.yahtzee.model.users;
 
 public class Address {
+    public static final Address NULL_ADDRESS = new Address("no address", "", "", "", "");
+
     private String street;
     private String number;
     private String zip;
     private String city;
     private String country;
 
-    private Address() {
+    Address() {
     }
 
     public Address(String street, String number, String zip, String city, String country) {
@@ -58,6 +68,7 @@ public class Address {
         this.country = country;
     }
 
+    @Override
     public String toString() {
         return street + " " + number + ", " + zip + " " + city + "(" + country + ")";
     }

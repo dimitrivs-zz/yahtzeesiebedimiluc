@@ -1,3 +1,10 @@
+/*
+Exeption handeling: OK
+Logging: te kleine klasse om te loggen
+Java 5: OK
+Refacorting: setRoleId = hibernate
+Testen: OK
+ */
 package be.kdg.yahtzee.model.users;
 
 public class Role {
@@ -27,21 +34,23 @@ public class Role {
         this.name = name;
     }
 
+    @Override
     public String toString() {
         return name;
     }
 
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         Role role = (Role) o;
 
-        if (!name.equals(role.name)) return false;
+        return name.equals(role.name);
 
-        return true;
     }
 
+    @Override
     public int hashCode() {
         int result;
         result = roleId;

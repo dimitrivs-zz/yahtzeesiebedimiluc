@@ -14,54 +14,15 @@
     <title>
         <h:outputText value="#{labels.profileTitle}"/>
     </title>
-
-    <script type="text/javascript">
-        function checkForm() {
-            var form = document.createUser;
-            var message = "";
-            if (!form.username.value) message += "* Foute username\n";
-            if (!form.pw.value) message += "* Fout passwoord\n";
-            if (!form.pw2.value) message += "* Fout bevestiging passwoord\n";
-            if (!form.mail.value) message += "Fout \n";
-            if (message != "") {
-                var mes = "fout\n" + message;
-                alert(mes);
-                return false;
-            } else {
-                var illegalChars = /^[0-9a-zA-Z]+$/;
-                var illegalNums = /[0-9]+$/;
-
-                if (form.username.value.length < 4 ||
-                    !form.username.value.match(illegalChars) ||
-                    form.username.value == form.name.value) {
-                    alert("fout");
-                    return false;
-                } else if (form.number.value && !form.number.value.match(illegalNums)) {
-                    alert("fout");
-                    return false;
-                } else if (form.zip.value && (!form.zip.value.match(illegalNums) || form.zip.value.length != 4)) {
-                    alert("fout");
-                    return false;
-                } else if (form.pw.value.length < 6 ||
-                           !form.pw.value.match(illegalChars) ||
-                           form.pw.value == form.name.value) {
-                    alert("fout");
-                    return false;
-                } else if (form.pw.value != form.pw2.value) {
-                    alert("fout");
-                    return false;
-                }
-            }
-            return true;
-        }
-    </script>
+    <script type='text/javascript' src='changeProfile.js'></script>
+    <script type="text/javascript"></script>
 </head>
 
 <body>
 <div id="register">
-z
-<form name="changePassword" action="/profile/ConfirmChangePasswordServlet?orgUser=${userBean.username}"
-      method="post">
+<!--onsubmit="return checkPassForm()"-->
+<form id="changePassword" name="changePassword"
+      action="/profile/ConfirmChangePasswordServlet?orgUser=${userBean.username}" method="post">
     <table>
         <tr>
             <td colspan="2"><img src="../images/logo.png" class="logo" alt="Profile"/></td>
@@ -92,8 +53,9 @@ z
         </tr>
     </table>
 </form>
-<!-- onsubmit="return checkForm()"-->
-<form name="changeProfile" action="/profile/ConfirmChangeProfileServlet?user=${userBean.username}" method="post">
+<!--onsubmit="return checkProfileForm()"-->
+<form id="changeProfile" name="changeProfile" action="/profile/ConfirmChangeProfileServlet?user=${userBean.username}"
+      method="post">
     <table>
         <tr>
             <td colspan="2">
@@ -164,18 +126,6 @@ z
         <td><input type="submit" value="Change profile"></td>
         <tr>
             <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="/profile/ConfirmChangePasswordServlet?user=${userBean.username}">
-                    <h:outputText value="#{labels.profilePw}"/>
-                </a>
-            </td>
-            <td>
-                <a href="/profile/ConfirmChangeProfileServlet?user=${userBean.username}">
-                    <h:outputText value="#{labels.profileChange}"/>
-                </a>
-            </td>
         </tr>
         <td colspan="3" align="center" height="40px"><a href="/faces/player/gameRoom.jsp">
             <h:outputText value="#{labels.gameroomButton}"/>
