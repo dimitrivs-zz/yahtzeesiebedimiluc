@@ -4,6 +4,10 @@ import be.kdg.yahtzee.beans.UserBean;
 import be.kdg.yahtzee.model.YahtzeeController;
 import be.kdg.yahtzee.model.users.User;
 import be.kdg.yahtzee.servlets.YahtzeeServlet;
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.SimpleLayout;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +23,22 @@ import java.io.IOException;
  * To change this template use File | Settings | File Templates.
  */
 public class LogoutServlet extends YahtzeeServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
+    private static Logger logger = Logger.getLogger(LogoutServlet.class);
+    static final String FILENAME = "LogoutServletLog.txt";
+
+    @Override
+    public void init() throws ServletException {
+        SimpleLayout layout = new SimpleLayout();
+
+        FileAppender appender = null;
+        try {
+            appender = new FileAppender(layout, FILENAME, false);
+        } catch (Exception e) {
+            // empty catch block!
+        }
+
+        logger.addAppender(appender);
+        logger.setLevel(Level.DEBUG);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,14 +48,14 @@ public class LogoutServlet extends YahtzeeServlet {
         UserBean userBean = (UserBean) session.getAttribute("userBean");
         User user = yahtzeeController.findUser(userBean.getUsername());
         user.setOnline(false);
-        //OnlineUsersBean onlineUsersBean = findOnlineUsersBean();
-        //onlineUsersBean.removeUser(user);
+
+        logger.info("User " + user.getUsername() + " logged out");
 
         session.removeAttribute("games");
         session.removeAttribute("userBean");
+        session.removeAttribute("gameBean");
         session.invalidate();
 
-        System.out.println("User logged out");
         response.sendRedirect("/faces/login/login.jsp");
     }
 }

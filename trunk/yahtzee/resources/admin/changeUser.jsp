@@ -109,7 +109,6 @@
         <tr>
             <th align="right">Role</th>
             <td><select name="role">
-                <jsp:if test=""
                 <option value="admin">Administrator</option>
                 <option value="player">Player</option>
             </select></td>

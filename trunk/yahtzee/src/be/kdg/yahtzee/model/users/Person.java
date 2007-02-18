@@ -1,13 +1,31 @@
+/*
+Exeption handeling: OK
+Logging: te kleine klasse om te loggen
+Java 5: OK
+Refacorting: nullPerson
+Testen: OK
+ */
+
 package be.kdg.yahtzee.model.users;
 
 public class Person {
+    public static final Person NULL_PERSON = new Person("null");
+
     private String surname;
     private String firstName;
     private String email;
     private Address address;
     private String telephone;
 
-    private Person() {
+    Person() {
+    }
+
+    private Person(String nullPerson) {
+        this.surname = "surname";
+        this.firstName = "firstname";
+        this.email = "email";
+        this.telephone = "telephone";
+        this.address = Address.NULL_ADDRESS;
     }
 
     public Person(String surname, String firstName, String email, Address address, String telephone) {
@@ -40,7 +58,7 @@ public class Person {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-    }        
+    }
 
     public String getEmail() {
         return email;

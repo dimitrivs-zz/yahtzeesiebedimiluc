@@ -7,6 +7,7 @@ import be.kdg.yahtzee.model.users.Address;
 import be.kdg.yahtzee.model.users.Role;
 import be.kdg.yahtzee.model.users.User;
 import be.kdg.yahtzee.model.users.UserManager;
+import org.apache.log4j.Level;
 
 import java.util.Collection;
 import java.util.List;
@@ -25,15 +26,16 @@ public class YahtzeeController {
 
     public void setUserManager(UserManager userManager) {
         this.userManager = userManager;
+        userManager.initLogger(Level.DEBUG);
     }
 
     public User findUser(String username) {
         return userManager.getUser(username);
     }
-
+    /*
     public Address getAddressOfUser(String username) {
         return userManager.getAddressOfUser(username);
-    }
+    } */
 
     public void blockUser(String username) {
         userManager.blockUser(username);
@@ -69,22 +71,23 @@ public class YahtzeeController {
         userManager.createAdministrator(username, password, surname, firstName, email, telephone, address);
     }
 
-    public User changePlayer(User user, String username, String surname, String firstName, String email, String telephone, Address address) {
-        return userManager.changePlayer(user, username, surname, firstName, email, telephone, address);
+    public User changeUser(User user, String surname, String firstName, String email, String telephone, Address address) {
+        return userManager.changeUser(user, surname, firstName, email, telephone, address);
     }
 
     public void changePassWord(User user, String orgPass, String password, String password2) {
         userManager.changePassword(user, orgPass, password, password2);
     }
 
-    public void changePassWord(User user, String password, String password2) {
-        userManager.changePassword(user, password, password2);
-    }
-
-    public int getNumberOfUsers() {
-        return userManager.getNumberOfUsers();
-    }
-
+    /*
+   public void changePassWord(User user, String orgPass, String password, String password2) {
+       userManager.changePassword(user, orgPass, password, password2);
+   } */
+    /*
+ public int getNumberOfUsers() {
+     return userManager.getNumberOfUsers();
+ }
+    */
     public boolean createGame(String gameName, int number, User user) {
         return gameManager.createGame(gameName, number, user);
     }
@@ -135,6 +138,6 @@ public class YahtzeeController {
     }
 
     public List<User> findUsersByKeyword(String keyword) {
-        return userManager.findUsersByKeyword(keyword);
+        return userManager.getUsersByKeyword(keyword);
     }
 }
