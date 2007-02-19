@@ -137,7 +137,7 @@
         <tr>
             <td>&nbsp;</td>
         </tr>
-        <td colspan="3" align="center" height="40px"><a href="/admin/userManagement.jsp">
+        <td colspan="3" align="center" height="40px"><a href="/faces/admin/userManagement.jsp">
             Terug naar het gebruikersoverzicht
         </a></td>
         <tr>

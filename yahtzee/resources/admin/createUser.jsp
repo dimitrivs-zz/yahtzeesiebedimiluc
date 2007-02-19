@@ -61,6 +61,7 @@
     <h1>
         <h:outputText value="#{labels.create}"/>
     </h1>
+
     <form autocomplete="OFF" name="createUser" action="/admin/CreateUserServlet" method="post"
           onsubmit="return checkForm()">
         <table>
@@ -137,17 +138,23 @@
                 <td><input type="text" name="country"/></td>
             </tr>
             <tr>
-                <th align="right"><h:outputText value="#{labels.createRole}"/></th>
+                <th align="right">
+                    <h:outputText value="#{labels.createRole}"/>
+                </th>
                 <td><select name="role">
-                    <option value="admin"><h:outputText value="#{labels.admin}"/></option>
-                    <option value="player" selected><h:outputText value="#{labels.player}"/></option>
+                    <option value="admin">
+                        <h:outputText value="#{labels.admin}"/>
+                    </option>
+                    <option value="player" selected>
+                        <h:outputText value="#{labels.player}"/>
+                    </option>
                 </select></td>
             </tr>
             <tr>
                 <th colspan=2><input type=submit value="<h:outputText value="#{labels.createUser}"/>"></th>
             </tr>
         </table>
-        <a href="../admin/userManagement.jsp">
+        <a href="../faces/admin/userManagement.jsp">
             <h:outputText value="#{labels.usersBack}"/>
         </a>
     </form>
