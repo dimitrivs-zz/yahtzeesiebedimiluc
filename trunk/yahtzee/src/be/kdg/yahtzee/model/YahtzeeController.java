@@ -80,8 +80,8 @@ public class YahtzeeController {
         return userManager.changeUser(user, surname, firstName, email, telephone, address, role);
     }
 
-    public void changePassWord(User user, String orgPass, String password, String password2) {
-        userManager.changePassword(user, orgPass, password, password2);
+    public boolean changePassWord(User user, String orgPass, String password, String password2) {
+        return userManager.changePassword(user, orgPass, password, password2);
     }
 
     /*

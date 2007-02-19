@@ -1,14 +1,15 @@
 package be.kdg.yahtzee.servlets.profile;
 
+import be.kdg.util.InputValidation;
 import be.kdg.yahtzee.model.YahtzeeController;
 import be.kdg.yahtzee.model.users.Address;
+import be.kdg.yahtzee.model.users.Role;
 import be.kdg.yahtzee.model.users.User;
 import be.kdg.yahtzee.servlets.YahtzeeServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class ConfirmChangeProfileServlet extends YahtzeeServlet {
@@ -23,13 +24,18 @@ public class ConfirmChangeProfileServlet extends YahtzeeServlet {
         String zip = request.getParameter("zip");
         String city = request.getParameter("city");
         String country = request.getParameter("country");
-        Address address = new Address(street, number, zip, city, country);
-        YahtzeeController yahtzeeController = findYahtzeeController();
-        User orgUser = yahtzeeController.findUser(username);
-        User changedUser = yahtzeeController.changeUser(orgUser, surname, firstname, mail, telephone, address, orgUser.getRole());
-        HttpSession session = request.getSession();
-        session.setAttribute("user", changedUser);
-        session.setAttribute("message", "De gebruiker '" + username + "' werd succesvol gewijzigd.");
-        response.sendRedirect("/faces/profile/changeProfile.jsp");
+        InputValidation inputValidation = InputValidation.getInstance();
+        if (!inputValidation.isInputValid(username, mail, surname, firstname, telephone, street, number, zip, city, country) && inputValidation.isNumberValid(street, number)) {
+            request.setAttribute("message", "De invoer is niet volgens het verwachte patroon");
+        } else {
+            Address address = new Address(street, number, zip, city, country);
+            YahtzeeController yahtzeeController = findYahtzeeController();
+            User orgUser = yahtzeeController.findUser(username);
+            Role role = orgUser.getRole();
+            yahtzeeController.changeUser(orgUser, surname, firstname, mail, telephone, address, role);
+            request.setAttribute("message", "De gebruiker '" + username + "' werd succesvol gewijzigd.");
+        }
+
+        forward("/faces/profile/changeProfile.jsp", request, response);
     }
 }

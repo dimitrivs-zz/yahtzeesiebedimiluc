@@ -41,8 +41,8 @@ public class LogoutServlet extends YahtzeeServlet {
         logger.setLevel(Level.DEBUG);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
+    protected void doGet(HttpServletRequest servletRequest, HttpServletResponse servletResponse) throws ServletException, IOException {
+        HttpSession session = servletRequest.getSession();
 
         YahtzeeController yahtzeeController = findYahtzeeController();
         UserBean userBean = (UserBean) session.getAttribute("userBean");
@@ -56,6 +56,6 @@ public class LogoutServlet extends YahtzeeServlet {
         session.removeAttribute("gameBean");
         session.invalidate();
 
-        response.sendRedirect("/faces/login/login.jsp");
+        servletResponse.sendRedirect("/faces/login/login.jsp");
     }
 }

@@ -8,19 +8,19 @@ Testen: OK
 
 package be.kdg.yahtzee.model.chat;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Chat {
-    private List<ChatMessage> chatMessages;
+    private LinkedList<ChatMessage> chatMessages;
 
     public Chat() {
-        chatMessages = new ArrayList<ChatMessage>();
+        chatMessages = new LinkedList<ChatMessage>();
     }
 
     public void addMessage(String text) {
         if (text != null) {
-            chatMessages.add(new ChatMessage(text));
+            chatMessages.addFirst(new ChatMessage(text));
         }
     }
 

@@ -14,7 +14,9 @@
         <title></title>
     </head>
     <body>
-    <a href="../logout/LogoutServlet"><h:outputText value="#{labels.logout}" /></a>
+    <a href="/logout/LogoutServlet">
+        <h:outputText value="#{labels.logout}"/>
+    </a>
     </body>
     </html>
 </f:view>

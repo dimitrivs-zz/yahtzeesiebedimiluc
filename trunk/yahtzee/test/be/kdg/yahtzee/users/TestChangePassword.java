@@ -82,5 +82,7 @@ public class TestChangePassword extends TestCase {
         User user = userManager.createAdministrator("admin", "administrator", "admin", "istrator", "admin@admin.be", "O498/24.36.43", address);
 
         assertFalse("Dit moet false teruggeven ", userManager.changePassword(user, "administra", "siebe123", "siebe123"));
+        assertFalse("Dit moet false teruggeven ", userManager.changePassword(user, "administrator", "siebe1234", "siebe123"));
+        assertFalse("Dit moet false teruggeven ", userManager.changePassword(user, "administrator", "si", "si"));
     }
 }

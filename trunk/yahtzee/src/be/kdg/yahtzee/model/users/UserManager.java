@@ -133,7 +133,7 @@ public class UserManager {
     public boolean changePassword(User user, String orgPass, String password, String password2) {
         Security security = Security.getInstance();
         if (user.getPassword().equals(security.encrypt(orgPass))) {
-            if (password.equals(password2)) {
+            if (password.equals(password2) && password.length() > 5) {
                 user.setPassword(security.encrypt(password));
                 userDao.saveUser(user);
                 logger.info("User " + user.getUsername() + " changed his password");

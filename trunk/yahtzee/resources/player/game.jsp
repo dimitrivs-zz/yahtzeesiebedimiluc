@@ -225,7 +225,7 @@ function gotMessages(messages)
                     </tr>
                     <tr>
                         <td>
-                            <textarea id="chatlog" rows="10" cols="25" readonly="readonly"></textarea>
+                            <div id="chatlog" style="width:100px; height:100px;overflow: auto"></div>
                         </td>
                     </tr>
                     <tr>

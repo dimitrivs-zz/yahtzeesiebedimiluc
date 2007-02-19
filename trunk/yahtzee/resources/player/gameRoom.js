@@ -66,8 +66,8 @@ function gotMessages(messages)
     var chatlog = "";
     for (var data in messages)
     {
-        chatlog = messages[data].text + chatlog;
+        chatlog = "<div>" + messages[data].text + "<br/></div>" + chatlog;
     }
     DWRUtil.setValue("chatlog", chatlog);
-    setTimeout("getGlobalChatMessages()", 1000);
+    setTimeout("checkMessages()", 1000);
 }
