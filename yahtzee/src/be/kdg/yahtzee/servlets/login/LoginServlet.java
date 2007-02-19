@@ -7,6 +7,7 @@ Refacorting: OK
 
 package be.kdg.yahtzee.servlets.login;
 
+import be.kdg.util.InputValidation;
 import be.kdg.util.Security;
 import be.kdg.yahtzee.beans.UserBean;
 import be.kdg.yahtzee.model.YahtzeeController;
@@ -49,6 +50,9 @@ public class LoginServlet extends YahtzeeServlet {
         boolean loginOK = false;
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        if (!InputValidation.getInstance().isInputValid(username, password)) {
+            forward("/faces/login/loginError.jsp", request, response);
+        }
         password = Security.getInstance().encrypt(password);
         YahtzeeController yahtzeeController = findYahtzeeController();
 
