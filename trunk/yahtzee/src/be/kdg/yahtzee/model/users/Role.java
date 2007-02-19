@@ -49,12 +49,12 @@ public class Role {
         return name.equals(role.name);
 
     }
-
+    /*
     @Override
     public int hashCode() {
         int result;
         result = roleId;
         result = 31 * result + name.hashCode();
         return result;
-    }
+    } */
 }
