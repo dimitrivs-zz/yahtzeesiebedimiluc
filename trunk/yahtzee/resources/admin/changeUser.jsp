@@ -18,12 +18,12 @@
 </head>
 
 <body>
-<div id="register">
+<div id="profile">
 
 <form name="changePassword" action="/admin/ChangeUserPasswordServlet?orgUser=${userchangeBean.username}" method="post">
     <table>
         <tr>
-            <td colspan="2"><img src="../images/logo.png" class="logo" alt="Profile"/></td>
+            <td colspan="2"><img src="../images/logo.png" class="logo" alt="Yahtzee"/></td>
             <td><h1>
                 <h:outputText value="#{labels.profile}"/>
             </h1></td>
@@ -108,7 +108,7 @@
             <td><input type="text" name="country" value="${userchangeBean.country}" class="text"/></td>
         </tr>
         <tr>
-            <th align="right">Role</th>
+            <td colspan="2">Role</td>
             <td><select name="role">
                 <c:if test="${userchangeBean.role == 'Administrator'}">
                     <option value="Administrator" selected>Administrator</option>
@@ -137,8 +137,8 @@
         <tr>
             <td>&nbsp;</td>
         </tr>
-        <td colspan="3" align="center" height="40px"><a href="/faces/admin/userManagement.jsp">
-            Terug naar het gebruikersoverzicht
+        <td colspan="3" align="center" height="40px"><a href="/faces/admin/ShowUsersServlet">
+            <h:outputText value="#{labels.allusersBack}"/>
         </a></td>
         <tr>
             <td colspan="3" align="center">${message}</td>
