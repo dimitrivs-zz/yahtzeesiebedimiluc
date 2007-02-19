@@ -7,7 +7,6 @@ import be.kdg.yahtzee.servlets.YahtzeeServlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class ChangeUserPasswordServlet extends YahtzeeServlet {
@@ -19,9 +18,8 @@ public class ChangeUserPasswordServlet extends YahtzeeServlet {
         YahtzeeController yahtzeeController = findYahtzeeController();
         User orgUser = yahtzeeController.findUser(orgUsername);
         yahtzeeController.changePassWord(orgUser, orgPass, password, password2);
-        HttpSession session = request.getSession();
-        session.setAttribute("message", "Het wachtwoord werd succesvol gewijzigd");
 
+        request.setAttribute("message", "Het wachtwoord werd succesvol gewijzigd");
         forward("/faces/admin/changeUser.jsp", request, response);
     }
 }
