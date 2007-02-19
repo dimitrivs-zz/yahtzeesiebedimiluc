@@ -14,7 +14,7 @@
     <ul>
         <li><a href="/faces/admin/userManagement.jsp"><h:outputText value="#{labels.adminUser}"/></a></li>
         <li><a href="/faces/admin/gameManagement.jsp"><h:outputText value="#{labels.adminGame}"/></a></li>
-        <li></li>
+        <li><a href="../logout/LogoutServlet"><h:outputText value="#{labels.logout}" /></a></li>
     </ul>
     <br>
     <u><b><h:outputText value="#{labels.adminStats}"/></b></u>
