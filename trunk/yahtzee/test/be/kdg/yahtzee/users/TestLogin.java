@@ -40,12 +40,12 @@ public class TestLogin extends TestCase {
 
         Configuration configuration = new Configuration();
         configuration.setProperty(Environment.DRIVER, "com.mysql.jdbc.Driver");
-        configuration.setProperty(Environment.URL, "jdbc:mysql://localhost:3306/yahtzee");
+        configuration.setProperty(Environment.URL, "jdbc:mysql://localhost:3306/yahtzeetest");
         configuration.setProperty(Environment.USER, "yahtzee");
         configuration.setProperty(Environment.PASS, "yahtzee");
         configuration.setProperty(Environment.DIALECT, HSQLDialect.class.getName());
         configuration.setProperty(Environment.SHOW_SQL, "true");
-        configuration.setProperty(Environment.HBM2DDL_AUTO, "create-drop");
+        configuration.setProperty(Environment.HBM2DDL_AUTO, "create");
         configuration.addClass(User.class);
         configuration.addClass(Role.class);
 
@@ -64,6 +64,7 @@ public class TestLogin extends TestCase {
 
     @After
     protected void tearDown() throws Exception {
+        userManager = null;
         TransactionSynchronizationManager.unbindResource(sessionFactory);
         SessionFactoryUtils.releaseSession(session, sessionFactory);
     }
@@ -86,5 +87,12 @@ public class TestLogin extends TestCase {
         Role role = userManager.getRole("Player");
 
         assertTrue("De authenticatie moet <true> zijn", userManager.isUserInRole(user, role));
+    }
+
+    @Test
+    public void testGetNullUser() throws Exception {
+        User user = userManager.getUser("qdfaerazer");
+
+        assertEquals("Dit moet <username> geven", "username", user.getUsername());
     }
 }

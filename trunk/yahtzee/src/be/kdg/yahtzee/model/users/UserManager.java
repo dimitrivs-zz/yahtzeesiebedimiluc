@@ -29,7 +29,7 @@ public class UserManager {
 
     private Map<String, Role> roles = new HashMap<String, Role>();
 
-    public void initLogger(Level level) {
+    public boolean initLogger(Level level) {
         SimpleLayout layout = new SimpleLayout();
 
         FileAppender appender = null;
@@ -41,6 +41,7 @@ public class UserManager {
 
         logger.addAppender(appender);
         logger.setLevel(level);
+        return true;
     }
 
     // ---------- User methoden
@@ -172,6 +173,7 @@ public class UserManager {
         userDao.deleteUser(user);
         logger.info("User " + user.getUsername() + " removed");
     }
+
     /*
     public void setAddressOfUser(String username, Address address) {
         User user = getUser(username);
@@ -212,12 +214,12 @@ public class UserManager {
     public boolean isUserInRole(User user, Role role) {
         return user.getRole().equals(role);
     }
-
+    /*
     public void addUserToRole(User user, Role role) {
         user.setRole(role);
         userDao.saveUser(user);
         logger.info("User " + user.getUsername() + " removed");
-    }
+    } */
 
     // --- Andere methoden
     /*

@@ -22,11 +22,11 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 /**
  * Created by IntelliJ IDEA.
  * User: Eigenaar
- * Date: 18-feb-2007
- * Time: 18:33:49
+ * Date: 19-feb-2007
+ * Time: 9:24:37
  * To change this template use File | Settings | File Templates.
  */
-public class TestChangePassword extends TestCase {
+public class TestOnlineUsers extends TestCase {
     private UserManager userManager;
     private SessionFactory sessionFactory;
     private Session session;
@@ -69,18 +69,27 @@ public class TestChangePassword extends TestCase {
     }
 
     @Test
-    public void testChangePassword() throws Exception {
+    public void testUserOnline() throws Exception {
         Address address = new Address("Nationalestraat", "5", "2000", "Antwerpen", "Belgium");
-        User user = userManager.createAdministrator("admin", "administrator", "admin", "istrator", "admin@admin.be", "O498/24.36.43", address);
+        User user = userManager.createPlayer("bla", "blablabla", "klant 1", "JAA", "klant1@klant.be", "7832723", address);
+        user.setOnline(true);
 
-        assertTrue("Dit moet true teruggeven ", userManager.changePassword(user, "administrator", "siebe123", "siebe123"));
+        User onlineUser = userManager.getOnlineUsers().get(0);
+
+        assertEquals("user <bla> moet <online> zijn", "bla", onlineUser.getUsername());
     }
 
     @Test
-    public void testChangePasswordFail() throws Exception {
+    public void testUserOffline() throws Exception {
         Address address = new Address("Nationalestraat", "5", "2000", "Antwerpen", "Belgium");
-        User user = userManager.createAdministrator("admin", "administrator", "admin", "istrator", "admin@admin.be", "O498/24.36.43", address);
+        User user1 = userManager.createPlayer("haha", "hahahahahaha", "klant 2", "NEEEE", "klant2@klant.be", "2439479", address);
+        User user2 = userManager.createPlayer("bla", "blablabla", "klant 1", "JAA", "klant1@klant.be", "7832723", address);
+        user1.setOnline(true);
+        user2.setOnline(false);
 
-        assertFalse("Dit moet false teruggeven ", userManager.changePassword(user, "administra", "siebe123", "siebe123"));
+        User onlineUser = userManager.getOnlineUsers().get(0);
+
+        assertEquals("user <haha> moet <online> zijn", "haha", onlineUser.getUsername());
+        assertTrue("Dit moet true teruggeven", onlineUser.isOnline());
     }
 }
