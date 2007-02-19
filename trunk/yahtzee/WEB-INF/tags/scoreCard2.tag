@@ -3,7 +3,6 @@
 <jsp:useBean id="gameBean" class="be.kdg.yahtzee.beans.GameBean" scope="session"/>
 
 
-
 <h:dataTable value='#{items}' var='item'>
 
 
@@ -16,7 +15,6 @@
     </h:column>
 
 
-
     <h:column>
 
         <%-- next column components --%>
@@ -26,18 +24,9 @@
     </h:column>
 
 
-
     <%-- add more columns, as desired --%>
 
 </h:dataTable>
-
-
-
-
-
-
-
-
 
 
 <table border="1" cellpadding="0" cellspacing="0">

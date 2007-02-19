@@ -28,7 +28,7 @@ public class ConfirmChangeProfileServlet extends YahtzeeServlet {
         Address address = new Address(street, number, zip, city, country);
         YahtzeeController yahtzeeController = findYahtzeeController();
         User orgUser = yahtzeeController.findUser(username);
-        User changedUser = yahtzeeController.changeUser(orgUser, surname, firstname, mail, telephone, address);
+        User changedUser = yahtzeeController.changeUser(orgUser, surname, firstname, mail, telephone, address, orgUser.getRole());
         HttpSession session = request.getSession();
         session.setAttribute("user", changedUser);
         session.setAttribute("message", "De gebruiker '" + username + "' werd succesvol gewijzigd.");

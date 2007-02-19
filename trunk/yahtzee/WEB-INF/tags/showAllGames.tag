@@ -12,7 +12,6 @@
         <td>Game Name</td>
         <td>Max Players</td>
         <td>Actual Number Players</td>
-        <td>Players in Game</td>
         <td>State</td>
         <td colspan="2" align="center">Actions</td>
     </tr>
@@ -23,15 +22,23 @@
     </tr>
     <% }
         for (Object game1 : allGames) {
-                Game game = (Game) game1;
+            Game game = (Game) game1;
     %>
     <tr>
-        <td><%= game.getGameName()%></td>
-        <td><%= game.getMaxPlayer()%></td>
-        <td><%= game.getNumberOfPlayers()%></td>
-        <td><%= game.getState()%></td>
+        <td><%= game.getGameName()%>
+        </td>
+        <td><%= game.getMaxPlayer()%>
+        </td>
+        <td><%= game.getNumberOfPlayers()%>
+        </td>
+        <td><%= game.getState()%>
+        </td>
+        <% if (game.getNumberOfPlayers() == 0) {%>
         <td><a href=${hrefRemove}?gamename=<%= game.getGameName()%>>Remove</a></td>
-        <td><a href=${hrefWatch}?gamename=<%= game.getGameName()%>>Watch</a></td>
+        <% } else { %>
+        <td colspan="2"><a href=${hrefWatch}?gamename=<%= game.getGameName()%>>Watch</a></td>
+        <% } %>
+
     </tr>
     <%
         }

@@ -11,6 +11,7 @@ import org.apache.log4j.Level;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 
 public class YahtzeeController {
@@ -59,6 +60,10 @@ public class YahtzeeController {
         //return false;
     }
 
+    public boolean isLastAdministrator() {
+        return userManager.isLastAdministrator();
+    }
+
     public List getUsers() {
         return userManager.getUsers();
     }
@@ -71,8 +76,8 @@ public class YahtzeeController {
         userManager.createAdministrator(username, password, surname, firstName, email, telephone, address);
     }
 
-    public User changeUser(User user, String surname, String firstName, String email, String telephone, Address address) {
-        return userManager.changeUser(user, surname, firstName, email, telephone, address);
+    public User changeUser(User user, String surname, String firstName, String email, String telephone, Address address, Role role) {
+        return userManager.changeUser(user, surname, firstName, email, telephone, address, role);
     }
 
     public void changePassWord(User user, String orgPass, String password, String password2) {
@@ -139,5 +144,9 @@ public class YahtzeeController {
 
     public List<User> findUsersByKeyword(String keyword) {
         return userManager.getUsersByKeyword(keyword);
+    }
+
+    public Map<String, Role> getRoles() {
+        return userManager.getRoles();
     }
 }

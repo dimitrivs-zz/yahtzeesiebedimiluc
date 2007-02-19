@@ -37,7 +37,11 @@
         <td><a href=${hrefBlock}?username=<%= user.getUsername()%>&blocked=<%=true%>>Block</a></td>
         <% } %>
     </tr>
+
     <%
         }
     %>
+    <tr>
+        <td colspan="3" align="center">${message}</td>
+    </tr>
 </table>
