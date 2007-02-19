@@ -85,5 +85,10 @@ public class UserBean {
         User user = yahtzeeController.findUser(username);
         return user.getAddress().getCountry();
     }
+
+    public String getRole() {
+        User user = yahtzeeController.findUser(username);
+        return user.getRole().getName();
+    }
 }
 

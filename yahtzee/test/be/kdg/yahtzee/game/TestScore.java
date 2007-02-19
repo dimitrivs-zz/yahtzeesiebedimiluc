@@ -1,7 +1,12 @@
 package be.kdg.yahtzee.game;
 
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
+import static org.junit.Assert.*;
+import be.kdg.yahtzee.model.game.Score;
+
 public class TestScore {
-    /*
     private Score score;
 
     @Before
@@ -167,5 +172,5 @@ public class TestScore {
         assertEquals("Totaal van de onderste helft moet <170> zijn", 170, score.getTotalLowerHalf());
 
         assertEquals("Totaal van het spel moet <227> zijn", 227, score.getTotalScore());
-    }   */
+    }
 }

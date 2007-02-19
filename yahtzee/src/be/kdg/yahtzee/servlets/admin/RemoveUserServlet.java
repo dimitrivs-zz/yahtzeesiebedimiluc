@@ -6,6 +6,7 @@ import be.kdg.yahtzee.servlets.YahtzeeServlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class RemoveUserServlet extends YahtzeeServlet {
@@ -13,8 +14,16 @@ public class RemoveUserServlet extends YahtzeeServlet {
         String username = request.getParameter("username");
 
         YahtzeeController yahtzeeController = findYahtzeeController();
-        yahtzeeController.removeUser(username);
 
-        forward("/admin/ShowUsersServlet", request, response);
+        if (yahtzeeController.isLastAdministrator()) {
+            HttpSession session = request.getSession();
+            session.setAttribute("message", "U kan de laatste administrator niet verwijderen...");
+
+            forward("/admin/ShowUsersServlet", request, response);
+        } else {
+            yahtzeeController.removeUser(username);
+
+            forward("/admin/ShowUsersServlet", request, response);
+        }
     }
 }

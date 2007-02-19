@@ -26,6 +26,7 @@ public class UserManager {
     private UserDao userDao;
     private RoleDao roleDao;
     private Set<User> users = new HashSet<User>();
+
     private Map<String, Role> roles = new HashMap<String, Role>();
 
     public void initLogger(Level level) {
@@ -116,12 +117,13 @@ public class UserManager {
 
     // --- changeMethoden
 
-    public User changeUser(User orgUser, String surname, String firstName, String email, String telephone, Address address) {
+    public User changeUser(User orgUser, String surname, String firstName, String email, String telephone, Address address, Role role) {
         orgUser.setAddress(address);
         orgUser.setFirstname(firstName);
         orgUser.setSurname(surname);
         orgUser.setTelephone(telephone);
         orgUser.getPerson().setEmail(email);
+        orgUser.setRole(role);
         userDao.saveUser(orgUser);
         logger.info("User " + orgUser.getUsername() + " changed profile");
         return orgUser;
@@ -254,9 +256,25 @@ public class UserManager {
         return role;
     }
 
+    public Map<String, Role> getRoles() {
+        return roles;
+    }
+
     /*  Wordt niet gebruikt denk ik
    public void removeRole(String name) {
        Role role = roles.get(name);
        roleDao.deleteRole(role);
    } */
+
+    public boolean isLastAdministrator() {
+        int adminCount = 0;
+
+        for (User user : users) {
+            if (user.getRole().getName().equals("Administrator")) {
+                adminCount++;
+            }
+        }
+
+        return adminCount < 2;
+    }
 }

@@ -2,6 +2,7 @@
 
 <jsp:useBean id="userchangeBean" class="be.kdg.yahtzee.beans.UserBean" scope="session"/>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
 
@@ -104,13 +105,19 @@
             <td colspan="2">
                 <h:outputText value="#{labels.country}"/>
             </td>
-            <td><input type="text" name="city" value="${userchangeBean.country}" class="text"/></td>
+            <td><input type="text" name="country" value="${userchangeBean.country}" class="text"/></td>
         </tr>
         <tr>
             <th align="right">Role</th>
             <td><select name="role">
-                <option value="admin">Administrator</option>
-                <option value="player">Player</option>
+                <c:if test="${userchangeBean.role == 'Administrator'}">
+                    <option value="Administrator" selected>Administrator</option>
+                    <option value="Player">Player</option>
+                </c:if>
+                <c:if test="${userchangeBean.role == 'Player'}">
+                    <option value="Administrator">Administrator</option>
+                    <option value="Player" selected>Player</option>
+                </c:if>
             </select></td>
         </tr>
         <tr>

@@ -12,7 +12,8 @@
                 User user = (User) user1;
             %>
             <%=user.getUsername()%>, &nbsp
-            <%}
+            <%
+                }
             %>
         </td>
     </tr>

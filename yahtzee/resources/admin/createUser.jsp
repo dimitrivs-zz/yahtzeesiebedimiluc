@@ -135,7 +135,7 @@
                 <th align="right">
                     <h:outputText value="#{labels.country}"/>
                 </th>
-                <td><input type="text" name="city"/></td>
+                <td><input type="text" name="country"/></td>
             </tr>
             <tr>
                 <th align="right">Role</th>
