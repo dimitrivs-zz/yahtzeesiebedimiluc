@@ -6,14 +6,21 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head><title>Game Management</title></head>
-<body>
-<center><h2>Spelbeheer</h2></center>
-<ul>
-    <li><a href="/admin/ShowGamesServlet">Toon Games</a></li>
-    <br>
-</ul>
-<a href="administrator.jsp">Naar Administrator Overzicht</a>
-</body>
-</html>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+
+<f:view locale="#{language}">
+
+    <f:loadBundle basename="bundles.resources" var="labels"/>
+    <html>
+    <head><title><h:outputText value="#{labels.gameManTitle}"/></title></head>
+    <body>
+    <center><h2><h:outputText value="#{labels.adminGame}"/></h2></center>
+    <ul>
+        <li><a href="/admin/ShowGamesServlet"><h:outputText value="#{labels.gameManShow}"/></a></li>
+        <br>
+    </ul>
+    <a href="/faces/admin/administrator.jsp"><h:outputText value="#{labels.adminBack}"/></a>
+    </body>
+    </html>
+</f:view>

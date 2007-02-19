@@ -20,6 +20,6 @@ public class ShowUsersServlet extends YahtzeeServlet {
         HttpSession session = request.getSession();
         session.setAttribute("allUsers", allUsers);
 
-        forward("/admin/showAllUsers.jsp", request, response);
+        forward("/faces/admin/showAllUsers.jsp", request, response);
     }
 }

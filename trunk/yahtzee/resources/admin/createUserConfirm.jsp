@@ -8,7 +8,7 @@
 <body>
 <center>
     ${message}
-    <a href="../admin/userManagement.jsp">
+    <a href="/faces/admin/userManagement.jsp">
         Terug naar het overzicht
     </a>
 </center>

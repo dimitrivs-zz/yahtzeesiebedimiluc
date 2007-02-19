@@ -1,18 +1,27 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head><title>Simple jsp page</title></head>
-<body>
-<center><h1>Administrator Page</h1></center>
-<u><b>Beheersfuncties</b></u>
-<ul>
-    <li><a href="/admin/userManagement.jsp">Gebruikersbeheer</a></li>
-    <li><a href="/admin/gameManagement.jsp">Spelbeheer</a></li>
-</ul>
-<br>
-<u><b>Statistieken</b></u>
-<ul>
-    <li>Highscores</li>
-    <li>Spelfrequenties</li>
-</ul>
-</body>
-</html>
+
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+
+<f:view locale="#{language}">
+
+    <f:loadBundle basename="bundles.resources" var="labels"/>
+    <html>
+    <head><title><h:outputText value="#{labels.adminTitle}"/></title></head>
+    <body>
+    <center><h1><h:outputText value="#{labels.admin}"/></h1></center>
+    <u><b><h:outputText value="#{labels.adminFunctions}"/></b></u>
+    <ul>
+        <li><a href="/faces/admin/userManagement.jsp"><h:outputText value="#{labels.adminUser}"/></a></li>
+        <li><a href="/faces/admin/gameManagement.jsp"><h:outputText value="#{labels.adminGame}"/></a></li>
+        <li></li>
+    </ul>
+    <br>
+    <u><b><h:outputText value="#{labels.adminStats}"/></b></u>
+    <ul>
+        <li><h:outputText value="#{labels.adminScores}"/></li>
+        <li><h:outputText value="#{labels.adminFreqs}"/></li>
+    </ul>
+    </body>
+    </html>
+</f:view>

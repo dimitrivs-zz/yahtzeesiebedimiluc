@@ -15,7 +15,7 @@ public class RemoveUserServlet extends YahtzeeServlet {
 
         YahtzeeController yahtzeeController = findYahtzeeController();
 
-        if (yahtzeeController.isLastAdministrator()) {
+        if (yahtzeeController.isLastAdministrator() && yahtzeeController.isAdministrator(username)) {
             HttpSession session = request.getSession();
             session.setAttribute("message", "U kan de laatste administrator niet verwijderen...");
 

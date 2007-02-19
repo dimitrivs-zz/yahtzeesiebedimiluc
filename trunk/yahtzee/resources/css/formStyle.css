@@ -1,7 +1,7 @@
 #login{
 	background-image:url(../images/loginBg.png);
 	background-repeat:no-repeat;	
-	width:420px;
+	width:430px;
 	height:210px;
 	margin: 15px 20px 10px 20px;
 }
@@ -22,7 +22,7 @@
     background-image:url(../images/profileBg.png);
 	background-repeat:no-repeat;	
 	width:450px;
-	height:520px;
+	height:625px;
 	margin: 15px 20px 10px 20px;
 }
 
@@ -74,7 +74,7 @@ html{
 table{
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:15px;
+	margin-top:10px;
 }
 
 form,td{

@@ -29,6 +29,6 @@ public class LeaveGameServlet extends YahtzeeServlet {
         Set<Game> games = new HashSet<Game>(yahtzeeController.getGames());
         session.setAttribute("games", games);
 
-        forward("/player/gameRoom.jsp", request, response);
+        forward("/faces/player/gameRoom.jsp", request, response);
     }
 }

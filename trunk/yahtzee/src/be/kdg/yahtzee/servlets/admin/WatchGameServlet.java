@@ -18,6 +18,6 @@ public class WatchGameServlet extends YahtzeeServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //NOG TE MAKEN
 
-        forward("/admin/gameManagement.jsp", request, response);
+        forward("/faces/admin/gameManagement.jsp", request, response);
     }
 }

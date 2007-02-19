@@ -28,7 +28,7 @@ public class NewGameServlet extends YahtzeeServlet {
         boolean check = false;
 
         if (!yahtzeeController.createGame(gameName, Integer.valueOf(maxPlayer), user)){
-            request.setAttribute("error", "Spel bestaat al of u zit al in een andere spel <a href='../player/gameRoom.jsp'> terug naar game room</a>");
+            request.setAttribute("error", "Spel bestaat al of u zit al in een andere spel.<br /><a href='/faces/player/gameRoom.jsp'> terug naar game room</a>");
             check = true;
         }
 
@@ -38,9 +38,9 @@ public class NewGameServlet extends YahtzeeServlet {
         if (!check){
             GameBean gameBean = new GameBean(yahtzeeController, gameName);
             session.setAttribute("gameBean", gameBean);
-            response.sendRedirect("/player/game.jsp");
+            response.sendRedirect("/faces/player/game.jsp");
         } else{
-            forward("/player/startNewGame.jsp", request, response);            
+            forward("/faces/player/startNewGame.jsp", request, response);
         }
     }
 }

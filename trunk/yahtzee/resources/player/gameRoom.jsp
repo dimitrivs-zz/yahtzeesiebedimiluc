@@ -21,7 +21,7 @@
             <td>
                 <table border="1">
                     <tr>
-                        <td><a href="/player/startNewGame.jsp">Start nieuw spel</a></td>
+                        <td><a href="/faces/player/startNewGame.jsp">Start nieuw spel</a></td>
                     </tr>
                     <tr>
                         <td><a href="/profile/ChangeProfileServlet?userName=${userBean.username}">Change profile</a>
@@ -63,7 +63,7 @@
                 <tr>
                     <td>
                         <input id="name" type="hidden" value="${userBean.username}">
-                        <input type="button" onclick="sendMessage()" value="send" name="btnSend">
+                        <input type="button" onClick="sendMessage()" value="send" name="btnSend">
                     </td>
                 </tr>
             </table>
