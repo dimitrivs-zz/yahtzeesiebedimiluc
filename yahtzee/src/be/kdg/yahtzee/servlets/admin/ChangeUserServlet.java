@@ -10,13 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Luc
- * Date: 16-feb-2007
- * Time: 10:54:30
- * To change this template use File | Settings | File Templates.
- */
 public class ChangeUserServlet extends YahtzeeServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
@@ -27,6 +20,6 @@ public class ChangeUserServlet extends YahtzeeServlet {
         HttpSession session = request.getSession();
         session.setAttribute("userchangeBean", userBean);
 
-        forward("/faces/admin/changeUser.jsp", request, response);
+        response.sendRedirect("/faces/admin/changeUser.jsp");
     }
 }

@@ -20,7 +20,7 @@ public class ShowGamesServlet extends YahtzeeServlet {
         HttpSession session = request.getSession();
         session.setAttribute("allGames", allGames);
 
-        forward("/faces/admin/showAllGames.jsp", request, response);
+        response.sendRedirect("/faces/admin/showAllGames.jsp");
     }
 
 }

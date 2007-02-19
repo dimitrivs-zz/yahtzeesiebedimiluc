@@ -9,7 +9,6 @@ import be.kdg.yahtzee.servlets.YahtzeeServlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 
@@ -35,15 +34,12 @@ public class ChangeUserProfileServlet extends YahtzeeServlet {
         Map<String, Role> roles = yahtzeeController.getRoles();
         Role role = roles.get(roleName);
 
-        HttpSession session = request.getSession();
-
-
         if (yahtzeeController.isLastAdministrator() && roleName.equals("Player") && user.getRole().getName().equals("Administrator")) {
-            session.setAttribute("message", "U kan de laatste administrator niet verwijderen...");
+            request.setAttribute("message", "U kan de laatste administrator niet verwijderen...");
         } else {
             yahtzeeController.changeUser(user, surname, firstname, mail, telephone, address, role);
 
-            session.setAttribute("message", "Het profiel werd succesvol gewijzigd");
+            request.setAttribute("message", "Het profiel werd succesvol gewijzigd");
         }
 
         forward("/faces/admin/changeUser.jsp", request, response);
