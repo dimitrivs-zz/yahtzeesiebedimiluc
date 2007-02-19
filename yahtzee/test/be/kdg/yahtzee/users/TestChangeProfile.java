@@ -39,12 +39,12 @@ public class TestChangeProfile extends TestCase {
 
         Configuration configuration = new Configuration();
         configuration.setProperty(Environment.DRIVER, "com.mysql.jdbc.Driver");
-        configuration.setProperty(Environment.URL, "jdbc:mysql://localhost:3306/yahtzee");
+        configuration.setProperty(Environment.URL, "jdbc:mysql://localhost:3306/yahtzeetest");
         configuration.setProperty(Environment.USER, "yahtzee");
         configuration.setProperty(Environment.PASS, "yahtzee");
         configuration.setProperty(Environment.DIALECT, HSQLDialect.class.getName());
         configuration.setProperty(Environment.SHOW_SQL, "true");
-        configuration.setProperty(Environment.HBM2DDL_AUTO, "create-drop");
+        configuration.setProperty(Environment.HBM2DDL_AUTO, "create");
         configuration.addClass(User.class);
         configuration.addClass(Role.class);
 
@@ -63,6 +63,7 @@ public class TestChangeProfile extends TestCase {
 
     @After
     protected void tearDown() throws Exception {
+        userManager = null;
         TransactionSynchronizationManager.unbindResource(sessionFactory);
         SessionFactoryUtils.releaseSession(session, sessionFactory);
     }

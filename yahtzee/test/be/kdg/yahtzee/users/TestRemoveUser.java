@@ -19,14 +19,16 @@ import org.springframework.orm.hibernate3.SessionFactoryUtils;
 import org.springframework.orm.hibernate3.SessionHolder;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
+import java.util.List;
+
 /**
  * Created by IntelliJ IDEA.
  * User: Eigenaar
- * Date: 18-feb-2007
- * Time: 18:33:49
+ * Date: 19-feb-2007
+ * Time: 9:37:07
  * To change this template use File | Settings | File Templates.
  */
-public class TestChangePassword extends TestCase {
+public class TestRemoveUser extends TestCase {
     private UserManager userManager;
     private SessionFactory sessionFactory;
     private Session session;
@@ -69,18 +71,15 @@ public class TestChangePassword extends TestCase {
     }
 
     @Test
-    public void testChangePassword() throws Exception {
+    public void testRemoveUser() throws Exception {
         Address address = new Address("Nationalestraat", "5", "2000", "Antwerpen", "Belgium");
-        User user = userManager.createAdministrator("admin", "administrator", "admin", "istrator", "admin@admin.be", "O498/24.36.43", address);
+        userManager.createPlayer("haha", "hahahahahaha", "klant 2", "NEEEE", "klant2@klant.be", "2439479", address);
+        userManager.createPlayer("bla", "blablabla", "klant 1", "JAA", "klant1@klant.be", "7832723", address);
 
-        assertTrue("Dit moet true teruggeven ", userManager.changePassword(user, "administrator", "siebe123", "siebe123"));
-    }
+        userManager.removeUser("haha");
 
-    @Test
-    public void testChangePasswordFail() throws Exception {
-        Address address = new Address("Nationalestraat", "5", "2000", "Antwerpen", "Belgium");
-        User user = userManager.createAdministrator("admin", "administrator", "admin", "istrator", "admin@admin.be", "O498/24.36.43", address);
+        List<User> users = userManager.getUsers();
 
-        assertFalse("Dit moet false teruggeven ", userManager.changePassword(user, "administra", "siebe123", "siebe123"));
+        assertEquals("De groote van de list moet <1> zijn", 1, users.size());
     }
 }

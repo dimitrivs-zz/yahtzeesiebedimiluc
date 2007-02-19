@@ -33,12 +33,12 @@ public class TestRegistratieUser extends TestCase {
 
         Configuration configuration = new Configuration();
         configuration.setProperty(Environment.DRIVER, "com.mysql.jdbc.Driver");
-        configuration.setProperty(Environment.URL, "jdbc:mysql://localhost:3306/yahtzee");
+        configuration.setProperty(Environment.URL, "jdbc:mysql://localhost:3306/yahtzeetest");
         configuration.setProperty(Environment.USER, "yahtzee");
         configuration.setProperty(Environment.PASS, "yahtzee");
         configuration.setProperty(Environment.DIALECT, HSQLDialect.class.getName());
         configuration.setProperty(Environment.SHOW_SQL, "true");
-        configuration.setProperty(Environment.HBM2DDL_AUTO, "create-drop");
+        configuration.setProperty(Environment.HBM2DDL_AUTO, "create");
         configuration.addClass(User.class);
         configuration.addClass(Role.class);
 
@@ -57,12 +57,13 @@ public class TestRegistratieUser extends TestCase {
 
     @After
     protected void tearDown() throws Exception {
+        userManager = null;
         TransactionSynchronizationManager.unbindResource(sessionFactory);
         SessionFactoryUtils.releaseSession(session, sessionFactory);
     }
 
     @Test
-    public void createAdministrator() {
+    public void testCreateAdministrator() throws Exception {
         Address address = new Address("Nationalestraat", "5", "2000", "Antwerpen", "Belgium");
         User user = userManager.createAdministrator("admin", "administrator", "admin", "istrator", "admin@admin.be", "O498/24.36.43", address);
 
@@ -70,13 +71,17 @@ public class TestRegistratieUser extends TestCase {
 
         assertEquals("De username moet <admin> zijn", "admin", user.getUsername());
         assertEquals("Het adres moet < " + address + "> zijn", address, user.getAddress());
-        assertEquals("De naam moet <administrator> zijn", "administrator", user.getFirstname());
+        assertEquals("De naam moet <istrator> zijn", "istrator", user.getFirstname());
+        assertEquals("De naam moet <admin> zijn", "admin", user.getSurname());
+        assertEquals("De naam moet <O498/24.36.43> zijn", "O498/24.36.43", user.getTelephone());
         assertEquals("Het gencrypteerde passwoord moet <" + Security.getInstance().encrypt("administrator") + "> zijn", Security.getInstance().encrypt("administrator"), user.getPassword());
         assertEquals("De role name moet <Administrator> zijn", role, userManager.getRole("Administrator"));
+        assertEquals("De role toString moet <Administrator> zijn", "Administrator", user.getRole().toString());
+        assertEquals("De person toString moet <istrator admin> geven", "istrator admin", user.getPerson().toString());
     }
 
     @Test
-    public void createPlayer() {
+    public void testCreatePlayer() throws Exception {
         Address address = new Address("Nationalestraat", "5", "2000", "Antwerpen", "Belgium");
 
         userManager.createPlayer("bla", "blablabla", "klant 1", "JAA", "klant1@klant.be", "7832723", address);
@@ -85,13 +90,13 @@ public class TestRegistratieUser extends TestCase {
 
         assertEquals("De username moet <bla> zijn", "bla", user.getUsername());
         assertEquals("Het adres moet < " + address + "> zijn", address, user.getAddress());
-        assertEquals("De naam moet <klant 1> zijn", "klant 1", user.getFirstname());
+        assertEquals("De naam moet <JAA> zijn", "JAA", user.getFirstname());
         assertEquals("Het gencrypteerde passwoord moet <" + Security.getInstance().encrypt("blablabla") + "> zijn", Security.getInstance().encrypt("blablabla"), user.getPassword());
         assertEquals("De role name moet <Player> zijn", "Player", user.getRole().getName());
     }
 
     @Test
-    public void create2Player() {
+    public void testCreate2Player() throws Exception {
         Address address = new Address("Nationalestraat", "5", "2000", "Antwerpen", "Belgium");
 
         userManager.createPlayer("haha", "hahahahahaha", "klant 2", "NEEEE", "klant2@klant.be", "2439479", address);
@@ -101,46 +106,9 @@ public class TestRegistratieUser extends TestCase {
 
         assertEquals("De username moet <bla> zijn", "bla", user.getUsername());
         assertEquals("Het adres moet < " + address + "> zijn", address, user.getAddress());
-        assertEquals("De naam moet <klant 1> zijn", "klant 1", user.getFirstname());
+        assertEquals("De naam moet <JAA> zijn", "JAA", user.getFirstname());
         assertEquals("Het gencrypteerde passwoord moet <" + Security.getInstance().encrypt("blablabla") + "> zijn", Security.getInstance().encrypt("blablabla"), user.getPassword());
         assertEquals("De role name moet <Player> zijn", "Player", user.getRole().getName());
     }
 
-    @Test
-    public void removeUser() {
-        Address address = new Address("Nationalestraat", "5", "2000", "Antwerpen", "Belgium");
-        userManager.createAdministrator("admin", "administrator", "admin", "istrator", "admin@admin.be", "O498/24.36.43", address);
-
-        userManager.removeUser("admin");
-    }
-
-    /*
- @Test
- public void userChangesAddress(){
-     Address address = new Address("Nationalestraat", "5", "2000", "Antwerpen", "Belgium");
-     User user = userManager.createAdministrator("admin", "administrator", "admin", "istrator", "admin@admin.be", "O498/24.36.43", address);
-
-     assertEquals("Het adres moet < " + address + "> zijn", address , user.getAddress());
-
-     Address newAddress = new Address("Groenplaats", "20", "2000", "Antwerpen", "Belgium");
-
-     userManager.setAddressOfUser("admin", newAddress);
-
-     assertEquals("Het adres moet < " + newAddress + "> zijn", newAddress , userManager.getAddressOfUser("admin"));
-     assertNotSame("Het adres mag niet hetzelfde zijn als < " + address + "> zijn", address , user.getAddress());
- }
-    */
-    @Test
-    public void searchInexistingUser() {
-        assertNull(userManager.getUser("qsdfqsdfqsdf"));
-    }
-    /*
-  @Test
-  public void getUsers(){
-      Address address = new Address("Nationalestraat", "5", "2000", "Antwerpen", "Belgium");
-      userManager.createAdministrator("admin", "administrator", "admin", "istrator", "admin@admin.be", "O498/24.36.43", address);
-      int amountPlayers = userManager.getNumberOfUsers();
-
-      assertEquals("Aantal gebruikers moet <"+ amountPlayers +"> zijn", amountPlayers , userManager.getUsers().size());
-  }  */
 }
