@@ -71,7 +71,7 @@
         <form name="login" autocomplete="OFF" action="/login/LoginServlet" method="post">
             <table>
                 <tr>
-                    <td colspan="2"><img src="../images/logo.png" class="logo" alt="Login"/></td>
+                    <td><img src="../images/logo.png" class="logo" alt="Yahtzee"/></td>
                     <td><h1><h:outputText value="#{labels.login}"/></h1></td>
                 </tr>
                 <tr>

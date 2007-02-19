@@ -14,8 +14,6 @@ import java.io.IOException;
 public class ConfirmChangeProfileServlet extends YahtzeeServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("user");
-        //Ik weet ni of da ge het weet, maar al de parameters da hierna komen zijn null
-        //Ge geeft die ni mee in den url é :)
         String mail = request.getParameter("mail");
         String surname = request.getParameter("surname");
         String firstname = request.getParameter("firstname");

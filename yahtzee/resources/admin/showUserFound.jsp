@@ -8,6 +8,6 @@
 <body>
 <yahtzee:showAllUsers hrefRemove="/admin/RemoveUserServlet" hrefChange="/admin/ChangeUserServlet"
                       hrefBlock="/admin/BlockUserServlet"/>
-<a href="/admin/ShowUsersServlet">Naar Gebruikersoverzicht</a>
+<a href="/faces/admin/ShowUsersServlet">Naar Gebruikersoverzicht</a>
 </body>
 </html>

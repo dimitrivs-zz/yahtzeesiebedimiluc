@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>
-        Create new User
+        <h:outputText value="#{labels.create}"/>
     </title>
 
     <script type="text/javascript">
@@ -59,9 +59,8 @@
 
 <center>
     <h1>
-        Create New User
+        <h:outputText value="#{labels.create}"/>
     </h1>
-    <h:outputText value="#{labels.registerInfoLabel}"/>
     <form autocomplete="OFF" name="createUser" action="/admin/CreateUserServlet" method="post"
           onsubmit="return checkForm()">
         <table>
@@ -138,18 +137,18 @@
                 <td><input type="text" name="country"/></td>
             </tr>
             <tr>
-                <th align="right">Role</th>
+                <th align="right"><h:outputText value="#{labels.createRole}"/></th>
                 <td><select name="role">
-                    <option value="admin">Administrator</option>
-                    <option value="player" selected>Player</option>
+                    <option value="admin"><h:outputText value="#{labels.admin}"/></option>
+                    <option value="player" selected><h:outputText value="#{labels.player}"/></option>
                 </select></td>
             </tr>
             <tr>
-                <th colspan=2><input type=submit value="Create User"></th>
+                <th colspan=2><input type=submit value="<h:outputText value="#{labels.createUser}"/>"></th>
             </tr>
         </table>
         <a href="../admin/userManagement.jsp">
-            Terug naar het overzicht
+            <h:outputText value="#{labels.usersBack}"/>
         </a>
     </form>
 </center>
