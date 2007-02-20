@@ -23,7 +23,7 @@
                 </tr>
                 <tr>
                     <td><h:outputText value="#{labels.newGameName}"/></td>
-                    <td><input type="text" name = "gameName" class="text"/></td>
+                    <td><input type="text" name="gameName" class="text" /></td>
                 </tr>
                 <tr>
                     <td><h:outputText value="#{labels.newGameNumber}"/></td>

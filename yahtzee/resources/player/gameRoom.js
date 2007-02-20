@@ -37,23 +37,29 @@ function onlineUserList(messages) {
 
 function gotGames(messages)
 {
-    var tableGames = '<table border="1"><tr><th>Spelnaam</th><th>Aantal</th><th>Spelers in het spel</th><th>Status</th></tr>'
+    var tableGames = '<table width="595px" border="1">'
 
     for (var game in messages)
     {
         tableGames += "<tr>"
-        tableGames += "<td>" + messages[game].gameName + "</td>"
-        tableGames += "<td>" + messages[game].maxPlayer + "</td>"
-        tableGames += "<td>"
-        for (var user in messages[game].users) {
-            tableGames += messages[game].users[user].username + ", "
+        tableGames += "<td width='140px'>" + messages[game].gameName + "</td>"
+        tableGames += "<td width='75px'>" + messages[game].maxPlayer + "</td>"
+        tableGames += "<td width='225px'>"
+        if (messages[game].state != 'Empty') {
+            for (var user in messages[game].users) {
+                tableGames += messages[game].users[user].username + ", "
+            }
+        }else {
+            tableGames += "No players"
         }
         tableGames += "</td>"
-        tableGames += "<td>" + messages[game].state + "</td>"
+        tableGames += "<td width='75px'>" + messages[game].state + "</td><td width='90px'>"
         if (messages[game].state != 'Full') {
-            tableGames += "<td><a href=/game/JoinGameServlet?join=" + messages[game].gameName + ">meedoen</a></td>"
+            tableGames += "<a href=/game/JoinGameServlet?join=" + messages[game].gameName + ">Join</a>"
+        }else {
+            tableGames += "Playing"
         }
-        tableGames += "</tr>"
+        tableGames += "</td></tr>"
     }
 
     tableGames += "</table>"
