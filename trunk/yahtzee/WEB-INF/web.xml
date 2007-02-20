@@ -90,29 +90,29 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>ShowProfileServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.profile.ShowProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowProfileServlet</servlet-name>
+        <url-pattern>/profile/ShowProfileServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>ChangeProfileServlet</servlet-name>
         <servlet-class>be.kdg.yahtzee.servlets.profile.ChangeProfileServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ChangeProfileServlet</servlet-name>
-        <url-pattern>/profile/ChangeProfileServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>ConfirmChangeProfileServlet</servlet-name>
-        <servlet-class>be.kdg.yahtzee.servlets.profile.ConfirmChangeProfileServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ConfirmChangeProfileServlet</servlet-name>
         <url-pattern>/profile/ConfirmChangeProfileServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ConfirmChangePasswordServlet</servlet-name>
-        <servlet-class>be.kdg.yahtzee.servlets.profile.ConfirmChangePasswordServlet</servlet-class>
+        <servlet-name>ChangePasswordServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.profile.ChangePasswordServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ConfirmChangePasswordServlet</servlet-name>
+        <servlet-name>ChangePasswordServlet</servlet-name>
         <url-pattern>/profile/ConfirmChangePasswordServlet</url-pattern>
     </servlet-mapping>
 

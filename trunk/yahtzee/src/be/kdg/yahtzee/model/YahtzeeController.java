@@ -7,7 +7,6 @@ import be.kdg.yahtzee.model.users.Address;
 import be.kdg.yahtzee.model.users.Role;
 import be.kdg.yahtzee.model.users.User;
 import be.kdg.yahtzee.model.users.UserManager;
-import org.apache.log4j.Level;
 
 import java.util.Collection;
 import java.util.List;
@@ -27,7 +26,6 @@ public class YahtzeeController {
 
     public void setUserManager(UserManager userManager) {
         this.userManager = userManager;
-        userManager.initLogger(Level.DEBUG);
     }
 
     public User findUser(String username) {

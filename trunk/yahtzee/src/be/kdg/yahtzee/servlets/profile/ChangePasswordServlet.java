@@ -17,7 +17,7 @@ import java.io.IOException;
  * Time: 12:49:44
  * To change this template use File | Settings | File Templates.
  */
-public class ConfirmChangePasswordServlet extends YahtzeeServlet {
+public class ChangePasswordServlet extends YahtzeeServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String orgUsername = request.getParameter("orgUser");
         String orgPass = request.getParameter("orgPass");

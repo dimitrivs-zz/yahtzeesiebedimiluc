@@ -2,7 +2,10 @@ package be.kdg.yahtzee.model.game;
 
 import be.kdg.yahtzee.model.chat.Chat;
 import be.kdg.yahtzee.model.users.User;
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.apache.log4j.SimpleLayout;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -11,6 +14,8 @@ import java.util.Set;
 
 public class GameManager {
     private static Logger logger = Logger.getLogger(GameManager.class);
+    static final String FILENAME = "GameManagerLog.txt";
+
     private Set<Game> games;
     private Chat GlobalChat;
 
@@ -18,26 +23,27 @@ public class GameManager {
     public GameManager() {
         games = new HashSet<Game>();
         GlobalChat = new Chat();
-        //initLogger(Level.DEBUG);
-        //logger.info("GameManger started");
+        initLogger(Level.DEBUG);
+        logger.info("GameManger started");
     }
-    /*
- private void initLogger(Level level) {
-     HTMLLayout layout = new HTMLLayout();
-     WriterAppender appender = null;
-     try {
-         FileOutputStream output = new FileOutputStream("gameManagerLog.html");
-         appender = new WriterAppender(layout, output);
-     } catch (Exception e) {
-         // Empty catch block!
-     }
-     logger.addAppender(appender);
-     logger.setLevel(level);
- }   */
+
+    private void initLogger(Level level) {
+        SimpleLayout layout = new SimpleLayout();
+
+        FileAppender appender = null;
+        try {
+            appender = new FileAppender(layout, FILENAME, false);
+        } catch (Exception e) {
+            // empty catch block!
+        }
+
+        logger.addAppender(appender);
+        logger.setLevel(level);
+    }
 
     public boolean createGame(String gameName, int maxPlayer, User user) {
         if (!checkGameExists(gameName)) {
-            //logger.debug("Game : " + gameName + " kon niet worden gemaakt reden: het spel bestaat al");
+            logger.debug("Game : " + gameName + " kon niet worden gemaakt reden: het spel bestaat al");
             return false;
         }
         if (!checkUserAlreadyInAgame(user)) {
@@ -80,7 +86,7 @@ public class GameManager {
                     return false;
                 } else {
                     if (game.getGameName().equals(gameName)) {
-                        //logger.info("User : " + user.getUsername() + " joined game: " + gameName);
+                        logger.info("User : " + user.getUsername() + " joined game: " + gameName);
                         game.joinGame(user);
                         if (game.getNumberOfPlayers() == game.getMaxPlayer()) {
                             game.setState(EnumState.VOL);
@@ -89,7 +95,7 @@ public class GameManager {
                     }
                 }
             } else {
-                //logger.info("The user is already in the game");
+                logger.info("The user is already in the game");
                 return false;
             }
         }
@@ -107,7 +113,7 @@ public class GameManager {
                 }
             }
         }
-        //logger.info("User : " + user.getUsername() + " left game: " + gameName);
+        logger.info("User : " + user.getUsername() + " left game: " + gameName);
     }
 
     private boolean checkGameExists(String gameName) {

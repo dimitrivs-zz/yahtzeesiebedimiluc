@@ -18,7 +18,6 @@ import org.apache.log4j.SimpleLayout;
 
 import java.util.*;
 
-
 public class UserManager {
     private static Logger logger = Logger.getLogger(UserManager.class);
     static final String FILENAME = "UserManagerLog.txt";
@@ -29,7 +28,13 @@ public class UserManager {
 
     private Map<String, Role> roles = new HashMap<String, Role>();
 
-    public boolean initLogger(Level level) {
+
+    public UserManager() {
+        initLogger(Level.DEBUG);
+        logger.info("usermanager started");
+    }
+
+    private void initLogger(Level level) {
         SimpleLayout layout = new SimpleLayout();
 
         FileAppender appender = null;
@@ -41,7 +46,6 @@ public class UserManager {
 
         logger.addAppender(appender);
         logger.setLevel(level);
-        return true;
     }
 
     // ---------- User methoden

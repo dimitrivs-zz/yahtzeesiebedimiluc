@@ -23,6 +23,7 @@ import java.io.IOException;
  * To change this template use File | Settings | File Templates.
  */
 public class LogoutServlet extends YahtzeeServlet {
+
     private static Logger logger = Logger.getLogger(LogoutServlet.class);
     static final String FILENAME = "LogoutServletLog.txt";
 

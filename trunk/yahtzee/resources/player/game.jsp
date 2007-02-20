@@ -120,7 +120,7 @@ function sendMessage()
 {
     var text = DWRUtil.getValue("text");
     DWRUtil.setValue("text", "");
-    GameManager.addMessage("${userBean.name}: " + text + "\n", '${gameBean.gameName}', gotMessages);
+    GameManager.addMessage("${userBean.name}: " + text + "<br/>", '${gameBean.gameName}', gotMessages);
 }
 
 function checkMessages()
@@ -145,6 +145,8 @@ function gotMessages(messages)
         chatlog = messages[data].text + chatlog;
     }
     DWRUtil.setValue("chatlog", chatlog);
+    var objDiv = document.getElementById("chatlog");
+    objDiv.scrollTop = objDiv.scrollHeight;
     setTimeout("checkMessages()", 1000);
 }
 </script>
@@ -225,7 +227,7 @@ function gotMessages(messages)
                     </tr>
                     <tr>
                         <td>
-                            <div id="chatlog" style="width:100px; height:100px;overflow: auto"></div>
+                            <div id="chatlog" style="width:200px; height:200px;overflow:auto;" class="top"></div>
                         </td>
                     </tr>
                     <tr>
