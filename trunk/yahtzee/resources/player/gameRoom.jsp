@@ -4,7 +4,7 @@
 
 <html>
 <head><title>Spel overzicht</title>
-    <link href="../css/formStyle.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/gameStyle.css" rel="stylesheet" type="text/css"/>
     <script type='text/javascript' src='/dwr/engine.js'></script>
     <script type='text/javascript' src='/dwr/interface/GameManager.js'></script>
     <script type='text/javascript' src='/dwr/interface/UserManager.js'></script>
@@ -12,65 +12,39 @@
     <script type='text/javascript' src='gameRoom.js'></script>
 </head>
 <body onload='refresh()'>
-<p>
-    <table border="1">
-        <tr>
-            <td>Yahtzee</td>
-            <td>Welkom ${userBean.name}</td>
-            <td>
-            <td>
-                <table border="1">
-                    <tr>
-                        <td><a href="/faces/player/startNewGame.jsp">Start nieuw spel</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="/profile/ChangeProfileServlet?userName=${userBean.username}">Change profile</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <jsp:include page="/logout/logout.jsp"/>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-
-    </table>
-</p>
-
-<table>
-    <tr>
-        <td>
-            <div id="games">
+<div id="container">
+    <div id="header">
+        <div id="logo"> <img src="../images/logo.png" class="logo" alt="Yahtzee"/> </div>
+        <div id="links">
+            <h2><a href="/faces/player/startNewGame.jsp" target="_blank">Start new game</a> | <a href="/profile/ChangeProfileServlet?userName=${userBean.username}">Change Profile</a> | <a href="../logout/LogoutServlet">Logout</a></h2>
+        </div>
+    </div>
+    <div id="roomsContainer">
+        <div class="tekst"><span class="welkom">Welkom, </span>${userBean.name}<br /></div>
+        <div class="hr"><hr /></div>
+        <div id="roomsWrapper">
+            <div id="rooms">
+                <h3>Gamerooms:</h3>
+                <div id="roomTable">
+                    <div id="games">
+                    </div>
+                </div>
             </div>
-        </td>
-        <td>
-            <table border="1">
-                <tr>
-                    <td>Chat</td>
-                </tr>
-                <tr>
-                    <td>
-                        <textarea id="chatlog" rows="10" cols="25"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input id="text" type="text" size="25">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input id="name" type="hidden" value="${userBean.username}">
-                        <input type="button" onClick="sendMessage()" value="send" name="btnSend">
-                    </td>
-                </tr>
-            </table>
-
-        </td>
-    </tr>
-</table>
+            <div id="chat">
+                <h3 class="chatTekst">Yahtzee chat</h3>
+                <div id="chatlog" style="width:100px; height:100px;overflow:auto;" class="top"></div>
+                <textarea id="text" class="bottom"></textarea>
+                <input id="name" type="hidden" value="${userBean.username}">
+                <input type="button" onClick="sendMessage()" value="Send" name="btnSend" class="btn">
+            </div>
+        </div>
+        <div id="footer">
+            <div class="hr"><hr /></div>
+            <div id="footerTekst">
+                <a href="info.html" onclick="window.open('info.html','info','width=250,height=250,scrollbars=no,toolbar=no,location=no'); return false">Info</a> | <a href="help" target="_blank">Help</a> </div>
+        </div>
+    </div>
+</div>
 <div id="onlineUsers">
 </div>
 
