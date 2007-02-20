@@ -18,7 +18,7 @@ function sendMessage()
     var text = DWRUtil.getValue("text");
     var name = DWRUtil.getValue("name");
     DWRUtil.setValue("text", "");
-    GameManager.addGlobalMessage(name + " : " + text + "\n", gotMessages);
+    GameManager.addGlobalMessage(name + " : " + text + "<br/>", gotMessages);
 }
 
 function getGlobalChatMessages() {
@@ -28,7 +28,7 @@ function getGlobalChatMessages() {
 function onlineUserList(messages) {
     var tableOnlineUsers = '<table><tr><td>'
     for (var user in messages) {
-        tableOnlineUsers += messages[user].username + ", "
+        tableOnlineUsers += '<a href=/profile/ShowProfileServlet?user=' + messages[user].username + '>' + messages[user].username + '</a>' + ', '
     }
     tableOnlineUsers += '</td></tr></table>'
     DWRUtil.setValue("onlineUsers", tableOnlineUsers)
@@ -66,8 +66,10 @@ function gotMessages(messages)
     var chatlog = "";
     for (var data in messages)
     {
-        chatlog = "<div>" + messages[data].text + "<br/></div>" + chatlog;
+        chatlog = messages[data].text + chatlog;
     }
     DWRUtil.setValue("chatlog", chatlog);
-    setTimeout("checkMessages()", 1000);
+    var objDiv = document.getElementById("chatlog");
+    objDiv.scrollTop = objDiv.scrollHeight;
+    setTimeout("getGlobalChatMessages()", 1000);
 }

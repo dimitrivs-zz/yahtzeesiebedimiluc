@@ -59,7 +59,7 @@
 
 <body>
 <div id="profile">
-z
+
 <form name="changePassword" action="/profile/ConfirmChangePasswordServlet?orgUser=${userBean.username}"
       method="post">
     <table>

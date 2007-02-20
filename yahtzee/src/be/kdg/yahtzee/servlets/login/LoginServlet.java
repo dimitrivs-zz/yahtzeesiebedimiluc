@@ -27,6 +27,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class LoginServlet extends YahtzeeServlet {
+
     private static Logger logger = Logger.getLogger(LoginServlet.class);
     static final String FILENAME = "LoginServletLog.txt";
 
