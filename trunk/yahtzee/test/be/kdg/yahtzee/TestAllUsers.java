@@ -6,6 +6,7 @@ public class TestAllUsers {
                 "be.kdg.yahtzee.users.TestBlockUser",
                 "be.kdg.yahtzee.users.TestChangePassword",
                 "be.kdg.yahtzee.users.TestChangeProfile",
+                "be.kdg.yahtzee.users.TestInitializeLogger",
                 "be.kdg.yahtzee.users.TestLogin",
                 "be.kdg.yahtzee.users.TestOnlineUsers",
                 "be.kdg.yahtzee.users.TestRegistratieUser",

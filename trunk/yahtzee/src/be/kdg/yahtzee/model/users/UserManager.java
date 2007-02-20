@@ -34,7 +34,7 @@ public class UserManager {
         logger.info("usermanager started");
     }
 
-    private void initLogger(Level level) {
+    public boolean initLogger(Level level) {
         SimpleLayout layout = new SimpleLayout();
 
         FileAppender appender = null;
@@ -46,6 +46,7 @@ public class UserManager {
 
         logger.addAppender(appender);
         logger.setLevel(level);
+        return true;
     }
 
     // ---------- User methoden
