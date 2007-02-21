@@ -9,6 +9,7 @@ import java.util.*;
 public class Game {
     private String gameName;
     private int maxPlayer;
+    private User creator;
     private Set<User> users;
     private EnumState state;
     private Chat chat;
@@ -19,7 +20,6 @@ public class Game {
     private int points;
     //private Score score;
 
-    
     private User activePlayer;
     private Map<String, Score> scores;
     private List<User> userList;
@@ -35,8 +35,6 @@ public class Game {
         possibleScores = new HashMap<String, Integer>();
         numberOfRolls = 0;
         //score = new Score();
-        
-
     }
 
     public Game(String gameName, int maxPlayer, User user) {
@@ -48,6 +46,7 @@ public class Game {
             this.state = EnumState.WACHTEN;
         }
         this.chat = new Chat();
+        creator = user;
         users = new HashSet<User>();
         users.add(user);
 
@@ -63,6 +62,10 @@ public class Game {
         possibleScores = new HashMap<String, Integer>();
         numberOfRolls = 0;
         //score = new Score();
+    }
+
+    public User getCreator() {
+        return creator;
     }
 
     public String getGameName() {
@@ -102,10 +105,6 @@ public class Game {
         return activePlayer;
     }
 
-    public void startGame() {
-        setState(EnumState.BEZIG);   
-    }
-
     public void joinGame(User user) {
         users.add(user);
 
@@ -118,12 +117,8 @@ public class Game {
 
     public void leaveGame(User user) {
         users.remove(user);
-
-
         userList.remove(user);
         scores.remove(user.getUsername());
-
-
     }
 
     public int getNumberOfPlayers() {
@@ -517,7 +512,7 @@ public class Game {
                 currentPlayerIndex = userList.indexOf(tUser);
             }
         }
-        if (currentPlayerIndex == userList.size()-1) {
+        if (currentPlayerIndex == userList.size() - 1) {
             currentPlayerIndex = 0;
         } else {
             currentPlayerIndex++;

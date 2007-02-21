@@ -1,11 +1,11 @@
 package be.kdg.yahtzee.model.game;
 
 public enum EnumState {
-    LEEG(0), WACHTEN(1), IDLE(2), VOL(3), BEZIG(4);
+    LEEG, WACHTEN, IDLE, VOL, BEZIG
+    /*
+  private final int waarde;
 
-    private final int waarde;
-
-    EnumState(int waarde) {
-        this.waarde = waarde;
-    }
+  EnumState(int waarde) {
+      this.waarde = waarde;
+  }  */
 }
