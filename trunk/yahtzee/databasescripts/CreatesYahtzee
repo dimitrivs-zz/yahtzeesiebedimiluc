@@ -11,6 +11,16 @@ USE `yahtzee`;
 -- -------------------------------------
 -- Tables
 
+DROP TABLE IF EXISTS `yahtzee`.`highscores`;
+CREATE TABLE `yahtzee`.`highscores` (
+  `highscoreId` INT(11) NOT NULL,
+  `score` INT(11) NULL,
+  `user` INT(11) NULL,
+  PRIMARY KEY (`highscoreId`),
+  INDEX `FK20ED30434BC30E34` (`user`)
+)
+ENGINE = INNODB;
+
 DROP TABLE IF EXISTS `yahtzee`.`roles`;
 CREATE TABLE `yahtzee`.`roles` (
   `roleId` INT(11) NOT NULL,
@@ -46,4 +56,3 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 -- ----------------------------------------------------------------------
 -- EOF
-

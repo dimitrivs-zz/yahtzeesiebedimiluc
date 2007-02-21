@@ -8,40 +8,58 @@
     <f:loadBundle basename="bundles.resources" var="labels"/>
     <html>
     <head>
-        <link href="../css/formStyle.css" rel="stylesheet" type="text/css" />
-        <title><h:outputText value="#{labels.adminTitle}"/></title>
+        <link href="../css/formStyle.css" rel="stylesheet" type="text/css"/>
+        <title>
+            <h:outputText value="#{labels.adminTitle}"/>
+        </title>
     </head>
     <body>
     <div id="admin">
+        <p STYLE="text-align: right;"><a href="../logout/LogoutServlet">
+            <h:outputText value="#{labels.logout}"/>
+        </a></p>
         <table>
             <tr>
                 <td>
                     <img src="../images/logo.png" class="logo" alt="Yahtzee"/>
                 </td>
                 <td>
-                    <h1><h:outputText value="#{labels.admin}"/></h1>
+                    <h1>
+                        <h:outputText value="#{labels.admin}"/>
+                    </h1>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <h2><h:outputText value="#{labels.adminFunctions}"/></h2>
+                    <h2>
+                        <h:outputText value="#{labels.adminFunctions}"/>
+                    </h2>
                     <ul>
-                        <li><a href="/faces/admin/userManagement.jsp"><h:outputText value="#{labels.adminUser}"/></a></li>
-                        <li><a href="/faces/admin/gameManagement.jsp"><h:outputText value="#{labels.adminGame}"/></a></li>
-                        <li><a href="../logout/LogoutServlet"><h:outputText value="#{labels.logout}" /></a></li>
+                        <li><a href="/faces/admin/userManagement.jsp">
+                            <h:outputText value="#{labels.adminUser}"/>
+                        </a></li>
+                        <li><a href="/faces/admin/gameManagement.jsp">
+                            <h:outputText value="#{labels.adminGame}"/>
+                        </a></li>
                     </ul>
                 </td>
                 <tr>
                     <td colspan="2">
-                        <h2><h:outputText value="#{labels.adminStats}"/></h2>
+                        <h2>
+                            <h:outputText value="#{labels.adminStats}"/>
+                        </h2>
                         <ul>
-                            <li><h:outputText value="#{labels.adminScores}"/></li>
-                            <li><h:outputText value="#{labels.adminFreqs}"/></li>
+                            <li><a href="/admin/highscoreManagement.jsp">
+                                <h:outputText value="#{labels.adminScores}"/>
+                            </a></li>
+                            <li>
+                                <h:outputText value="#{labels.adminFreqs}"/>
+                            </li>
                         </ul>
                     </td>
                 </tr>
-        </table
-        </div>
+        </table>
+    </div>
     </body>
     </html>
 </f:view>

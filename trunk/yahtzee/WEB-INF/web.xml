@@ -215,6 +215,16 @@
         <url-pattern>/admin/SearchUserServlet</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>ShowHighscoresServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.ShowHighscoresServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowHighscoresServlet</servlet-name>
+        <url-pattern>/admin/ShowHighscoresServlet</url-pattern>
+    </servlet-mapping>
+
     <!-- JavaServer Faces Servlet -->
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>

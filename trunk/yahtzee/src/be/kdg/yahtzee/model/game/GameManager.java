@@ -1,5 +1,6 @@
 package be.kdg.yahtzee.model.game;
 
+import be.kdg.yahtzee.dao.HighscoreDao;
 import be.kdg.yahtzee.model.chat.Chat;
 import be.kdg.yahtzee.model.users.User;
 import org.apache.log4j.FileAppender;
@@ -7,14 +8,14 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.SimpleLayout;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class GameManager {
     private static Logger logger = Logger.getLogger(GameManager.class);
     static final String FILENAME = "GameManagerLog.txt";
+
+    private HighscoreDao highscoreDao;
+    private Set<Highscore> highscores = new HashSet<Highscore>();
 
     private Set<Game> games;
     private Chat GlobalChat;
@@ -25,6 +26,31 @@ public class GameManager {
         GlobalChat = new Chat();
         initLogger(Level.DEBUG);
         logger.info("GameManger started");
+    }
+
+    public void setHighscoreDao(HighscoreDao highscoreDao) {
+        this.highscoreDao = highscoreDao;
+
+        for (Object o : highscoreDao.getHighscores()) {
+            Highscore highscore = (Highscore) o;
+            highscores.add(highscore);
+        }
+    }
+
+    public List<Highscore> getHighscores() {
+        return highscoreDao.getSortedHighscores();
+    }
+
+    public List<Highscore> getTop10Highscores() {
+        List<Highscore> top10 = new ArrayList<Highscore>();
+
+        List<Highscore> allHighscores = highscoreDao.getSortedHighscores();
+
+        for (int i = 0; i < 10; i++) {
+            top10.add(allHighscores.get(i));
+        }
+
+        return top10;
     }
 
     private void initLogger(Level level) {
