@@ -3,6 +3,7 @@ package be.kdg.yahtzee.model;
 import be.kdg.yahtzee.model.game.Die;
 import be.kdg.yahtzee.model.game.Game;
 import be.kdg.yahtzee.model.game.GameManager;
+import be.kdg.yahtzee.model.game.Highscore;
 import be.kdg.yahtzee.model.users.Address;
 import be.kdg.yahtzee.model.users.Role;
 import be.kdg.yahtzee.model.users.User;
@@ -146,5 +147,13 @@ public class YahtzeeController {
 
     public Map<String, Role> getRoles() {
         return userManager.getRoles();
+    }
+
+    public List<Highscore> getHighscores() {
+        return gameManager.getHighscores();
+    }
+
+    public List<Highscore> getTop10Highscores() {
+        return gameManager.getTop10Highscores();
     }
 }
