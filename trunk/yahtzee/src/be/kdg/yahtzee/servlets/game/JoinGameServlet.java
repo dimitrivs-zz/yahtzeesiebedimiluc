@@ -32,6 +32,6 @@ public class JoinGameServlet extends YahtzeeServlet {
         GameBean gameBean = new GameBean(yahtzeeController, gameName);
         session.setAttribute("gameBean", gameBean);
 
-        forward("/player/game2.jsp", request, response);
+        forward("/player/game.jsp", request, response);
     }
 }
