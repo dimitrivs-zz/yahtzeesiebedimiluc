@@ -1,18 +1,18 @@
 package be.kdg.yahtzee.servlets.game;
 
-import be.kdg.yahtzee.servlets.YahtzeeServlet;
+import be.kdg.yahtzee.beans.GameBean;
+import be.kdg.yahtzee.beans.UserBean;
 import be.kdg.yahtzee.model.YahtzeeController;
 import be.kdg.yahtzee.model.users.User;
-import be.kdg.yahtzee.beans.UserBean;
-import be.kdg.yahtzee.beans.GameBean;
+import be.kdg.yahtzee.servlets.YahtzeeServlet;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.ServletException;
 import java.io.IOException;
-import java.util.Set;
 import java.util.HashSet;
+import java.util.Set;
 
 public class NewGameServlet extends YahtzeeServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,19 +27,19 @@ public class NewGameServlet extends YahtzeeServlet {
 
         boolean check = false;
 
-        if (!yahtzeeController.createGame(gameName, Integer.valueOf(maxPlayer), user)){
+        if (!yahtzeeController.createGame(gameName, Integer.valueOf(maxPlayer), user)) {
             request.setAttribute("error", "Spel bestaat al of u zit al in een andere spel.<br /><a href='/faces/player/gameRoom.jsp'> terug naar game room</a>");
             check = true;
         }
 
-        Set<Object> games =  new HashSet<Object>(yahtzeeController.getGames());
+        Set<Object> games = new HashSet<Object>(yahtzeeController.getGames());
 
         session.setAttribute("games", games);
-        if (!check){
+        if (!check) {
             GameBean gameBean = new GameBean(yahtzeeController, gameName);
             session.setAttribute("gameBean", gameBean);
-            response.sendRedirect("/faces/player/game.jsp");
-        } else{
+            response.sendRedirect("/faces/player/game2.jsp");
+        } else {
             forward("/faces/player/startNewGame.jsp", request, response);
         }
     }
