@@ -533,4 +533,7 @@ public class Game {
         //return score;
     }
 
+    public Map getScores() {
+        return scores;
+    }
 }

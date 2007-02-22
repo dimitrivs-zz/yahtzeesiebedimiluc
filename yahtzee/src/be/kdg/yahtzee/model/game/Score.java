@@ -225,18 +225,28 @@ public class Score {
         yahtzeeBonus += YAHTZEEBONUS;
     }
 
-    public int getUpperHalf() {
+    public int getUpperHalfWithoutBonus() {
         return upperHalfWithoutBonus = ones.getPoints() + twos.getPoints() + threes.getPoints() + fours.getPoints() + fives.getPoints() + sixes.getPoints();
     }
 
-    public int getTotalUpperHalf() {
-        getUpperHalf();
-
+    public int getUpperHalfBonus() {
         if (upperHalfWithoutBonus > 62) {
             upperHalfBonus = BONUS;
         } else {
             upperHalfBonus = 0;
         }
+        return upperHalfBonus;
+    }
+
+    public int getTotalUpperHalf() {
+        getUpperHalfWithoutBonus();
+        getUpperHalfBonus();
+
+        /*if (upperHalfWithoutBonus > 62) {
+            upperHalfBonus = BONUS;
+        } else {
+            upperHalfBonus = 0;
+        }*/
 
         totalUpperHalf = upperHalfWithoutBonus + upperHalfBonus;
 
