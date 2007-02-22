@@ -193,6 +193,11 @@ public class GameManager {
         return game.getCreator().getUsername().equals(user.getUsername());
     }
 
+    public String getCreator(String gameName) {
+        Game game = getGame(gameName);
+        return game.getCreator().getUsername();
+    }
+
     private void updateState(Game game) {
         if (game.getNumberOfPlayers() == 0) {
             game.setState(EnumState.LEEG);
