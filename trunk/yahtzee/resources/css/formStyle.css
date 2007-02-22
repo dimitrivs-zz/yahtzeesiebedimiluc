@@ -14,14 +14,6 @@
 	margin: 15px 20px 10px 20px;
 }
 
-#admin{
-    background-image:url(../images/adminBg.png);
-	background-repeat:no-repeat;
-	width:450px;
-	height:310px;
-	margin: 15px 20px 10px 20px;
-}
-
 #message{
     color:#ffffff;
 }
@@ -59,7 +51,6 @@ img.logo{
 }
 
 img, #login, #register, #newGame,#profile,#userProfile{ behavior: url(../scripts/iepngfix.htc) }
-
 
 input.btn{
 	background-color:#ffffff;
