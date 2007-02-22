@@ -225,70 +225,60 @@ public class GameManager {
     private boolean checkGameFullBusy(Game game) {
         return game.getState().equals("Full") || game.getState().equals("Busy");
     }
-/*
-public List<Game> test(){
-   List<Game> gamesAjax = new ArrayList<Game>();
-   Iterator it = games.iterator();
-   while(it.hasNext()){
-       Game game = (Game)it.next();
-       gamesAjax.add(game);
-   }
-   return gamesAjax;
-} */
 
     public List<Die> playRound(String gameName) {
         Game game = getGame(gameName);
-
         List<Die> diceList = game.playRound();
-
         return diceList;
     }
 
     public boolean fixDie(String gameName, int dieId) {
         Game game = getGame(gameName);
-
         return game.fixDie(dieId);
     }
 
     public boolean unfixDie(String gameName, int dieId) {
         Game game = getGame(gameName);
-
         return game.unfixDie(dieId);
     }
-
-/*public Map<String, Integer> getScorePossibilities(String gameName) {
-    Game game = getGame(gameName);
-
-    return game.getScorePossibilities();
-}*/
 
     public List<ScoreAspect> getScorePossibilities(String gameName) {
         Game game = getGame(gameName);
         return game.getScorePossibilities();
     }
 
-    public User getActivePlayer(String gameName) {
+    public String getActivePlayer(String gameName) {
         Game game = getGame(gameName);
-        return game.getActivePlayer();
+        return game.getActivePlayer().getUsername();
     }
-
-/*public List<Integer> getTotals(String gameName) {
-    Game game = getGame(gameName);
-    List<Integer> totals = new ArrayList<Integer>();
-    totals.add(0, game.getScore().getUpperHalf());
-    totals.add(1, game.getScore().getTotalUpperHalf());
-    totals.add(2, game.getScore().getTotalLowerHalf());
-    totals.add(3, game.getScore().getTotalScore());
-    return totals;
-}*/
 
     public Score selectScore(String gameName, String scoreChoice) {
         Game game = getGame(gameName);
-
         return game.selectScore(scoreChoice);
     }
+
+    public Map getScores(String gameName) {
+        Game game = getGame(gameName);
+        return game.getScores();
+    }
+
     /*
    public int getNumberOfGames() {
        return games.size();
    } */
+    public String startGame(String gamename) {
+        Game game = getGame(gamename);
+        game.startGame();
+        return game.getState();
+    }
+
+    public String getGameState(String gamename) {
+        Game game = getGame(gamename);
+        return game.getState();
+    }
+
+    public List getDiceList(String gameName) {
+        Game game = getGame(gameName);
+        return game.getDiceList();
+    }
 }

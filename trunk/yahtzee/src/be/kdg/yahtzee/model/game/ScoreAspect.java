@@ -7,6 +7,7 @@ public class ScoreAspect {
 
     public ScoreAspect(String description) {
         this.description = description;
+        this.points = 0;
     }
 
     public ScoreAspect(String description, int points) {
