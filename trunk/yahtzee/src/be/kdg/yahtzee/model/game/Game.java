@@ -13,7 +13,7 @@ public class Game {
     private Set<User> users;
     private EnumState state;
     private Chat chat;
-    private List<Die> diceList;
+    private List<Die> diceList = new ArrayList<Die>();
     private List<Integer> diceValueList;
     private List<Integer> diceValueListWithoutDoubles;
     private DiceGenerator diceGen;
@@ -56,7 +56,7 @@ public class Game {
         scores.put(user.getUsername(), new Score());
         activePlayer = user;
         userList.add(user);
-
+        creator = user;
 
         diceGen = new DiceGenerator();
         possibleScores = new HashMap<String, Integer>();
@@ -93,6 +93,10 @@ public class Game {
         this.state = state;
     }
 
+    public List<Die> getDiceList() {
+        return diceList;
+    }
+
     public Chat getChat() {
         return chat;
     }
@@ -101,8 +105,12 @@ public class Game {
         return users;
     }
 
-    public User getActivePlayer() {
-        return activePlayer;
+    public String getActivePlayer() {
+        return activePlayer.getUsername();
+    }
+
+    public void startGame() {
+        setState(EnumState.BEZIG);
     }
 
     public void joinGame(User user) {
