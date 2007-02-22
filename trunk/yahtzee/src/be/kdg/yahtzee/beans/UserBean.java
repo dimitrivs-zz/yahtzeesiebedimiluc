@@ -3,13 +3,6 @@ package be.kdg.yahtzee.beans;
 import be.kdg.yahtzee.model.YahtzeeController;
 import be.kdg.yahtzee.model.users.User;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Eigenaar
- * Date: 30-jan-2007
- * Time: 21:03:03
- * To change this template use File | Settings | File Templates.
- */
 public class UserBean {
     private YahtzeeController yahtzeeController;
     private String username;
