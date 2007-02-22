@@ -344,73 +344,73 @@ function fixDice(diceNr, state) {
 <td>
 
 
+<table>
+<tr>
+<td>
     <table>
         <tr>
-            <td>
-                <table>
-                    <tr>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>Count all ones</td>
-                    </tr>
-                    <tr>
-                        <td>Count all twos</td>
-                    </tr>
-                    <tr>
-                        <td>Count all threes</td>
-                    </tr>
-                    <tr>
-                        <td>Count all fours</td>
-                    </tr>
-                    <tr>
-                        <td>Count all fives</td>
-                    </tr>
-                    <tr>
-                        <td>Count all sixes</td>
-                    </tr>
-                    <tr>
-                        <td>Total upper half</td>
-                    </tr>
-                    <tr>
-                        <td>Upper half bonus</td>
-                    </tr>
-                    <tr>
-                        <td>Upper half with bonus</td>
-                    </tr>
-                    <tr>
-                        <td>Three of a kind</td>
-                    </tr>
-                    <tr>
-                        <td>Carre</td>
-                    </tr>
-                    <tr>
-                        <td>Full house</td>
-                    </tr>
-                    <tr>
-                        <td>Small street</td>
-                    </tr>
-                    <tr>
-                        <td>Large street</td>
-                    </tr>
-                    <tr>
-                        <td>Yahtzee</td>
-                    </tr>
-                    <tr>
-                        <td>Chance</td>
-                    </tr>
-                    <tr>
-                        <td>Yahtzee bonus</td>
-                    </tr>
-                    <tr>
-                        <td>Total lower half</td>
-                    </tr>
-                    <tr>
-                        <td>Grand total</td>
-                    </tr>
-                </table>
-            </td>
-            <td width="150">
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Count all ones</td>
+        </tr>
+        <tr>
+            <td>Count all twos</td>
+        </tr>
+        <tr>
+            <td>Count all threes</td>
+        </tr>
+        <tr>
+            <td>Count all fours</td>
+        </tr>
+        <tr>
+            <td>Count all fives</td>
+        </tr>
+        <tr>
+            <td>Count all sixes</td>
+        </tr>
+        <tr>
+            <td>Total upper half</td>
+        </tr>
+        <tr>
+            <td>Upper half bonus</td>
+        </tr>
+        <tr>
+            <td>Upper half with bonus</td>
+        </tr>
+        <tr>
+            <td>Three of a kind</td>
+        </tr>
+        <tr>
+            <td>Carre</td>
+        </tr>
+        <tr>
+            <td>Full house</td>
+        </tr>
+        <tr>
+            <td>Small street</td>
+        </tr>
+        <tr>
+            <td>Large street</td>
+        </tr>
+        <tr>
+            <td>Yahtzee</td>
+        </tr>
+        <tr>
+            <td>Chance</td>
+        </tr>
+        <tr>
+            <td>Yahtzee bonus</td>
+        </tr>
+        <tr>
+            <td>Total lower half</td>
+        </tr>
+        <tr>
+            <td>Grand total</td>
+        </tr>
+    </table>
+</td>
+<td width="150">
                 <span id="p1table"
                       style="background-color: #aaffff; width: 20px; display: table-cell; visibility: hidden; ">
                     <table width="20">
@@ -455,9 +455,9 @@ function fixDice(diceNr, state) {
                         <tbody id="p4score"></tbody>
                     </table>
                 </span>
-            </td>
-        </tr>
-    </table>
+</td>
+</tr>
+</table>
 
 
 </td>

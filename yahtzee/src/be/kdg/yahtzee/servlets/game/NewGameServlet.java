@@ -38,7 +38,7 @@ public class NewGameServlet extends YahtzeeServlet {
         if (!check) {
             GameBean gameBean = new GameBean(yahtzeeController, gameName);
             session.setAttribute("gameBean", gameBean);
-            response.sendRedirect("/faces/player/game2.jsp");
+            response.sendRedirect("/faces/player/game.jsp");
         } else {
             forward("/faces/player/startNewGame.jsp", request, response);
         }
