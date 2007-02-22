@@ -142,6 +142,12 @@ public class GameManager {
         return true;
     }
 
+    public String startGame(String gamename) {
+        Game game = getGame(gamename);
+        game.startGame();
+        return game.getState();
+    }
+
     public boolean startGame(String gameName, User user) {
         Game game = getGame(gameName);
         if (isCreator(game, user)) {
@@ -271,11 +277,7 @@ public class GameManager {
    public int getNumberOfGames() {
        return games.size();
    } */
-    public String startGame(String gamename) {
-        Game game = getGame(gamename);
-        game.startGame();
-        return game.getState();
-    }
+
 
     public String getGameState(String gamename) {
         Game game = getGame(gamename);
