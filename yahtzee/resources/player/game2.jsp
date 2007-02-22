@@ -9,10 +9,125 @@
 <script type='text/javascript' src='/dwr/util.js'></script>
 
 <script type="text/javascript">
+var loadPlayerTimeout;
+var keepDiceUpdatedTimeout;
+var playersArray = new Array();
+var activePlayer = '';
 var numberRolls = 0;
+var numberTurns = 0;
+
+function init() {
+    loadPlayers();
+    GameManager.getCreator('${gameBean.gameName}',
+            function(creator) {
+                if (creator != '${userBean.username}') {
+                    document.getElementById('btnStart').style.visibility = 'hidden';
+                }
+            }
+            );
+    getActivePlayer();
+}
+
+function getActivePlayer() {
+    GameManager.getActivePlayer('${gameBean.gameName}',
+            function(playerName) {
+                if (activePlayer == '') {
+                    activePlayer = playerName;
+                }
+                if (activePlayer != playerName) {
+                    DWRUtil.setValue('gameState', playerName + ' is playing...');
+                    numberRolls = 0;
+                    if (playerName == '${userBean.username}') {
+                        if (numberTurns >= 13) {
+                            window.location = 'gameFinish.jsp';
+                        } else {
+                            clearTimeout(keepDiceUpdatedTimeout);
+                            document.getElementById('btnRoll').disabled = false;
+                        }
+                    }
+                    resetDice();
+                    activePlayer = playerName;
+                }
+            }
+            );
+    setTimeout('getActivePlayer()', 1000);
+}
+
+function loadPlayers() {
+    document.getElementById('p1table').style.visibility = 'hidden';
+    document.getElementById('p2table').style.visibility = 'hidden';
+    document.getElementById('p3table').style.visibility = 'hidden';
+    document.getElementById('p4table').style.visibility = 'hidden';
+    GameManager.getUsersOfGame('${gameBean.gameName}', playersLoaded);
+}
+function playersLoaded(players) {
+    playersArray.length = 0;
+    var i = 0;
+    for (var user in players) {
+        playersArray[i] = new Array();
+        playersArray[i][0] = players[user].username;
+        i++;
+        document.getElementById('p' + i + 'table').style.visibility = 'visible';
+        DWRUtil.setValue('p' + i + 'name', players[user].username);
+    }
+    loadPlayerTimeout = setTimeout('loadPlayers()', 1000);
+    GameManager.getGameState('${gameBean.gameName}', function(state) {
+        if (state == 'Busy') {
+            startGame();
+        }
+    })
+}
+
+function startGame() {
+    DWRUtil.setValue('gameState', 'Starting yahtzee game...');
+    GameManager.startGame('${gameBean.gameName}', gameStarted);
+}
+
+function gameStarted(state) {
+    if (state == 'Busy') {
+        document.getElementById('btnStart').disabled = true;
+        GameManager.getActivePlayer('${gameBean.gameName}',
+                function(player) {
+                    if (player == '${userBean.username}') {
+                        document.getElementById('btnRoll').disabled = false;
+                        calculateScores();
+                    } else {
+                        keepDiceUpdated();
+                    }
+                    DWRUtil.setValue('gameState', player + ' is playing...');
+                }
+                );
+        DWRUtil.setValue('gameState', 'Yahtzee game started.');
+        clearTimeout(loadPlayerTimeout);
+    } else {
+        startGame();
+    }
+}
+function keepDiceUpdated() {
+    GameManager.getDiceList('${gameBean.gameName}',
+            function(diceList) {
+                var i = 0;
+                resetDice();
+                for (var die in diceList)
+                {
+                    if (!diceList[die].dieFixed) {
+                        DWRUtil.setValue('dice' + i + 'notFixed', diceList[die].value);
+                        document.getElementById('dice' + i + 'notFixed').style.visibility = 'visible';
+                    } else {
+                        DWRUtil.setValue('dice' + i + 'fixed', diceList[die].value);
+                        document.getElementById('dice' + i + 'fixed').style.visibility = 'visible';
+                    }
+                    i++;
+                }
+            }
+            );
+    calculateScores();
+    keepDiceUpdatedTimeout = setTimeout('keepDiceUpdated()', 2000);
+}
+
 function rollDice() {
     if (numberRolls < 3) {
-        GameManager.playRound(getDice, '${gameBean.gameName}');
+        GameManager.playRound('${gameBean.gameName}', getDice);
         numberRolls++;
         if (numberRolls == 3) {
             document.getElementById('btnRoll').disabled = true;
@@ -29,86 +144,73 @@ function getDice(diceList) {
         }
         i++;
     }
-    GameManager.getScorePossibilities(buildScores, '${gameBean.gameName}');
+    GameManager.getScorePossibilities('${gameBean.gameName}', showScorePossibilities);
 }
-function fixDice(diceNr, state) {
-    if (state) {
-        GameManager.fixDie('${gameBean.gameName}', diceNr);
-        DWRUtil.setValue('dice' + diceNr + 'fixed', DWRUtil.getValue('dice' + diceNr + 'notFixed'));
-        document.getElementById('dice' + diceNr + 'fixed').style.visibility = 'visible';
-        document.getElementById('dice' + diceNr + 'notFixed').style.visibility = 'hidden';
-    } else {
-        GameManager.unfixDie('${gameBean.gameName}', diceNr);
-        DWRUtil.setValue('dice' + diceNr + 'notFixed', DWRUtil.getValue('dice' + diceNr + 'fixed'));
-        document.getElementById('dice' + diceNr + 'notFixed').style.visibility = 'visible';
-        document.getElementById('dice' + diceNr + 'fixed').style.visibility = 'hidden';
+
+function showScorePossibilities(scorePossibilitiesList) {
+    var table = '<table border="1"><tr><th>Score possibility</th><th>Points</th></tr>';
+    for (var scoreAspect in scorePossibilitiesList) {
+        table += '<tr onclick="selectScore(\'' + scorePossibilitiesList[scoreAspect].description + '\')"><td>' + scorePossibilitiesList[scoreAspect].description + '</td>';
+        table += '<td>' + scorePossibilitiesList[scoreAspect].points + '</td></tr>';
     }
+    table += '</table>';
+    DWRUtil.setValue('possibleScores', table);
+    document.getElementById('possibleScores').style.visibility = 'visible';
 }
-var timeoutId;
-var blinkObjects = new Array();
-function buildScores(scoreList) {
-    blinkObjects.length = 0;
-    clearTimeout(timeoutId);
-    var i = 0;
-    for (var scoreaspect in scoreList) {
-        DWRUtil.setValue('p1' + scoreList[scoreaspect].description, scoreList[scoreaspect].points);
-        if (!scoreList[scoreaspect].fixed) {
-            blinkObjects[i] = 'p1' + scoreList[scoreaspect].description;
-            i++;
+
+function selectScore(scoreDescription) {
+    GameManager.selectScore('${gameBean.gameName}', scoreDescription, emptyFunc);
+    resetDice();
+    document.getElementById('possibleScores').style.visibility = 'hidden';
+    document.getElementById('btnRoll').disabled = true;
+    keepDiceUpdated();
+    calculateScores();
+    numberTurns++;
+}
+
+var cellFuncs = [
+        function(data) {
+            return data;
         }
-    }
-    blink();
-}
-var j = 0;
-function blink() {
-    for (var i = 0; i < blinkObjects.length; i++) {
-        if (j % 2 == 0) {
-            document.getElementById(blinkObjects[i]).style.backgroundColor = '#ccffcc';
-        } else {
-            document.getElementById(blinkObjects[i]).style.backgroundColor = '#ffffff';
-        }
-    }
-    if (j < 1) {
-        j++;
-    } else {
-        j--;
-    }
-    timeoutId = setTimeout("blink()", 500);
-}
-function selectScore(id) {
-    if (numberRolls != 0 && document.getElementById(id).style.backgroundColor != '#ff0000') {
-        clearTimeout(timeoutId);
-        for (var i = 0; i < blinkObjects.length; i++) {
-            document.getElementById(blinkObjects[i]).style.backgroundColor = '#ffffff';
-            if (blinkObjects[i] != id) {
-                DWRUtil.setValue(blinkObjects[i], '0');
+        ];
+var count = 1;
+
+function calculateScores() {
+    GameManager.getScores('${gameBean.gameName}',
+            function(scores) {
+                var scoreArray = new Array();
+                var i = 1;
+                for (var score in scores) {
+                    DWRUtil.removeAllRows('p' + i + 'score');
+                    scoreArray[0] = scores[score].ones;
+                    scoreArray[1] = scores[score].twos;
+                    scoreArray[2] = scores[score].threes;
+                    scoreArray[3] = scores[score].fours;
+                    scoreArray[4] = scores[score].fives;
+                    scoreArray[5] = scores[score].sixes;
+                    scoreArray[6] = scores[score].upperHalfWithoutBonus;
+                    scoreArray[7] = scores[score].upperHalfBonus;
+                    scoreArray[8] = scores[score].totalUpperHalf;
+                    scoreArray[9] = scores[score].threeOfAKind;
+                    scoreArray[10] = scores[score].carre;
+                    scoreArray[11] = scores[score].fullHouse;
+                    scoreArray[12] = scores[score].smallStreet;
+                    scoreArray[13] = scores[score].largeStreet;
+                    scoreArray[14] = scores[score].yahtzee;
+                    scoreArray[15] = scores[score].chance;
+                    scoreArray[16] = scores[score].yahtzeeBonus;
+                    scoreArray[17] = scores[score].totalLowerHalf;
+                    scoreArray[18] = scores[score].totalScore;
+                    DWRUtil.addRows('p' + i + 'score', scoreArray, cellFuncs);
+                    i++
+                }
             }
-        }
-        GameManager.selectScore('${gameBean.gameName}', id.substr(2, id.length - 2));
-        document.getElementById(id).style.backgroundColor = '#ff0000';
-        numberRolls = 0;
-        resetDice();
-        document.getElementById('btnRoll').disabled = false;
-        GameManager.getTotals(calculateTotals, '${gameBean.gameName}');
-    }
+            );
 }
-function calculateTotals(totals) {
-    var i = 0;
-    for (var total in totals) {
-        if (i == 0) {
-            DWRUtil.setValue(document.getElementById('p1upper'), totals[i]);
-            if (totals[i] > 62) {
-                DWRUtil.setValue(document.getElementById('p1upperbonus'), totals[i]);
-            } else {
-                DWRUtil.setValue(document.getElementById('p1upperbonus'), 0);
-            }
-        }
-        if (i == 1) DWRUtil.setValue(document.getElementById('p1upperTotal'), totals[i]);
-        if (i == 2) DWRUtil.setValue(document.getElementById('p1lowerTotal'), totals[i]);
-        if (i == 3) DWRUtil.setValue(document.getElementById('p1total'), totals[i]);
-        i++;
-    }
+
+function emptyFunc(score) {
 }
+
 function resetDice() {
     for (var i = 0; i < 5; i++) {
         document.getElementById('dice' + i + 'notFixed').style.visibility = 'hidden';
@@ -116,37 +218,52 @@ function resetDice() {
     }
 }
 
-function sendMessage()
-{
-    var text = DWRUtil.getValue("text");
-    DWRUtil.setValue("text", "");
-    GameManager.addMessage("${userBean.name}: " + text + "\n", '${gameBean.gameName}', gotMessages);
-}
-
-function checkMessages()
-{
-    GameManager.getMessages('${gameBean.gameName}', gotMessages);
-    GameManager.getUsersOfGame('${gameBean.gameName}', displayUsers);
-}
-
-function displayUsers(messages) {
-    var users = "";
-    for (var user in messages) {
-        users += messages[user].username + "\n"
+function fixDice(diceNr, state) {
+    if (activePlayer == '${userBean.username}') {
+        if (state) {
+            GameManager.fixDie('${gameBean.gameName}', diceNr);
+            DWRUtil.setValue('dice' + diceNr + 'fixed', DWRUtil.getValue('dice' + diceNr + 'notFixed'));
+            document.getElementById('dice' + diceNr + 'fixed').style.visibility = 'visible';
+            document.getElementById('dice' + diceNr + 'notFixed').style.visibility = 'hidden';
+        } else {
+            GameManager.unfixDie('${gameBean.gameName}', diceNr);
+            DWRUtil.setValue('dice' + diceNr + 'notFixed', DWRUtil.getValue('dice' + diceNr + 'fixed'));
+            document.getElementById('dice' + diceNr + 'notFixed').style.visibility = 'visible';
+            document.getElementById('dice' + diceNr + 'fixed').style.visibility = 'hidden';
+        }
     }
-    DWRUtil.setValue("testDiv", users);
-}
 
-function gotMessages(messages)
-{
-    var chatlog = "";
-    for (var data in messages)
-    {
-        chatlog = messages[data].text + chatlog;
-    }
-    DWRUtil.setValue("chatlog", chatlog);
-    setTimeout("checkMessages()", 1000);
 }
+</script>
+
+<script type="text/javascript">
+    function sendMessage() {
+        var text = DWRUtil.getValue("text");
+        if (text != '' && text != ' ') {
+            DWRUtil.setValue("text", "");
+            GameManager.addMessage("${userBean.name}: " + text + "\n", '${gameBean.gameName}', gotMessages);
+        }
+    }
+    function checkMessages() {
+        GameManager.getMessages('${gameBean.gameName}', gotMessages);
+        //GameManager.getUsersOfGame('${gameBean.gameName}', displayUsers);
+    }
+    function displayUsers(messages) {
+        var users = "";
+        for (var user in messages) {
+            users += messages[user].username + "\n"
+        }
+        DWRUtil.setValue("testDiv", users);
+    }
+
+    function gotMessages(messages) {
+        var chatlog = "";
+        for (var data in messages) {
+            chatlog = messages[data].text + chatlog;
+        }
+        DWRUtil.setValue("chatlog", chatlog);
+        setTimeout("checkMessages()", 1000);
+    }
 </script>
 <style type="text/css">
     .dice {
@@ -163,21 +280,33 @@ function gotMessages(messages)
         font-family: arial, sans-serif;
         font-size: 12px;
     }
+
+    .dragdropwindow {
+        position: absolute;
+        margin: 0 auto;
+        width: 200px;
+        visibility: hidden;
+        background-color: #cccccc;
+    }
 </style>
 </head>
 
 
-<body onload='checkMessages()'>
+<body onload='checkMessages(); init();'>
+<div id="possibleScores" class="dragdropwindow">
+
+</div>
+
 <center>
-    <table>
+<table>
+<tr>
+    <td colspan="3" align="center"><h1>Good luck, ${userBean.name}</h1></td>
+</tr>
+<tr>
+<td>
+    <table border="1">
         <tr>
-            <td colspan="3" align="center"><h1>Good luck, ${userBean.name}</h1></td>
-        </tr>
-        <tr>
-            <td>
-                <table border="1">
-                    <tr>
-                        <td width="150" height="150">
+            <td width="150" height="150">
                             <span id="dice0notFixed" class="dice" onclick="fixDice(0, true)"
                                   style="visibility: hidden"></span>
                             <span id="dice1notFixed" class="dice" onclick="fixDice(1, true)"
@@ -188,10 +317,10 @@ function gotMessages(messages)
                                   style="visibility: hidden"></span>
                             <span id="dice4notFixed" class="dice" onclick="fixDice(4, true)"
                                   style="visibility: hidden"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="150" height="150">
+            </td>
+        </tr>
+        <tr>
+            <td width="150" height="150">
                             <span id="dice0fixed" class="dice" onclick="fixDice(0, false)"
                                   style="visibility: hidden"></span>
                             <span id="dice1fixed" class="dice" onclick="fixDice(1, false)"
@@ -202,56 +331,173 @@ function gotMessages(messages)
                                   style="visibility: hidden"></span>
                             <span id="dice4fixed" class="dice" onclick="fixDice(4, false)"
                                   style="visibility: hidden"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>player, is playing</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="button" value="roll" name="btnRoll" id="btnRoll" onclick="rollDice()">
-                        </td>
-                    </tr>
-                </table>
             </td>
+        </tr>
+        <tr>
             <td>
-                <yahtzee:scoreCard/>
-
-            </td>
-            <td>
-                <table border="1">
-                    <tr>
-                        <td>Chat</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <textarea id="chatlog" rows="10" cols="25" readonly="readonly"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input id="text" type="text" size="25">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="button" onclick="sendMessage()" value="send" name="btnSend">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="/game/LeaveGameServlet?leave=${gameBean.gameName}">leave</a></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="testDiv">
-
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                <input type="button" value="start game" id="btnStart" onclick="startGame()">
+                <input type="button" value="roll dice" id="btnRoll" disabled="disabled" onclick="rollDice()">
             </td>
         </tr>
     </table>
+</td>
+<td>
+
+
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Count all ones</td>
+                    </tr>
+                    <tr>
+                        <td>Count all twos</td>
+                    </tr>
+                    <tr>
+                        <td>Count all threes</td>
+                    </tr>
+                    <tr>
+                        <td>Count all fours</td>
+                    </tr>
+                    <tr>
+                        <td>Count all fives</td>
+                    </tr>
+                    <tr>
+                        <td>Count all sixes</td>
+                    </tr>
+                    <tr>
+                        <td>Total upper half</td>
+                    </tr>
+                    <tr>
+                        <td>Upper half bonus</td>
+                    </tr>
+                    <tr>
+                        <td>Upper half with bonus</td>
+                    </tr>
+                    <tr>
+                        <td>Three of a kind</td>
+                    </tr>
+                    <tr>
+                        <td>Carre</td>
+                    </tr>
+                    <tr>
+                        <td>Full house</td>
+                    </tr>
+                    <tr>
+                        <td>Small street</td>
+                    </tr>
+                    <tr>
+                        <td>Large street</td>
+                    </tr>
+                    <tr>
+                        <td>Yahtzee</td>
+                    </tr>
+                    <tr>
+                        <td>Chance</td>
+                    </tr>
+                    <tr>
+                        <td>Yahtzee bonus</td>
+                    </tr>
+                    <tr>
+                        <td>Total lower half</td>
+                    </tr>
+                    <tr>
+                        <td>Grand total</td>
+                    </tr>
+                </table>
+            </td>
+            <td width="150">
+                <span id="p1table"
+                      style="background-color: #aaffff; width: 20px; display: table-cell; visibility: hidden; ">
+                    <table width="20">
+                        <thead>
+                            <tr>
+                                <th id="p1name"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="p1score"></tbody>
+                    </table>
+                </span>
+                <span id="p2table"
+                      style="background-color: #aaaaff; width: 20px; display: table-cell; visibility: hidden; ">
+                    <table width="20">
+                        <thead>
+                            <tr>
+                                <th id="p2name"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="p2score"></tbody>
+                    </table>
+                </span>
+                <span id="p3table"
+                      style="background-color: #ffaaaa; width: 20px; display: table-cell; visibility: hidden; ">
+                    <table width="20">
+                        <thead>
+                            <tr>
+                                <th id="p3name"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="p3score"></tbody>
+                    </table>
+                </span>
+                <span id="p4table"
+                      style="background-color: #ffffaa; width: 20px; display: table-cell; visibility: hidden; ">
+                    <table width="20">
+                        <thead>
+                            <tr>
+                                <th id="p4name"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="p4score"></tbody>
+                    </table>
+                </span>
+            </td>
+        </tr>
+    </table>
+
+
+</td>
+<td>
+    <table border="1">
+        <tr>
+            <td>Chat</td>
+        </tr>
+        <tr>
+            <td>
+                <textarea id="chatlog" rows="10" cols="25" readonly="readonly"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="text" type="text" size="25" onkeypress="DWRUtil.onReturn(event, sendMessage)"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" onclick="sendMessage()" value="send" name="btnSend">
+            </td>
+        </tr>
+        <tr>
+            <td><a href="/game/LeaveGameServlet?leave=${gameBean.gameName}">leave</a></td>
+        </tr>
+        <tr>
+            <td>
+                <div id="testDiv">
+
+                </div>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table>
+<h2 style="color: #ff0000">
+    <div id="gameState">Waiting for game to be started...</div>
+</h2>
 </center>
 </body>
 </html>
