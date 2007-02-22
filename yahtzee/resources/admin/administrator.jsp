@@ -8,17 +8,17 @@
     <f:loadBundle basename="bundles.resources" var="labels"/>
     <html>
     <head>
-        <link href="../css/formStyle.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/adminStyle.css" rel="stylesheet" type="text/css"/>
         <title>
             <h:outputText value="#{labels.adminTitle}"/>
         </title>
     </head>
     <body>
-    <div id="admin">
-        <p STYLE="text-align: right;"><a href="../logout/LogoutServlet">
-            <h:outputText value="#{labels.logout}"/>
-        </a></p>
-        <table>
+    <div id="adminSource">
+        <table align="center">
+            <tr>
+                <td colspan="2" id="logout"><a href="../logout/LogoutServlet"><h:outputText value="#{labels.logout}"/></a></td>
+            </tr>
             <tr>
                 <td>
                     <img src="../images/logo.png" class="logo" alt="Yahtzee"/>
@@ -35,10 +35,10 @@
                         <h:outputText value="#{labels.adminFunctions}"/>
                     </h2>
                     <ul>
-                        <li><a href="/faces/admin/userManagement.jsp">
+                        <li><a href="/faces/admin/ShowUsersServlet">
                             <h:outputText value="#{labels.adminUser}"/>
                         </a></li>
-                        <li><a href="/faces/admin/gameManagement.jsp">
+                        <li><a href="/faces/admin/ShowGamesServlet">
                             <h:outputText value="#{labels.adminGame}"/>
                         </a></li>
                     </ul>
