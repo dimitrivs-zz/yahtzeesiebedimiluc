@@ -105,8 +105,8 @@ public class Game {
         return users;
     }
 
-    public String getActivePlayer() {
-        return activePlayer.getUsername();
+    public User getActivePlayer() {
+        return activePlayer;
     }
 
     public void startGame() {
