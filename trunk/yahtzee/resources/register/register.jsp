@@ -57,80 +57,82 @@
 </head>
 
 <body>
-<div id="register">
-    <form autocomplete="OFF" name="createUser" action="/register/CreatePlayerServlet" method="post"
-          onsubmit="return checkForm()">
-        <table>
-            <tr>
-                <td colspan="2"><img src="../images/logo.png" class="logo" alt="Register"/></td>
-                <td><h1><h:outputText value="#{labels.register}"/></h1></td>
-            </tr>
-            <tr>
-                <td colspan="2"><h:outputText value="#{labels.userName}"/></td>
-                <td><input type="text" name="username" class="text"/></td>
-            </tr>
-            <tr>
-                <td colspan="2"><h:outputText value="#{labels.password}"/></td>
-                <td><input type="password" name="pw" class="text"/></td>
-            </tr>
-            <tr>
-                <td colspan="2"><h:outputText value="#{labels.repeatPassword}"/></td>
-                <td><input type="password" name="pw2" class="text"/></td>
-            </tr>
-            <tr>
-                <td colspan="2"><h:outputText value="#{labels.mail}"/></td>
-                <td><input type="text" name="mail" class="text"/></td>
-            </tr>
-            <tr>
-                <td colspan="2"><h:outputText value="#{labels.surname}"/></td>
-                <td><input type="text" name="surname" class="text"/></td>
-            </tr>
-            <tr>
-                <td colspan="2"><h:outputText value="#{labels.firstname}"/></td>
-                <td><input type="text" name="firstname" class="text"/></td>
-            </tr>
-            <tr>
-                <td colspan="2"><h:outputText value="#{labels.telephone}"/></td>
-                <td><input type="text" name="telephone" class="text"/></td>
-            </tr>
-            <tr>
-                <td colspan="2"><h:outputText value="#{labels.street}"/> + <h:outputText value="#{labels.number}"/></td>
-                <td>
-                    <input type="text" class="text" name="street" size="12"/>&nbsp;
-                    <input type="text" name="number" class="text" size="1"/>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2"><h:outputText value="#{labels.zip}"/></td>
-                <td><input type="text" class="text" name="zip"/></td>
-            </tr>
-            <tr>
-                <td colspan="2"><h:outputText value="#{labels.city}"/></td>
-                <td><input type="text" class="text" name="city"/></td>
-            </tr>
-            <tr>
-                <td colspan="2"><h:outputText value="#{labels.country}"/></td>
-                <td><input type="text" class="text" name="city"/></td>
-            </tr>
-            <tr>
-                <td colspan="2"><h:outputText value="#{labels.language}"/></td>
-                <td><select name="taal">
-                    <option>Nederlands</option>
-                    <option>Fran&ccedil;ais</option>
-                    <option>English</option>
-                    <option>Deutsch</option>
-                    <option>Espa&ntilde;ol</option>
-                </select>
-                </td>
-            </tr>
-            <tr>
-                <td height="40px"><input type="submit" value="<h:outputText value="#{labels.registerButton}"/>" class="btn"></td>
-            </tr>
-            <tr>
-                <td colspan="3" align="center" height="35px"><a href="../login/login.jsp"><h:outputText value="#{labels.inlogButton}"/></a></td>
-            </tr>
-        </table>
-    </form>
+<div id="container">
+    <div id="register">
+        <form autocomplete="OFF" name="createUser" action="/register/CreatePlayerServlet" method="post"
+              onsubmit="return checkForm()">
+            <table>
+                <tr>
+                    <td colspan="2"><img src="../images/logo.png" class="logo" alt="Register"/></td>
+                    <td><h1><h:outputText value="#{labels.register}"/></h1></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h:outputText value="#{labels.userName}"/></td>
+                    <td><input type="text" name="username" class="text"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h:outputText value="#{labels.password}"/></td>
+                    <td><input type="password" name="pw" class="text"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h:outputText value="#{labels.repeatPassword}"/></td>
+                    <td><input type="password" name="pw2" class="text"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h:outputText value="#{labels.mail}"/></td>
+                    <td><input type="text" name="mail" class="text"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h:outputText value="#{labels.surname}"/></td>
+                    <td><input type="text" name="surname" class="text"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h:outputText value="#{labels.firstname}"/></td>
+                    <td><input type="text" name="firstname" class="text"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h:outputText value="#{labels.telephone}"/></td>
+                    <td><input type="text" name="telephone" class="text"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h:outputText value="#{labels.street}"/> + <h:outputText value="#{labels.number}"/></td>
+                    <td>
+                        <input type="text" class="text" name="street" size="12"/>&nbsp;
+                        <input type="text" name="number" class="text" size="1"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h:outputText value="#{labels.zip}"/></td>
+                    <td><input type="text" class="text" name="zip"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h:outputText value="#{labels.city}"/></td>
+                    <td><input type="text" class="text" name="city"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h:outputText value="#{labels.country}"/></td>
+                    <td><input type="text" class="text" name="city"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h:outputText value="#{labels.language}"/></td>
+                    <td><select name="taal">
+                        <option>Nederlands</option>
+                        <option>Fran&ccedil;ais</option>
+                        <option>English</option>
+                        <option>Deutsch</option>
+                        <option>Espa&ntilde;ol</option>
+                    </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="40px"><input type="submit" value="<h:outputText value="#{labels.registerButton}"/>" class="btn"></td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center" height="35px"><a href="../login/login.jsp"><h:outputText value="#{labels.inlogButton}"/></a></td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </div>
 </body>
 </html>

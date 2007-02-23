@@ -49,7 +49,7 @@
                             <h:outputText value="#{labels.adminStats}"/>
                         </h2>
                         <ul>
-                            <li><a href="/admin/highscoreManagement.jsp">
+                            <li><a href="/faces/admin/highscoreManagement.jsp">
                                 <h:outputText value="#{labels.adminScores}"/>
                             </a></li>
                             <li>

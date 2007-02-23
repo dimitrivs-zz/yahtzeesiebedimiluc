@@ -1,3 +1,9 @@
+#container{
+	margin-left:auto;
+	margin-right:auto;
+	width:500px;
+}
+
 #login{
 	background-image:url(../images/loginBg.png);
 	background-repeat:no-repeat;
@@ -50,7 +56,7 @@ img.logo{
 	height:79px;
 }
 
-img, #login, #register, #newGame,#profile,#userProfile{ behavior: url(../scripts/iepngfix.htc) }
+img, #login, #register, #newGame,#profile,#userProfile{ behavior: url(iepngfix/iepngfix.htc) }
 
 input.btn{
 	background-color:#ffffff;

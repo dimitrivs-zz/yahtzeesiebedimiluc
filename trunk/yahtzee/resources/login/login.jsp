@@ -66,30 +66,32 @@
     </head>
 
     <body>
-    <div id="login">
-        <!--onsubmit="return validateFormOnSubmit(this)"-->
-        <form name="login" autocomplete="OFF" action="/login/LoginServlet" method="post">
-            <table>
-                <tr>
-                    <td><img src="../images/logo.png" class="logo" alt="Yahtzee"/></td>
-                    <td><h1><h:outputText value="#{labels.login}"/></h1></td>
-                </tr>
-                <tr>
-                    <td><h:outputText value="#{labels.userName}"/></td>
-                    <td><input type="text" name="username" class="text"/></td>
-                </tr>
-                <tr>
-                    <td><h:outputText value="#{labels.password}"/></td>
-                    <td><input type="password" name="password" class="text"/></td>
-                </tr>
-                <tr>
-                    <td><input type="submit" value="<h:outputText value="#{labels.login}"/>" class="btn"/></td>
-                </tr>
-                <tr>
-                    <td colspan ="3" align="center"><h:outputText value="#{labels.loginMessage}"/> <a href="../register/register.jsp"><h:outputText value="#{labels.loginRegister}"/></a></td>
-                </tr>
-            </table>
-        </form>
+    <div id="container">
+        <div id="login">
+            <!--onsubmit="return validateFormOnSubmit(this)"-->
+            <form name="login" autocomplete="OFF" action="/login/LoginServlet" method="post">
+                <table>
+                    <tr>
+                        <td><img src="../images/logo.png" class="logo" alt="Yahtzee"/></td>
+                        <td><h1><h:outputText value="#{labels.login}"/></h1></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText value="#{labels.userName}"/></td>
+                        <td><input type="text" name="username" class="text"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText value="#{labels.password}"/></td>
+                        <td><input type="password" name="password" class="text"/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="<h:outputText value="#{labels.login}"/>" class="btn"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan ="3" align="center"><h:outputText value="#{labels.loginMessage}"/> <a href="../register/register.jsp"><h:outputText value="#{labels.loginRegister}"/></a></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
     </body>
     </html>
