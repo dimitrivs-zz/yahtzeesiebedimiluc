@@ -28,6 +28,6 @@ public class ShowProfileServlet extends YahtzeeServlet {
         request.setAttribute("firstName", user.getFirstname());
         request.setAttribute("surName", user.getSurname());
 
-        forward("/profile/profile.jsp", request, response);
+        forward("/faces/profile/profile.jsp", request, response);
     }
 }

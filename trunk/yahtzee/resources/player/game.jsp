@@ -3,7 +3,9 @@
 <jsp:useBean id="userBean" class="be.kdg.yahtzee.beans.UserBean" scope="session"/>
 <jsp:useBean id="gameBean" class="be.kdg.yahtzee.beans.GameBean" scope="session"/>
 <html>
-<head><title>Yahtzee spel (${gameBean.gameName})</title>
+<head>
+<link href="../css/gameStyle.css" rel="stylesheet" type="text/css"/>
+<title>Yahtzee spel (${gameBean.gameName})</title>
 <script type='text/javascript' src='/dwr/engine.js'></script>
 <script type='text/javascript' src='/dwr/interface/GameManager.js'></script>
 <script type='text/javascript' src='/dwr/util.js'></script>
@@ -237,70 +239,42 @@ function fixDice(diceNr, state) {
     }
 
 }
+
+function sendMessage() {
+    var text = DWRUtil.getValue("text");
+    if (text != '' && text != ' ') {
+        DWRUtil.setValue("text", "");
+        GameManager.addMessage("${userBean.name}: " + text + "\n", '${gameBean.gameName}', gotMessages);
+    }
+}
+function checkMessages() {
+    GameManager.getMessages('${gameBean.gameName}', gotMessages);
+    //GameManager.getUsersOfGame('${gameBean.gameName}', displayUsers);
+}
+function displayUsers(messages) {
+    var users = "";
+    for (var user in messages) {
+        users += messages[user].username + "\n"
+    }
+    DWRUtil.setValue("testDiv", users);
+}
+
+function gotMessages(messages) {
+    var chatlog = "";
+    for (var data in messages) {
+        chatlog = messages[data].text + chatlog;
+    }
+    DWRUtil.setValue("chatlog", chatlog);
+    setTimeout("checkMessages()", 1000);
+}
 </script>
-
-<script type="text/javascript">
-    function sendMessage() {
-        var text = DWRUtil.getValue("text");
-        if (text != '' && text != ' ') {
-            DWRUtil.setValue("text", "");
-            GameManager.addMessage("${userBean.name}: " + text + "\n", '${gameBean.gameName}', gotMessages);
-        }
-    }
-    function checkMessages() {
-        GameManager.getMessages('${gameBean.gameName}', gotMessages);
-        //GameManager.getUsersOfGame('${gameBean.gameName}', displayUsers);
-    }
-    function displayUsers(messages) {
-        var users = "";
-        for (var user in messages) {
-            users += messages[user].username + "\n"
-        }
-        DWRUtil.setValue("testDiv", users);
-    }
-
-    function gotMessages(messages) {
-        var chatlog = "";
-        for (var data in messages) {
-            chatlog = messages[data].text + chatlog;
-        }
-        DWRUtil.setValue("chatlog", chatlog);
-        setTimeout("checkMessages()", 1000);
-    }
-</script>
-<style type="text/css">
-    .dice {
-        width: 20px;
-        height: 20px;
-        font-family: arial, sans-serif;
-        font-size: 12px;
-        font-weight: bold;
-        border: 1px solid #000000;
-        padding: 2px;
-    }
-
-    textarea {
-        font-family: arial, sans-serif;
-        font-size: 12px;
-    }
-
-    .dragdropwindow {
-        position: absolute;
-        margin: 0 auto;
-        width: 200px;
-        visibility: hidden;
-        background-color: #cccccc;
-    }
-</style>
 </head>
 
 
 <body onload='checkMessages(); init();'>
-<div id="possibleScores" class="dragdropwindow">
-
-</div>
-
-<center>
+<div id="container">
+<div id="possibleScores"></div>
+<div id="game">
 <table>
 <tr>
     <td colspan="3" align="center"><h1>Good luck, ${userBean.name}</h1></td>
@@ -465,42 +439,21 @@ function fixDice(diceNr, state) {
 
 </td>
 <td>
-    <table border="1">
-        <tr>
-            <td>Chat</td>
-        </tr>
-        <tr>
-            <td>
-                <textarea id="chatlog" rows="10" cols="25" readonly="readonly"></textarea>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input id="text" type="text" size="25" onkeypress="DWRUtil.onReturn(event, sendMessage)"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="button" onclick="sendMessage()" value="send" name="btnSend">
-            </td>
-        </tr>
-        <tr>
-            <td><a href="/game/LeaveGameServlet?leave=${gameBean.gameName}">leave</a></td>
-        </tr>
-        <tr>
-            <td>
-                <div id="testDiv">
-
-                </div>
-            </td>
-        </tr>
-    </table>
+    <div id="chat">
+        <h3 class="chatTekst">Yahtzee Chat</h3>
+        <textarea id="chatlog" rows="10" cols="25" readonly="readonly" class="top"></textarea>
+        <input id="text" type="text" size="25" onkeypress="DWRUtil.onReturn(event, sendMessage)"/>
+        <input type="button" onclick="sendMessage()" value="send" name="btnSend" id="btnChat">
+        <a href="/game/LeaveGameServlet?leave=zerty">leave</a>
+        <div id="testDiv"> </div>
+    </div>
 </td>
 </tr>
 </table>
 <h2 style="color: #ff0000">
     <div id="gameState">Waiting for game to be started...</div>
 </h2>
-</center>
+</div>
+</div>
 </body>
 </html>

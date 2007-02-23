@@ -8,7 +8,7 @@
     <f:loadBundle basename="bundles.resources" var="labels"/>
     <html>
     <head><title><h:outputText value="#{labels.roomTitle}"/></title>
-        <link href="../css/gameStyle.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/gameroomStyle.css" rel="stylesheet" type="text/css"/>
         <script type='text/javascript' src='/dwr/engine.js'></script>
         <script type='text/javascript' src='/dwr/interface/GameManager.js'></script>
         <script type='text/javascript' src='/dwr/interface/UserManager.js'></script>
@@ -20,9 +20,11 @@
         <div id="header">
             <div id="logo"><img src="../images/logo.png" class="logo" alt="Yahtzee"/></div>
             <div id="links">
-                <h2><a href="/faces/player/startNewGame.jsp"><h:outputText value="#{labels.roomStart}"/></a> | <a
+                <h2>
+                    <a href="/faces/player/startNewGame.jsp"><h:outputText value="#{labels.roomStart}"/></a> | <a
                         href="/faces/profile/changeProfile.jsp"><h:outputText value="#{labels.roomProfile}"/></a> | <a
-                        href="/logout/LogoutServlet"><h:outputText value="#{labels.logout}"/></a></h2>
+                        href="/logout/LogoutServlet"><h:outputText value="#{labels.logout}"/></a>
+                </h2>
             </div>
         </div>
         <div id="roomsContainer">
