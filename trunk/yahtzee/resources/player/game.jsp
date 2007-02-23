@@ -38,10 +38,11 @@ function getActivePlayer() {
                     DWRUtil.setValue('gameState', playerName + ' is playing...');
                     numberRolls = 0;
                     if (playerName == '${userBean.username}') {
-                        if (numberTurns >= 13) {
+                        if (numberTurns > 12) {
                             window.location = 'gameFinish.jsp';
                         } else {
                             clearTimeout(keepDiceUpdatedTimeout);
+                            calculateScores();
                             document.getElementById('btnRoll').disabled = false;
                         }
                     }
@@ -163,9 +164,9 @@ function selectScore(scoreDescription) {
     resetDice();
     document.getElementById('possibleScores').style.visibility = 'hidden';
     document.getElementById('btnRoll').disabled = true;
-    keepDiceUpdated();
     calculateScores();
     numberTurns++;
+    keepDiceUpdated();
 }
 
 var cellFuncs = [
