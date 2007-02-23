@@ -429,11 +429,12 @@ public class Game {
     private void calculateYahtzeeBonus() {
         points = 0;
         //if (score.isYahtzeeFixed()) {
-        if (scores.get(activePlayer.getUsername()).isYahtzeeFixed()) {
+        if (scores.get(activePlayer.getUsername()).isYahtzeeFixed() && scores.get(activePlayer.getUsername()).getYahtzee() != 0) {
             if (matchDice(0, 1) && matchDice(1, 2) && matchDice(2, 3) && matchDice(3, 4)) {
                 points = YAHTZEEBONUS;
             }
-            possibleScores.put("yahtzeeBonus", points);
+            Score score = scores.get(activePlayer.getUsername());
+            score.addyahtzee();
         }
     }
 
@@ -501,8 +502,6 @@ public class Game {
             score.setLargeStreet(scorePoints);
         if (scoreChoice.equals("yahtzee"))
             score.setYahtzee(scorePoints);
-        if (scoreChoice.equals("yahtzeeBonus"))
-            score.addyahtzee();
         if (scoreChoice.equals("chance"))
             score.setChance(scorePoints);
 
