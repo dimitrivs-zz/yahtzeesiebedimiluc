@@ -15,6 +15,7 @@ var playersArray = new Array();
 var activePlayer = '';
 var numberRolls = 0;
 var numberTurns = 0;
+var numberTurnsOld = 0;
 
 function init() {
     loadPlayers();
@@ -34,7 +35,8 @@ function getActivePlayer() {
                 if (activePlayer == '') {
                     activePlayer = playerName;
                 }
-                if (activePlayer != playerName) {
+                if (activePlayer != playerName || (playersArray.length == 1 && numberTurns > numberTurnsOld)) {
+                    numberTurnsOld = numberTurns;
                     DWRUtil.setValue('gameState', playerName + ' is playing...');
                     numberRolls = 0;
                     if (playerName == '${userBean.username}') {
