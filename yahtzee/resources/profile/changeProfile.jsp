@@ -58,6 +58,7 @@
 </head>
 
 <body>
+<div id="container">
 <div id="profile">
 
 <form name="changePassword" action="/profile/ConfirmChangePasswordServlet?orgUser=${userBean.username}"
@@ -173,6 +174,7 @@
         </tr>
     </table>
 </form>
+</div>
 </div>
 </body>
 </html>

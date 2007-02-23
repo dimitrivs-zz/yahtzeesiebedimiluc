@@ -49,7 +49,7 @@ img.logo{
 	height:79px;
 }
 
-img, #adminSource, #gameManagement, #highScores{ behavior: url(../scripts/iepngfix.htc) }
+img, #adminSource, #gameManagement, #highScores{ behavior: url(iepngfix/iepngfix.htc) }
 
 h1{
 	color:#FFFFFF;

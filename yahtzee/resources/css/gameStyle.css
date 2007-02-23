@@ -29,14 +29,13 @@
 
 #rooms{
 	width:600px;
-	height:380px;	
+	height:380px;
 	float:left;
 }
 
 #roomsWrapper{
-	margin-left:auto;
-	margin-right:auto;
-	width:780px;
+	margin: 0px 60px 0px 60px;
+    width:780px;
 	height:380px;
 }
 
@@ -53,9 +52,8 @@
 #footerTekst{
 	font-family:Arial, Helvetica, sans-serif;
 	color:#FFFFFF;
-	margin-left:auto;
-	margin-right:auto;
 	width:780px;
+	margin-left:60px;
 }
 
 img.logo{
@@ -72,7 +70,7 @@ img.logo{
 	overflow-x:hidden;
 	overflow-y:auto;
 	width:600px;
-	height:350px;	
+	height:350px;
 }
 
 span.welkom{
@@ -105,7 +103,7 @@ input.btn{
 input.join,input.btn{
 	border-color:#336699;
   	font-family:Arial, Helvetica, sans-serif;
-  	font-size:10pt; 
+  	font-size:10pt;
   	font-weight:bold;
 	background-color:#ffffff;
 	color:#006600;
@@ -122,10 +120,11 @@ textarea.bottom{
 	height:50px;
 }
 
-img, #header, #roomsContainer{ behavior: url(../scripts/iepngfix.htc) }
+img, #header, #roomsContainer{ behavior: url(iepngfix/iepngfix.htc) }
 
 html{
 	background-image:url(../images/background.png);
+	background-repeat:no-repeat;
 	scrollbar-face-color: #00AA00;
 	scrollbar-highlight-color: #FFFFFF;
 	scrollbar-arrow-color: #FFFFFF;
@@ -183,13 +182,10 @@ h3{
 }
 
 div.hr {
- 	margin-left:auto;
-	margin-right:auto;
-	margin-top:10px;
-	margin-bottom:10px;
+	margin: 10px 0px 10px 60px;
  	height: 1px;
  	width:780px;
-  	background: #ffffff; 
+  	background: #ffffff;
 }
 
 div.hr hr {
