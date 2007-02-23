@@ -1,173 +1,32 @@
-/* CSS Document */
-#container{
+#container {
 	margin-left:auto;
 	margin-right:auto;
 	width:900px;
+	height:600px;
 }
 
-#header{
-	background-image:url(../images/gameHeaderBg.png);
-	background-repeat:no-repeat;
-	width:900px;
-	height:100px;
-	margin-top:0px;
-	margin-bottom:10px;
-}
-
-#links{
-	margin: 35px 35px 0px 0px;
-	float:right;
-	color:#FFFFFF;
-}
-
-#roomsContainer{
-	background-image:url(../images/gameBodyBg.png);
-	background-repeat:no-repeat;
-	width:900px;
-	height:500px;
-}
-
-#rooms{
-	width:600px;
-	height:380px;
+#possibleScores {
+	width:200px;
 	float:left;
+	margin: 0 auto;
+	visibility: hidden;
 }
 
-#roomsWrapper{
-	margin: 0px 60px 0px 60px;
-    width:780px;
-	height:380px;
+#game {
+	width:700px;
+	float:right;
 }
 
-#footer{
-	clear:both;
+#chatLog {
+	border: solid 1px #336699;
+	height:250px;
+	width:170px;
 }
 
 #chat{
-	width:175px;
+	width:170px;
 	height:380px;
 	float:right;
-}
-
-#footerTekst{
-	font-family:Arial, Helvetica, sans-serif;
-	color:#FFFFFF;
-	width:780px;
-	margin-left:60px;
-}
-
-img.logo{
-	width:180px;
-	height:79px;
-}
-
-#logo{
-	margin: 10px 0px 0px 25px;
-	float:left;
-}
-
-#roomTable{
-	overflow-x:hidden;
-	overflow-y:auto;
-	width:600px;
-	height:350px;
-}
-
-span.welkom{
-	font-weight:bold;
-	color:#FFFF00;
-}
-
-.tekst{
-	padding: 20px 0px 0px 60px;
-	font-family:Arial, Helvetica, sans-serif;
-	color:#FFFFFF;
-}
-
-.top, textarea.bottom{
-	margin:0px 5px 0px 5px;
-	border-color:#336699;
-  	font-family:Arial, Helvetica, sans-serif;
-  	font-size:10pt;
-  	font-weight:bold;
-	background-color:#FFFFFF;
-    width:160px;
-}
-
-input.btn{
-	margin:0px 5px 0px 5px;
-	width:160px;
-	margin-top:10px;
-}
-
-input.join,input.btn{
-	border-color:#336699;
-  	font-family:Arial, Helvetica, sans-serif;
-  	font-size:10pt;
-  	font-weight:bold;
-	background-color:#ffffff;
-	color:#006600;
-}
-
-.top{
-	border: solid 1px #336699;
-	height:250px;
-}
-
-textarea.bottom{
-	border: solid 1px #336699;
-	margin-top:10px;
-	height:50px;
-}
-
-img, #header, #roomsContainer{ behavior: url(iepngfix/iepngfix.htc) }
-
-html{
-	background-image:url(../images/background.png);
-	background-repeat:no-repeat;
-	scrollbar-face-color: #00AA00;
-	scrollbar-highlight-color: #FFFFFF;
-	scrollbar-arrow-color: #FFFFFF;
-	scrollbar-track-color: #00CC00;
-}
-
-table{
-    margin-top:2px;
-	margin-left:1px;
-	width:595px;
-	height:auto;
-}
-
-table, th,td{
-	font-family:Arial, Helvetica, sans-serif;
-	border-collapse:collapse;
-}
-
-th{
-	background-color:#666666;
-	color:#FFFFFF;
-}
-
-td, td.center{
-	padding:2px 0px 2px 0px;
-	color:#FFFFFF;
-	font-size:14px;
-}
-
-td.center{
-	text-align:center;
-}
-
-td{
-	text-align:left;
-	padding-left: 10px;
-}
-
-h2{
-	margin:0px;
-	padding:0px;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:20px;
 }
 
 h3.chatTekst{
@@ -181,18 +40,54 @@ h3{
 	color:#FFFFFF;
 }
 
-div.hr {
-	margin: 10px 0px 10px 60px;
- 	height: 1px;
- 	width:780px;
-  	background: #ffffff;
+#text {
+	border: solid 1px #336699;
+	margin-top:10px;
+	height:50px;
+	width:170px;
 }
 
-div.hr hr {
-	display: none;
+.dice {
+	width: 20px;
+	height: 20px;
+	font-family: arial, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	border: 1px solid #000000;
+	padding: 2px;
 }
 
-a:link {text-decoration: none; color:#FFFFFF;}
-a:visited {text-decoration: none; color:#FFFFFF;}
-a:active {text-decoration: none; color:#FFFFFF;}
+textarea {
+	font-family: arial, sans-serif;
+	font-size: 12px;
+}
+
+html{
+	background-image:url(../images/background.png);
+	background-repeat:no-repeat;
+	color:#FFFFFF;
+}
+
+#btnStart, #btnRoll, #btnChat {
+	background-color:#ffffff;
+	color:#006600;
+	border-color:#336699;
+  	font-family:Arial, Helvetica, sans-serif;
+  	font-size:10pt;
+  	font-weight:bold;
+}
+
+#btnChat {
+	margin-top:10px;
+	width:170px;
+}
+
+a:link {text-decoration: underline; color:#FFFFFF;}
+a:visited {text-decoration: underline; color:#FFFFFF;}
+a:active {text-decoration: underline; color:#FFFFFF;}
 a:hover {text-decoration: underline; color:#00CC00;}
+
+a.back:link {text-decoration: none; color:#FFFF00;}
+a.back:visited {text-decoration: none; color:#FFFF00;}
+a.back:active {text-decoration: none; color:#FFFF00;}
+a.back:hover {text-decoration: underline; color:#FFFF00;}

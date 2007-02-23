@@ -8,10 +8,17 @@
 
     <f:loadBundle basename="bundles.resources" var="labels"/>
     <html>
-    <head><title><h:outputText value="#{labels.profile}"/></title></head>
+    <head>
+        <link href="../css/formStyle.css" rel="stylesheet" type="text/css" />
+        <title><h:outputText value="#{labels.profile}"/></title>
+    </head>
     <body>
     <div id="container">
-        <table border="1">
+        <table>
+            <tr>
+                <td><img src="../images/logo.png" class="logo" alt="Yahtzee"/></td>
+                <td><h1><h:outputText value="#{labels.profile}"/></h1></td>
+            </tr>
             <tr>
                 <td><h:outputText value="#{labels.userName}"/></td>
                 <td>${userName}</td>
@@ -25,7 +32,9 @@
                 <td>${surName}</td>
             </tr>
             <tr>
-                <a href="/faces/player/gameRoom.jsp"><h:outputText value="#{labels.gameroomButton}"/></a>
+                <td colspan="2">
+                    <a href="/faces/player/gameRoom.jsp"><h:outputText value="#{labels.gameroomButton}"/></a>
+                </td>
             </tr>
         </table>
     </div>

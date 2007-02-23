@@ -28,7 +28,7 @@ function getGlobalChatMessages() {
 function onlineUserList(messages) {
     var tableOnlineUsers = '<table><tr><td>'
     for (var user in messages) {
-        tableOnlineUsers += '<a href=/profile/ShowProfileServlet?user=' + messages[user].username + '>' + messages[user].username + '</a>' + ', '
+        tableOnlineUsers += '<a href=/profile/ShowProfileServlet?user=' + messages[user].username + '>' + messages[user].username + '</a>, '
     }
     tableOnlineUsers += '</td></tr></table>'
     DWRUtil.setValue("onlineUsers", tableOnlineUsers)
@@ -47,7 +47,7 @@ function gotGames(messages)
         tableGames += "<td width='225px'>"
         if (messages[game].state != 'Empty') {
             for (var user in messages[game].users) {
-                tableGames += messages[game].users[user].username + ", "
+                tableGames += '<a href=/profile/ShowProfileServlet?user=' + messages[game].users[user].username + '>' + messages[game].users[user].username + '</a>, '
             }
         }else {
             tableGames += "No players"
