@@ -78,7 +78,6 @@
 
                     <div id="chatlog" class="top"></div>
                     <input type="text" id="text" class="bottom" onkeypress="DWRUtil.onReturn(event, sendMessage)">
-                    <!--<textarea id="text" class="bottom"></textarea>-->
                     <input id="name" type="hidden" value="${userBean.username}">
                     <input type="button" onClick="sendMessage()" value="<h:outputText value="#{labels.chatButton}"/>"
                            name="btnSend" class="btn">
