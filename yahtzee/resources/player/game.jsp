@@ -249,14 +249,6 @@ function sendMessage() {
 }
 function checkMessages() {
     GameManager.getMessages('${gameBean.gameName}', gotMessages);
-    //GameManager.getUsersOfGame('${gameBean.gameName}', displayUsers);
-}
-function displayUsers(messages) {
-    var users = "";
-    for (var user in messages) {
-        users += messages[user].username + "\n"
-    }
-    DWRUtil.setValue("testDiv", users);
 }
 
 function gotMessages(messages) {
@@ -444,8 +436,7 @@ function gotMessages(messages) {
         <textarea id="chatlog" rows="10" cols="25" readonly="readonly" class="top"></textarea>
         <input id="text" type="text" size="25" onkeypress="DWRUtil.onReturn(event, sendMessage)"/>
         <input type="button" onclick="sendMessage()" value="send" name="btnSend" id="btnChat">
-        <a href="/game/LeaveGameServlet?leave=zerty">leave</a>
-        <div id="testDiv"> </div>
+        <a href="/game/LeaveGameServlet?leave=${gameBean.gameName}">leave</a>
     </div>
 </td>
 </tr>
