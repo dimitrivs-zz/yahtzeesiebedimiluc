@@ -1,11 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="yahtzee" tagdir="/WEB-INF/tags" %>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+
 <jsp:useBean id="userBean" class="be.kdg.yahtzee.beans.UserBean" scope="session"/>
 <jsp:useBean id="gameBean" class="be.kdg.yahtzee.beans.GameBean" scope="session"/>
+
+<f:view locale="#{language}">
+<f:loadBundle basename="bundles.resources" var="labels"/>
 <html>
 <head>
 <link href="../css/gameStyle.css" rel="stylesheet" type="text/css"/>
-<title>Yahtzee spel (${gameBean.gameName})</title>
+<title><h:outputText value="#{labels.gameTitle}"/> (${gameBean.gameName})</title>
 <script type='text/javascript' src='/dwr/engine.js'></script>
 <script type='text/javascript' src='/dwr/interface/GameManager.js'></script>
 <script type='text/javascript' src='/dwr/util.js'></script>
@@ -39,7 +45,7 @@ function getActivePlayer() {
                 }
                 if (activePlayer != playerName || (playersArray.length == 1 && numberTurns > numberTurnsOld)) {
                     numberTurnsOld = numberTurns;
-                    DWRUtil.setValue('gameState', playerName + ' is playing...');
+                    DWRUtil.setValue('gameState', playerName + ' <h:outputText value="#{labels.gamePlaying}"/>...');
                     numberRolls = 0;
                     if (playerName == '${userBean.username}') {
                         if (numberTurns > 12) {
@@ -84,7 +90,7 @@ function playersLoaded(players) {
 }
 
 function startGame() {
-    DWRUtil.setValue('gameState', 'Starting yahtzee game...');
+    DWRUtil.setValue('gameState', '<h:outputText value="#{labels.gameStarting}"/>...');
     GameManager.startGame('${gameBean.gameName}', gameStarted);
 }
 
@@ -99,10 +105,10 @@ function gameStarted(state) {
                     } else {
                         keepDiceUpdated();
                     }
-                    DWRUtil.setValue('gameState', player + ' is playing...');
+                    DWRUtil.setValue('gameState', player + ' <h:outputText value="#{labels.gamePlaying}"/>...');
                 }
                 );
-        DWRUtil.setValue('gameState', 'Yahtzee game started.');
+        DWRUtil.setValue('gameState', '<h:outputText value="#{labels.gameStarted}"/>.');
         clearTimeout(loadPlayerTimeout);
     } else {
         startGame();
@@ -153,7 +159,7 @@ function getDice(diceList) {
 }
 
 function showScorePossibilities(scorePossibilitiesList) {
-    var table = '<table border="1"><tr><th>Score possibility</th><th>Points</th></tr>';
+    var table = '<table border="1"><tr><th><h:outputText value="#{labels.gameScore}"/></th><th><h:outputText value="#{labels.gamePoints}"/></th></tr>';
     for (var scoreAspect in scorePossibilitiesList) {
         table += '<tr onclick="selectScore(\'' + scorePossibilitiesList[scoreAspect].description + '\')"><td>' + scorePossibilitiesList[scoreAspect].description + '</td>';
         table += '<td>' + scorePossibilitiesList[scoreAspect].points + '</td></tr>';
@@ -161,12 +167,14 @@ function showScorePossibilities(scorePossibilitiesList) {
     table += '</table>';
     DWRUtil.setValue('possibleScores', table);
     document.getElementById('possibleScores').style.visibility = 'visible';
+    document.getElementById('scoresContainer').style.visibility = 'visible';
 }
 
 function selectScore(scoreDescription) {
     GameManager.selectScore('${gameBean.gameName}', scoreDescription, emptyFunc);
     resetDice();
     document.getElementById('possibleScores').style.visibility = 'hidden';
+    document.getElementById('scoresContainer').style.visibility = 'hidden';
     document.getElementById('btnRoll').disabled = true;
     calculateScores();
     numberTurns++;
@@ -261,16 +269,23 @@ function gotMessages(messages) {
 }
 </script>
 </head>
-
-
 <body onload='checkMessages(); init();'>
 <div id="container">
-<div id="possibleScores"></div>
+<div id="header">
+    <div id="logo"><img src="../images/logo.png" class="logo" alt="Yahtzee"/></div>
+    <div class="headertekst">
+        <h2>
+            <span class="luck"><h:outputText value="#{labels.gameLuck}"/>, </span>${userBean.name}
+            | <a href="/game/LeaveGameServlet?leave=${gameBean.gameName}"><h:outputText value="#{labels.gameLeave}"/></a>
+        </h2>
+    </div>
+</div>
+<div id="scoresContainer">
+    <div id="possibleScores" class="dragdropwindow"></div>
+</div>
+<div id="gameContainer">
 <div id="game">
 <table>
-<tr>
-    <td colspan="3" align="center"><h1>Good luck, ${userBean.name}</h1></td>
-</tr>
 <tr>
 <td>
     <table border="1">
@@ -304,8 +319,8 @@ function gotMessages(messages) {
         </tr>
         <tr>
             <td>
-                <input type="button" value="start game" id="btnStart" onclick="startGame()">
-                <input type="button" value="roll dice" id="btnRoll" disabled="disabled" onclick="rollDice()">
+                <input type="button" value="<h:outputText value="#{labels.gameStart}"/>" id="btnStart" onclick="startGame()">
+                <input type="button" value="<h:outputText value='#{labels.gameRoll}'/>" id="btnRoll" disabled="disabled" onclick="rollDice()">
             </td>
         </tr>
     </table>
@@ -321,67 +336,66 @@ function gotMessages(messages) {
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>Count all ones</td>
+            <td><h:outputText value="#{labels.gameOnes}"/></td>
         </tr>
         <tr>
-            <td>Count all twos</td>
+            <td><h:outputText value="#{labels.gameTwos}"/></td>
         </tr>
         <tr>
-            <td>Count all threes</td>
+            <td><h:outputText value="#{labels.gameThrees}"/></td>
         </tr>
         <tr>
-            <td>Count all fours</td>
+            <td><h:outputText value="#{labels.gameFours}"/></td>
         </tr>
         <tr>
-            <td>Count all fives</td>
+            <td><h:outputText value="#{labels.gameFives}"/></td>
         </tr>
         <tr>
-            <td>Count all sixes</td>
+            <td><h:outputText value="#{labels.gameSixes}"/></td>
         </tr>
         <tr>
-            <td>Total upper half</td>
+            <td><h:outputText value="#{labels.gameTotalUpper}"/></td>
         </tr>
         <tr>
-            <td>Upper half bonus</td>
+            <td><h:outputText value="#{labels.gameBonusUpper}"/></td>
         </tr>
         <tr>
-            <td>Upper half with bonus</td>
+            <td><h:outputText value="#{labels.gameUpper}"/></td>
         </tr>
         <tr>
-            <td>Three of a kind</td>
+            <td><h:outputText value="#{labels.gameThree}"/></td>
         </tr>
         <tr>
-            <td>Carre</td>
+            <td><h:outputText value="#{labels.gameCarre}"/></td>
         </tr>
         <tr>
-            <td>Full house</td>
+            <td><h:outputText value="#{labels.gameHouse}"/></td>
         </tr>
         <tr>
-            <td>Small street</td>
+            <td><h:outputText value="#{labels.gameSmall}"/></td>
         </tr>
         <tr>
-            <td>Large street</td>
+            <td><h:outputText value="#{labels.gameLarge}"/></td>
         </tr>
         <tr>
-            <td>Yahtzee</td>
+            <td><h:outputText value="#{labels.yahtzee}"/></td>
         </tr>
         <tr>
-            <td>Chance</td>
+            <td><h:outputText value="#{labels.gameChance}"/></td>
         </tr>
         <tr>
-            <td>Yahtzee bonus</td>
+            <td><h:outputText value="#{labels.gameBonus}"/></td>
         </tr>
         <tr>
-            <td>Total lower half</td>
+            <td><h:outputText value="#{labels.gameTotalLower}"/></td>
         </tr>
         <tr>
-            <td>Grand total</td>
+            <td><h:outputText value="#{labels.gameTotal}"/></td>
         </tr>
     </table>
 </td>
 <td width="150">
-                <span id="p1table"
-                      style="background-color: #aaffff; width: 20px; display: table-cell; visibility: hidden; ">
+                <span id="p1table">
                     <table width="20">
                         <thead>
                             <tr>
@@ -391,8 +405,7 @@ function gotMessages(messages) {
                         <tbody id="p1score"></tbody>
                     </table>
                 </span>
-                <span id="p2table"
-                      style="background-color: #aaaaff; width: 20px; display: table-cell; visibility: hidden; ">
+                <span id="p2table">
                     <table width="20">
                         <thead>
                             <tr>
@@ -402,8 +415,7 @@ function gotMessages(messages) {
                         <tbody id="p2score"></tbody>
                     </table>
                 </span>
-                <span id="p3table"
-                      style="background-color: #ffaaaa; width: 20px; display: table-cell; visibility: hidden; ">
+                <span id="p3table">
                     <table width="20">
                         <thead>
                             <tr>
@@ -413,8 +425,7 @@ function gotMessages(messages) {
                         <tbody id="p3score"></tbody>
                     </table>
                 </span>
-                <span id="p4table"
-                      style="background-color: #ffffaa; width: 20px; display: table-cell; visibility: hidden; ">
+                <span id="p4table">
                     <table width="20">
                         <thead>
                             <tr>
@@ -427,24 +438,23 @@ function gotMessages(messages) {
 </td>
 </tr>
 </table>
-
-
 </td>
 <td>
     <div id="chat">
-        <h3 class="chatTekst">Yahtzee Chat</h3>
+        <h3 class="chatTekst"><h:outputText value="#{labels.chatTitle}"/></h3>
         <textarea id="chatlog" rows="10" cols="25" readonly="readonly" class="top"></textarea>
         <input id="text" type="text" size="25" onkeypress="DWRUtil.onReturn(event, sendMessage)"/>
-        <input type="button" onclick="sendMessage()" value="send" name="btnSend" id="btnChat">
-        <a href="/game/LeaveGameServlet?leave=${gameBean.gameName}">leave</a>
+        <input type="button" onclick="sendMessage()" value="<h:outputText value="#{labels.chatButton}"/>" name="btnSend" id="btnChat">
     </div>
 </td>
 </tr>
 </table>
 <h2 style="color: #ff0000">
-    <div id="gameState">Waiting for game to be started...</div>
+    <div id="gameState"><h:outputText value="#{labels.gameWait}"/> ...</div>
 </h2>
+</div>
 </div>
 </div>
 </body>
 </html>
+</f:view>

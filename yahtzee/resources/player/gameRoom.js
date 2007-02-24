@@ -55,7 +55,7 @@ function gotGames(messages)
         tableGames += "</td>"
         tableGames += "<td width='75px'>" + messages[game].state + "</td><td width='90px'>"
         if (messages[game].state != 'Full') {
-            tableGames += "<a href=/game/JoinGameServlet?join=" + messages[game].gameName + ">Join</a>"
+            tableGames += "<a href=/faces/game/JoinGameServlet?join=" + messages[game].gameName + ">Join</a>"
         }else {
             tableGames += "Playing"
         }

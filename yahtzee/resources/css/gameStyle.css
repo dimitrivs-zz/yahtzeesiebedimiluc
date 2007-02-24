@@ -1,93 +1,165 @@
 #container {
-	margin-left:auto;
-	margin-right:auto;
-	width:900px;
-	height:600px;
+    margin-left:auto;
+    margin-right:auto;
+    width:1000px;
 }
 
 #possibleScores {
-	width:200px;
-	float:left;
-	margin: 0 auto;
-	visibility: hidden;
+    width:200px;
+    margin: 50px 40px 50px 40px;
+    visibility: hidden;
+}
+
+#scoresContainer {
+    background-image:url(../images/gameScores.png);
+    width:250px;
+    height:550px;
+    background-repeat:no-repeat;
+    float: left;
+    margin: 0px auto;
+    visibility: hidden;
+}
+
+#gameContainer {
+    width:750px;
+    height:550px;
+    background-image:url(../images/gameBg.png);
+    background-repeat:no-repeat;
+    float:right;
 }
 
 #game {
-	width:700px;
-	float:right;
+    margin: 0px 0px 0px 60px;
 }
 
 #chatLog {
-	border: solid 1px #336699;
-	height:250px;
-	width:170px;
+    border: solid 1px #336699;
+    height:250px;
+    width:170px;
 }
 
 #chat{
-	width:170px;
-	height:380px;
-	float:right;
+    width:170px;
+    height:380px;
+    float:right;
+}
+
+h2{
+    margin:0px;
+    padding:0px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:20px;
 }
 
 h3.chatTekst{
-	margin:0px 5px 0px 5px;
+    margin:0px 5px 0px 5px;
 }
 
 h3{
-	margin:0px;
-	padding:0px;
-	font-family:Arial, Helvetica, sans-serif;
-	color:#FFFFFF;
+    margin:0px;
+    padding:0px;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#FFFFFF;
 }
 
 #text {
-	border: solid 1px #336699;
-	margin-top:10px;
-	height:50px;
-	width:170px;
+    border: solid 1px #336699;
+    margin-top:10px;
+    width:170px;
+}
+
+img.logo{
+    width:180px;
+    height:79px;
+}
+
+#logo{
+    margin: 10px 0px 0px 25px;
+    float:left;
+}
+
+#header{
+    background-image:url( ../images/gameHeaderBg.png );
+    background-repeat:no-repeat;
+    width:1000px;
+    height:100px;
+    margin-top:0px;
+    margin-bottom:10px;
+}
+
+.headertekst{
+    margin: 35px 35px 0px 0px;
+    float:right;
+    color:#FFFFFF;
+}
+
+span.luck{
+    font-weight:bold;
+    color:#FFFF00;
 }
 
 .dice {
-	width: 20px;
-	height: 20px;
-	font-family: arial, sans-serif;
-	font-size: 12px;
-	font-weight: bold;
-	border: 1px solid #000000;
-	padding: 2px;
+    width: 20px;
+    height: 20px;
+    font-family: arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #FFFFFF;
+    padding: 2px;
 }
 
 textarea {
-	font-family: arial, sans-serif;
-	font-size: 12px;
+    font-family: arial, sans-serif;
+    font-size: 12px;
 }
 
 html{
-	background-image:url(../images/background.png);
-	background-repeat:no-repeat;
-	color:#FFFFFF;
+    background-image:url(../images/background.png);
+    background-repeat:no-repeat;
+    color:#FFFFFF;
 }
 
 #btnStart, #btnRoll, #btnChat {
-	background-color:#ffffff;
-	color:#006600;
-	border-color:#336699;
-  	font-family:Arial, Helvetica, sans-serif;
-  	font-size:10pt;
-  	font-weight:bold;
+    background-color:#ffffff;
+    color:#006600;
+    border-color:#336699;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:10pt;
+    font-weight:bold;
 }
 
 #btnChat {
-	margin-top:10px;
-	width:170px;
+    margin-top:10px;
+    width:170px;
 }
 
-a:link {text-decoration: underline; color:#FFFFFF;}
-a:visited {text-decoration: underline; color:#FFFFFF;}
-a:active {text-decoration: underline; color:#FFFFFF;}
-a:hover {text-decoration: underline; color:#00CC00;}
+body {
+    text-align:center;
+}
 
-a.back:link {text-decoration: none; color:#FFFF00;}
-a.back:visited {text-decoration: none; color:#FFFF00;}
-a.back:active {text-decoration: none; color:#FFFF00;}
-a.back:hover {text-decoration: underline; color:#FFFF00;}
+#p1table, #p2table, #p3table, #p4table{
+    width:20px;
+    display: table-cell;
+    visibility: hidden;
+}
+
+#p1table{
+    background-color:#0033CC;
+}
+
+#p2table{
+    background-color:#e9eb1f;
+}
+
+#p3table{
+    background-color:#8b0cba;
+}
+
+#p4table{
+    background-color:#f67118;
+}
+
+a:link {text-decoration: none; color:#FFFFFF;}
+a:visited {text-decoration: none; color:#FFFFFF;}
+a:active {text-decoration: none; color:#FFFFFF;}
+a:hover {text-decoration: underline; color:#00CC00;}
