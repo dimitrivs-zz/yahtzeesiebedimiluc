@@ -6,7 +6,7 @@
 
 #possibleScores {
     width:200px;
-    margin: 50px 40px 50px 40px;
+    margin: 50px 20px 50px 20px;
     visibility: hidden;
 }
 
@@ -29,7 +29,7 @@
 }
 
 #game {
-    margin: 0px 0px 0px 60px;
+    margin: 0px 30px 0px 30px;
 }
 
 #chatLog {
