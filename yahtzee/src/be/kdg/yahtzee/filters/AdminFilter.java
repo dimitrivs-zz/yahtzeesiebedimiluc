@@ -19,14 +19,36 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Filter class for protecting hidden pages.
+ * If no userBean is detected, the visitor is redirected to the login page.
+ * Players are redirected to the game page.
+ */
 public class AdminFilter implements Filter {
     private ServletContext application;
 
+    /**
+     * Initiates the filter class.
+     *
+     * @param filterConfig filterConfig object
+     * @throws ServletException
+     */
     public void init(FilterConfig filterConfig) throws ServletException {
         application = filterConfig.getServletContext();
     }
 
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {        //To change body of implemented methods use File | Settings | File Templates.
+    /**
+     * Main filter method.
+     * Userbean is requested, if none found user is redirected to login.
+     * If user is player, user is redirected to game page.
+     *
+     * @param servletRequest  servletRequest object.
+     * @param servletResponse servletResponse object.
+     * @param filterChain     filterChain object.
+     * @throws IOException
+     * @throws ServletException
+     */
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpSession session = ((HttpServletRequest) servletRequest).getSession();
         if (session.getAttribute("userBean") != null) {
             UserBean userBean = (UserBean) session.getAttribute("userBean");
@@ -49,6 +71,9 @@ public class AdminFilter implements Filter {
         }
     }
 
+    /**
+     * Method to destroy filter.
+     */
     public void destroy() {
     }
 }
