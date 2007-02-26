@@ -21,8 +21,8 @@
             <form action="/admin/SearchUserServlet" method="post">
                 <table>
                     <tr>
-                        <td><input type="text" name="searchUser"/></td>
-                        <td><input type="submit" value="<h:outputText value="#{labels.userButton}"/>"></td>
+                        <td><input type="text" name="searchUser" class="text"/></td>
+                        <td><input type="submit" value="<h:outputText value="#{labels.userButton}"/>" class="btn"></td>
                     </tr>
                 </table>
             </form>

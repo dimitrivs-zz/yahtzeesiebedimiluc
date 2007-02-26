@@ -1,24 +1,27 @@
 <%@ tag import="be.kdg.yahtzee.model.game.Game" %>
 <%@ tag body-content="empty" %>
+
 <%@ attribute name="hrefRemove" required="true" %>
 <%@ attribute name="hrefWatch" required="true" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
 
 <jsp:useBean id="allGames" class="java.util.ArrayList" scope="session"/>
-
+<f:loadBundle basename="bundles.resources" var="labels"/>
 <table border="1">
     <tr>
-        <td>Game Name</td>
-        <td>Max Players</td>
-        <td>Actual Number Players</td>
-        <td>State</td>
-        <td colspan="2" align="center">Actions</td>
+        <td><h:outputText value="#{labels.roomName}"/></td>
+        <td><h:outputText value="#{labels.allGameMax}"/></td>
+        <td><h:outputText value="#{labels.allGameNumber}"/></td>
+        <td><h:outputText value="#{labels.roomState}"/></td>
+        <td colspan="2" align="center"><h:outputText value="#{labels.roomAction}"/></td>
     </tr>
     <% if (allGames.isEmpty()) {
     %>
     <tr>
-        <td colspan="7" align="center">No Games</td>
+        <td colspan="7" align="center"><h:outputText value="#{labels.allGameNone}"/></td>
     </tr>
     <% }
         for (Object game1 : allGames) {

@@ -40,13 +40,6 @@
 	margin: 15px 20px 10px 20px;
 }
 
-#userProfile{
-    background-image:url(../images/profileBg.png);
-	background-repeat:no-repeat;
-	width:450px;
-	height:520px;
-}
-
 #info{
 	margin-top:-15px;
 }
@@ -56,7 +49,7 @@ img.logo{
 	height:79px;
 }
 
-img, #login, #register, #newGame,#profile,#userProfile{ behavior: url(iepngfix/iepngfix.htc) }
+img, #login, #register, #newGame,#profile{ behavior: url(iepngfix/iepngfix.htc) }
 
 input.btn{
 	background-color:#ffffff;

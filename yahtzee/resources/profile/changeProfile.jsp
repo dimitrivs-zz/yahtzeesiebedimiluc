@@ -65,25 +65,25 @@
       method="post">
     <table>
         <tr>
-            <td colspan="2"><img src="../images/logo.png" class="logo" alt="Yahtzee"/></td>
+            <td><img src="../images/logo.png" class="logo" alt="Yahtzee"/></td>
             <td><h1>
                 <h:outputText value="#{labels.profile}"/>
             </h1></td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <h:outputText value="#{labels.profileOldPw}"/>
             </td>
             <td><input type="password" name="orgPass" class="text"/></td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <h:outputText value="#{labels.profileNewPw}"/>
             </td>
             <td><input type="password" name="pw" class="text"/></td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <h:outputText value="#{labels.profileRePw}"/>
             </td>
             <td><input type="password" name="pw2" class="text"/></td>
@@ -166,7 +166,7 @@
         <tr>
             <td>&nbsp;</td>
         </tr>
-        <td colspan="3" align="center" height="40px"><a href="/faces/player/gameRoom.jsp">
+        <td colspan="3" align="center" height="40px"><a href="/faces/player/gameRoom.jsp" class="back">
             <h:outputText value="#{labels.gameroomButton}"/>
         </a></td>
         <tr>

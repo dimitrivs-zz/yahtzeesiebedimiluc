@@ -18,36 +18,37 @@
 </head>
 
 <body>
+<div id="container">
 <div id="profile">
 
 <form name="changePassword" action="/admin/ChangeUserPasswordServlet?orgUser=${userchangeBean.username}" method="post">
     <table>
         <tr>
-            <td colspan="2"><img src="../images/logo.png" class="logo" alt="Yahtzee"/></td>
+            <td><img src="../images/logo.png" class="logo" alt="Yahtzee"/></td>
             <td><h1>
                 <h:outputText value="#{labels.profile}"/>
             </h1></td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <h:outputText value="#{labels.userName}"/>
             </td>
             <td>${userchangeBean.username}</td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <h:outputText value="#{labels.profileNewPw}"/>
             </td>
             <td><input type="password" name="pw" class="text"/></td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <h:outputText value="#{labels.profileRePw}"/>
             </td>
             <td><input type="password" name="pw2" class="text"/></td>
         </tr>
         <tr>
-            <td><input type="submit" value="Change password"></td>
+            <td><input type="submit" value="<h:outputText value="#{labels.profilePw}"/>" class="btn"></td>
         </tr>
     </table>
 </form>
@@ -55,31 +56,31 @@
 <form name="changeProfile" action="/admin/ChangeUserProfileServlet?orgUser=${userchangeBean.username}" method="post">
     <table>
         <tr>
-            <td colspan="2">
+            <td>
                 <h:outputText value="#{labels.mail}"/>
             </td>
             <td><input type="text" name="mail" class="text" value="${userchangeBean.email}"/></td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <h:outputText value="#{labels.surname}"/>
             </td>
             <td><input type="text" name="surname" value="${userchangeBean.surname}" class="text"/></td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <h:outputText value="#{labels.firstname}"/>
             </td>
             <td><input type="text" name="firstname" value="${userchangeBean.firstname}" class="text"/></td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <h:outputText value="#{labels.telephone}"/>
             </td>
             <td><input type="text" name="telephone" value="${userchangeBean.telephone}" class="text"/></td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <h:outputText value="#{labels.street}"/>
                 +
                 <h:outputText value="#{labels.number}"/>
@@ -90,25 +91,25 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <h:outputText value="#{labels.zip}"/>
             </td>
             <td><input type="text" name="zip" value="${userchangeBean.zip}" class="text"/></td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <h:outputText value="#{labels.city}"/>
             </td>
             <td><input type="text" name="city" value="${userchangeBean.city}" class="text"/></td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <h:outputText value="#{labels.country}"/>
             </td>
             <td><input type="text" name="country" value="${userchangeBean.country}" class="text"/></td>
         </tr>
         <tr>
-            <td colspan="2">Role</td>
+            <td><h:outputText value="#{labels.createRole}"/></td>
             <td><select name="role">
                 <c:if test="${userchangeBean.role == 'Administrator'}">
                     <option value="Administrator" selected>Administrator</option>
@@ -121,7 +122,7 @@
             </select></td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <h:outputText value="#{labels.language}"/>
             </td>
             <td><select name="taal">
@@ -133,18 +134,19 @@
             </select>
             </td>
         </tr>
-        <td><input type="submit" value="Change profile"></td>
+        <td><input type="submit" value="<h:outputText value="#{labels.profileTitle}"/>" class="btn"></td>
         <tr>
             <td>&nbsp;</td>
         </tr>
-        <td colspan="3" align="center" height="40px"><a href="/faces/admin/ShowUsersServlet">
-            <h:outputText value="#{labels.allusersBack}"/>
+        <td colspan="2" align="center" height="40px"><a href="/faces/admin/ShowUsersServlet" class="back">
+            <h:outputText value="#{labels.userBack}"/>
         </a></td>
         <tr>
-            <td colspan="3" align="center">${message}</td>
+            <td colspan="2" align="center">${message}</td>
         </tr>
     </table>
 </form>
+</div>
 </div>
 </body>
 </html>

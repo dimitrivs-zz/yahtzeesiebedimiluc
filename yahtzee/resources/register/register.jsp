@@ -128,7 +128,7 @@
                     <td height="40px"><input type="submit" value="<h:outputText value="#{labels.registerButton}"/>" class="btn"></td>
                 </tr>
                 <tr>
-                    <td colspan="3" align="center" height="35px"><a href="../login/login.jsp"><h:outputText value="#{labels.inlogButton}"/></a></td>
+                    <td colspan="3" align="center" height="35px"><a href="../login/login.jsp" class="back"><h:outputText value="#{labels.inlogButton}"/></a></td>
                 </tr>
             </table>
         </form>
