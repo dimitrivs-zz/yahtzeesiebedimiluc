@@ -127,6 +127,10 @@ public class Game {
         users.remove(user);
         userList.remove(user);
         scores.remove(user.getUsername());
+        if (user.getUsername().equals(activePlayer.getUsername())) {
+            resetRound();
+            getNextPlayer();
+        }
     }
 
     public int getNumberOfPlayers() {
@@ -431,9 +435,10 @@ public class Game {
         //if (score.isYahtzeeFixed()) {
         if (scores.get(activePlayer.getUsername()).isYahtzeeFixed() && scores.get(activePlayer.getUsername()).getYahtzee() != 0) {
             if (matchDice(0, 1) && matchDice(1, 2) && matchDice(2, 3) && matchDice(3, 4)) {
-                Score score = scores.get(activePlayer.getUsername());
-                score.addyahtzee();
+                points = YAHTZEEBONUS;
             }
+            Score score = scores.get(activePlayer.getUsername());
+            score.addyahtzee();
         }
     }
 

@@ -11,7 +11,9 @@
 <html>
 <head>
 <link href="../css/gameStyle.css" rel="stylesheet" type="text/css"/>
-<title><h:outputText value="#{labels.gameTitle}"/> (${gameBean.gameName})</title>
+<title>
+    <h:outputText value="#{labels.gameTitle}"/>
+    (${gameBean.gameName})</title>
 <script type='text/javascript' src='/dwr/engine.js'></script>
 <script type='text/javascript' src='/dwr/interface/GameManager.js'></script>
 <script type='text/javascript' src='/dwr/util.js'></script>
@@ -89,6 +91,42 @@ function playersLoaded(players) {
     })
 }
 
+function keepPlayersUpdated() {
+    GameManager.getUsersOfGame('${gameBean.gameName}',
+            function(playersList) {
+                if (playersList.length != playersArray.length) {
+                    var testArray = new Array();
+                    var i = 0;
+                    for (var player in playersList) {
+                        testArray[i] = playersList[player].username;
+                        i++;
+                    }
+                    for (i = 0; i < playersArray.length; i++) {
+                        if (playersArray[i][0] != testArray[i]) {
+                            removePlayer(playersArray[i][0]);
+                            break;
+                        }
+                    }
+                    i = 0;
+                    playersArray.length = 0;
+                    for (var player in playersList) {
+                        playersArray[i] = new Array();
+                        playersArray[i][0] = playersList[player].username;
+                        i++;
+                    }
+                }
+            }
+            );
+    setTimeout('keepPlayersUpdated()', 5000);
+}
+
+function removePlayer(playerUsername) {
+    if (DWRUtil.getValue('p1name') == playerUsername) document.getElementById('p1table').style.visibility = 'hidden';
+    if (DWRUtil.getValue('p2name') == playerUsername) document.getElementById('p2table').style.visibility = 'hidden';
+    if (DWRUtil.getValue('p3name') == playerUsername) document.getElementById('p3table').style.visibility = 'hidden';
+    if (DWRUtil.getValue('p4name') == playerUsername) document.getElementById('p4table').style.visibility = 'hidden';
+}
+
 function startGame() {
     DWRUtil.setValue('gameState', '<h:outputText value="#{labels.gameStarting}"/>...');
     GameManager.startGame('${gameBean.gameName}', gameStarted);
@@ -105,6 +143,7 @@ function gameStarted(state) {
                     } else {
                         keepDiceUpdated();
                     }
+                    keepPlayersUpdated();
                     DWRUtil.setValue('gameState', player + ' <h:outputText value="#{labels.gamePlaying}"/>...');
                 }
                 );
@@ -132,7 +171,7 @@ function keepDiceUpdated() {
                 }
             }
             );
-    calculateScores();
+    //calculateScores();
     keepDiceUpdatedTimeout = setTimeout('keepDiceUpdated()', 2000);
 }
 
@@ -248,6 +287,7 @@ function fixDice(diceNr, state) {
 
 }
 
+// chat functions
 function sendMessage() {
     var text = DWRUtil.getValue("text");
     if (text != '' && text != ' ') {
@@ -258,7 +298,6 @@ function sendMessage() {
 function checkMessages() {
     GameManager.getMessages('${gameBean.gameName}', gotMessages);
 }
-
 function gotMessages(messages) {
     var chatlog = "";
     for (var data in messages) {
@@ -267,6 +306,7 @@ function gotMessages(messages) {
     DWRUtil.setValue("chatlog", chatlog);
     setTimeout("checkMessages()", 1000);
 }
+
 </script>
 </head>
 <body onload='checkMessages(); init();'>
@@ -276,7 +316,9 @@ function gotMessages(messages) {
     <div class="headertekst">
         <h2>
             <span class="luck"><h:outputText value="#{labels.gameLuck}"/>, </span>${userBean.name}
-            | <a href="/game/LeaveGameServlet?leave=${gameBean.gameName}"><h:outputText value="#{labels.gameLeave}"/></a>
+            | <a href="/game/LeaveGameServlet?leave=${gameBean.gameName}">
+            <h:outputText value="#{labels.gameLeave}"/>
+        </a>
         </h2>
     </div>
 </div>
@@ -319,8 +361,10 @@ function gotMessages(messages) {
         </tr>
         <tr>
             <td>
-                <input type="button" value="<h:outputText value="#{labels.gameStart}"/>" id="btnStart" onclick="startGame()">
-                <input type="button" value="<h:outputText value='#{labels.gameRoll}'/>" id="btnRoll" disabled="disabled" onclick="rollDice()">
+                <input type="button" value="<h:outputText value="#{labels.gameStart}"/>" id="btnStart"
+                       onclick="startGame()">
+                <input type="button" value="<h:outputText value='#{labels.gameRoll}'/>" id="btnRoll" disabled="disabled"
+                       onclick="rollDice()">
             </td>
         </tr>
     </table>
@@ -336,61 +380,99 @@ function gotMessages(messages) {
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameOnes}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameOnes}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameTwos}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameTwos}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameThrees}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameThrees}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameFours}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameFours}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameFives}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameFives}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameSixes}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameSixes}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameTotalUpper}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameTotalUpper}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameBonusUpper}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameBonusUpper}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameUpper}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameUpper}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameThree}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameThree}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameCarre}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameCarre}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameHouse}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameHouse}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameSmall}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameSmall}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameLarge}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameLarge}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.yahtzee}"/></td>
+            <td>
+                <h:outputText value="#{labels.yahtzee}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameChance}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameChance}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameBonus}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameBonus}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameTotalLower}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameTotalLower}"/>
+            </td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.gameTotal}"/></td>
+            <td>
+                <h:outputText value="#{labels.gameTotal}"/>
+            </td>
         </tr>
     </table>
 </td>
@@ -441,16 +523,22 @@ function gotMessages(messages) {
 </td>
 <td>
     <div id="chat">
-        <h3 class="chatTekst"><h:outputText value="#{labels.chatTitle}"/></h3>
+        <h3 class="chatTekst">
+            <h:outputText value="#{labels.chatTitle}"/>
+        </h3>
         <textarea id="chatlog" rows="10" cols="25" readonly="readonly" class="top"></textarea>
         <input id="text" type="text" size="25" onkeypress="DWRUtil.onReturn(event, sendMessage)"/>
-        <input type="button" onclick="sendMessage()" value="<h:outputText value="#{labels.chatButton}"/>" name="btnSend" id="btnChat">
+        <input type="button" onclick="sendMessage()" value="<h:outputText value="#{labels.chatButton}"/>" name="btnSend"
+               id="btnChat">
     </div>
 </td>
 </tr>
 </table>
 <h2 style="color: #ff0000">
-    <div id="gameState"><h:outputText value="#{labels.gameWait}"/> ...</div>
+    <div id="gameState">
+        <h:outputText value="#{labels.gameWait}"/>
+        ...
+    </div>
 </h2>
 </div>
 </div>

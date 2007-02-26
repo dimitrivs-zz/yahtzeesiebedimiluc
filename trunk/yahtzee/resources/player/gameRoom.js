@@ -49,14 +49,14 @@ function gotGames(messages)
             for (var user in messages[game].users) {
                 tableGames += '<a href=/profile/ShowProfileServlet?user=' + messages[game].users[user].username + '>' + messages[game].users[user].username + '</a>, '
             }
-        }else {
+        } else {
             tableGames += "No players"
         }
         tableGames += "</td>"
         tableGames += "<td width='75px'>" + messages[game].state + "</td><td width='90px'>"
-        if (messages[game].state != 'Full') {
+        if (messages[game].state == 'Waiting') {
             tableGames += "<a href=/faces/game/JoinGameServlet?join=" + messages[game].gameName + ">Join</a>"
-        }else {
+        } else {
             tableGames += "Playing"
         }
         tableGames += "</td></tr>"
