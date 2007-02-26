@@ -104,6 +104,10 @@ public class Game {
         return diceList;
     }
 
+    public void setDiceList(List<Die> diceList) {
+        this.diceList = diceList;
+    }
+
     public Chat getChat() {
         return chat;
     }
@@ -226,7 +230,7 @@ public class Game {
     }
 
 
-    private void calculateScores() {
+    public void calculateScores() {
         fillDiceValues();
         Collections.sort(diceValueList);
 
