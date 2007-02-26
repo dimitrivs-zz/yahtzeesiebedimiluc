@@ -13,6 +13,9 @@ import be.kdg.yahtzee.model.users.User;
 
 import java.util.*;
 
+/**
+ * Class representing one Game in the yahtzee application.
+ */
 public class Game {
     private String gameName;
     private int maxPlayer;
@@ -25,18 +28,21 @@ public class Game {
     private List<Integer> diceValueListWithoutDoubles;
     private DiceGenerator diceGen;
     private int points;
-    //private Score score;
-
     private User activePlayer;
     private Map<String, Score> scores;
     private List<User> userList;
-
-
     private Map<String, Integer> possibleScores;
     private int numberOfRolls;
 
     //Nodig voor testGame - tijdelijk
 
+    /**
+     * Constructor for a yahtzee game.
+     *
+     * @param gameName  String name of the game.
+     * @param maxPlayer Integer value maximum number of players.
+     * @param user      User object creator of the game.
+     */
     public Game(String gameName, int maxPlayer, User user) {
         this.gameName = gameName;
         this.maxPlayer = maxPlayer;
@@ -49,29 +55,40 @@ public class Game {
         creator = user;
         users = new HashSet<User>();
         users.add(user);
-
-
         userList = new ArrayList<User>();
         scores = new HashMap<String, Score>();
         scores.put(user.getUsername(), new Score());
         activePlayer = user;
         userList.add(user);
         creator = user;
-
         diceGen = new DiceGenerator();
         possibleScores = new HashMap<String, Integer>();
         numberOfRolls = 0;
-        //score = new Score();
     }
 
+    /**
+     * Method for getting the creator of this game.
+     *
+     * @return User object representing the creator of this game.
+     */
     public User getCreator() {
         return creator;
     }
 
+    /**
+     * Method for getting the name of this game.
+     *
+     * @return String representing the name of the game.
+     */
     public String getGameName() {
         return gameName;
     }
 
+    /**
+     * Method for getting the state of this game.
+     *
+     * @return String representing the state of the game.
+     */
     public String getState() {
         switch (state) {
             case LEEG:
@@ -89,44 +106,75 @@ public class Game {
         }
     }
 
+    /**
+     * Method for setting the state of the game.
+     *
+     * @param state EnumState state of the game.
+     */
     public void setState(EnumState state) {
         this.state = state;
     }
 
+    /**
+     * Method for getting the list with dices.
+     *
+     * @return List with the dices.
+     */
     public List<Die> getDiceList() {
         return diceList;
     }
 
-    public void setDiceList(List<Die> diceList) {
-        this.diceList = diceList;
-    }
-
+    /**
+     * Method for getting the chat object.
+     *
+     * @return Chat object for this game.
+     */
     public Chat getChat() {
         return chat;
     }
 
+    /**
+     * Method for getting the players in this game.
+     *
+     * @return Set with players in this game.
+     */
     public Set<User> getUsers() {
         return users;
     }
 
+    /**
+     * Method for getting the currently playing user.
+     *
+     * @return User object representing currently active player.
+     */
     public User getActivePlayer() {
         return activePlayer;
     }
 
+    /**
+     * Method for starting the game.
+     * State is set to Busy.
+     */
     public void startGame() {
         setState(EnumState.BEZIG);
     }
 
+    /**
+     * Method to add a user to this game.
+     *
+     * @param user User object representing new player.
+     */
     public void joinGame(User user) {
         users.add(user);
-
-
         userList.add(user);
         scores.put(user.getUsername(), new Score());
-
-
     }
 
+    /**
+     * Method to remove a player from a game.
+     *
+     * @param user User object representing player to remove.
+     */
     public void leaveGame(User user) {
         users.remove(user);
         userList.remove(user);
@@ -137,18 +185,28 @@ public class Game {
         }
     }
 
+    /**
+     * Method for getting the number of players in this game.
+     *
+     * @return Integer value with the number of players.
+     */
     public int getNumberOfPlayers() {
         return users.size();
     }
 
+    /**
+     * Method for getting the maximum number of players in this game.
+     *
+     * @return Integer value with the maximum number of players.
+     */
     public int getMaxPlayer() {
         return maxPlayer;
     }
-    /*
-    public List<Die> getDiceList() {
-        return diceList;
-    }*/
 
+    /**
+     * Method to reset the round.
+     * Clear lists for generatiing new dice and the next trn to play.
+     */
     private void resetRound() {
         numberOfRolls = 0;
         diceList.clear();
@@ -157,6 +215,13 @@ public class Game {
         diceGen.resetDiceGenerator();
     }
 
+    /**
+     * Method for playing a game round.
+     * Roll dice and return them.
+     * Max. 3 rolls per turn.
+     *
+     * @return List with rolled dices.
+     */
     public List<Die> playRound() {
         if (numberOfRolls < 3) {
             numberOfRolls++;
@@ -177,6 +242,9 @@ public class Game {
         return diceList;
     }
 
+    /**
+     * Method for filling a List with dice values.
+     */
     private void fillDiceValues() {
         diceValueList = new ArrayList<Integer>();
 
@@ -185,18 +253,34 @@ public class Game {
         }
     }
 
+    /**
+     * Method for fixing a Die.
+     *
+     * @param dieId Integer id of the Die to fix.
+     * @return boolean value representing success of fixing.
+     */
     public boolean fixDie(int dieId) {
         Die die = getDie(dieId);
-
         return diceGen.fixDie(die);
     }
 
+    /**
+     * Method for unfixing a Die.
+     *
+     * @param dieId Integer id of the Die to unfix.
+     * @return boolean value representing success of unfixing.
+     */
     public boolean unfixDie(int dieId) {
         Die die = getDie(dieId);
-
         return diceGen.unfixDie(die);
     }
 
+    /**
+     * Method for getting one Die by id.
+     *
+     * @param dieId Integer id of the Die to get.
+     * @return Die object representing wanted die.
+     */
     public Die getDie(int dieId) {
         for (Die die : diceList) {
             if (die.getDieId() == dieId) {
@@ -206,10 +290,11 @@ public class Game {
         return null;
     }
 
-    /*public Map<String, Integer> getScorePossibilities() {
-        return possibleScores;
-    }*/
-
+    /**
+     * Method for getting the possible scoreAspect of yahtzee.
+     *
+     * @return List with possible scoreAspects
+     */
     public List<ScoreAspect> getScorePossibilities() {
         List<ScoreAspect> scorePossibilities = new ArrayList<ScoreAspect>();
         for (String s : possibleScores.keySet()) {
@@ -218,8 +303,10 @@ public class Game {
         return scorePossibilities;
     }
 
-
-    public void calculateScores() {
+    /**
+     * Calculate the yahtzee scores.
+     */
+    private void calculateScores() {
         fillDiceValues();
         Collections.sort(diceValueList);
 
@@ -242,9 +329,11 @@ public class Game {
         calculateChance();
     }
 
+    /**
+     * Calculate Ones score.
+     */
     private void calculateOnes() {
         points = 0;
-        //if (!score.isOnesFixed()) {
         if (!scores.get(activePlayer.getUsername()).isOnesFixed()) {
             for (Die die : diceList) {
                 if (die.getValue() == 1) {
@@ -255,9 +344,11 @@ public class Game {
         }
     }
 
+    /**
+     * Calculate Twos score.
+     */
     private void calculateTwos() {
         points = 0;
-        //if (!score.isTwosFixed()) {
         if (!scores.get(activePlayer.getUsername()).isTwosFixed()) {
             for (Die die : diceList) {
                 if (die.getValue() == 2) {
@@ -268,9 +359,11 @@ public class Game {
         }
     }
 
+    /**
+     * Calculate Threes score.
+     */
     private void calculateThrees() {
         points = 0;
-        //if (!score.isThreesFixed()) {
         if (!scores.get(activePlayer.getUsername()).isThreesFixed()) {
             for (Die die : diceList) {
                 if (die.getValue() == 3) {
@@ -281,10 +374,11 @@ public class Game {
         }
     }
 
-
+    /**
+     * Calculate Fours score.
+     */
     private void calculateFours() {
         points = 0;
-        //if (!score.isFoursFixed()) {
         if (!scores.get(activePlayer.getUsername()).isFoursFixed()) {
             for (Die die : diceList) {
                 if (die.getValue() == 4) {
@@ -295,9 +389,11 @@ public class Game {
         }
     }
 
+    /**
+     * Calculate Fives score.
+     */
     private void calculateFives() {
         points = 0;
-        //if (!score.isFivesFixed()) {
         if (!scores.get(activePlayer.getUsername()).isFivesFixed()) {
             for (Die die : diceList) {
                 if (die.getValue() == 5) {
@@ -308,9 +404,11 @@ public class Game {
         }
     }
 
+    /**
+     * Calculate Sixes score.
+     */
     private void calculateSixes() {
         points = 0;
-        //if (!score.isSixesFixed()) {
         if (!scores.get(activePlayer.getUsername()).isSixesFixed()) {
             for (Die die : diceList) {
                 if (die.getValue() == 6) {
@@ -321,9 +419,12 @@ public class Game {
         }
     }
 
+
+    /**
+     * Calculate ThreeOfAKind score.
+     */
     private void calculateThreeOfAKind() {
         points = 0;
-        //if (!score.isThreeOfAKindFixed()) {
         if (!scores.get(activePlayer.getUsername()).isThreeOfAKindFixed()) {
             if (diceValueList.get(0) == diceValueList.get(1) &&
                     diceValueList.get(1) == diceValueList.get(2)) {
@@ -343,9 +444,11 @@ public class Game {
         }
     }
 
+    /**
+     * Calculate Carre score.
+     */
     private void calculateCarre() {
         points = 0;
-        //if (!score.isCarreFixed()) {
         if (!scores.get(activePlayer.getUsername()).isCarreFixed()) {
             if (diceValueList.get(0) == diceValueList.get(1) &&
                     diceValueList.get(1) == diceValueList.get(2) &&
@@ -362,9 +465,11 @@ public class Game {
         }
     }
 
+    /**
+     * Calculate FullHouse score.
+     */
     private void calculateFullHouse() {
         points = 0;
-        //if (!score.isFullHouseFixed()) {
         if (!scores.get(activePlayer.getUsername()).isFullHouseFixed()) {
             if (diceValueList.get(0) == diceValueList.get(1) &&
                     diceValueList.get(1) == diceValueList.get(2) &&
@@ -380,11 +485,12 @@ public class Game {
         }
     }
 
+    /**
+     * Calculate SmallStreet score.
+     */
     private void calculateSmallStreet() {
         points = 0;
         removeDoubles();
-
-        //if (!score.isSmallStreetFixed()) {
         if (!scores.get(activePlayer.getUsername()).isSmallStreetFixed()) {
             if (diceValueListWithoutDoubles.size() >= 4) {
                 if (diceValueListWithoutDoubles.get(0) + 1 == diceValueListWithoutDoubles.get(1) &&
@@ -404,9 +510,11 @@ public class Game {
         }
     }
 
+    /**
+     * Calculate LargeStreet score.
+     */
     private void calculateLargeStreet() {
         points = 0;
-        //if (!score.isLargeStreetFixed()) {
         if (!scores.get(activePlayer.getUsername()).isLargeStreetFixed()) {
             if (diceValueList.get(0) + 1 == diceValueList.get(1) &&
                     diceValueList.get(1) + 1 == diceValueList.get(2) &&
@@ -419,9 +527,11 @@ public class Game {
         }
     }
 
+    /**
+     * Calculate Yahtzee score.
+     */
     private void calculateYahtzee() {
         points = 0;
-        //if (!score.isYahtzeeFixed()) {
         if (!scores.get(activePlayer.getUsername()).isYahtzeeFixed()) {
             if (matchDice(0, 1) && matchDice(1, 2) && matchDice(2, 3) && matchDice(3, 4)) {
                 points = YAHTZEEPOINTS;
@@ -430,9 +540,11 @@ public class Game {
         }
     }
 
+    /**
+     * Calculate YahtzeeBonus score.
+     */
     private void calculateYahtzeeBonus() {
         points = 0;
-        //if (score.isYahtzeeFixed()) {
         if (scores.get(activePlayer.getUsername()).isYahtzeeFixed() && scores.get(activePlayer.getUsername()).getYahtzee() != 0) {
             if (matchDice(0, 1) && matchDice(1, 2) && matchDice(2, 3) && matchDice(3, 4)) {
                 points = YAHTZEEBONUS;
@@ -442,15 +554,22 @@ public class Game {
         }
     }
 
+    /**
+     * Calculate Chance score.
+     */
     private void calculateChance() {
         points = 0;
-        //if (!score.isChanceFixed()) {
         if (!scores.get(activePlayer.getUsername()).isChanceFixed()) {
             points = countAll();
             possibleScores.put("chance", points);
         }
     }
 
+    /**
+     * Method for counting all dice values.
+     *
+     * @return Integer value with dice values.
+     */
     private int countAll() {
         for (Die die : diceList) {
             points += die.getValue();
@@ -458,6 +577,13 @@ public class Game {
         return points;
     }
 
+    /**
+     * Method for matching two dice.
+     *
+     * @param aDieId Die 1
+     * @param bDieId Die 2
+     * @return boolean value if equal.
+     */
     private boolean matchDice(int aDieId, int bDieId) {
         Die aDie = getDie(aDieId);
         Die bDie = getDie(bDieId);
@@ -465,6 +591,9 @@ public class Game {
         return aDie.getValue() == bDie.getValue();
     }
 
+    /**
+     * Method for removing doubles in a diceValueList.
+     */
     private void removeDoubles() {
         diceValueListWithoutDoubles = new ArrayList<Integer>();
 
@@ -477,6 +606,12 @@ public class Game {
         diceValueListWithoutDoubles.add(diceValueList.get(4));
     }
 
+    /**
+     * Method for selecting a score from the score possibilities.
+     *
+     * @param scoreChoice String score asprect to fix.
+     * @return Score object, representing active player score.
+     */
     public Score selectScore(String scoreChoice) {
         Score score = scores.get(activePlayer.getUsername());
 
@@ -516,6 +651,9 @@ public class Game {
         return score;
     }
 
+    /**
+     * Method for selecting next player in the game.
+     */
     private void getNextPlayer() {
         int currentPlayerIndex = 0;
         for (User tUser : userList) {
@@ -531,11 +669,20 @@ public class Game {
         activePlayer = userList.get(currentPlayerIndex);
     }
 
+    /**
+     * Method for getting the score of the active player.
+     *
+     * @return Score object of active player.
+     */
     public Score getScore() {
         return scores.get(activePlayer.getUsername());
-        //return score;
     }
 
+    /**
+     * Method for getting all the scores of all users.
+     *
+     * @return Map with all scores of all users in the game.
+     */
     public Map getScores() {
         return scores;
     }
