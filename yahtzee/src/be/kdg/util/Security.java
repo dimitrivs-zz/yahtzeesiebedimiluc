@@ -13,7 +13,6 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-
 /**
  * This class provides non-reversible string encryption for security purposes.
  * An instance of this class is accessed through the getInstance method.
