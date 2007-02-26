@@ -1,17 +1,23 @@
+/*
+ * Project Software Development
+ * Karel de Grote-Hogeschool
+ * 2006-2007
+ *
+ */
+
 package be.kdg.yahtzee.filters;
 
-import be.kdg.yahtzee.model.YahtzeeController;
 import be.kdg.yahtzee.beans.UserBean;
-
-import javax.servlet.*;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
+import be.kdg.yahtzee.model.YahtzeeController;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import org.springframework.beans.factory.BeanFactory;
+
+import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 public class PlayerFilter implements Filter {
     private ServletContext application;
@@ -26,10 +32,10 @@ public class PlayerFilter implements Filter {
             UserBean userBean = (UserBean) session.getAttribute("userBean");
 
             ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(application);
-            BeanFactory beanFactory = (BeanFactory)ctx;
+            BeanFactory beanFactory = (BeanFactory) ctx;
             YahtzeeController yahtzeeController = (YahtzeeController) beanFactory.getBean("yahtzeeController");
 
-            if (yahtzeeController.isAdministrator(userBean.getUsername())){
+            if (yahtzeeController.isAdministrator(userBean.getUsername())) {
                 ((HttpServletResponse) servletResponse).sendRedirect("/admin/administrator.jsp");
             } else {
                 filterChain.doFilter(servletRequest, servletResponse);

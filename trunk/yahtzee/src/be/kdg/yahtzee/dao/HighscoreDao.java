@@ -1,5 +1,11 @@
-package be.kdg.yahtzee.dao;
+/*
+ * Project Software Development
+ * Karel de Grote-Hogeschool
+ * 2006-2007
+ *
+ */
 
+package be.kdg.yahtzee.dao;
 
 import be.kdg.yahtzee.model.game.Highscore;
 import org.hibernate.SessionFactory;
