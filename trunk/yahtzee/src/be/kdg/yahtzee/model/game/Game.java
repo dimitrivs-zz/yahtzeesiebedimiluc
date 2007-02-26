@@ -36,13 +36,6 @@ public class Game {
     private int numberOfRolls;
 
     //Nodig voor testGame - tijdelijk
-    public Game() {
-        this.state = EnumState.LEEG;
-        diceGen = new DiceGenerator();
-        possibleScores = new HashMap<String, Integer>();
-        numberOfRolls = 0;
-        //score = new Score();
-    }
 
     public Game(String gameName, int maxPlayer, User user) {
         this.gameName = gameName;
@@ -155,10 +148,6 @@ public class Game {
     public List<Die> getDiceList() {
         return diceList;
     }*/
-
-    public int getNumberOfRolls() {
-        return numberOfRolls;
-    }
 
     private void resetRound() {
         numberOfRolls = 0;

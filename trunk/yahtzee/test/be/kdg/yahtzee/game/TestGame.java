@@ -15,10 +15,11 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class TestGame {
     private GameManager gameManager;
-    private User testUser;
+    private User testUser1;
     private Game game;
     private List<Die> diceList;
     private List<ScoreAspect> possibleScores;
@@ -34,9 +35,10 @@ public class TestGame {
 
         Role role = new Role("Player");
         Address address = new Address("null", "null", "null", "null", "null");
-        testUser = new User("TestUser", "TestUser", "TestUser", "TestUser", "TestUser", "TestUser", role, address);
+        testUser1 = new User("TestUser1", "TestUser1", "TestUser1", "TestUser1", "TestUser1", "TestUser1", role, address);
 
-        gameManager.createGame("TestGame", 1, testUser);
+        gameManager.createGame("TestGame", 1, testUser1);
+        game = gameManager.getGame("TestGame");
 
         aDie = new Die(0);
         bDie = new Die(1);
@@ -58,7 +60,7 @@ public class TestGame {
     public void tearDown() {
         gameManager = null;
 
-        testUser = null;
+        testUser1 = null;
         game = null;
 
         aDie = null;
@@ -350,5 +352,67 @@ public class TestGame {
         assertEquals("Aantal dobbelstenen moet <5> zijn", 5, diceList.size());
         assertTrue("Fixed dobbelsteen moet <True> teruggeven", diceList.get(2).isDieFixed());
         assertEquals("Fixed dobbelsteen moet zelfde waarde hebben als vorige beurt", aDiceValueBefore, aDiceValueAfter);
+    }
+
+    @Test
+    public void testPlayGame() {
+        ScoreAspect ones = new ScoreAspect("null", 0);
+        ScoreAspect fours = new ScoreAspect("null", 0);
+
+        gameManager.createGame("TestGame", 1, testUser1);
+
+        gameManager.getCreator("TestGame");
+
+        assertEquals("De creator moet testUser1 zijn", testUser1.getUsername(), gameManager.getCreator("TestGame"));
+
+        gameManager.startGame("TestGame");
+
+        assertEquals("De activePlayer moet nu <TestUser1> zijn", testUser1.getUsername(), gameManager.getActivePlayer("TestGame"));
+
+        gameManager.playRound("TestGame");
+
+        gameManager.fixDie("TestGame", diceList.get(0).getDieId());
+        gameManager.fixDie("TestGame", diceList.get(1).getDieId());
+
+        gameManager.selectScore("TestGame", "ones");
+
+        gameManager.playRound("TestGame");
+        gameManager.selectScore("TestGame", "twos");
+
+        Map scores = gameManager.getScores("TestGame");
+
+        gameManager.playRound("TestGame");
+        gameManager.selectScore("TestGame", "threes");
+
+        gameManager.playRound("TestGame");
+        gameManager.selectScore("TestGame", "fours");
+
+        gameManager.playRound("TestGame");
+        gameManager.selectScore("TestGame", "fives");
+
+        gameManager.playRound("TestGame");
+        gameManager.selectScore("TestGame", "sixes");
+
+        gameManager.playRound("TestGame");
+        gameManager.selectScore("TestGame", "threeOfAKind");
+
+        gameManager.playRound("TestGame");
+        gameManager.selectScore("TestGame", "carre");
+
+        gameManager.playRound("TestGame");
+        gameManager.selectScore("TestGame", "fullHouse");
+
+        gameManager.playRound("TestGame");
+        gameManager.selectScore("TestGame", "smallStreet");
+
+        gameManager.playRound("TestGame");
+        gameManager.selectScore("TestGame", "largeStreet");
+
+        gameManager.playRound("TestGame");
+        gameManager.selectScore("TestGame", "yahtzee");
+
+        gameManager.playRound("TestGame");
+        gameManager.selectScore("TestGame", "chance");
+
     }
 }
