@@ -193,22 +193,6 @@ public class GameManager {
     }
 
     /**
-     * Method for starting a game.
-     *
-     * @param gameName String name of game to start.
-     * @param user     creator of game.
-     * @return boolean value of success.
-     */
-    public boolean startGame(String gameName, User user) {
-        Game game = getGame(gameName);
-        if (isCreator(game, user)) {
-            game.setState(EnumState.BEZIG);
-            return true;
-        }
-        return false;
-    }
-
-    /**
      * Method for leaving a game.
      *
      * @param gameName String name of game to leave.

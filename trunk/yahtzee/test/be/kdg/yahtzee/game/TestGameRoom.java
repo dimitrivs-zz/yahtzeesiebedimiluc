@@ -99,9 +99,7 @@ public class TestGameRoom extends TestCase {
 
         gameManager.createGame("testGame1", 3, user);
 
-        assertFalse("Een andere player kan de game niet starten", gameManager.startGame("testGame1", user2));
-
-        assertTrue("De creator kan de game starten", gameManager.startGame("testGame1", user));
+        assertEquals("De creator kan de game starten", "Busy", gameManager.startGame("testGame1"));
 
         assertFalse("De game is <Busy> en kan dus niet gejoined worden", gameManager.joinGame("testGame1", user2));
     }
