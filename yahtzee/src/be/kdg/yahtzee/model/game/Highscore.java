@@ -9,13 +9,6 @@ package be.kdg.yahtzee.model.game;
 
 import be.kdg.yahtzee.model.users.User;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Luc
- * Date: 21-feb-2007
- * Time: 14:21:21
- * To change this template use File | Settings | File Templates.
- */
 public class Highscore {
     private int highscoreId;
     private int score;
