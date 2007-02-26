@@ -32,6 +32,10 @@
             <pathelement location="${lib.dir}/log4j-1.2.11.jar"/>
             <pathelement location="${lib.dir}/hibernate3.jar"/>
             <pathelement location="${lib.dir}/spring.jar"/>
+            <pathelement location="${lib.dir}/mysql-connector-java-5.0.3-bin.jar"/>
+            <pathelement location="${lib.dir}/spring-hibernate.jar"/>
+            <pathelement location="${lib.dir}/spring-beans.jar"/>
+            <pathelement location="${lib.dir}/*"/>
         </path>
     </target>
 
@@ -72,6 +76,7 @@
             <zipfileset dir="${web-inf.dir}" prefix="${web-inf.dir}">
                 <include name="dwr.xml"/>
                 <include name="faces-config.xml"/>
+                <include name="appcontext.xml"/>
             </zipfileset>
             <classes dir="${build.dir}"/>
         </war>
