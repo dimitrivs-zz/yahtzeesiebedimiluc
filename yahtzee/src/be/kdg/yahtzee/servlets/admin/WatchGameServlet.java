@@ -1,3 +1,10 @@
+/*
+ * Project Software Development
+ * Karel de Grote-Hogeschool
+ * 2006-2007
+ *
+ */
+
 package be.kdg.yahtzee.servlets.admin;
 
 import be.kdg.yahtzee.servlets.YahtzeeServlet;

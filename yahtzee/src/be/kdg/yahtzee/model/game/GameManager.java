@@ -1,3 +1,10 @@
+/*
+ * Project Software Development
+ * Karel de Grote-Hogeschool
+ * 2006-2007
+ *
+ */
+
 package be.kdg.yahtzee.model.game;
 
 import be.kdg.yahtzee.dao.HighscoreDao;

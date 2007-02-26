@@ -1,9 +1,8 @@
 /*
-Exeption handeling: OK
-Logging: te kleine klasse om te loggen
-Java 5: OK
-Refacorting: OK
-Testen: OK
+ * Project Software Development
+ * Karel de Grote-Hogeschool
+ * 2006-2007
+ *
  */
 
 package be.kdg.yahtzee.model.chat;

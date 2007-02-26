@@ -1,9 +1,8 @@
 /*
-Exeption handeling: OK
-Logging: OK
-Java 5: OK
-Refacorting: 1 geel lijntje niet mogelijk weg te werken 
-Testen: OK
+ * Project Software Development
+ * Karel de Grote-Hogeschool
+ * 2006-2007
+ *
  */
 
 package be.kdg.yahtzee.model.users;
