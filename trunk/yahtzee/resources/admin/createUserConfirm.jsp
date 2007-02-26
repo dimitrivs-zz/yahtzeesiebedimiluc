@@ -1,7 +1,13 @@
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+
+<f:view locale="#{language}">
+
+    <f:loadBundle basename="bundles.resources" var="labels"/>
 <html>
 <head>
     <title>
-        Confirmation of User Creation
+        <h:outputText value="#{labels.userConfirm}"/>
     </title>
 </head>
 
@@ -9,8 +15,9 @@
 <center>
     ${message}
     <a href="/faces/admin/userManagement.jsp">
-        Terug naar het overzicht
+        <h:outputText value="#{labels.userBack}"/>
     </a>
 </center>
 </body>
 </html>
+</f:view>

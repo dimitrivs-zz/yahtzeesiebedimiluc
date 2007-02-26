@@ -30,7 +30,7 @@ public class SearchUserServlet extends YahtzeeServlet {
         HttpSession session = request.getSession();
         session.setAttribute("allUsers", allUsers);
 
-        forward("/admin/showUserFound.jsp", request, response);
+        forward("/faces/admin/showUserFound.jsp", request, response);
     }
 
 }

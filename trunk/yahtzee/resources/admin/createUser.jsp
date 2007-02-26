@@ -9,6 +9,7 @@
 
 <html>
 <head>
+    <link href="../css/formStyle.css" rel="stylesheet" type="text/css"/>
     <title>
         <h:outputText value="#{labels.create}"/>
     </title>
@@ -56,109 +57,117 @@
 </head>
 
 <body>
-
-<center>
-    <h1>
-        <h:outputText value="#{labels.create}"/>
-    </h1>
-
-    <form autocomplete="OFF" name="createUser" action="/admin/CreateUserServlet" method="post"
-          onsubmit="return checkForm()">
-        <table>
-            <tr>
-                <th align="right">
-                    <h:outputText value="#{labels.userName}"/>
-                </th>
-                <td><input type="text" name="username"/></td>
-            </tr>
-            <tr>
-                <th align="right">
-                    <h:outputText value="#{labels.password}"/>
-                </th>
-                <td><input type="password" name="pw"/></td>
-            </tr>
-            <tr>
-                <th align="right">
-                    <h:outputText value="#{labels.repeatPassword}"/>
-                </th>
-                <td><input type="password" name="pw2"/></td>
-            </tr>
-            <tr>
-                <th align="right">
-                    <h:outputText value="#{labels.mail}"/>
-                </th>
-                <td><input type="text" name="mail"/></td>
-            </tr>
-            <tr>
-                <th align="right">
-                    <h:outputText value="#{labels.surname}"/>
-                </th>
-                <td><input type="text" name="surname"/></td>
-            </tr>
-            <tr>
-                <th align="right">
-                    <h:outputText value="#{labels.firstname}"/>
-                </th>
-                <td><input type="text" name="firstname"/></td>
-            </tr>
-            <tr>
-                <th align="right">
-                    <h:outputText value="#{labels.telephone}"/>
-                </th>
-                <td><input type="text" name="telephone"/></td>
-            </tr>
-            <tr>
-                <th align="right">
-                    <h:outputText value="#{labels.street}"/>
-                </th>
-                <td><input type="text" name="street"/></td>
-            </tr>
-            <tr>
-                <th align="right">
-                    <h:outputText value="#{labels.number}"/>
-                </th>
-                <td><input type="text" name="number"/></td>
-            </tr>
-            <tr>
-                <th align="right">
-                    <h:outputText value="#{labels.zip}"/>
-                </th>
-                <td><input type="text" name="zip"/></td>
-            </tr>
-            <tr>
-                <th align="right">
-                    <h:outputText value="#{labels.city}"/>
-                </th>
-                <td><input type="text" name="city"/></td>
-            </tr>
-            <tr>
-                <th align="right">
-                    <h:outputText value="#{labels.country}"/>
-                </th>
-                <td><input type="text" name="country"/></td>
-            </tr>
-            <tr>
-                <th align="right">
-                    <h:outputText value="#{labels.createRole}"/>
-                </th>
-                <td><select name="role">
-                    <option value="admin">
-                        <h:outputText value="#{labels.admin}"/>
-                    </option>
-                    <option value="player" selected>
-                        <h:outputText value="#{labels.player}"/>
-                    </option>
-                </select></td>
-            </tr>
-            <tr>
-                <th colspan=2><input type=submit value="<h:outputText value="#{labels.createUser}"/>"></th>
-            </tr>
-        </table>
-        <a href="../faces/admin/userManagement.jsp">
-            <h:outputText value="#{labels.usersBack}"/>
+<div id="container">
+<div id="register">
+<form autocomplete="OFF" name="createUser" action="/admin/CreateUserServlet" method="post"
+      onsubmit="return checkForm()">
+<table>
+<tr>
+    <td><img src="../images/logo.png" class="logo" alt="Yahtzee"/></td>
+    <td><h1><h:outputText value="#{labels.create}"/></h1></td>
+</tr>
+</table>
+<table>
+<tr>
+    <td>
+        <h:outputText value="#{labels.userName}"/>
+    </td>
+    <td><input type="text" name="username" class="text"/></td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.password}"/>
+    </td>
+    <td><input type="password" name="pw" class="text"/></td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.repeatPassword}"/>
+    </td>
+    <td><input type="password" name="pw2" class="text"/></td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.mail}"/>
+    </td>
+    <td><input type="text" name="mail" class="text"/></td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.surname}"/>
+    </td>
+    <td><input type="text" name="surname" class="text"/></td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.firstname}"/>
+    </td>
+    <td><input type="text" name="firstname" class="text"/></td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.telephone}"/>
+    </td>
+    <td><input type="text" name="telephone" class="text"/></td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.street}"/>
+    </td>
+    <td><input type="text" name="street" class="text"/></td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.number}"/>
+    </td>
+    <td><input type="text" name="number" class="text"/></td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.zip}"/>
+    </td>
+    <td><input type="text" name="zip" class="text"/></td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.city}"/>
+    </td>
+    <td><input type="text" name="city" class="text"/></td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.country}"/>
+    </td>
+    <td><input type="text" name="country" class="text"/></td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.createRole}"/>
+    </td>
+    <td><select name="role">
+        <option value="admin">
+            <h:outputText value="#{labels.admin}"/>
+        </option>
+        <option value="player" selected>
+            <h:outputText value="#{labels.player}"/>
+        </option>
+    </select></td>
+</tr>
+<tr>
+    <td colspan=2><input type=submit value="<h:outputText value="#{labels.createUser}"/>" class="btn"></td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+    <td colspan="2">
+        <a href="../faces/admin/userManagement.jsp" class="back">
+            <h:outputText value="#{labels.userBack}"/>
         </a>
-    </form>
-</center>
+    </td>
+</tr>
+</table>
+</form>
+</div>
+</div>
 </body>
 </html>
 

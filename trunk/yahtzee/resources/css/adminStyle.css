@@ -2,16 +2,18 @@
 
 #adminSource{
 	margin: 15px 20px 10px 20px;
-	background-image:url(../images/adminSourceBg.png);	
+	background-image:url(../images/adminSourceBg.png);
 	background-repeat:no-repeat;
 	width:420px;
 	height:285px;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 #gameManagement, #highScores, #userManagement{
 	margin-left:auto;
 	margin-right:auto;
-	background-image:url(../images/managementBg.png);	
+	background-image:url(../images/managementBg.png);
 	background-repeat:no-repeat;
 	width:900px;
 	height:500px;
@@ -29,11 +31,14 @@
 
 #logout {
 	text-align: right;
+    height: 30px;
+    vertical-align: middle;
 }
 
 div.headerText{
 	margin:0px;
 	padding:15px 0px 0px 50px;
+    text-align:left;
 }
 
 html{
@@ -74,7 +79,7 @@ th{
 
 td{
 	font-family:Arial, Helvetica, sans-serif;
-  	font-size:10pt; 
+  	font-size:10pt;
   	font-weight:bold;
 	color:#ffffff;
 	text-align:left;
@@ -101,9 +106,29 @@ table.border, table.border td, table.border tr, table.border th{
 	border-collapse:collapse;
 }
 
+input.btn{
+	background-color:#ffffff;
+	color:#006600;
+}
+
+input.btn, input.text, select{
+	border-color:#336699;
+  	font-family:Arial, Helvetica, sans-serif;
+  	font-size:10pt;
+  	font-weight:bold;
+}
+
+body {
+    text-align:center;
+}
+
 a {
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:14px;
+}
+
+form{
+	margin: 10px 20px 10px 20px;
 }
 
 a:link {text-decoration: none; color:#FFFFFF;}

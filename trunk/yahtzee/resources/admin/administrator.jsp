@@ -17,7 +17,7 @@
     <div id="adminSource">
         <table align="center">
             <tr>
-                <td colspan="2" id="logout"><a href="../logout/LogoutServlet"><h:outputText value="#{labels.logout}"/></a></td>
+                <td colspan="2" id="logout"><a href="../logout/LogoutServlet" class="special"><h:outputText value="#{labels.logout}"/></a></td>
             </tr>
             <tr>
                 <td>
