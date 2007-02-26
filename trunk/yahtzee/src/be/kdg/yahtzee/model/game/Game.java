@@ -125,6 +125,15 @@ public class Game {
     }
 
     /**
+     * Method for setting the list with dices.
+     *
+     * @param diceList List with the dices.
+     */
+    public void setDiceList(List<Die> diceList) {
+        this.diceList = diceList;
+    }
+
+    /**
      * Method for getting the chat object.
      *
      * @return Chat object for this game.
@@ -306,7 +315,7 @@ public class Game {
     /**
      * Calculate the yahtzee scores.
      */
-    private void calculateScores() {
+    public void calculateScores() {
         fillDiceValues();
         Collections.sort(diceValueList);
 
