@@ -13,12 +13,35 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+
+/**
+ * This class provides non-reversible string encryption for security purposes.
+ * An instance of this class is accessed through the getInstance method.
+ */
 public final class Security {
     private static Security instance;
 
     private Security() {
     }
 
+    /**
+     * Method for getting an instance of the Security class.
+     *
+     * @return Security object
+     */
+    public static synchronized Security getInstance() {
+        if (instance == null) {
+            instance = new Security();
+        }
+        return instance;
+    }
+
+    /**
+     * This method provides the encryption algorythm.
+     *
+     * @param plaintext String containing the text to be encrypted.
+     * @return String containing the encrypted text.
+     */
     public synchronized String encrypt(String plaintext) /*throws SystemUnavailableException*/ {
         MessageDigest md = null;
         try {
@@ -36,12 +59,5 @@ public final class Security {
         byte raw[] = md.digest();
         String hash = (new BASE64Encoder()).encode(raw);
         return hash;
-    }
-
-    public static synchronized Security getInstance() {
-        if (instance == null) {
-            instance = new Security();
-        }
-        return instance;
     }
 }

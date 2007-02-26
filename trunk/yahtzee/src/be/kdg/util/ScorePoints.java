@@ -7,6 +7,10 @@
 
 package be.kdg.util;
 
+/**
+ * This class contains only static variables.
+ * The variables indicate the score values for the different types of yahtzee scores.
+ */
 public class ScorePoints {
     public static final int BONUS = 35;
     public static final int YAHTZEEBONUS = 100;
