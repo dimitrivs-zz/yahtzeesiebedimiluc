@@ -7,6 +7,9 @@
 
 package be.kdg.yahtzee.model.game;
 
+/**
+ * Enum class with the possible states of a game.
+ */
 public enum EnumState {
     LEEG, WACHTEN, IDLE, VOL, BEZIG
     /*
