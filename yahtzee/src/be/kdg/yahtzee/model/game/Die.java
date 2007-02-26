@@ -44,6 +44,15 @@ public class Die {
     }
 
     /**
+     * Method for setting the value of the Die.
+     *
+     * @param value Integer value of the Die.
+     */
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    /**
      * Method for fixing the Die.
      *
      * @param dieFixed boolean value.
