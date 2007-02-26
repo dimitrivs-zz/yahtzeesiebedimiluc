@@ -9,6 +9,7 @@ public class TestAllGame {
                 "be.kdg.yahtzee.game.TestRemoveGame",
                 "be.kdg.yahtzee.game.TestNewGame",
                 "be.kdg.yahtzee.game.TestChat",
+                "be.kdg.yahtzee.game.TestScore",
                 "be.kdg.yahtzee.game.TestUserInGame");
     }
 }
