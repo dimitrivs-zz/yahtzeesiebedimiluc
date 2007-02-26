@@ -17,10 +17,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/be/kdg/util/Security.java" afterPath="$PROJECT_DIR$/src/be/kdg/util/Security.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/be/kdg/yahtzee/beans/GameBean.java" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/beans/GameBean.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Yahtzee Dimi 05-02-07.iws" afterPath="$PROJECT_DIR$/Yahtzee Dimi 05-02-07.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/be/kdg/yahtzee/beans/UserBean.java" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/beans/UserBean.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.xml" afterPath="$PROJECT_DIR$/build.xml" />
     </list>
   </component>
   <component name="ChangeListSynchronizer" />
@@ -46,11 +45,11 @@
     <SUITE FILE_PATH="C:\Documents and Settings\Eigenaar\.IntelliJIdea60\system\coverage\Yahtzee Dimi 05-02-07$TestChat.es" NAME="TestChat" MODIFIED="1171809578408">
       <FILTER>be.kdg.yahtzee.game.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="C:\Documents and Settings\Eigenaar\.IntelliJIdea60\system\coverage\Yahtzee Dimi 05-02-07$be.kdg.yahtzee.game.es" NAME="TestChat" MODIFIED="1171811230294">
-      <FILTER>be.kdg.yahtzee.model.chat.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="C:\Documents and Settings\Eigenaar\.IntelliJIdea60\system\coverage\Yahtzee Dimi 05-02-07$be.kdg.yahtzee.TestAllUsers.es" NAME="TestAllUsers" MODIFIED="1171890003169">
       <FILTER>be.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="C:\Documents and Settings\Eigenaar\.IntelliJIdea60\system\coverage\Yahtzee Dimi 05-02-07$be.kdg.yahtzee.game.es" NAME="TestChat" MODIFIED="1171811230294">
+      <FILTER>be.kdg.yahtzee.model.chat.*</FILTER>
     </SUITE>
   </component>
   <component name="Cvs2Configuration">
@@ -157,7 +156,17 @@
     </subPane>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="build.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="40" selection-start="636" selection-end="636" vertical-scroll-proportion="0.44371942">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -226,7 +235,6 @@
     <option name="LOGIN_SILENTLY" value="false" />
     <option name="INTEGRATE_RUN_RESOLVE" value="true" />
     <option name="INTEGRATE_REVERT_UNCHANGED" value="true" />
-    <option name="SERVER_TIMEOUT" value="20000" />
   </component>
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="true" id="Add" />
@@ -268,177 +276,7 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\WEB-INF" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\WEB-INF" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\WEB-INF\tags" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\src\be\kdg" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\src\be\kdg" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\src\be\kdg" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\game" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\yahtzee 22-02\yahtzee\src\be\kdg" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -455,7 +293,7 @@
       <showLibraryContents />
       <hideEmptyPackages />
       <abbreviatePackageNames />
-      <showStructure Favorites="false" PackagesPane="false" Scope="false" ProjectPane="false" />
+      <showStructure PackagesPane="false" Scope="false" Favorites="false" ProjectPane="false" />
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
@@ -468,8 +306,8 @@
     <property name="cvs_file_history_treeOrder1" value="1" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="cvs_file_history_flatOrder1" value="1" />
-    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="cvs_file_history_flatWidth1" value="292" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="cvs_file_history_treeWidth1" value="292" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
@@ -496,7 +334,7 @@
   </component>
   <component name="RecentsManager" />
   <component name="RestoreUpdateTree">
-    <UpdateInfo date="26/02/07 9:11" ActionInfo="_Update">
+    <UpdateInfo date="26-2-07 13:35" ActionInfo="Update">
       <UpdatedFiles>
         <FILE-GROUP>
           <option name="myUpdateName" value="Updated from server" />
@@ -510,58 +348,24 @@
             <option name="mySupportsDeletion" value="false" />
             <option name="myCanBeAbsent" value="false" />
             <option name="myId" value="UPDATED" />
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\game\Game.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\game\Die.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\game\GameManager.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\game\EnumState.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\game\DiceGenerator.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\game\Score.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\game\ScoreAspect.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\game\Highscore.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\chat\Chat.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\chat\ChatMessage.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\users\Role.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\users\Address.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\users\Person.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\users\UserManager.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\users\User.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\model\YahtzeeController.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\dao\HighscoreDao.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\dao\HighscoreDaoImpl.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\dao\UserDao.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\dao\UserDaoImpl.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\dao\RoleDao.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\dao\RoleDaoImpl.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\profile\ShowProfileServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\profile\ChangeProfileServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\profile\ChangePasswordServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\register\CreatePlayerServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\admin\RemoveUserServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\admin\ShowGamesServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\admin\ShowHighscoresServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\admin\WatchGameServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\admin\CreateUserServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\admin\ShowUsersServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\admin\SearchUserServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\admin\ChangeUserServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\admin\ChangeUserProfileServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\admin\RemoveGameServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\admin\ChangeUserPasswordServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\admin\BlockUserServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\login\LoginServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\game\NewGameServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\game\LeaveGameServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\game\JoinGameServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\logout\LogoutServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\bundles\LanguageServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\servlets\YahtzeeServlet.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\beans\GameBean.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\beans\UserBean.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\filters\PlayerFilter.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\yahtzee\filters\AdminFilter.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\util\Security.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\util\ScorePoints.java</PATH>
-            <PATH>C:\yahtzee 22-02\yahtzee\src\be\kdg\util\InputValidation.java</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee\servlets\admin\CreateUserServlet.java</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee\servlets\admin\SearchUserServlet.java</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src\bundles\resources.properties</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src\bundles\resources_en.properties</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src\bundles\resources_nl.properties</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\WEB-INF\tags\showAllGames.tag</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\WEB-INF\tags\showAllUsers.tag</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\WEB-INF\tags\showHighscores.tag</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\resources\profile\changeProfile.jsp</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\resources\register\register.jsp</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\resources\admin\changeUser.jsp</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\resources\admin\userManagement.jsp</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\resources\admin\showUserFound.jsp</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\resources\admin\administrator.jsp</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\resources\admin\createUserConfirm.jsp</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\resources\admin\createUser.jsp</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\resources\css\adminStyle.css</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\resources\css\formStyle.css</PATH>
           </FILE-GROUP>
           <FILE-GROUP>
             <option name="myUpdateName" value="Created" />
@@ -591,13 +395,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="MODIFIED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Skipped" />
-          <option name="myStatusName" value="Skipped" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="SKIPPED" />
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Merged with conflicts" />
@@ -659,43 +456,6 @@
         <option name="Make" value="true" />
       </method>
     </tempConfiguration>
-    <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false">
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <module name="" />
-      <method>
-        <option name="Make" value="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
-      <option name="WORKING_DIRECTORY" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="8080" />
-      <option name="LOCAL" value="true" />
-      <option name="OPEN_IN_BROWSER" value="true" />
-      <option name="OPEN_IN_BROWSER_URL" value="/" />
-      <option name="COMMON_VM_ARGUMENTS" value="" />
-      <J2EE_MODULE DEPLOYMENT_SOURCE_NAME="exploded">
-        <option name="CONTEXT_PATH" value="/" />
-        <option name="MODULE_NAME" value="Yahtzee Dimi 09-02-07" />
-        <option name="DEPLOY" value="false" />
-      </J2EE_MODULE>
-      <option name="DEPLOY_TOMCAT_MANAGER" value="false" />
-      <option name="BASE_DIRECTORY_NAME" value="" />
-      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -727,7 +487,44 @@
         <option name="Make" value="true" />
       </method>
     </configuration>
-    <configuration default="false" name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 5">
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
+      <option name="WORKING_DIRECTORY" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="8080" />
+      <option name="LOCAL" value="true" />
+      <option name="OPEN_IN_BROWSER" value="true" />
+      <option name="OPEN_IN_BROWSER_URL" value="/" />
+      <option name="COMMON_VM_ARGUMENTS" value="" />
+      <J2EE_MODULE DEPLOYMENT_SOURCE_NAME="exploded">
+        <option name="CONTEXT_PATH" value="/" />
+        <option name="MODULE_NAME" value="Yahtzee Dimi 09-02-07" />
+        <option name="DEPLOY" value="false" />
+      </J2EE_MODULE>
+      <option name="DEPLOY_TOMCAT_MANAGER" value="false" />
+      <option name="BASE_DIRECTORY_NAME" value="" />
+      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <module name="" />
+      <method>
+        <option name="Make" value="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="false" name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat">
       <option name="WORKING_DIRECTORY" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="8080" />
@@ -807,8 +604,6 @@
     <option name="PROJECT" value="" />
     <option name="VIEW" value="" />
     <option name="ALTERNATIVE_WORKING_PATH" value="" />
-    <option name="LOCK_ON_CHECKOUT" value="false" />
-    <option name="UNLOCK_ON_CHECKIN" value="false" />
   </component>
   <component name="StructuralSearchPlugin" />
   <component name="StructureViewFactory">
@@ -848,7 +643,6 @@
     <option name="MERGE_DRY_RUN" value="false" />
     <configuration useDefault="false">C:\Documents and Settings\Eigenaar\Application Data\Subversion</configuration>
     <checkoutURL>https://yahtzeesiebedimiluc.googlecode.com/svn/trunk/</checkoutURL>
-    <upgradeMode>none</upgradeMode>
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -865,30 +659,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="770" extended-state="0" />
-    <editor active="false" />
+    <frame x="-4" y="-4" width="1288" height="780" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24408163" order="0" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32927817" order="0" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3271028" order="1" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="1" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3411215" order="8" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33990896" order="8" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="6" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979724" order="1" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3271028" order="8" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39252338" order="2" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3915023" order="2" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
       <window_info id="File View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39757207" order="4" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="0" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32398754" order="8" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.323217" order="8" />
       <window_info id="SVN Repositories" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32866043" order="8" />
       <window_info id="SVN Properties" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32866043" order="8" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="0" />
@@ -966,7 +760,6 @@
     <GetOptions>
       <option name="REPLACE_WRITABLE" value="0" />
       <option name="MAKE_WRITABLE" value="false" />
-      <option name="ANSWER_NEGATIVELY" value="false" />
       <option name="ANSWER_POSITIVELY" value="false" />
       <option name="RECURSIVE" value="false" />
     </GetOptions>
@@ -1050,13 +843,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.5.0_08/src.zip!/java/security/MessageDigest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="22" selection-start="2561" selection-end="2561" vertical-scroll-proportion="-1.5859247">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/be/kdg/util/InputValidation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="19" selection-start="380" selection-end="380" vertical-scroll-proportion="0.4729951">
@@ -1104,6 +890,13 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="40" selection-start="636" selection-end="636" vertical-scroll-proportion="0.44371942">
+          <folding />
         </state>
       </provider>
     </entry>
