@@ -11,11 +11,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by IntelliJ IDEA.
- * User: Eigenaar
- * Date: 19-feb-2007
- * Time: 14:54:43
- * To change this template use File | Settings | File Templates.
+ * This input validation class provides the functionality of checking
+ * the entered data for SQL-injction.
+ * An instance of this class is accessed through the getInstance method.
  */
 public final class InputValidation {
     private static InputValidation instance;
@@ -23,18 +21,26 @@ public final class InputValidation {
     private InputValidation() {
     }
 
-
-    private boolean isSafeField(String field) {
-        if (field.length() == 0) {
-            return false;
+    /**
+     * Method for getting an instance of the InputValidation class.
+     *
+     * @return InputValidation object
+     */
+    public static InputValidation getInstance() {
+        if (instance == null) {
+            instance = new InputValidation();
         }
-
-        Pattern pattern = Pattern.compile("[a-zA-Z0-9@.]");
-        Matcher matcher = pattern.matcher(field);
-
-        return matcher.find();
+        return instance;
     }
 
+    /**
+     * Method for checking for valid input
+     *
+     * @param fields array of String fields to be checked
+     * @return boolean value
+     *         true if all fields are safe
+     *         false if one of the fields is not safe
+     */
     public boolean isInputValid(String... fields) {
         for (String field : fields) {
             if (!isSafeField(field)) {
@@ -44,6 +50,14 @@ public final class InputValidation {
         return true;
     }
 
+    /**
+     * Method for checking fields with numbers allowed
+     *
+     * @param fields array of String fields to be checked
+     * @return boolean value
+     *         true if field contains only integers
+     *         false if one field contains a non-integer value
+     */
     public boolean isNumberValid(String... fields) {
         int number;
         try {
@@ -57,10 +71,22 @@ public final class InputValidation {
         return true;
     }
 
-    public static InputValidation getInstance() {
-        if (instance == null) {
-            instance = new InputValidation();
+    /**
+     * Method for checking field value against regular expression.
+     *
+     * @param field String containing field value
+     * @return boolean value
+     *         true if field is safe
+     *         false if field is not safe
+     */
+    private boolean isSafeField(String field) {
+        if (field.length() == 0) {
+            return false;
         }
-        return instance;
+
+        Pattern pattern = Pattern.compile("[a-zA-Z0-9@.]");
+        Matcher matcher = pattern.matcher(field);
+
+        return matcher.find();
     }
 }
