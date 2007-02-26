@@ -367,12 +367,19 @@ public class TestGame {
 
         gameManager.startGame("TestGame");
 
+        assertEquals("De status van het spel moet <Busy> zijn", "Busy", gameManager.getGameState("TestGame"));
+
         assertEquals("De activePlayer moet nu <TestUser1> zijn", testUser1.getUsername(), gameManager.getActivePlayer("TestGame"));
 
         gameManager.playRound("TestGame");
 
         gameManager.fixDie("TestGame", diceList.get(0).getDieId());
         gameManager.fixDie("TestGame", diceList.get(1).getDieId());
+        gameManager.unfixDie("TestGame", diceList.get(0).getDieId());
+
+        diceList = gameManager.getDiceList("TestGame");
+
+        assertEquals("Dobbelsteen 2 moet gefixed zijn", true, diceList.get(1).isDieFixed());
 
         gameManager.selectScore("TestGame", "ones");
 
