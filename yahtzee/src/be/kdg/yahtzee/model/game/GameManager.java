@@ -71,7 +71,7 @@ public class GameManager {
      * @param timestamp Date value
      */
     public void saveHighscore(User user, int score, Date timestamp) {
-        Highscore highscore = new Highscore();
+        Highscore highscore = new Highscore(user, score, timestamp);
         highscoreDao.saveHighscore(highscore);
         highscores.add(highscore);
     }
@@ -86,7 +86,7 @@ public class GameManager {
 
         List<Highscore> allHighscores = highscoreDao.getSortedHighscores();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < allHighscores.size() && i < 10; i++) {
             top10.add(allHighscores.get(i));
         }
 

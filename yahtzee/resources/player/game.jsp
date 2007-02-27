@@ -51,7 +51,7 @@ function getActivePlayer() {
                     numberRolls = 0;
                     if (playerName == '${userBean.username}') {
                         if (numberTurns > 12) {
-                            window.location = 'gameFinish.jsp';
+                            window.location = '../../game/FinishGameServlet?game=${gameBean.gameName}';
                         } else {
                             clearTimeout(keepDiceUpdatedTimeout);
                             calculateScores();

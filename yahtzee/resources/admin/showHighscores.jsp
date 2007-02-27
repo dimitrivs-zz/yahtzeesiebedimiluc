@@ -8,7 +8,7 @@
 <center>
     <h1>Show Highscores</h1><br>
     <yahtzee:showHighscores/>
-    <a href="/admin/highscoreManagement.jsp">Terug naar het Highscore Management</a>
+    <a href="/faces/admin/highscoreManagement.jsp">Terug naar het Highscore Management</a>
 </center>
 </body>
 </html>
