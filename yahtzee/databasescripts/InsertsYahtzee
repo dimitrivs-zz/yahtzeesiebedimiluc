@@ -7,7 +7,7 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 
 INSERT INTO `yahtzee`.`roles`(`roleId`, `name`)
 VALUES (1, 'Administrator'),
-  (2, 'Player'),
+  (2, 'Player');
 
 INSERT INTO `yahtzee`.`users`(`userId`, `username`, `password`, `blocked`, `surname`, `firstName`, `email`, `street`, `number`, `zip`, `city`, `country`, `telephone`, `role`)
 VALUES (1, 'admin', 's6ypLHk+4OmxqbCl9fwETgUUDfM=', '\0', 'admin', 'istrator', 'admin@admin.be', 'Nationalestraat', '5', '2000', 'Antwerpen', 'Belgium', 'O498/24.36.43', 1),
