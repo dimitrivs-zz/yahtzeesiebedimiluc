@@ -60,120 +60,120 @@
 
     </script>
 </head>
-<body onload="init()">
+<body onload="setTimeout('init()', 1000)">
 <h1>Samenvatting spel ${gameBean.gameName}</h1>
 <table>
 <tr>
 <td>
 <table>
-    <tr>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>
-            <h:outputText value="#{labels.gameOnes}"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h:outputText value="#{labels.gameTwos}"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h:outputText value="#{labels.gameThrees}"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h:outputText value="#{labels.gameFours}"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h:outputText value="#{labels.gameFives}"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h:outputText value="#{labels.gameSixes}"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <b>
-                <h:outputText value="#{labels.gameTotalUpper}"/>
-            </b>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <b>
-                <h:outputText value="#{labels.gameBonusUpper}"/>
-            </b>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <b>
-                <h:outputText value="#{labels.gameUpper}"/>
-            </b>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h:outputText value="#{labels.gameThree}"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h:outputText value="#{labels.gameCarre}"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h:outputText value="#{labels.gameHouse}"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h:outputText value="#{labels.gameSmall}"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h:outputText value="#{labels.gameLarge}"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h:outputText value="#{labels.yahtzee}"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h:outputText value="#{labels.gameChance}"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h:outputText value="#{labels.gameBonus}"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <b>
-                <h:outputText value="#{labels.gameTotalLower}"/>
-            </b>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <b style="color: #ffff00">
-                <h:outputText value="#{labels.gameTotal}"/>
-            </b>
-        </td>
-    </tr>
+<tr>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.gameOnes}"/>
+    </td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.gameTwos}"/>
+    </td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.gameThrees}"/>
+    </td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.gameFours}"/>
+    </td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.gameFives}"/>
+    </td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.gameSixes}"/>
+    </td>
+</tr>
+<tr>
+    <td>
+        <b>
+            <h:outputText value="#{labels.gameTotalUpper}"/>
+        </b>
+    </td>
+</tr>
+<tr>
+    <td>
+        <b>
+            <h:outputText value="#{labels.gameBonusUpper}"/>
+        </b>
+    </td>
+</tr>
+<tr>
+    <td>
+        <b>
+            <h:outputText value="#{labels.gameUpper}"/>
+        </b>
+    </td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.gameThree}"/>
+    </td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.gameCarre}"/>
+    </td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.gameHouse}"/>
+    </td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.gameSmall}"/>
+    </td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.gameLarge}"/>
+    </td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.yahtzee}"/>
+    </td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.gameChance}"/>
+    </td>
+</tr>
+<tr>
+    <td>
+        <h:outputText value="#{labels.gameBonus}"/>
+    </td>
+</tr>
+<tr>
+    <td>
+        <b>
+            <h:outputText value="#{labels.gameTotalLower}"/>
+        </b>
+    </td>
+</tr>
+<tr>
+    <td>
+        <b style="color: #ffff00">
+            <h:outputText value="#{labels.gameTotal}"/>
+        </b>
+    </td>
+</tr>
 </table>
 </td>
 <td width="150">

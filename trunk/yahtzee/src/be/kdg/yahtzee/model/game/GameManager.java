@@ -269,17 +269,6 @@ public class GameManager {
     }
 
     /**
-     * Method to check if a user is the creator of a game.
-     *
-     * @param game String game name.
-     * @param user User object to check.
-     * @return boolean value of success.
-     */
-    private boolean isCreator(Game game, User user) {
-        return game.getCreator().getUsername().equals(user.getUsername());
-    }
-
-    /**
      * Method for getting the creator of a game.
      *
      * @param gameName String game name.

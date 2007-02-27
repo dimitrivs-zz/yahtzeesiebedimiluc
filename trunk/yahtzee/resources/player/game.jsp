@@ -19,7 +19,6 @@
 <script type='text/javascript' src='/dwr/util.js'></script>
 
 <script type="text/javascript">
-var gameFinishServlet = '../game/FinishGameServlet?game=' + ${gameBean.gameName};
 var loadPlayerTimeout;
 var keepDiceUpdatedTimeout;
 var playersArray = new Array();
@@ -51,9 +50,13 @@ function getActivePlayer() {
                     DWRUtil.setValue('gameState', playerName + ' <h:outputText value="#{labels.gamePlaying}"/>...');
                     numberRolls = 0;
                     if (playerName == '${userBean.username}') {
-                        clearTimeout(keepDiceUpdatedTimeout);
-                        calculateScores();
-                        document.getElementById('btnRoll').disabled = false;
+                        if (numberTurns > 12) {
+                            window.location = 'gameFinish.jsp';
+                        } else {
+                            clearTimeout(keepDiceUpdatedTimeout);
+                            calculateScores();
+                            document.getElementById('btnRoll').disabled = false;
+                        }
                     }
                     resetDice();
                     activePlayer = playerName;
@@ -215,9 +218,6 @@ function selectScore(scoreDescription) {
     calculateScores();
     numberTurns++;
     keepDiceUpdated();
-    if (numberTurns > 12) {
-        window.location = 'gameFinish.jsp';
-    }
 }
 
 var cellFuncs = [
