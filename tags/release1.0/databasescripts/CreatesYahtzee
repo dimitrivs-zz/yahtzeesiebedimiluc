@@ -1,0 +1,58 @@
+-- ----------------------------------------------------------------------
+-- MySQL Migration Toolkit
+-- SQL Create Script
+-- ----------------------------------------------------------------------
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+CREATE DATABASE IF NOT EXISTS `yahtzee`
+  CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `yahtzee`;
+-- -------------------------------------
+-- Tables
+
+DROP TABLE IF EXISTS `yahtzee`.`highscores`;
+CREATE TABLE `yahtzee`.`highscores` (
+  `highscoreId` INT(11) NOT NULL,
+  `score` INT(11) NULL,
+  `user` INT(11) NULL,
+  PRIMARY KEY (`highscoreId`),
+  INDEX `FK20ED30434BC30E34` (`user`)
+)
+ENGINE = INNODB;
+
+DROP TABLE IF EXISTS `yahtzee`.`roles`;
+CREATE TABLE `yahtzee`.`roles` (
+  `roleId` INT(11) NOT NULL,
+  `name` VARCHAR(255) NULL,
+  PRIMARY KEY (`roleId`)
+)
+ENGINE = INNODB;
+
+DROP TABLE IF EXISTS `yahtzee`.`users`;
+CREATE TABLE `yahtzee`.`users` (
+  `userId` INT(11) NOT NULL,
+  `username` VARCHAR(255) NULL,
+  `password` VARCHAR(255) NULL,
+  `blocked` BIT NULL,
+  `surname` VARCHAR(255) NULL,
+  `firstName` VARCHAR(255) NULL,
+  `email` VARCHAR(255) NULL,
+  `street` VARCHAR(255) NULL,
+  `number` VARCHAR(255) NULL,
+  `zip` VARCHAR(255) NULL,
+  `city` VARCHAR(255) NULL,
+  `country` VARCHAR(255) NULL,
+  `telephone` VARCHAR(255) NULL,
+  `role` INT(11) NULL,
+  PRIMARY KEY (`userId`),
+  INDEX `FK6A68E084BC0378A` (`role`)
+)
+ENGINE = INNODB;
+
+
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- ----------------------------------------------------------------------
+-- EOF

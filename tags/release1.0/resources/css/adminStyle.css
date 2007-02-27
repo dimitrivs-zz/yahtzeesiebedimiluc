@@ -1,0 +1,142 @@
+/* CSS Document */
+
+#adminSource{
+	margin: 15px 20px 10px 20px;
+	background-image:url(../images/adminSourceBg.png);
+	background-repeat:no-repeat;
+	width:420px;
+	height:285px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#gameManagement, #highScores, #userManagement{
+	margin-left:auto;
+	margin-right:auto;
+	background-image:url(../images/managementBg.png);
+	background-repeat:no-repeat;
+	width:900px;
+	height:500px;
+}
+
+#overview{
+	margin-top:5px;
+	margin-left:auto;
+	margin-right:auto;
+	overflow-x:hidden;
+	overflow-y:auto;
+	width:802px;
+	height:350px;
+}
+
+#logout {
+	text-align: right;
+    height: 30px;
+    vertical-align: middle;
+}
+
+div.headerText{
+	margin:0px;
+	padding:15px 0px 0px 50px;
+    text-align:left;
+}
+
+html{
+	background-image:url(../images/background.png);
+	scrollbar-face-color: #00AA00;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-arrow-color: #FFFFFF;
+	scrollbar-track-color: #00CC00;
+}
+
+img.logo{
+	width:180px;
+	height:79px;
+}
+
+img, #adminSource, #gameManagement, #highScores{ behavior: url(iepngfix/iepngfix.htc) }
+
+h1{
+	color:#FFFFFF;
+	font-family:Arial, Helvetica, sans-serif;
+	margin-top:5px;
+	margin-bottom:5px;
+	padding:0px;
+}
+
+h2{
+	margin:0px;
+	padding:0px;
+	color:#FFFFFF;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:20px;
+}
+
+th{
+	background-color:#666666;
+	color:#FFFFFF;
+}
+
+td{
+	font-family:Arial, Helvetica, sans-serif;
+  	font-size:10pt;
+  	font-weight:bold;
+	color:#ffffff;
+	text-align:left;
+	padding-left: 10px;
+}
+
+td.center{
+	text-align:center;
+}
+
+table.center, table.border{
+	font-family:Arial, Helvetica, sans-serif;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:15px;
+	height:auto;
+}
+
+table.border, table.border td, table.border tr, table.border th{
+	margin-top:2px;
+	margin-left:5px;
+	width:780px;
+	border: solid 1px #ffffff;
+	border-collapse:collapse;
+}
+
+input.btn{
+	background-color:#ffffff;
+	color:#006600;
+}
+
+input.btn, input.text, select{
+	border-color:#336699;
+  	font-family:Arial, Helvetica, sans-serif;
+  	font-size:10pt;
+  	font-weight:bold;
+}
+
+body {
+    text-align:center;
+}
+
+a {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+
+form{
+	margin: 10px 20px 10px 20px;
+}
+
+a:link {text-decoration: none; color:#FFFFFF;}
+a:visited {text-decoration: none; color:#FFFFFF;}
+a:active {text-decoration: none; color:#FFFFFF;}
+a:hover {text-decoration: underline; color:#00CC00;}
+
+a.special:link {text-decoration: none; color:#FFFF00; font-weight:bold;}
+a.special:visited {text-decoration: none; color:#FFFF00; font-weight:bold;}
+a.special:active {text-decoration: none; color:#FFFF00; font-weight:bold;}
+a.special:hover {text-decoration: underline; color:#FFFF00; font-weight:bold;}
