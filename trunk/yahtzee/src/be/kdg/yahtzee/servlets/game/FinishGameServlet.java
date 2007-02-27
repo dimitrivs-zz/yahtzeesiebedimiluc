@@ -26,6 +26,8 @@ public class FinishGameServlet extends YahtzeeServlet {
         Date now = new Date();
 
         yahtzeeController.saveHighscore(user, score, now);
+        //yahtzeeController.leaveGame(gameName, user);
+        //yahtzeeController.removeGame(gameName);
 
         response.sendRedirect("/faces/player/gameFinish.jsp");
     }
