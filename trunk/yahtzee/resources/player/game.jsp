@@ -50,13 +50,9 @@ function getActivePlayer() {
                     DWRUtil.setValue('gameState', playerName + ' <h:outputText value="#{labels.gamePlaying}"/>...');
                     numberRolls = 0;
                     if (playerName == '${userBean.username}') {
-                        if (numberTurns > 12) {
-                            window.location = 'gameFinish.jsp';
-                        } else {
-                            clearTimeout(keepDiceUpdatedTimeout);
-                            calculateScores();
-                            document.getElementById('btnRoll').disabled = false;
-                        }
+                        clearTimeout(keepDiceUpdatedTimeout);
+                        calculateScores();
+                        document.getElementById('btnRoll').disabled = false;
                     }
                     resetDice();
                     activePlayer = playerName;
@@ -218,6 +214,9 @@ function selectScore(scoreDescription) {
     calculateScores();
     numberTurns++;
     keepDiceUpdated();
+    if (numberTurns > 12) {
+        window.location = 'gameFinish.jsp';
+    }
 }
 
 var cellFuncs = [
@@ -375,106 +374,106 @@ function gotMessages(messages) {
 <table>
 <tr>
 <td>
-    <table>
-        <tr>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameOnes}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameTwos}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameThrees}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameFours}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameFives}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameSixes}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameTotalUpper}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameBonusUpper}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameUpper}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameThree}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameCarre}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameHouse}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameSmall}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameLarge}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.yahtzee}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameChance}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameBonus}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameTotalLower}"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.gameTotal}"/>
-            </td>
-        </tr>
-    </table>
+<table>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameOnes}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameTwos}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameThrees}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameFours}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameFives}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameSixes}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameTotalUpper}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameBonusUpper}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameUpper}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameThree}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameCarre}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameHouse}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameSmall}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameLarge}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.yahtzee}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameChance}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameBonus}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameTotalLower}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.gameTotal}"/>
+        </td>
+    </tr>
+</table>
 </td>
 <td width="150">
                 <span id="p1table">
