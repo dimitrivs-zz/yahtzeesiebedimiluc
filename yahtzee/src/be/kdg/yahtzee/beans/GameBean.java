@@ -52,4 +52,14 @@ public class GameBean {
     public String getGameName() {
         return gameName;
     }
+
+    /**
+     * Method for getting the scores of the Game.
+     *
+     * @return Map containing the Scores of the game.
+     */
+    public int getNumberOfPlayers() {
+        Game game = yahtzeeController.getGame(gameName);
+        return game.getNumberOfPlayers();
+    }
 }
