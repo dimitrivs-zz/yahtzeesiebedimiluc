@@ -37,6 +37,6 @@ public class ShowHighscoresServlet extends YahtzeeServlet {
         HttpSession session = request.getSession();
         session.setAttribute("highscores", highscores);
 
-        response.sendRedirect("/admin/showHighscores.jsp");
+        response.sendRedirect("/faces/admin/showHighscores.jsp");
     }
 }

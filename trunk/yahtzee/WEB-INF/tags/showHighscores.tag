@@ -2,21 +2,19 @@
 <%@ tag body-content="empty" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
-<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
 
 <jsp:useBean id="highscores" class="java.util.ArrayList" scope="session"/>
-<f:loadBundle basename="bundles.resources" var="labels"/>
+
 <table border="1">
     <tr>
-        <td><h:outputText value="#{labels.highRank}"/></td>
-        <td><h:outputText value="#{labels.userName}"/></td>
-        <td><h:outputText value="#{labels.highScore}"/></td>
+        <td>Rank</td>
+        <td>Username</td>
+        <td>Score</td>
     </tr>
     <% if (highscores.isEmpty()) {
     %>
     <tr>
-        <td colspan="4" align="center"><h:outputText value="#{labels.highNone}"/></td>
+        <td colspan="4" align="center">No Highscores</td>
     </tr>
     <% }
         for (int i = 0; i < highscores.size(); i++) {
