@@ -161,10 +161,14 @@ function keepDiceUpdated() {
                 for (var die in diceList)
                 {
                     if (!diceList[die].dieFixed) {
-                        DWRUtil.setValue('dice' + i + 'notFixed', diceList[die].value);
+                        document.getElementById('dice' + i + 'notFixedImg').src = '../../images/die' + diceList[die].value + '.png';
+                        document.getElementById('dice' + i + 'notFixedImg').alt = diceList[die].value;
+                        //DWRUtil.setValue('dice' + i + 'notFixed', diceList[die].value);
                         document.getElementById('dice' + i + 'notFixed').style.visibility = 'visible';
                     } else {
-                        DWRUtil.setValue('dice' + i + 'fixed', diceList[die].value);
+                        document.getElementById('dice' + i + 'fixedImg').src = '../../images/die' + diceList[die].value + '.png';
+                        document.getElementById('dice' + i + 'fixedImg').alt = diceList[die].value;
+                        //DWRUtil.setValue('dice' + i + 'fixed', diceList[die].value);
                         document.getElementById('dice' + i + 'fixed').style.visibility = 'visible';
                     }
                     i++;
@@ -188,7 +192,9 @@ function getDice(diceList) {
     var i = 0;
     for (var die in diceList)
     {
-        DWRUtil.setValue('dice' + i + 'notFixed', diceList[die].value)
+        //DWRUtil.setValue('dice' + i + 'notFixed', diceList[die].value);
+        document.getElementById('dice' + i + 'notFixedImg').alt = diceList[die].value;
+        document.getElementById('dice' + i + 'notFixedImg').src = '../../images/die' + diceList[die].value + '.png';
         if (!diceList[die].dieFixed) {
             document.getElementById('dice' + i + 'notFixed').style.visibility = 'visible';
         }
@@ -274,12 +280,16 @@ function fixDice(diceNr, state) {
     if (activePlayer == '${userBean.username}') {
         if (state) {
             GameManager.fixDie('${gameBean.gameName}', diceNr);
-            DWRUtil.setValue('dice' + diceNr + 'fixed', DWRUtil.getValue('dice' + diceNr + 'notFixed'));
+            document.getElementById('dice' + diceNr + 'fixedImg').src = '../../images/die' + document.getElementById('dice' + diceNr + 'notFixedImg').alt + '.png';
+            document.getElementById('dice' + diceNr + 'fixedImg').alt = document.getElementById('dice' + diceNr + 'notFixedImg').alt;
+            //DWRUtil.setValue('dice' + diceNr + 'fixed', DWRUtil.getValue('dice' + diceNr + 'notFixed'));
             document.getElementById('dice' + diceNr + 'fixed').style.visibility = 'visible';
             document.getElementById('dice' + diceNr + 'notFixed').style.visibility = 'hidden';
         } else {
             GameManager.unfixDie('${gameBean.gameName}', diceNr);
-            DWRUtil.setValue('dice' + diceNr + 'notFixed', DWRUtil.getValue('dice' + diceNr + 'fixed'));
+            document.getElementById('dice' + diceNr + 'notFixedImg').src = '../../images/die' + diceNr + '.png';
+            document.getElementById('dice' + diceNr + 'notFixedImg').alt = document.getElementById('dice' + diceNr + 'fixedImg').alt;
+            //DWRUtil.setValue('dice' + diceNr + 'notFixed', DWRUtil.getValue('dice' + diceNr + 'fixed'));
             document.getElementById('dice' + diceNr + 'notFixed').style.visibility = 'visible';
             document.getElementById('dice' + diceNr + 'fixed').style.visibility = 'hidden';
         }
@@ -334,29 +344,29 @@ function gotMessages(messages) {
         <tr>
             <td width="150" height="150">
                             <span id="dice0notFixed" class="dice" onclick="fixDice(0, true)"
-                                  style="visibility: hidden"></span>
+                                  style="visibility: hidden"><img src="" id="dice0notFixedImg" alt="" width="30"></span>
                             <span id="dice1notFixed" class="dice" onclick="fixDice(1, true)"
-                                  style="visibility: hidden"></span>
+                                  style="visibility: hidden"><img src="" id="dice1notFixedImg" alt="" width="30"></span>
                             <span id="dice2notFixed" class="dice" onclick="fixDice(2, true)"
-                                  style="visibility: hidden"></span>
+                                  style="visibility: hidden"><img src="" id="dice2notFixedImg" alt="" width="30"></span>
                             <span id="dice3notFixed" class="dice" onclick="fixDice(3, true)"
-                                  style="visibility: hidden"></span>
+                                  style="visibility: hidden"><img src="" id="dice3notFixedImg" alt="" width="30"></span>
                             <span id="dice4notFixed" class="dice" onclick="fixDice(4, true)"
-                                  style="visibility: hidden"></span>
+                                  style="visibility: hidden"><img src="" id="dice4notFixedImg" alt="" width="30"></span>
             </td>
         </tr>
         <tr>
             <td width="150" height="150">
                             <span id="dice0fixed" class="dice" onclick="fixDice(0, false)"
-                                  style="visibility: hidden"></span>
+                                  style="visibility: hidden"><img src="" id="dice0fixedImg" alt="" width="30"></span>
                             <span id="dice1fixed" class="dice" onclick="fixDice(1, false)"
-                                  style="visibility: hidden"></span>
+                                  style="visibility: hidden"><img src="" id="dice1fixedImg" alt="" width="30"></span>
                             <span id="dice2fixed" class="dice" onclick="fixDice(2, false)"
-                                  style="visibility: hidden"></span>
+                                  style="visibility: hidden"><img src="" id="dice2fixedImg" alt="" width="30"></span>
                             <span id="dice3fixed" class="dice" onclick="fixDice(3, false)"
-                                  style="visibility: hidden"></span>
+                                  style="visibility: hidden"><img src="" id="dice3fixedImg" alt="" width="30"></span>
                             <span id="dice4fixed" class="dice" onclick="fixDice(4, false)"
-                                  style="visibility: hidden"></span>
+                                  style="visibility: hidden"><img src="" id="dice4fixedImg" alt="" width="30"></span>
             </td>
         </tr>
         <tr>
