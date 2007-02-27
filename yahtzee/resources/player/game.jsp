@@ -280,18 +280,18 @@ function fixDice(diceNr, state) {
     if (activePlayer == '${userBean.username}') {
         if (state) {
             GameManager.fixDie('${gameBean.gameName}', diceNr);
+            document.getElementById('dice' + diceNr + 'notFixed').style.visibility = 'hidden';
             document.getElementById('dice' + diceNr + 'fixedImg').src = '../../images/die' + document.getElementById('dice' + diceNr + 'notFixedImg').alt + '.png';
             document.getElementById('dice' + diceNr + 'fixedImg').alt = document.getElementById('dice' + diceNr + 'notFixedImg').alt;
             //DWRUtil.setValue('dice' + diceNr + 'fixed', DWRUtil.getValue('dice' + diceNr + 'notFixed'));
             document.getElementById('dice' + diceNr + 'fixed').style.visibility = 'visible';
-            document.getElementById('dice' + diceNr + 'notFixed').style.visibility = 'hidden';
         } else {
             GameManager.unfixDie('${gameBean.gameName}', diceNr);
-            document.getElementById('dice' + diceNr + 'notFixedImg').src = '../../images/die' + diceNr + '.png';
+            document.getElementById('dice' + diceNr + 'fixed').style.visibility = 'hidden';
+            document.getElementById('dice' + diceNr + 'notFixedImg').src = '../../images/die' + document.getElementById('dice' + diceNr + 'fixedImg').alt + '.png';
             document.getElementById('dice' + diceNr + 'notFixedImg').alt = document.getElementById('dice' + diceNr + 'fixedImg').alt;
             //DWRUtil.setValue('dice' + diceNr + 'notFixed', DWRUtil.getValue('dice' + diceNr + 'fixed'));
             document.getElementById('dice' + diceNr + 'notFixed').style.visibility = 'visible';
-            document.getElementById('dice' + diceNr + 'fixed').style.visibility = 'hidden';
         }
     }
 
