@@ -220,6 +220,7 @@
 </td>
 </tr>
 </table>
+<a href="gameRoom.jsp">Terug naar Game Lobby</a>
 
 </body>
 
