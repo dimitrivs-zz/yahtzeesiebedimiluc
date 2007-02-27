@@ -342,31 +342,31 @@ function gotMessages(messages) {
 <td>
     <table border="1">
         <tr>
-            <td width="150" height="150">
+            <td height="150">
                             <span id="dice0notFixed" class="dice" onclick="fixDice(0, true)"
-                                  style="visibility: hidden"><img src="" id="dice0notFixedImg" alt="" width="30"></span>
+                                  style="visibility: hidden"><img src="" id="dice0notFixedImg" alt=""></span>
                             <span id="dice1notFixed" class="dice" onclick="fixDice(1, true)"
-                                  style="visibility: hidden"><img src="" id="dice1notFixedImg" alt="" width="30"></span>
+                                  style="visibility: hidden"><img src="" id="dice1notFixedImg" alt=""></span>
                             <span id="dice2notFixed" class="dice" onclick="fixDice(2, true)"
-                                  style="visibility: hidden"><img src="" id="dice2notFixedImg" alt="" width="30"></span>
+                                  style="visibility: hidden"><img src="" id="dice2notFixedImg" alt=""></span>
                             <span id="dice3notFixed" class="dice" onclick="fixDice(3, true)"
-                                  style="visibility: hidden"><img src="" id="dice3notFixedImg" alt="" width="30"></span>
+                                  style="visibility: hidden"><img src="" id="dice3notFixedImg" alt=""></span>
                             <span id="dice4notFixed" class="dice" onclick="fixDice(4, true)"
-                                  style="visibility: hidden"><img src="" id="dice4notFixedImg" alt="" width="30"></span>
+                                  style="visibility: hidden"><img src="" id="dice4notFixedImg" alt=""></span>
             </td>
         </tr>
         <tr>
-            <td width="150" height="150">
+            <td height="150">
                             <span id="dice0fixed" class="dice" onclick="fixDice(0, false)"
-                                  style="visibility: hidden"><img src="" id="dice0fixedImg" alt="" width="30"></span>
+                                  style="visibility: hidden"><img src="" id="dice0fixedImg" alt=""></span>
                             <span id="dice1fixed" class="dice" onclick="fixDice(1, false)"
-                                  style="visibility: hidden"><img src="" id="dice1fixedImg" alt="" width="30"></span>
+                                  style="visibility: hidden"><img src="" id="dice1fixedImg" alt=""></span>
                             <span id="dice2fixed" class="dice" onclick="fixDice(2, false)"
-                                  style="visibility: hidden"><img src="" id="dice2fixedImg" alt="" width="30"></span>
+                                  style="visibility: hidden"><img src="" id="dice2fixedImg" alt=""></span>
                             <span id="dice3fixed" class="dice" onclick="fixDice(3, false)"
-                                  style="visibility: hidden"><img src="" id="dice3fixedImg" alt="" width="30"></span>
+                                  style="visibility: hidden"><img src="" id="dice3fixedImg" alt=""></span>
                             <span id="dice4fixed" class="dice" onclick="fixDice(4, false)"
-                                  style="visibility: hidden"><img src="" id="dice4fixedImg" alt="" width="30"></span>
+                                  style="visibility: hidden"><img src="" id="dice4fixedImg" alt=""></span>
             </td>
         </tr>
         <tr>

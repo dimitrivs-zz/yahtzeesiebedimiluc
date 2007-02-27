@@ -17,7 +17,9 @@
     <div id="adminSource">
         <table align="center">
             <tr>
-                <td colspan="2" id="logout"><a href="../logout/LogoutServlet" class="special"><h:outputText value="#{labels.logout}"/></a></td>
+                <td colspan="2" id="logout"><a href="../logout/LogoutServlet" class="special">
+                    <h:outputText value="#{labels.logout}"/>
+                </a></td>
             </tr>
             <tr>
                 <td>
@@ -40,6 +42,9 @@
                         </a></li>
                         <li><a href="/faces/admin/ShowGamesServlet">
                             <h:outputText value="#{labels.adminGame}"/>
+                        </a></li>
+                        <li><a href="/faces/player/gameRoom.jsp">
+                            <h:outputText value="#{labels.roomTitle}"/>
                         </a></li>
                     </ul>
                 </td>

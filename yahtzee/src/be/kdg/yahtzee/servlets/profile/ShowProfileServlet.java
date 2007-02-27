@@ -27,6 +27,9 @@ public class ShowProfileServlet extends YahtzeeServlet {
         request.setAttribute("userName", user.getUsername());
         request.setAttribute("firstName", user.getFirstname());
         request.setAttribute("surName", user.getSurname());
+        request.setAttribute("city", user.getAddress().getCity());
+        request.setAttribute("country", user.getAddress().getCountry());
+        request.setAttribute("highestScore", yahtzeeController.getHighestScore(user));
 
         forward("/faces/profile/profile.jsp", request, response);
     }
