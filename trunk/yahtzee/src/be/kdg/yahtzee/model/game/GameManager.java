@@ -446,7 +446,7 @@ public class GameManager {
     }
 
     /**
-     * Method for getting the dices in a game
+     * Method for getting the score of a player in a game
      *
      * @param user     User object
      * @param gameName String game name
@@ -455,5 +455,22 @@ public class GameManager {
     public int getPlayerScore(User user, String gameName) {
         Game game = getGame(gameName);
         return game.getPlayerScore(user);
+    }
+
+    /**
+     * Method for getting the highest score of a player
+     *
+     * @param user User object
+     * @return score Integer value.
+     */
+    public int getHighestScore(User user) {
+        List<Highscore> allHighscores = highscoreDao.getSortedHighscores();
+
+        for (Highscore highscore : allHighscores) {
+            if (highscore.getUser().getUsername().equals(user.getUsername())) {
+                return highscore.getScore();
+            }
+        }
+        return 0;
     }
 }

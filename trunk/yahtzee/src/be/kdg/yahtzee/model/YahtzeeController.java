@@ -177,5 +177,7 @@ public class YahtzeeController {
         return gameManager.getPlayerScore(user, gameName);
     }
 
-
+    public int getHighestScore(User user) {
+        return gameManager.getHighestScore(user);
+    }
 }

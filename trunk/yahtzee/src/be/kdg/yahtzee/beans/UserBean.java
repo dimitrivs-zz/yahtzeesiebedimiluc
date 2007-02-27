@@ -170,5 +170,15 @@ public class UserBean {
         User user = yahtzeeController.findUser(username);
         return user.getRole().getName();
     }
+
+    /**
+     * Getter for highscore of the User.
+     *
+     * @return Integer containing highscore of the User.
+     */
+    public int getHighestScore() {
+        User user = yahtzeeController.findUser(username);
+        return yahtzeeController.getHighestScore(user);
+    }
 }
 

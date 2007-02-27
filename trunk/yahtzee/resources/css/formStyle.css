@@ -107,6 +107,10 @@ div.hr hr {
     display: none;
 }
 
+#center {
+    text-align: center;
+}
+
 a:link {
     text-decoration: underline;
     color: #FFFFFF;
