@@ -30,37 +30,37 @@
                     <td>
                         <h:outputText value="#{labels.userName}"/>
                     </td>
-                    <td>${userBean.username}</td>
+                    <td>${userName}</td>
                 </tr>
                 <tr>
                     <td>
                         <h:outputText value="#{labels.firstname}"/>
                     </td>
-                    <td>${userBean.firstname}</td>
+                    <td>${firstName}</td>
                 </tr>
                 <tr>
                     <td>
                         <h:outputText value="#{labels.surname}"/>
                     </td>
-                    <td>${userBean.surname}</td>
+                    <td>${surName}</td>
                 </tr>
                 <tr>
                     <td>
                         <h:outputText value="#{labels.city}"/>
                     </td>
-                    <td>${userBean.city}</td>
+                    <td>${city}</td>
                 </tr>
                 <tr>
                     <td>
                         <h:outputText value="#{labels.country}"/>
                     </td>
-                    <td>${userBean.country}</td>
+                    <td>${country}</td>
                 </tr>
                 <tr>
                     <td>
                         <h:outputText value="#{labels.highScore}"/>
                     </td>
-                    <td>${userBean.highestScore}</td>
+                    <td>${highestScore}</td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
