@@ -19,6 +19,7 @@
 <script type='text/javascript' src='/dwr/util.js'></script>
 
 <script type="text/javascript">
+var gameFinishServlet = '../game/FinishGameServlet?game=' + ${gameBean.gameName};
 var loadPlayerTimeout;
 var keepDiceUpdatedTimeout;
 var playersArray = new Array();

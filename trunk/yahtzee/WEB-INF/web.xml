@@ -82,11 +82,19 @@
 
     <servlet>
         <servlet-name>LeaveGameServlet</servlet-name>
-        <servlet-class>be.kdg.yahtzee.servlets.game.LeaveGameServlet</servlet-class>
+        <servlet-class>be.kdg.yahtzee.servlets.game.FinishGameServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LeaveGameServlet</servlet-name>
         <url-pattern>/game/LeaveGameServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FinishGameServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.game.FinishGameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FinishGameServlet</servlet-name>
+        <url-pattern>/game/FinishGameServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
