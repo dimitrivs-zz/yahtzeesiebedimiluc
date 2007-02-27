@@ -89,7 +89,7 @@
             <td><input type="password" name="pw2" class="text"/></td>
         </tr>
         <tr>
-            <td><input type="submit" value="Change password"></td>
+            <td><input type="submit" value="Change password" class="btn"></td>
         </tr>
     </table>
 </form>
@@ -162,7 +162,7 @@
             </select>
             </td>
         </tr>
-        <td><input type="submit" value="Change profile"></td>
+        <td><input type="submit" value="Change profile" class="btn"></td>
         <tr>
             <td>&nbsp;</td>
         </tr>
