@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Date;
 
 public class FinishGameServlet extends YahtzeeServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,8 +22,11 @@ public class FinishGameServlet extends YahtzeeServlet {
         UserBean userBean = (UserBean) session.getAttribute("userBean");
         User user = yahtzeeController.findUser(userBean.getUsername());
 
-        yahtzeeController.leaveGame(gameName, user);
+        int score = yahtzeeController.getPlayerScore(user, gameName);
+        Date now = new Date();
 
-        response.sendRedirect("/faces/player/gameRoom.jsp");
+        yahtzeeController.saveHighscore(user, score, now);
+
+        response.sendRedirect("/faces/player/gameFinish.jsp");
     }
 }

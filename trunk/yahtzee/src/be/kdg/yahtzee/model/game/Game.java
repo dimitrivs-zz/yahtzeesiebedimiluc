@@ -694,4 +694,14 @@ public class Game {
     public Map getScores() {
         return scores;
     }
+
+    /**
+     * Method for getting the scores of a certain user.
+     *
+     * @param user User object
+     * @return score Integer value.
+     */
+    public int getPlayerScore(User user) {
+        return scores.get(user.getUsername()).getTotalScore();
+    }
 }

@@ -8,6 +8,7 @@
             <generator class="increment"/>
         </id>
         <property name="score"/>
+        <property name="timestamp"/>
 
         <many-to-one name="user" lazy="false"/>
     </class>

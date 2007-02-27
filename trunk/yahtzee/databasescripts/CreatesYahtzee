@@ -16,6 +16,7 @@ CREATE TABLE `yahtzee`.`highscores` (
   `highscoreId` INT(11) NOT NULL,
   `score` INT(11) NULL,
   `user` INT(11) NULL,
+  `timestamp` DATETIME NULL,
   PRIMARY KEY (`highscoreId`),
   INDEX `FK20ED30434BC30E34` (`user`)
 )
