@@ -90,6 +90,10 @@ public class YahtzeeController {
         return userManager.changePassword(user, orgPass, password, password2);
     }
 
+        public void changePassWord(User orgUser, String password, String password2) {
+            userManager.changePassword(orgUser, password, password2);
+    }
+
     /*
    public void changePassWord(User user, String orgPass, String password, String password2) {
        userManager.changePassword(user, orgPass, password, password2);
@@ -163,4 +167,6 @@ public class YahtzeeController {
     public List<Highscore> getTop10Highscores() {
         return gameManager.getTop10Highscores();
     }
+
+
 }

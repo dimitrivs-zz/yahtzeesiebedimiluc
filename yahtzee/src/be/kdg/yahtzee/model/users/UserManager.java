@@ -155,7 +155,7 @@ public class UserManager {
   public void changePassword(User user, String orgPass, String password, String password2) {
       changeUserPassword(user, orgPass, password, password2);
   }  */
-    /*
+
     public void changePassword(User user, String password, String password2) {
         changeUserPassword(user, password, password2);
     }
@@ -167,7 +167,7 @@ public class UserManager {
             user.setPassword(security.encrypt(password));
             userDao.saveUser(user);
         }
-    } */
+    } 
 
     // --- removeMethoden
 
@@ -283,4 +283,5 @@ public class UserManager {
 
         return adminCount < 2;
     }
+
 }
