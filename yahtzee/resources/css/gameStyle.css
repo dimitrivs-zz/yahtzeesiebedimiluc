@@ -100,12 +100,11 @@ span.luck {
 }
 
 .dice {
-    width: 20px;
-    height: 20px;
+    width: 60px;
+    height: 60px;
     font-family: arial, sans-serif;
     font-size: 12px;
     font-weight: bold;
-    border: 1px solid #FFFFFF;
     padding: 2px;
     cursor: pointer;
 }
