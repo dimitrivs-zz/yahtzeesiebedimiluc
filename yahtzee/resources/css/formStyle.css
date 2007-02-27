@@ -50,7 +50,7 @@ img.logo {
 }
 
 img, #login, #register, #newGame, #profile, #userProfile {
-    behavior: url( iepngfix/iepngfix.htc )
+    behavior: url( ../css/iepngfix/iepngfix.htc )
 }
 
 input.btn {
