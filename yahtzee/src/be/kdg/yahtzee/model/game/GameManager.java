@@ -64,6 +64,19 @@ public class GameManager {
     }
 
     /**
+     * Method for saving a highscores.
+     *
+     * @param user      User object
+     * @param score     Integer value
+     * @param timestamp Date value
+     */
+    public void saveHighscore(User user, int score, Date timestamp) {
+        Highscore highscore = new Highscore();
+        highscoreDao.saveHighscore(highscore);
+        highscores.add(highscore);
+    }
+
+    /**
      * Method for getting top 10 highscores.
      *
      * @return List with top 10 highscores.
@@ -441,5 +454,17 @@ public class GameManager {
     public List getDiceList(String gameName) {
         Game game = getGame(gameName);
         return game.getDiceList();
+    }
+
+    /**
+     * Method for getting the dices in a game
+     *
+     * @param user     User object
+     * @param gameName String game name
+     * @return score Integer value.
+     */
+    public int getPlayerScore(User user, String gameName) {
+        Game game = getGame(gameName);
+        return game.getPlayerScore(user);
     }
 }

@@ -17,6 +17,7 @@ import be.kdg.yahtzee.model.users.User;
 import be.kdg.yahtzee.model.users.UserManager;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -90,8 +91,8 @@ public class YahtzeeController {
         return userManager.changePassword(user, orgPass, password, password2);
     }
 
-        public void changePassWord(User orgUser, String password, String password2) {
-            userManager.changePassword(orgUser, password, password2);
+    public void changePassWord(User orgUser, String password, String password2) {
+        userManager.changePassword(orgUser, password, password2);
     }
 
     /*
@@ -166,6 +167,14 @@ public class YahtzeeController {
 
     public List<Highscore> getTop10Highscores() {
         return gameManager.getTop10Highscores();
+    }
+
+    public void saveHighscore(User user, int score, Date timestamp) {
+        gameManager.saveHighscore(user, score, timestamp);
+    }
+
+    public int getPlayerScore(User user, String gameName) {
+        return gameManager.getPlayerScore(user, gameName);
     }
 
 

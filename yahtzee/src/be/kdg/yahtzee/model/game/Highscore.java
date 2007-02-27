@@ -9,6 +9,8 @@ package be.kdg.yahtzee.model.game;
 
 import be.kdg.yahtzee.model.users.User;
 
+import java.util.Date;
+
 /**
  * Class representing a Highscore object in the yahtzee game
  */
@@ -17,20 +19,22 @@ public class Highscore {
     private int score;
     private User user;
 
+    private Date timestamp;
+
     public Highscore() {
     }
 
     /**
      * Constructor for a hoghscore object
      *
-     * @param highscoreId Integer id of the highscore.
-     * @param user        User object owning the highscore.
-     * @param score       Score object representing the user's score.
+     * @param user      User object owning the highscore.
+     * @param score     Score object representing the user's score.
+     * @param timestamp Date of the highscore.
      */
-    public Highscore(int highscoreId, User user, int score) {
-        this.highscoreId = highscoreId;
+    public Highscore(User user, int score, Date timestamp) {
         this.user = user;
         this.score = score;
+        this.timestamp = timestamp;
     }
 
     /**
@@ -85,6 +89,26 @@ public class Highscore {
      */
     public void setScore(int score) {
         this.score = score;
+    }
+
+    /**
+     * Method for getting the Timestamp value of a highscore.
+     *
+     * @return timestamp Date value representing timestamp.
+     */
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    /**
+     * Method for setting the Timestamp value of a highscore.
+     *
+     * @param timestamp Date value representing timestamp.
+     */
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
 
     public boolean equals(Object o) {
