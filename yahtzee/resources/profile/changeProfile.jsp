@@ -19,12 +19,12 @@
         function checkForm() {
             var form = document.createUser;
             var message = "";
-            if (!form.username.value) message += "* Foute username\n";
-            if (!form.pw.value) message += "* Fout passwoord\n";
-            if (!form.pw2.value) message += "* Fout bevestiging passwoord\n";
-            if (!form.mail.value) message += "Fout \n";
+            if (!form.username.value) message += "* <h:outputText value="#{labels.registerUsernameError}"/>\n";
+            if (!form.pw.value) message += "* <h:outputText value="#{labels.registerPasswordErrorFout}"/>\n";
+            if (!form.pw2.value) message += "* <h:outputText value="#{labels.registerRepeatError}"/>\n";
+            if (!form.mail.value) message += "<h:outputText value="#{labels.error}"/>\n";
             if (message != "") {
-                var mes = "fout\n" + message;
+                var mes = "<h:outputText value="#{labels.error}"/>\n" + message;
                 alert(mes);
                 return false;
             } else {
@@ -34,21 +34,21 @@
                 if (form.username.value.length < 4 ||
                     !form.username.value.match(illegalChars) ||
                     form.username.value == form.name.value) {
-                    alert("fout");
+                    alert("<h:outputText value="#{labels.error}"/>");
                     return false;
                 } else if (form.number.value && !form.number.value.match(illegalNums)) {
-                    alert("fout");
+                    alert("<h:outputText value="#{labels.error}"/>");
                     return false;
                 } else if (form.zip.value && (!form.zip.value.match(illegalNums) || form.zip.value.length != 4)) {
-                    alert("fout");
+                    alert("<h:outputText value="#{labels.error}"/>");
                     return false;
                 } else if (form.pw.value.length < 6 ||
                            !form.pw.value.match(illegalChars) ||
                            form.pw.value == form.name.value) {
-                    alert("fout");
+                    alert("<h:outputText value="#{labels.error}"/>");
                     return false;
                 } else if (form.pw.value != form.pw2.value) {
-                    alert("fout");
+                    alert("<h:outputText value="#{labels.error}"/>");
                     return false;
                 }
             }
