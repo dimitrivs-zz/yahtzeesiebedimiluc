@@ -1,4 +1,4 @@
-package be.kdg.view.login;
+package be.kdg.yahtzee.view.login;
 
 import javax.swing.*;
 
