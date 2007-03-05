@@ -1,13 +1,12 @@
 /* CSS Document */
 
 #adminSource {
-    margin: 15px 20px 10px 20px;
-    background-image: url( ../images/adminSourceBg.png );
-    background-repeat: no-repeat;
-    width: 420px;
-    height: 285px;
     margin-left: auto;
     margin-right: auto;
+    background-image: url( ../images/managementBg.png );
+    background-repeat: no-repeat;
+    width: 900px;
+    height: 400px;
 }
 
 #gameManagement, #highScores, #userManagement {
