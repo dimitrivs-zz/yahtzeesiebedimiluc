@@ -60,120 +60,123 @@
 <body>
 <div id="container">
 <div id="profile">
-
+<table>
 <form name="changePassword" action="/profile/ConfirmChangePasswordServlet?orgUser=${userBean.username}"
       method="post">
-    <table>
-        <tr>
-            <td><img src="../images/logo.png" class="logo" alt="Yahtzee"/></td>
-            <td><h1>
-                <h:outputText value="#{labels.profile}"/>
-            </h1></td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.profileOldPw}"/>
-            </td>
-            <td><input type="password" name="orgPass" class="text"/></td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.profileNewPw}"/>
-            </td>
-            <td><input type="password" name="pw" class="text"/></td>
-        </tr>
-        <tr>
-            <td>
-                <h:outputText value="#{labels.profileRePw}"/>
-            </td>
-            <td><input type="password" name="pw2" class="text"/></td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="<h:outputText value="#{labels.profilePw}"/>" class="btn"></td>
-        </tr>
-    </table>
+
+    <tr>
+        <td><img src="../images/logo.png" class="logo" alt="Yahtzee"/></td>
+        <td><h1>
+            <h:outputText value="#{labels.profile}"/>
+        </h1></td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.profileOldPw}"/>
+        </td>
+        <td><input type="password" name="orgPass" class="text"/></td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.profileNewPw}"/>
+        </td>
+        <td><input type="password" name="pw" class="text"/></td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.profileRePw}"/>
+        </td>
+        <td><input type="password" name="pw2" class="text"/></td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="<h:outputText value="#{labels.profilePw}"/>" class="btn"></td>
+    </tr>
 </form>
+<tr>
+    <td>&nbsp;</td>
+</tr>
 <!-- onsubmit="return checkForm()"-->
 <form name="changeProfile" action="/profile/ConfirmChangeProfileServlet?user=${userBean.username}" method="post">
-    <table>
-        <tr>
-            <td colspan="2">
-                <h:outputText value="#{labels.mail}"/>
-            </td>
-            <td><input type="text" name="mail" class="text" value="${userBean.email}"/></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <h:outputText value="#{labels.surname}"/>
-            </td>
-            <td><input type="text" name="surname" value="${userBean.surname}" class="text"/></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <h:outputText value="#{labels.firstname}"/>
-            </td>
-            <td><input type="text" name="firstname" value="${userBean.firstname}" class="text"/></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <h:outputText value="#{labels.telephone}"/>
-            </td>
-            <td><input type="text" name="telephone" value="${userBean.telephone}" class="text"/></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <h:outputText value="#{labels.street}"/>
-                +
-                <h:outputText value="#{labels.number}"/>
-            </td>
-            <td>
-                <input type="text" class="text" name="street" size="12" value="${userBean.street}"/>&nbsp;
-                <input type="text" name="number" class="text" size="1" value="${userBean.number}"/>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <h:outputText value="#{labels.zip}"/>
-            </td>
-            <td><input type="text" name="zip" value="${userBean.zip}" class="text"/></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <h:outputText value="#{labels.city}"/>
-            </td>
-            <td><input type="text" name="city" value="${userBean.city}" class="text"/></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <h:outputText value="#{labels.country}"/>
-            </td>
-            <td><input type="text" name="country" value="${userBean.country}" class="text"/></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <h:outputText value="#{labels.language}"/>
-            </td>
-            <td><select name="taal">
-                <option>Nederlands</option>
-                <option>Fran&ccedil;ais</option>
-                <option>English</option>
-                <option>Deutsch</option>
-                <option>Espa&ntilde;ol</option>
-            </select>
-            </td>
-        </tr>
-        <td><input type="submit" value="<h:outputText value="#{labels.profileTitle}"/>" class="btn"></td>
-        <tr>
-            <td>&nbsp;</td>
-        </tr>
-        <td colspan="3" align="center" height="40px"><a href="/faces/player/gameRoom.jsp" class="back">
-            <h:outputText value="#{labels.gameroomButton}"/>
-        </a></td>
-        <tr>
-            <td colspan="3" align="center">${message}</td>
-        </tr>
-    </table>
+
+    <tr>
+        <td>
+            <h:outputText value="#{labels.mail}"/>
+        </td>
+        <td><input type="text" name="mail" class="text" value="${userBean.email}"/></td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.surname}"/>
+        </td>
+        <td><input type="text" name="surname" value="${userBean.surname}" class="text"/></td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.firstname}"/>
+        </td>
+        <td><input type="text" name="firstname" value="${userBean.firstname}" class="text"/></td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.telephone}"/>
+        </td>
+        <td><input type="text" name="telephone" value="${userBean.telephone}" class="text"/></td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.street}"/>
+            +
+            <h:outputText value="#{labels.number}"/>
+        </td>
+        <td>
+            <input type="text" class="text" name="street" size="12" value="${userBean.street}"/>&nbsp;
+            <input type="text" name="number" class="text" size="1" value="${userBean.number}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.zip}"/>
+        </td>
+        <td><input type="text" name="zip" value="${userBean.zip}" class="text"/></td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.city}"/>
+        </td>
+        <td><input type="text" name="city" value="${userBean.city}" class="text"/></td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.country}"/>
+        </td>
+        <td><input type="text" name="country" value="${userBean.country}" class="text"/></td>
+    </tr>
+    <tr>
+        <td>
+            <h:outputText value="#{labels.language}"/>
+        </td>
+        <td><select name="taal">
+            <option>Nederlands</option>
+            <option>Fran&ccedil;ais</option>
+            <option>English</option>
+            <option>Deutsch</option>
+            <option>Espa&ntilde;ol</option>
+        </select>
+        </td>
+    </tr>
+    <td><input type="submit" value="<h:outputText value="#{labels.profileTitle}"/>" class="btn"></td>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <td colspan="2" align="center" height="40px"><a href="/faces/player/gameRoom.jsp" class="back">
+        <h:outputText value="#{labels.gameroomButton}"/>
+    </a></td>
+    <tr>
+        <td colspan="2" align="center">${message}</td>
+    </tr>
+
 </form>
+</table>
 </div>
 </div>
 </body>

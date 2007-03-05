@@ -29,16 +29,16 @@
                         </h1></td>
                     </tr>
                     <tr>
-                        <td>
+                        <td align="left">
                             <h:outputText value="#{labels.newGameName}"/>
                         </td>
-                        <td><input type="text" name="gameName" class="text"/></td>
+                        <td align="left"><input type="text" name="gameName" class="text"/></td>
                     </tr>
                     <tr>
-                        <td>
+                        <td align="left">
                             <h:outputText value="#{labels.newGameNumber}"/>
                         </td>
-                        <td><select name="maxPlayer">
+                        <td align="left"><select name="maxPlayer">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -47,10 +47,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>&nbsp;</td>
+                        <td colspan="2">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td><input type="submit" value="<h:outputText value="#{labels.newGameButton}"/>" class="btn"/>
+                        <td align="left"><input type="submit" value="<h:outputText value="#{labels.newGameButton}"/>"
+                                                class="btn"/>
                         </td>
                     </tr>
                     <tr>
