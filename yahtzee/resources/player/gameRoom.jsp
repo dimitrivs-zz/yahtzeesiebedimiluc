@@ -84,11 +84,13 @@
             </div>
         </div>
         <div id="footer">
-            <div id="users">
-                <h:outputText value="#{labels.roomOnline}"/>
-                :
+            <div id="onlineContainer">
+                <div id="users">
+                    <h:outputText value="#{labels.roomOnline}"/>
+                    :
+                </div>
+                <div id="onlineUsers"></div>
             </div>
-            <div id="onlineUsers"></div>
             <div class="hr">
                 <hr/>
             </div>
@@ -104,8 +106,7 @@
         </div>
     </div>
 
-    <div id="onlineContainer">
-    </div>
+
 </div>
 </body>
 </html>

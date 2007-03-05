@@ -74,8 +74,14 @@ img.logo {
 }
 
 #users {
-    margin-left: 60px;
+    padding: 0px;
+    margin: 0px;
     float: left;
+}
+
+#onlineContainer {
+    padding-left: 60px;
+    margin: 0px;
 }
 
 span.welkom, #users {
