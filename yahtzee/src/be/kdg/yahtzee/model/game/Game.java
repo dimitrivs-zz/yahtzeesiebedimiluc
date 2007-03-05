@@ -24,7 +24,7 @@ public class Game {
     private EnumState state;
     private Chat chat;
     private List<Die> diceList = new ArrayList<Die>();
-    private List<Integer> diceValueList;
+    private List<Integer> diceValueList = new ArrayList<Integer>();
     private List<Integer> diceValueListWithoutDoubles;
     private DiceGenerator diceGen;
     private int points;
@@ -188,7 +188,7 @@ public class Game {
         users.remove(user);
         userList.remove(user);
         scores.remove(user.getUsername());
-        if (user.getUsername().equals(activePlayer.getUsername())) {
+        if (user.getUsername().equals(activePlayer.getUsername()) && users.size() != 0) {
             resetRound();
             getNextPlayer();
         }
@@ -255,8 +255,8 @@ public class Game {
      * Method for filling a List with dice values.
      */
     private void fillDiceValues() {
-        diceValueList = new ArrayList<Integer>();
-
+        //diceValueList = new ArrayList<Integer>();
+        diceValueList.clear();
         for (Die die : diceList) {
             diceValueList.add(die.getValue());
         }
@@ -306,9 +306,36 @@ public class Game {
      */
     public List<ScoreAspect> getScorePossibilities() {
         List<ScoreAspect> scorePossibilities = new ArrayList<ScoreAspect>();
-        for (String s : possibleScores.keySet()) {
+        int i = 0;
+        if (possibleScores.containsKey("ones"))
+            scorePossibilities.add(i++, new ScoreAspect("ones", possibleScores.get("ones")));
+        if (possibleScores.containsKey("twos"))
+            scorePossibilities.add(i++, new ScoreAspect("twos", possibleScores.get("twos")));
+        if (possibleScores.containsKey("threes"))
+            scorePossibilities.add(i++, new ScoreAspect("threes", possibleScores.get("threes")));
+        if (possibleScores.containsKey("fours"))
+            scorePossibilities.add(i++, new ScoreAspect("fours", possibleScores.get("fours")));
+        if (possibleScores.containsKey("fives"))
+            scorePossibilities.add(i++, new ScoreAspect("fives", possibleScores.get("fives")));
+        if (possibleScores.containsKey("sixes"))
+            scorePossibilities.add(i++, new ScoreAspect("sixes", possibleScores.get("sixes")));
+        if (possibleScores.containsKey("threeOfAKind"))
+            scorePossibilities.add(i++, new ScoreAspect("threeOfAKind", possibleScores.get("threeOfAKind")));
+        if (possibleScores.containsKey("carre"))
+            scorePossibilities.add(i++, new ScoreAspect("carre", possibleScores.get("carre")));
+        if (possibleScores.containsKey("fullHouse"))
+            scorePossibilities.add(i++, new ScoreAspect("fullHouse", possibleScores.get("fullHouse")));
+        if (possibleScores.containsKey("smallStreet"))
+            scorePossibilities.add(i++, new ScoreAspect("smallStreet", possibleScores.get("smallStreet")));
+        if (possibleScores.containsKey("largeStreet"))
+            scorePossibilities.add(i++, new ScoreAspect("largeStreet", possibleScores.get("largeStreet")));
+        if (possibleScores.containsKey("yahtzee"))
+            scorePossibilities.add(i++, new ScoreAspect("yahtzee", possibleScores.get("yahtzee")));
+        if (possibleScores.containsKey("chance"))
+            scorePossibilities.add(i++, new ScoreAspect("chance", possibleScores.get("chance")));
+        /*for (String s : possibleScores.keySet()) {
             scorePossibilities.add(new ScoreAspect(s, possibleScores.get(s)));
-        }
+        }*/
         return scorePossibilities;
     }
 
