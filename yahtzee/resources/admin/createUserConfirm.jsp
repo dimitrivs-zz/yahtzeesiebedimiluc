@@ -15,8 +15,10 @@
     <body>
     <div id="message">
         <center>
-                ${message}<br/>
-            <a href="/faces/admin/userManagement.jsp" class="special">
+            '${user}'
+            <h:outputText value="#{labels.createMessage}"/>
+            .<br/>
+            <a href="/admin/ShowUsersServlet" class="special">
                 <h:outputText value="#{labels.userBack}"/>
             </a>
         </center>

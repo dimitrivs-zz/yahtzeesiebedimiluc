@@ -47,7 +47,7 @@ public class CreateUserServlet extends YahtzeeServlet {
         }
 
         HttpSession session = request.getSession();
-        session.setAttribute("message", "De gebruiker '" + username + "' werd succesvol aangemaakt.");
+        session.setAttribute("user", username);
         response.sendRedirect("/faces/admin/createUserConfirm.jsp");
     }
 }

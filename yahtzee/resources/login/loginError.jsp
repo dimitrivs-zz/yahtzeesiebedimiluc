@@ -9,8 +9,10 @@
 
     <html>
     <head>
-        <link href="../css/formStyle.css" rel="stylesheet" type="text/css" />
-        <title><h:outputText value="#{labels.loginErrorTitle}"/></title>
+        <link href="../css/formStyle.css" rel="stylesheet" type="text/css"/>
+        <title>
+            <h:outputText value="#{labels.loginErrorTitle}"/>
+        </title>
     </head>
 
     <body>
@@ -20,7 +22,7 @@
             <br>
             <h:outputText value="#{labels.loginCause}"/>
             <br>
-            <a href="../faces/login/login.jsp">
+            <a href="../faces/login/login.jsp" class="back">
                 <h:outputText value="#{labels.loginAgain}"/>
             </a>
         </center>
