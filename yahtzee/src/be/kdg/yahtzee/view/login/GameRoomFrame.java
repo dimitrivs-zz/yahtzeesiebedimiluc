@@ -101,7 +101,8 @@ public class GameRoomFrame extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == startBtn) {
-
+            new StartGameFrame("Yahtzee Game", resources, this);
+            this.setVisible(false);
         }
 
         if (e.getSource() == joinBtn) {

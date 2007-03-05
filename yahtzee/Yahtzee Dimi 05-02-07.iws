@@ -17,16 +17,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bundles/resources_nl.properties" afterPath="$PROJECT_DIR$/src/bundles/resources_nl.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/ChooseLanguageFrame.java" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/ChooseLanguageFrame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/GameRoomFrame.java" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/GameRoomFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/RunLogin.java" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/RunLogin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/LoginFrame.java" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/LoginFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bundles/resources.properties" afterPath="$PROJECT_DIR$/src/bundles/resources.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/StartGameFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/YahtzeeController.java" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/YahtzeeController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/RegisterFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bundles/resources_en.properties" afterPath="$PROJECT_DIR$/src/bundles/resources_en.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/StartGameFrame.java" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/StartGameFrame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Yahtzee Dimi 05-02-07.iws" afterPath="$PROJECT_DIR$/Yahtzee Dimi 05-02-07.iws" />
     </list>
   </component>
@@ -183,19 +175,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameRoomFrame.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GameRoomFrame.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/GameRoomFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="0" selection-start="3081" selection-end="3081" vertical-scroll-proportion="1.2029412">
+            <state line="112" column="29" selection-start="3123" selection-end="3123" vertical-scroll-proportion="0.65">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StartGameFrame.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="StartGameFrame.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/StartGameFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="715" selection-end="715" vertical-scroll-proportion="0.4">
+            <state line="67" column="49" selection-start="1928" selection-end="1928" vertical-scroll-proportion="3.35">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -215,7 +207,7 @@
       <file leaf-file-name="RegisterFrame.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/RegisterFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="23" selection-start="1305" selection-end="1428" vertical-scroll-proportion="0.5">
+            <state line="113" column="51" selection-start="4258" selection-end="4300" vertical-scroll-proportion="0.4">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#makeComponents#0;class#RegisterFrame#0" expanded="false" />
@@ -355,6 +347,10 @@
         <PATH_ELEMENT>
           <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\bundles" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Resource Bundle 'resources'" />
+          <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
         </PATH_ELEMENT>
       </PATH>
       <PATH>
@@ -880,7 +876,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1288" height="778" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
@@ -896,7 +892,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979724" order="1" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3271028" order="8" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39076924" order="2" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39076924" order="2" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
       <window_info id="File View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39757207" order="4" />
@@ -1104,16 +1100,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/GameRoomFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="0" selection-start="3081" selection-end="3081" vertical-scroll-proportion="1.2029412">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/RegisterFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="23" selection-start="1305" selection-end="1428" vertical-scroll-proportion="0.5">
+        <state line="113" column="51" selection-start="4258" selection-end="4300" vertical-scroll-proportion="0.4">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#makeComponents#0;class#RegisterFrame#0" expanded="false" />
@@ -1123,10 +1112,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/StartGameFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="715" selection-end="715" vertical-scroll-proportion="0.4">
+        <state line="67" column="49" selection-start="1928" selection-end="1928" vertical-scroll-proportion="3.35">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/GameRoomFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="29" selection-start="3123" selection-end="3123" vertical-scroll-proportion="0.65">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -10,6 +10,16 @@ public class StartGameFrame extends JFrame implements ActionListener {
     private JPanel titlePnl;
     private JPanel inputPnl;
     private JPanel buttonPnl;
+
+    private JLabel titleLbl;
+    private JLabel gameNameLbl;
+    private JLabel numberLbl;
+    private JComboBox numberCombo;
+    private JTextField gameNameTxt;
+
+    private JButton okBtn;
+    private JButton cancelBtn;
+
     private GameRoomFrame gameRoomFrame;
     private ResourceBundle resources;
 
@@ -24,13 +34,39 @@ public class StartGameFrame extends JFrame implements ActionListener {
     }
 
     public void makeComponents() {
-
         titlePnl = new JPanel();
         inputPnl = new JPanel();
         buttonPnl = new JPanel();
+
+        titleLbl = new JLabel("Start a new game:");
+        gameNameLbl = new JLabel("Game Name");
+        numberLbl = new JLabel("Number of Players");
+
+        gameNameTxt = new JTextField();
+        numberCombo = new JComboBox();
+
+        okBtn = new JButton("OK");
+        cancelBtn = new JButton("Cancel");
     }
 
     public void makeLayout() {
+        Container content = this.getContentPane();
+
+        titlePnl.add(titleLbl);
+
+        inputPnl.setLayout(new GridLayout(2, 2, 2, 2));
+        inputPnl.add(gameNameLbl);
+        inputPnl.add(gameNameTxt);
+        inputPnl.add(numberLbl);
+        inputPnl.add(numberCombo);
+
+        buttonPnl.add(okBtn);
+        buttonPnl.add(cancelBtn);
+
+        content.add(titlePnl, BorderLayout.NORTH);
+        content.add(inputPnl, BorderLayout.CENTER);
+        content.add(buttonPnl, BorderLayout.SOUTH);
+
 
     }
 
