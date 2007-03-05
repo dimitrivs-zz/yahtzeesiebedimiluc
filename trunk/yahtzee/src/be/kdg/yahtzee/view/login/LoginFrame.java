@@ -7,14 +7,20 @@
 
 package be.kdg.yahtzee.view.login;
 
+import be.kdg.yahtzee.model.YahtzeeController;
+import be.kdg.yahtzee.model.users.User;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ResourceBundle;
 
-public class LoginFrame extends JFrame {
+public class LoginFrame extends JFrame implements ActionListener {
     private JLabel titleLbl;
     private JLabel usernameLbl;
     private JLabel passwordLbl;
+    private JLabel errorLbl;
     private JTextField usernameTxt;
     private JPasswordField passwordTxt;
     private JButton loginBtn;
@@ -23,13 +29,16 @@ public class LoginFrame extends JFrame {
     private JPanel titlePnl;
     private JPanel inputPnl;
     private JPanel buttonPnl;
+    private JPanel errorPnl;
 
     private ResourceBundle resources;
+    private YahtzeeController yahtzeeController;
 
-    public LoginFrame(String title) {
+    public LoginFrame(String title, ResourceBundle resources) {
         super(title);
 
-        resources = ResourceBundle.getBundle("bundles.resources");
+        this.resources = resources;
+        yahtzeeController = new YahtzeeController();
 
         makeComponents();
         makeLayout();
@@ -41,9 +50,10 @@ public class LoginFrame extends JFrame {
         String titleString = resources.getString("login");
         String usernameString = resources.getString("userName");
         String passwordString = resources.getString("password");
-        String registerString = resources.getString("loginRegister");
+        String registerString = resources.getString("registerButton");
 
         titleLbl = new JLabel(titleString);
+        errorLbl = new JLabel();
 
         usernameLbl = new JLabel(usernameString);
         usernameTxt = new JTextField(10);
@@ -56,12 +66,14 @@ public class LoginFrame extends JFrame {
         titlePnl = new JPanel();
         inputPnl = new JPanel();
         buttonPnl = new JPanel();
+        errorPnl = new JPanel();
     }
 
     private void makeLayout() {
         Container content = this.getContentPane();
 
         titlePnl.add(titleLbl);
+        errorPnl.add(errorLbl);
 
         inputPnl.setLayout(new GridLayout(2, 2, 1, 1));
         inputPnl.add(usernameLbl);
@@ -72,13 +84,40 @@ public class LoginFrame extends JFrame {
         buttonPnl.add(loginBtn);
         buttonPnl.add(registerBtn);
 
-        content.add(titlePnl, BorderLayout.NORTH);
-        content.add(inputPnl, BorderLayout.CENTER);
-        content.add(buttonPnl, BorderLayout.SOUTH);
+        content.setLayout((new GridLayout(4, 1, 1, 1)));
+        content.add(titlePnl);
+        content.add(inputPnl);
+        content.add(buttonPnl);
+        content.add(errorPnl);
     }
 
     private void addListeners() {
+        loginBtn.addActionListener(this);
+        registerBtn.addActionListener(this);
+    }
 
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == loginBtn) {
+            User user = yahtzeeController.findUser(usernameTxt.getText());
+
+            if (user != null) {
+                if (user.getPassword().equals(passwordTxt.getPassword()) && !user.isBlocked()) {
+                    new GameRoomFrame("Yahtzee GameRoom", resources);
+                    this.dispose();
+                } else {
+                    changeMessage(resources.getString("swingLoginError"));
+                }
+            } else {
+                changeMessage(resources.getString("swingLoginError"));
+            }
+            new GameRoomFrame("Yahtzee", resources);
+            this.dispose();
+        }
+
+        if (e.getSource() == registerBtn) {
+            new RegisterFrame("Yahtzee Register", resources, this);
+            this.setVisible(false);
+        }
     }
 
     private void showFrame() {
@@ -89,6 +128,10 @@ public class LoginFrame extends JFrame {
         pack();
         setVisible(true);
         setResizable(false);
+    }
+
+    public void changeMessage(String message) {
+        errorLbl.setText(message);
     }
 
 }

@@ -9,9 +9,11 @@ package be.kdg.yahtzee.view.login;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ResourceBundle;
 
-public class GameRoomFrame extends JFrame {
+public class GameRoomFrame extends JFrame implements ActionListener {
     private JLabel titletableLbl;
     private JTable gameTable;
     private JButton startBtn;
@@ -26,10 +28,10 @@ public class GameRoomFrame extends JFrame {
 
     private ResourceBundle resources;
 
-    public GameRoomFrame(String title) {
+    public GameRoomFrame(String title, ResourceBundle resources) {
         super(title);
 
-        resources = ResourceBundle.getBundle("bundles.resources");
+        this.resources = resources;
 
         makeComponents();
         makeLayout();
@@ -80,7 +82,10 @@ public class GameRoomFrame extends JFrame {
     }
 
     private void addListeners() {
-
+        startBtn.addActionListener(this);
+        joinBtn.addActionListener(this);
+        profileBtn.addActionListener(this);
+        logoutBtn.addActionListener(this);
     }
 
     private void showFrame() {
@@ -94,4 +99,23 @@ public class GameRoomFrame extends JFrame {
     }
 
 
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == startBtn) {
+
+        }
+
+        if (e.getSource() == joinBtn) {
+
+        }
+
+        if (e.getSource() == profileBtn) {
+
+        }
+
+        if (e.getSource() == logoutBtn) {
+
+            new LoginFrame("Yahtzee", resources);
+            this.dispose();
+        }
+    }
 }
