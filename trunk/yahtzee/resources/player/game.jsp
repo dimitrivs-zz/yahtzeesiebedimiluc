@@ -36,6 +36,7 @@ function init() {
                 }
             }
             );
+    document.getElementById('btnRoll').style.visibility = 'hidden';
     getActivePlayer();
 }
 
@@ -55,6 +56,7 @@ function getActivePlayer() {
                         } else {
                             clearTimeout(keepDiceUpdatedTimeout);
                             calculateScores();
+                            document.getElementById('btnRoll').style.visibility = 'visible';
                             document.getElementById('btnRoll').disabled = false;
                         }
                     }
@@ -134,15 +136,17 @@ function startGame() {
 
 function gameStarted(state) {
     if (state == 'Busy') {
+        document.getElementById('btnStart').style.visibility = 'hidden';
         document.getElementById('btnStart').disabled = true;
         GameManager.getActivePlayer('${gameBean.gameName}',
                 function(player) {
                     if (player == '${userBean.username}') {
+                        document.getElementById('btnRoll').style.visibility = 'visible';
                         document.getElementById('btnRoll').disabled = false;
-                        calculateScores();
                     } else {
                         keepDiceUpdated();
                     }
+                    calculateScores();
                     keepPlayersUpdated();
                     DWRUtil.setValue('gameState', player + ' <h:outputText value="#{labels.gamePlaying}"/>...');
                 }
@@ -184,6 +188,7 @@ function rollDice() {
         GameManager.playRound('${gameBean.gameName}', getDice);
         numberRolls++;
         if (numberRolls == 3) {
+            document.getElementById('btnRoll').style.visibility = 'hidden';
             document.getElementById('btnRoll').disabled = true;
         }
     }
@@ -220,6 +225,7 @@ function selectScore(scoreDescription) {
     resetDice();
     document.getElementById('possibleScores').style.visibility = 'hidden';
     document.getElementById('scoresContainer').style.visibility = 'hidden';
+    document.getElementById('btnRoll').style.visibility = 'hidden';
     document.getElementById('btnRoll').disabled = true;
     calculateScores();
     numberTurns++;
