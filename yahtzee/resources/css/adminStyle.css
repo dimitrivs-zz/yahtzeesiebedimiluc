@@ -3,10 +3,10 @@
 #adminSource {
     margin-left: auto;
     margin-right: auto;
-    background-image: url( ../images/managementBg.png );
+    background-image: url( ../images/adminSourceBg.png );
     background-repeat: no-repeat;
-    width: 900px;
-    height: 400px;
+    width: 420px;
+    height: 350px;
 }
 
 #gameManagement, #highScores, #userManagement {
