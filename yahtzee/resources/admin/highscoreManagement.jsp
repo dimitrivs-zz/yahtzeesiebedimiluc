@@ -7,17 +7,41 @@
     <f:loadBundle basename="bundles.resources" var="labels"/>
     <html>
     <head>
-        <link href="../css/formStyle.css" rel="stylesheet" type="text/css"/>
-        <title>High Score Management</title>
+        <link href="../css/adminStyle.css" rel="stylesheet" type="text/css"/>
+        <title>
+            <h:outputText value="#{labels.scoreManTitle}"/>
+        </title>
     </head>
     <body>
-    <center><h2>High Score Management</h2></center>
-    <ul>
-        <li><a href="/admin/ShowHighscoresServlet?filter=top10">Toon Top 10</a></li>
-        <li><a href="/admin/ShowHighscoresServlet?filter=allScores">Alle scores</a></li>
-        <br>
-    </ul>
-    <a href="/faces/admin/administrator.jsp">Terug naar het Administrator Overzicht</a>
+    <div id="adminSource">
+        <table align="center">
+            <tr>
+                <td id="logout">
+                    <a href="../logout/LogoutServlet" class="special">
+                        <h:outputText value="#{labels.logout}"/>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td><h1>
+                    <h:outputText value="#{labels.scoreManTitle}"/>
+                </h1></td>
+            </tr>
+            <tr>
+                <td><a href="/admin/ShowHighscoresServlet?filter=top10">
+                    <h:outputText value="#{labels.scoreManTop}"/>
+                </a></td>
+            </tr>
+            <tr>
+                <td><a href="/admin/ShowHighscoresServlet?filter=allScores">
+                    <h:outputText value="#{labels.scoreManAll}"/>
+                </a></td>
+            </tr>
+        </table>
+        <a href="/faces/admin/administrator.jsp" class="special">
+            <h:outputText value="#{labels.adminBack}"/>
+        </a>
+    </div>
     </body>
     </html>
 </f:view>

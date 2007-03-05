@@ -11,11 +11,17 @@
 
     <f:loadBundle basename="bundles.resources" var="labels"/>
     <html>
-    <head><title><h:outputText value="#{labels.userSearch}"/></title></head>
+    <head><title>
+        <h:outputText value="#{labels.userSearch}"/>
+    </title></head>
     <body>
-    <yahtzee:showAllUsers hrefRemove="/admin/RemoveUserServlet" hrefChange="/admin/ChangeUserServlet"
-                          hrefBlock="/admin/BlockUserServlet"/>
-    <a href="/faces/admin/ShowUsersServlet"><h:outputText value="#{labels.userBack}"/></a>
+    <div id="userManagement">
+        <yahtzee:showAllUsers hrefRemove="/admin/RemoveUserServlet" hrefChange="/admin/ChangeUserServlet"
+                              hrefBlock="/admin/BlockUserServlet"/>
+        <a href="/faces/admin/ShowUsersServlet" class="special">
+            <h:outputText value="#{labels.userBack}"/>
+        </a>
+    </div>
     </body>
 
 </f:view>

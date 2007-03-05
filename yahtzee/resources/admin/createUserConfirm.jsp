@@ -4,20 +4,23 @@
 <f:view locale="#{language}">
 
     <f:loadBundle basename="bundles.resources" var="labels"/>
-<html>
-<head>
-    <title>
-        <h:outputText value="#{labels.userConfirm}"/>
-    </title>
-</head>
+    <html>
+    <head>
+        <link href="../css/adminStyle.css" rel="stylesheet" type="text/css"/>
+        <title>
+            <h:outputText value="#{labels.userConfirm}"/>
+        </title>
+    </head>
 
-<body>
-<center>
-    ${message}
-    <a href="/faces/admin/userManagement.jsp">
-        <h:outputText value="#{labels.userBack}"/>
-    </a>
-</center>
-</body>
-</html>
+    <body>
+    <div id="message">
+        <center>
+                ${message}<br/>
+            <a href="/faces/admin/userManagement.jsp" class="special">
+                <h:outputText value="#{labels.userBack}"/>
+            </a>
+        </center>
+    </div>
+    </body>
+    </html>
 </f:view>
