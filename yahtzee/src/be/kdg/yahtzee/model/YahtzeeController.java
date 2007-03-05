@@ -27,6 +27,8 @@ public class YahtzeeController {
     private GameManager gameManager;
 
     public YahtzeeController() {
+        userManager = new UserManager();
+        gameManager = new GameManager();
     }
 
     public void setGameManager(GameManager gameManager) {

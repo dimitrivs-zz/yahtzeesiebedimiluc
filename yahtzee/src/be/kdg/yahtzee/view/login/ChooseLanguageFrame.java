@@ -9,8 +9,11 @@ package be.kdg.yahtzee.view.login;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ResourceBundle;
 
-public class ChooseLanguageFrame extends JFrame {
+public class ChooseLanguageFrame extends JFrame implements ActionListener {
     private JButton dutchBtn;
     private JButton frenchBtn;
     private JButton germanBtn;
@@ -18,8 +21,10 @@ public class ChooseLanguageFrame extends JFrame {
     private JButton spanishBtn;
 
     private JLabel titleLbl;
-
     private JPanel overviewPnl;
+
+    ResourceBundle resources;
+
 
     public ChooseLanguageFrame(String title) {
         super(title);
@@ -70,6 +75,37 @@ public class ChooseLanguageFrame extends JFrame {
     }
 
     private void addListeners() {
+        dutchBtn.addActionListener(this);
+        frenchBtn.addActionListener(this);
+        englishBtn.addActionListener(this);
+        spanishBtn.addActionListener(this);
+        germanBtn.addActionListener(this);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == dutchBtn) {
+            resources =
+                    ResourceBundle.getBundle("bundles.resources_nl");
+        }
+        if (e.getSource() == frenchBtn) {
+            resources =
+                    ResourceBundle.getBundle("bundles.resources_fr");
+        }
+        if (e.getSource() == germanBtn) {
+            resources =
+                    ResourceBundle.getBundle("bundles.resources_de");
+        }
+        if (e.getSource() == englishBtn) {
+            resources =
+                    ResourceBundle.getBundle("bundles.resources_en");
+        }
+        if (e.getSource() == spanishBtn) {
+            resources =
+                    ResourceBundle.getBundle("bundles.resources_es");
+        }
+
+        new LoginFrame("Yahtzee Login", resources);
+        this.dispose();
     }
 
 
@@ -79,7 +115,6 @@ public class ChooseLanguageFrame extends JFrame {
         Dimension d = this.getToolkit().getScreenSize();
         setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
         setVisible(true);
-
     }
 
     protected static ImageIcon createImageIcon(String path) {
