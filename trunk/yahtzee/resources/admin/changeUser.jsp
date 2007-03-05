@@ -109,15 +109,23 @@
             <td><input type="text" name="country" value="${userchangeBean.country}" class="text"/></td>
         </tr>
         <tr>
-            <td><h:outputText value="#{labels.createRole}"/></td>
+            <td>
+                <h:outputText value="#{labels.createRole}"/>
+            </td>
             <td><select name="role">
+                <% String admin = "Beheerder"; %>
+                <% String player = "Speler"; %>
                 <c:if test="${userchangeBean.role == 'Administrator'}">
-                    <option value="Administrator" selected>Administrator</option>
-                    <option value="Player">Player</option>
+                    <option value="Administrator" selected><%= admin %>
+                    </option>
+                    <option value="Player"><%= player %>
+                    </option>
                 </c:if>
                 <c:if test="${userchangeBean.role == 'Player'}">
-                    <option value="Administrator">Administrator</option>
-                    <option value="Player" selected>Player</option>
+                    <option value="Administrator"><%= admin %>
+                    </option>
+                    <option value="Player" selected><%= player %>
+                    </option>
                 </c:if>
             </select></td>
         </tr>

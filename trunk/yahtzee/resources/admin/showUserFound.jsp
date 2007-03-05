@@ -11,9 +11,12 @@
 
     <f:loadBundle basename="bundles.resources" var="labels"/>
     <html>
-    <head><title>
-        <h:outputText value="#{labels.userSearch}"/>
-    </title></head>
+    <head>
+        <link href="../css/adminStyle.css" rel="stylesheet" type="text/css"/>
+        <title>
+            <h:outputText value="#{labels.userSearch}"/>
+        </title>
+    </head>
     <body>
     <div id="userManagement">
         <yahtzee:showAllUsers hrefRemove="/admin/RemoveUserServlet" hrefChange="/admin/ChangeUserServlet"
