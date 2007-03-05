@@ -15,6 +15,7 @@ public class StartGameFrame extends JFrame implements ActionListener {
     private JLabel gameNameLbl;
     private JLabel numberLbl;
     private JComboBox numberCombo;
+    private DefaultComboBoxModel comboModel;
     private JTextField gameNameTxt;
 
     private JButton okBtn;
@@ -43,7 +44,13 @@ public class StartGameFrame extends JFrame implements ActionListener {
         numberLbl = new JLabel("Number of Players");
 
         gameNameTxt = new JTextField();
-        numberCombo = new JComboBox();
+        comboModel = new DefaultComboBoxModel();
+        for (int i = 0; i < 4; i++) {
+            comboModel.addElement(i + 1);
+        }
+
+        numberCombo = new JComboBox(comboModel);
+
 
         okBtn = new JButton("OK");
         cancelBtn = new JButton("Cancel");
