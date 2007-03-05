@@ -1,3 +1,5 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="yahtzee" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
@@ -6,7 +8,7 @@
 
 <f:view locale="#{language}">
 <f:loadBundle basename="bundles.resources" var="labels"/>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head><title>
     <h:outputText value="#{labels.roomTitle}"/>
 </title>
@@ -23,9 +25,13 @@
         <div id="logo"><img src="../images/logo.png" class="logo" alt="Yahtzee"/></div>
         <div id="links">
             <h2>
-                <a href="/faces/player/startNewGame.jsp"><h:outputText value="#{labels.roomStart}"/></a> | <a href="/faces/profile/changeProfile.jsp">
-                <h:outputText value="#{labels.roomProfile}"/></a> | <a href="/logout/LogoutServlet">
-                <h:outputText value="#{labels.logout}"/></a>
+                <a href="/faces/player/startNewGame.jsp">
+                    <h:outputText value="#{labels.roomStart}"/>
+                </a> | <a href="/faces/profile/changeProfile.jsp">
+                <h:outputText value="#{labels.roomProfile}"/>
+            </a> | <a href="/logout/LogoutServlet">
+                <h:outputText value="#{labels.logout}"/>
+            </a>
             </h2>
         </div>
     </div>
@@ -78,22 +84,28 @@
             </div>
         </div>
         <div id="footer">
-            <div id="users"><h:outputText value="#{labels.roomOnline}"/>: </div><div id="onlineUsers"></div>
+            <div id="users">
+                <h:outputText value="#{labels.roomOnline}"/>
+                :
+            </div>
+            <div id="onlineUsers"></div>
             <div class="hr">
                 <hr/>
             </div>
             <div id="footerTekst">
                 <a href="info.jsp"
                    onclick="window.open('info.jsp','Info','width=250,height=250,scrollbars=no,toolbar=no,location=no'); return false">
-                    <h:outputText value="#{labels.roomInfo}"/></a> | <a href="help.html"
-                     onclick="window.open('help.html','Help','width=400,height=400,scrollbars=yes,toolbar=no,location=no'); return false">
+                    <h:outputText value="#{labels.roomInfo}"/>
+                </a> | <a href="help.html"
+                          onclick="window.open('help.html','Help','width=400,height=400,scrollbars=yes,toolbar=no,location=no'); return false">
                 <h:outputText value="#{labels.roomHelp}"/>
             </a>
             </div>
         </div>
     </div>
-</div>
-<div id="onlineContainer">
+
+    <div id="onlineContainer">
+    </div>
 </div>
 </body>
 </html>
