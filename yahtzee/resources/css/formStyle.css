@@ -13,6 +13,8 @@
 }
 
 #showProfile {
+    margin-left: auto;
+    margin-right: auto;
     background-image: url( ../images/showProfileBg.png );
     background-repeat: no-repeat;
     width: 430px;

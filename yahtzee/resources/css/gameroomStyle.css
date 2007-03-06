@@ -114,22 +114,23 @@ span.welkom, #users {
 }
 
 .bottom {
+    width: 157px;
     margin: 10px 5px 0px 5px;
 }
 
 input.btn {
     margin: 0px 5px 0px 5px;
-    width: 160px;
     margin-top: 10px;
 }
 
-input.join, input.btn {
+input.btn {
     border-color: #336699;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 10pt;
     font-weight: bold;
     background-color: #ffffff;
     color: #006600;
+    width: 162px;
 }
 
 textarea.bottom {
