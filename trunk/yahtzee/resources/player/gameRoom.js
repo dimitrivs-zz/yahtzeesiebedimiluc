@@ -48,7 +48,7 @@ function gotGames(messages)
         tableGames += "<td width='225px'>"
         if (messages[game].state != 'Empty') {
             for (var user in messages[game].users) {
-                tableGames += '<a href=/profile/ShowProfileServlet?user=' + messages[game].users[user].username + '>' + messages[game].users[user].username + '</a>, '
+                tableGames += '<a href="/profile/ShowProfileServlet?user=' + messages[game].users[user].username + '" onclick=\"window.open(\'/profile/ShowProfileServlet?user=' + messages[game].users[user].username + '\',\'Help\',\'width=520,height=305,scrollbars=no,toolbar=no,location=no,scrollbars=no,resizable=no,menubar=no\'); return false">' + messages[game].users[user].username + '</a>';
             }
         } else {
             tableGames += "No players"
