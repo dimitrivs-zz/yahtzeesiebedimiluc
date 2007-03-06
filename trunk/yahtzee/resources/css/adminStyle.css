@@ -14,7 +14,7 @@
     margin-right: auto;
     background-image: url( ../images/managementBg.png );
     background-repeat: no-repeat;
-    width: 900px;
+    width: 600px;
     height: 500px;
 }
 
@@ -32,6 +32,10 @@
     text-align: right;
     height: 30px;
     vertical-align: middle;
+}
+
+#search {
+    padding: 15px;
 }
 
 div.headerText {

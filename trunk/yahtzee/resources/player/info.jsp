@@ -23,46 +23,46 @@
                 </h2></td>
             </tr>
             <tr>
-                <td>
+                <td align="left">
                     <h:outputText value="#{labels.infoProgrammer}"/>
                     1:
                 </td>
-                <td><a href="" class="back">Siebe Dom</a></td>
+                <td align="left"><a href="" class="back">Siebe Dom</a></td>
             </tr>
             <tr>
-                <td>
+                <td align="left">
                     <h:outputText value="#{labels.infoProgrammer}"/>
                     2:
                 </td>
-                <td><a href="" class="back">Luc Schillemans</a></td>
+                <td align="left"><a href="" class="back">Luc Schillemans</a></td>
             </tr>
             <tr>
-                <td>
+                <td align="left">
                     <h:outputText value="#{labels.infoProgrammer}"/>
                     3:
                 </td>
-                <td><a href="" class="back">Dimitri Van Sealen</a></td>
+                <td align="left"><a href="" class="back">Dimitri Van Sealen</a></td>
             </tr>
             <tr>
-                <td>
+                <td align="left">
                     <h:outputText value="#{labels.infoProgrammer}"/>
                     4:
                 </td>
-                <td><a href="" class="back">Vincent Siebens</a></td>
+                <td align="left"><a href="" class="back">Vincent Siebens</a></td>
             </tr>
             <tr>
-                <td>
+                <td align="left">
                     <h:outputText value="#{labels.infoProgrammer}"/>
                     5:
                 </td>
-                <td><a href="" class="back">Didier Adriaensen</a></td>
+                <td align="left"><a href="" class="back">Didier Adriaensen</a></td>
             </tr>
             <tr>
-                <td>
+                <td align="left">
                     <h:outputText value="#{labels.infoProgrammer}"/>
                     6:
                 </td>
-                <td><a href="" class="back">Dennis Jaamann</a></td>
+                <td align="left"><a href="" class="back">Dennis Jaamann</a></td>
             </tr>
         </table>
     </div>

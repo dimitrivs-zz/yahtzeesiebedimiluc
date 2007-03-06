@@ -8,24 +8,39 @@
 
     <html>
     <head>
-        <link href="../css/adminStyle.css" rel="stylesheet" type="text/css" />
-        <title><h:outputText value="#{labels.userTitle}"/></title>
+        <link href="../css/adminStyle.css" rel="stylesheet" type="text/css"/>
+        <title>
+            <h:outputText value="#{labels.userTitle}"/>
+        </title>
     </head>
 
     <body>
     <div id="userManagement">
         <div class="headerText">
-            <h1><h:outputText value="#{labels.admin}"/></h1>
-            <h2><h:outputText value="#{labels.user}"/></h2>
-            <a href="/faces/admin/administrator.jsp" class="special"> &lt; <h:outputText value="#{labels.adminBack}"/></a> | <a href="/faces/admin/createUser.jsp" class="special"><h:outputText value="#{labels.userAdd}"/></a>
-            <form action="/admin/SearchUserServlet" method="post">
-                <table>
-                    <tr>
-                        <td><input type="text" name="searchUser" class="text"/></td>
-                        <td><input type="submit" value="<h:outputText value="#{labels.userButton}"/>" class="btn"></td>
-                    </tr>
-                </table>
-            </form>
+            <h1>
+                <h:outputText value="#{labels.admin}"/>
+            </h1>
+
+            <h2>
+                <h:outputText value="#{labels.user}"/>
+            </h2>
+            <a href="/faces/admin/administrator.jsp" class="special"> &lt;
+                <h:outputText value="#{labels.adminBack}"/>
+            </a> | <a href="/faces/admin/createUser.jsp" class="special">
+            <h:outputText value="#{labels.userAdd}"/>
+        </a>
+
+            <div id="search">
+                <form action="/admin/SearchUserServlet" method="post">
+                    <table class="special">
+                        <tr>
+                            <td><input type="text" name="searchUser" class="text"/></td>
+                            <td><input type="submit" value="<h:outputText value="#{labels.userButton}"/>" class="btn">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
         </div>
         <div id="overview">
             <yahtzee:showAllUsers hrefRemove="/admin/RemoveUserServlet" hrefChange="/admin/ChangeUserServlet"

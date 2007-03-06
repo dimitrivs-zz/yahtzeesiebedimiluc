@@ -82,11 +82,13 @@ img.logo {
 #onlineContainer {
     padding-left: 60px;
     margin: -10px 0px 10px 0px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 span.welkom, #users {
     font-weight: bold;
     color: #FFFF00;
+
 }
 
 .tekst {
