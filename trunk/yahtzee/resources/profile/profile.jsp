@@ -68,8 +68,9 @@
                 <tr>
                     <td colspan="2" id="center">
                         <a href="/faces/player/gameRoom.jsp" class="back">
-                            <h:outputText value="#{labels.gameroomButton}"/>
-                        </a>
+                            <a href="javascript:window.close()" class="back">
+                                <h:outputText value="#{labels.gameroomButton}"/>
+                            </a>
                     </td>
                 </tr>
             </table>
