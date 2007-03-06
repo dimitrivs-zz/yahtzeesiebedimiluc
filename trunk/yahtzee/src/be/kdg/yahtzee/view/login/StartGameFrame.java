@@ -78,6 +78,7 @@ public class StartGameFrame extends JFrame implements ActionListener {
     }
 
     public void addListeners() {
+        okBtn.addActionListener(this);
     }
 
     public void showFrame() {
@@ -91,6 +92,9 @@ public class StartGameFrame extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource() == okBtn) {
+            new GameFrame(gameNameTxt.getText(), resources, numberCombo.getSelectedIndex() + 1);
+            this.dispose();
+        }
     }
 }
