@@ -57,11 +57,13 @@ public class GameFrame extends JFrame implements ActionListener {
         dice5Btn = new JToggleButton(die5);
 
         scoreTbl = new JTable(15, players + 1);
-
-        startBtn = new JButton("Start Game");
-        rollBtn = new JButton("Roll");
+        String stringStart = resources.getString("gameStart");
+        String stringRoll = resources.getString("gameRoll");
+        String stringLeave = resources.getString("gameLeave");
+        startBtn = new JButton(stringStart);
+        rollBtn = new JButton(stringRoll);
         rollBtn.setEnabled(false);
-        leaveBtn = new JButton("Leave");
+        leaveBtn = new JButton(stringLeave);
     }
 
     public void makeLayout() {
