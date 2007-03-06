@@ -28,11 +28,11 @@
     <% if (allUsers.isEmpty()) {
     %>
     <tr>
-        <td colspan="4" align="center">
+        <td colspan="7" align="center">
             <h:outputText value="#{labels.allUserNone}"/>
         </td>
     </tr>
-    <% }
+    <% } else {
         for (Object user1 : allUsers) {
             User user = (User) user1;
     %>
@@ -57,6 +57,7 @@
     </tr>
 
     <%
+            }
         }
     %>
 </table>
