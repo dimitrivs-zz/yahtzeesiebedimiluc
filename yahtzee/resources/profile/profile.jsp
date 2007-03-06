@@ -18,7 +18,7 @@
     </head>
     <body>
     <div id="container">
-        <div id="login">
+        <div id="showProfile">
             <table>
                 <tr>
                     <td><img src="../images/logo.png" class="logo" alt="Yahtzee"/></td>
