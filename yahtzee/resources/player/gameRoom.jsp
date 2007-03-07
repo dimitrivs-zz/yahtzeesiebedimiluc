@@ -48,25 +48,28 @@
                 </h3>
 
                 <div id="roomTable">
-                    <table width="595">
+                    <table width="595" class="header">
                         <tr>
-                            <th width="140px">
+                            <th width="140">
                                 <h:outputText value="#{labels.roomName}"/>
                             </th>
-                            <th width="75px">
+                            <th width="85">
                                 <h:outputText value="#{labels.roomMax}"/>
                             </th>
-                            <th width="225px">
+                            <th width="215">
                                 <h:outputText value="#{labels.roomPlayers}"/>
                             </th>
-                            <th width="75px">
+                            <th width="75">
                                 <h:outputText value="#{labels.roomState}"/>
                             </th>
-                            <th width="90px">
+                            <th width="90">
                                 <h:outputText value="#{labels.roomAction}"/>
                             </th>
                         </tr>
                     </table>
+
+                </div>
+                <div id="gamesWrapper">
                     <div id="games">
                     </div>
                 </div>

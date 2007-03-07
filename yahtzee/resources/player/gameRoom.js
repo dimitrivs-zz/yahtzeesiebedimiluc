@@ -38,14 +38,14 @@ function onlineUserList(messages) {
 
 function gotGames(messages)
 {
-    var tableGames = '<table width="595px" border="1">'
+    var tableGames = '<table width="595px" border="0" class="games">'
 
     for (var game in messages)
     {
         tableGames += "<tr>"
-        tableGames += "<td width='140px'>" + messages[game].gameName + "</td>"
-        tableGames += "<td width='75px'>" + messages[game].maxPlayer + "</td>"
-        tableGames += "<td width='225px'>"
+        tableGames += "<td width='140'>" + messages[game].gameName + "</td>"
+        tableGames += "<td width='75' class='center'>" + messages[game].maxPlayer + "</td>"
+        tableGames += "<td width='225'>"
         if (messages[game].state != 'Empty') {
             for (var user in messages[game].users) {
                 tableGames += '<a href="/profile/ShowProfileServlet?user=' + messages[game].users[user].username + '" onclick=\"window.open(\'/profile/ShowProfileServlet?user=' + messages[game].users[user].username + '\',\'Help\',\'width=520,height=305,scrollbars=no,toolbar=no,location=no,scrollbars=no,resizable=no,menubar=no\'); return false">' + messages[game].users[user].username + '</a>';
@@ -54,7 +54,7 @@ function gotGames(messages)
             tableGames += "No players"
         }
         tableGames += "</td>"
-        tableGames += "<td width='75px'>" + messages[game].state + "</td><td width='90px'>"
+        tableGames += "<td width='75' class='center'>" + messages[game].state + "</td><td width='90'>"
         if (messages[game].state == 'Waiting') {
             tableGames += "<a href=/faces/game/JoinGameServlet?join=" + messages[game].gameName + ">Join</a>"
         } else {

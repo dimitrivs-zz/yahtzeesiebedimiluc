@@ -67,10 +67,19 @@ img.logo {
 }
 
 #roomTable {
+    width: 600px;
+    height: auto;
+}
+
+#gamesWrapper {
+    width: 600px;
+    height: 300px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+#games {
     width: 600px;
-    height: 350px;
 }
 
 #users {
@@ -154,7 +163,8 @@ html {
 
 table {
     margin-top: 2px;
-    margin-left: 1px;
+    margin-left: 5px;
+    margin-bottom: 0px;
     width: 595px;
     height: auto;
 }
@@ -173,6 +183,22 @@ td, td.center {
     padding: 2px 0px 2px 0px;
     color: #FFFFFF;
     font-size: 14px;
+}
+
+table.header, table.header th {
+    border-collapse: collapse;
+    border: 1px solid #ffffff;
+}
+
+table.games {
+    margin-top: 0px;
+}
+
+table.games td {
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    border-top: none;
 }
 
 td.center {
