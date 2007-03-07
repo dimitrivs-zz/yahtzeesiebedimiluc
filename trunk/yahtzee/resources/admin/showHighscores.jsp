@@ -1,3 +1,5 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ taglib prefix="yahtzee" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
@@ -6,7 +8,7 @@
 <f:view locale="#{language}">
 
     <f:loadBundle basename="bundles.resources" var="labels"/>
-    <html>
+    <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <link href="../css/adminStyle.css" rel="stylesheet" type="text/css"/>
         <title>
