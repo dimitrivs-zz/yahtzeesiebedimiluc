@@ -28,6 +28,11 @@
     height: 350px;
 }
 
+#overview table, #overview td {
+    border: 1px solid #ffffff;
+    border-collapse: collapse;
+}
+
 #logout {
     text-align: right;
     height: 30px;
@@ -35,6 +40,7 @@
 }
 
 #search {
+    float: left;
     padding: 15px;
 }
 
@@ -93,6 +99,13 @@ td {
 
 td.center {
     text-align: center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    vertical-align: middle;
 }
 
 table.center, table.border {
