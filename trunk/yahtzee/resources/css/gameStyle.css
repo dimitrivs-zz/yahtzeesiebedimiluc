@@ -17,8 +17,7 @@
     height: 600px;
     background-repeat: no-repeat;
     float: left;
-    margin: 0px auto;
-    visibility: hidden;
+    margin: 0px auto; /*visibility: hidden;*/
 }
 
 #gameContainer {
@@ -43,6 +42,38 @@
     width: 170px;
     height: 380px;
     float: right;
+}
+
+table.scores, table.scores td, table.scores th {
+    border: 1px solid #ffffff;
+    border-collapse: collapse;
+}
+
+table.scores th {
+    padding: 2px 5px 2px 5px;
+    background-color: #666666;
+    color: #FFFFFF;
+}
+
+table.player #p1score, table.player #p2score, table.player #p3score, table.player #p4score {
+    text-align: center;
+}
+
+table.dice, table.dice td {
+    border: 1px solid #ffffff;
+    border-collapse: collapse;
+}
+
+table.dice td, table.dice tr, table.dice {
+    width: 340px;
+}
+
+table.dice td {
+    text-align: center;
+}
+
+td.center {
+    text-align: center;
 }
 
 h2 {
@@ -72,6 +103,10 @@ h3 {
 img.logo {
     width: 180px;
     height: 79px;
+}
+
+img.logo, #scoresContainer, #gameContainer, #header {
+    behavior: url( ../css/iepngfix/iepngfix.htc )
 }
 
 #logo {
@@ -138,22 +173,18 @@ body {
     width: 20px;
     display: table-cell;
     visibility: hidden;
+    border: 1px solid #ffffff;
+    border-collapse: collapse;
 }
 
-#p1table {
-    background-color: #006633;
+#p1table, #p3table {
+    background-color: #666666;
+    color: #FFFFFF;
 }
 
-#p2table {
-    background-color: #007e3a;
-}
-
-#p3table {
-    background-color: #00a755;
-}
-
-#p4table {
-    background-color: #3bb676;
+#p2table, #p4table {
+    background-color: #CCCCCC;
+    color: #FFFFFF;
 }
 
 a:link {

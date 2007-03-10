@@ -209,22 +209,22 @@ function getDice(diceList) {
 }
 
 function showScorePossibilities(scorePossibilitiesList) {
-    var table = '<table border="1"><tr><th><h:outputText value="#{labels.gameScore}"/></th><th><h:outputText value="#{labels.gamePoints}"/></th></tr>';
+    var table = '<table class="scores"><tr><th><h:outputText value="#{labels.gameScore}"/></th><th><h:outputText value="#{labels.gamePoints}"/></th></tr>';
     for (var scoreAspect in scorePossibilitiesList) {
         table += '<tr onclick="selectScore(\'' + scorePossibilitiesList[scoreAspect].description + '\')"><td>' + scorePossibilitiesList[scoreAspect].description + '</td>';
-        table += '<td>' + scorePossibilitiesList[scoreAspect].points + '</td></tr>';
+        table += '<td class="center">' + scorePossibilitiesList[scoreAspect].points + '</td></tr>';
     }
     table += '</table>';
     DWRUtil.setValue('possibleScores', table);
     document.getElementById('possibleScores').style.visibility = 'visible';
-    document.getElementById('scoresContainer').style.visibility = 'visible';
+    //document.getElementById('scoresContainer').style.visibility = 'visible';
 }
 
 function selectScore(scoreDescription) {
     GameManager.selectScore('${gameBean.gameName}', scoreDescription, emptyFunc);
     resetDice();
     document.getElementById('possibleScores').style.visibility = 'hidden';
-    document.getElementById('scoresContainer').style.visibility = 'hidden';
+    //document.getElementById('scoresContainer').style.visibility = 'hidden';
     document.getElementById('btnRoll').style.visibility = 'hidden';
     document.getElementById('btnRoll').disabled = true;
     calculateScores();
@@ -343,10 +343,10 @@ function gotMessages(messages) {
 </div>
 <div id="gameContainer">
 <div id="game">
-<table>
+<table border="0" cellspacing="0">
 <tr>
 <td>
-    <table border="1">
+    <table class="dice">
         <tr>
             <td height="150">
                             <span id="dice0notFixed" class="dice" onclick="fixDice(0, true)"
@@ -388,10 +388,10 @@ function gotMessages(messages) {
 <td>
 
 
-<table>
+<table border="0">
 <tr>
 <td>
-<table>
+<table border="0">
     <tr>
         <td>&nbsp;</td>
     </tr>
@@ -494,7 +494,7 @@ function gotMessages(messages) {
 </td>
 <td width="150">
                 <span id="p1table">
-                    <table width="20">
+                    <table width="20" class="player">
                         <thead>
                             <tr>
                                 <th id="p1name"></th>
@@ -504,7 +504,7 @@ function gotMessages(messages) {
                     </table>
                 </span>
                 <span id="p2table">
-                    <table width="20">
+                    <table width="20" class="player">
                         <thead>
                             <tr>
                                 <th id="p2name"></th>
@@ -514,7 +514,7 @@ function gotMessages(messages) {
                     </table>
                 </span>
                 <span id="p3table">
-                    <table width="20">
+                    <table width="20" class="player">
                         <thead>
                             <tr>
                                 <th id="p3name"></th>
@@ -524,7 +524,7 @@ function gotMessages(messages) {
                     </table>
                 </span>
                 <span id="p4table">
-                    <table width="20">
+                    <table width="20" class="player">
                         <thead>
                             <tr>
                                 <th id="p4name"></th>
