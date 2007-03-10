@@ -28,7 +28,7 @@ function getGlobalChatMessages() {
 function onlineUserList(messages) {
     var tableOnlineUsers = '<table><tr><td>'
     for (var user in messages) {
-        tableOnlineUsers += '<a href="/profile/ShowProfileServlet?user=' + messages[user].username + '" onclick=\"window.open(\'/profile/ShowProfileServlet?user=' + messages[user].username + '\',\'Help\',\'width=520,height=305,scrollbars=no,toolbar=no,location=no,scrollbars=no,resizable=no,menubar=no\'); return false">' + messages[user].username + '</a>';
+        tableOnlineUsers += '<a href="/profile/ShowProfileServlet?user=' + messages[user].username + '" onclick=\"window.open(\'/profile/ShowProfileServlet?user=' + messages[user].username + '\',\'Help\',\'width=520,height=305,scrollbars=no,toolbar=no,location=no,scrollbars=no,resizable=no,menubar=no\'); return false">' + messages[user].username + '</a>,';
         ;
     }
     tableOnlineUsers += '</td></tr></table>'
