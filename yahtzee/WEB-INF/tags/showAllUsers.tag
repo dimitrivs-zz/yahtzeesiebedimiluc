@@ -1,4 +1,5 @@
-<%@ tag import="be.kdg.yahtzee.model.users.User" %>
+<%@ tag import="be.kdg.yahtzee.model.remoteObjects.users.Role" %>
+<%@ tag import="be.kdg.yahtzee.model.remoteObjects.users.User" %>
 <%@ tag body-content="empty" %>
 <%@ attribute name="hrefRemove" required="true" %>
 <%@ attribute name="hrefChange" required="true" %>
@@ -41,7 +42,7 @@
         </td>
         <td><%= user.getUsername()%>
         </td>
-        <td><%= user.getRole()%>
+        <td><%= ((Role) user.getRole()).getName()%>
         </td>
         <td><a href=${hrefRemove}?username=<%= user.getUsername()%>>
             <h:outputText value="#{labels.allUserRemove}"/>

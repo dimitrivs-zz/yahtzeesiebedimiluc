@@ -7,9 +7,11 @@
 
 package be.kdg.yahtzee.beans;
 
-import be.kdg.yahtzee.model.YahtzeeController;
-import be.kdg.yahtzee.model.game.Game;
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.model.remoteObjects.game.Game;
 
+import java.rmi.RemoteException;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -39,9 +41,13 @@ public class GameBean {
      *
      * @return Set containing the Users in the Game.
      */
-    public Set getUsersOfGame() {
+    public Set getUsersOfGame() throws RemoteException {
         Game game = yahtzeeController.getGame(gameName);
-        return game.getUsers();
+        Set usersGame = new HashSet();
+        for (int i = 0; i < game.getUsers().length; i++) {
+            usersGame.add(game.getUsers()[i]);
+        }
+        return usersGame;
     }
 
     /**
@@ -58,7 +64,7 @@ public class GameBean {
      *
      * @return Map containing the Scores of the game.
      */
-    public int getNumberOfPlayers() {
+    public int getNumberOfPlayers() throws RemoteException {
         Game game = yahtzeeController.getGame(gameName);
         return game.getNumberOfPlayers();
     }

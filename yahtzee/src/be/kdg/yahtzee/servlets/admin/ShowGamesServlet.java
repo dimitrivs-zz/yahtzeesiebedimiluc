@@ -7,8 +7,8 @@
 
 package be.kdg.yahtzee.servlets.admin;
 
-import be.kdg.yahtzee.model.YahtzeeController;
-import be.kdg.yahtzee.model.game.Game;
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.model.remoteObjects.game.Game;
 import be.kdg.yahtzee.servlets.YahtzeeServlet;
 
 import javax.servlet.ServletException;
@@ -23,9 +23,16 @@ public class ShowGamesServlet extends YahtzeeServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         YahtzeeController yahtzeeController = findYahtzeeController();
 
-        List<Game> allGames = new ArrayList<Game>(yahtzeeController.getGames());
+        List<Game> allGamesList = new ArrayList<Game>();
+
+        java.lang.Object[] allGames = yahtzeeController.getGames();
+
+        for (int i = 0; i < allGames.length; i++) {
+            allGamesList.add((Game) allGames[i]);
+        }
+
         HttpSession session = request.getSession();
-        session.setAttribute("allGames", allGames);
+        session.setAttribute("allGames", allGamesList);
 
         response.sendRedirect("/faces/admin/gameManagement.jsp");
     }

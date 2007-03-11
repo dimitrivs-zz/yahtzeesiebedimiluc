@@ -2,15 +2,15 @@ function refresh()
 {
     getGames()
     getOnlineUsers()
-    getGlobalChatMessages()
+    //getGlobalChatMessages()
 }
 
 function getGames() {
-    GameManager.getGames(gotGames)
+    DwrController.getGames(gotGames)
 }
 
 function getOnlineUsers() {
-    UserManager.getOnlineUsers(onlineUserList)
+    DwrController.getOnlineUsers(onlineUserList)
 
 }
 function sendMessage()

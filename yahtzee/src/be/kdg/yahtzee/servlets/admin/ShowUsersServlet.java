@@ -7,8 +7,8 @@
 
 package be.kdg.yahtzee.servlets.admin;
 
-import be.kdg.yahtzee.model.YahtzeeController;
-import be.kdg.yahtzee.model.users.User;
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.model.remoteObjects.users.User;
 import be.kdg.yahtzee.servlets.YahtzeeServlet;
 
 import javax.servlet.ServletException;
@@ -23,9 +23,17 @@ public class ShowUsersServlet extends YahtzeeServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         YahtzeeController yahtzeeController = findYahtzeeController();
 
-        List<User> allUsers = new ArrayList<User>(yahtzeeController.getUsers());
+        List<User> allUsersList = new ArrayList<User>();
+
+        java.lang.Object[] allUsers = yahtzeeController.getUsers();
+
+        for (int i = 0; i < allUsers.length; i++) {
+            System.out.println(allUsers[i]);
+            allUsersList.add((User) allUsers[i]);
+        }
+
         HttpSession session = request.getSession();
-        session.setAttribute("allUsers", allUsers);
+        session.setAttribute("allUsers", allUsersList);
 
         response.sendRedirect("/faces/admin/userManagement.jsp");
     }

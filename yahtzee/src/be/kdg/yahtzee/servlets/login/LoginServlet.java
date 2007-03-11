@@ -10,8 +10,10 @@ package be.kdg.yahtzee.servlets.login;
 import be.kdg.util.InputValidation;
 import be.kdg.util.Security;
 import be.kdg.yahtzee.beans.UserBean;
-import be.kdg.yahtzee.model.YahtzeeController;
-import be.kdg.yahtzee.model.users.User;
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.model.remoteObjects.users.Person;
+import be.kdg.yahtzee.model.remoteObjects.users.Role;
+import be.kdg.yahtzee.model.remoteObjects.users.User;
 import be.kdg.yahtzee.servlets.YahtzeeServlet;
 import org.apache.log4j.FileAppender;
 import org.apache.log4j.Level;
@@ -23,8 +25,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 
 public class LoginServlet extends YahtzeeServlet {
 
@@ -55,26 +55,26 @@ public class LoginServlet extends YahtzeeServlet {
             forward("/faces/login/loginError.jsp", request, response);
         }
         password = Security.getInstance().encrypt(password);
-        YahtzeeController yahtzeeController = findYahtzeeController();
 
+        YahtzeeController yahtzeeController = findYahtzeeController();
         User user = yahtzeeController.findUser(username);
 
-        if (!user.getUsername().equals("username")) {
+        if (user.getUsername().equals(username)) {
             loginOK = user.getPassword().equals(password) && !user.isBlocked();
         }
 
         if (loginOK) {
             user.setOnline(true);
             logger.info("User " + user.getUsername() + " logged in");
-            makeUserBean(request, username, yahtzeeController);
+            makeUserBean(request, user, yahtzeeController);
             forwardUser(request, response, username, yahtzeeController);
         } else {
             forward("/faces/login/loginError.jsp", request, response);
         }
     }
 
-    private void makeUserBean(HttpServletRequest request, String username, YahtzeeController yahtzeeController) {
-        UserBean userBean = new UserBean(yahtzeeController, username);
+    private void makeUserBean(HttpServletRequest request, User user, YahtzeeController yahtzeeController) {
+        UserBean userBean = new UserBean(yahtzeeController, user.getUserId(), user.getUsername(), user.getPassword(), (Role) user.getRole(), (Person) user.getPerson());
         HttpSession session = request.getSession();
         session.setAttribute("userBean", userBean);
     }
@@ -82,9 +82,9 @@ public class LoginServlet extends YahtzeeServlet {
     private void forwardUser(HttpServletRequest request, HttpServletResponse response, String username, YahtzeeController yahtzeeController) throws ServletException, IOException {
         if (yahtzeeController.isPlayer(username)) {
             logger.info("User " + username + " is een Player");
-            Set<Object> games = new HashSet<Object>(yahtzeeController.getGames());
-            HttpSession session = request.getSession();
-            session.setAttribute("games", games);
+            //Set<Object> games = new HashSet<Object>(yahtzeeController.getGames());
+            //HttpSession session = request.getSession();
+            //session.setAttribute("games", games);
             response.sendRedirect("/faces/player/gameRoom.jsp");
         } else if (yahtzeeController.isAdministrator(username)) {
             logger.info("User " + username + " is een Administrator");

@@ -7,6 +7,7 @@
 
 package be.kdg.yahtzee.model.users;
 
+
 public class User {
     public static final User NULL_USER = new User("null");
 

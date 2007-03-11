@@ -7,10 +7,8 @@
 
 package be.kdg.yahtzee.servlets;
 
-import be.kdg.yahtzee.model.YahtzeeController;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeControllerServiceLocator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -24,10 +22,14 @@ public class YahtzeeServlet extends HttpServlet {
     private ServletContext servletContext;
 
     protected YahtzeeController findYahtzeeController() {
-        servletContext = getServletContext();
-        ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletContext);
-        BeanFactory beanFactory = (BeanFactory) ctx;
-        return (YahtzeeController) beanFactory.getBean("yahtzeeController");
+        YahtzeeControllerServiceLocator serviceLocator = new YahtzeeControllerServiceLocator();
+        be.kdg.yahtzee.model.remoteObjects.YahtzeeController yahtzeeController = null;
+        try {
+            return yahtzeeController = serviceLocator.getyahtzee();
+        } catch (javax.xml.rpc.ServiceException e) {
+
+        }
+        return null;
     }
     /*
     protected OnlineUsersBean findOnlineUsersBean() {

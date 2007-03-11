@@ -7,8 +7,8 @@
 
 package be.kdg.yahtzee.servlets.admin;
 
-import be.kdg.yahtzee.model.YahtzeeController;
-import be.kdg.yahtzee.model.users.User;
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.model.remoteObjects.users.User;
 import be.kdg.yahtzee.servlets.YahtzeeServlet;
 
 import javax.servlet.ServletException;
@@ -24,7 +24,7 @@ public class ChangeUserPasswordServlet extends YahtzeeServlet {
         String password2 = request.getParameter("pw2");
         YahtzeeController yahtzeeController = findYahtzeeController();
         User orgUser = yahtzeeController.findUser(orgUsername);
-       yahtzeeController.changePassWord(orgUser, password, password2);
+        yahtzeeController.changePassWord(orgUser, password, password2);
 
         request.setAttribute("message", "Het wachtwoord werd succesvol gewijzigd");
         forward("/faces/admin/changeUser.jsp", request, response);
