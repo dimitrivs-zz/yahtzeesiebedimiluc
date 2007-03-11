@@ -17,9 +17,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/GameRoomFrame.java" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/GameRoomFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/StartGameFrame.java" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/StartGameFrame.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/users/User.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/undeploy.wsdd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/test" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/game/Die.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hibernate.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/YahtzeeControllerServiceLocator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/game/Score.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/game" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/dao/HibernateUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/users/Address.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/deploy.wsdd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/users" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/apache" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/chat/Chat.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Yahtzee Dimi 05-02-07.iws" afterPath="$PROJECT_DIR$/Yahtzee Dimi 05-02-07.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Yahtzee Dimi 09-02-07.iml" afterPath="$PROJECT_DIR$/Yahtzee Dimi 09-02-07.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/game/Game.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WEB-INF/server-config.wsdd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/YahtzeeSoapBindingSkeleton.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/users/Role.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/GameManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/YahtzeeControllerService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/apache/xml/xml_soap/MapItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/YahtzeeController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/YahtzeeSoapBindingImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/apache/xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/users/Person.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/log4j.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/chat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/apache/xml/xml_soap" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/YahtzeeSoapBindingStub.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/UserManager.java" />
     </list>
   </component>
   <component name="ChangeListSynchronizer" />
@@ -157,37 +190,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RunLogin.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/RunLogin.java">
+      <file leaf-file-name="TestChat.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/be/kdg/yahtzee/game/TestChat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="13" selection-start="49" selection-end="49" vertical-scroll-proportion="0.1">
+            <state line="13" column="6" selection-start="271" selection-end="271" vertical-scroll-proportion="0.4347826">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginFrame.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/LoginFrame.java">
+      <file leaf-file-name="TestGameRoom.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/be/kdg/yahtzee/game/TestGameRoom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="14" selection-start="467" selection-end="467" vertical-scroll-proportion="-1.25">
+            <state line="34" column="0" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.65473145">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameRoomFrame.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/GameRoomFrame.java">
+      <file leaf-file-name="YahtzeeSoapBindingImpl.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/YahtzeeSoapBindingImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="29" selection-start="3123" selection-end="3123" vertical-scroll-proportion="0.65">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StartGameFrame.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/StartGameFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="49" selection-start="1928" selection-end="1928" vertical-scroll-proportion="3.35">
+            <state line="16" column="16" selection-start="415" selection-end="415" vertical-scroll-proportion="0.3478261">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -195,23 +219,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChooseLanguageFrame.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/ChooseLanguageFrame.java">
+      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/users/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="282" selection-end="282" vertical-scroll-proportion="0.3">
+            <state line="31" column="0" selection-start="732" selection-end="732" vertical-scroll-proportion="1.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegisterFrame.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/RegisterFrame.java">
+      <file leaf-file-name="DwrController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/model/DwrController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="51" selection-start="4258" selection-end="4300" vertical-scroll-proportion="0.4">
+            <state line="28" column="9" selection-start="874" selection-end="874" vertical-scroll-proportion="0.89162564">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#makeComponents#0;class#RegisterFrame#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-15.04092">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dwr.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WEB-INF/dwr.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="28" selection-start="580" selection-end="580" vertical-scroll-proportion="0.6086956">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -259,6 +300,286 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
         </PATH_ELEMENT>
       </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="be.kdg" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="yahtzee" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="be.kdg" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="yahtzee" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="servlets" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="be.kdg" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="yahtzee" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="servlets" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="register" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="be.kdg" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="yahtzee" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="servlets" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="profile" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="be.kdg" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="yahtzee" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="servlets" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="logout" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="be.kdg" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="yahtzee" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="servlets" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="login" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="be.kdg" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="yahtzee" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="servlets" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="game" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="be.kdg" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="yahtzee" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="servlets" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="admin" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="be.kdg" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="yahtzee" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="model" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="be.kdg" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="yahtzee" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="model" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="game" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="be.kdg" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="yahtzee" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="beans" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="be.kdg" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+        </PATH_ELEMENT>
+      </PATH>
     </subPane>
   </component>
   <component name="PerforceChangeBrowserSettings">
@@ -285,7 +606,6 @@
     <option name="LOGIN_SILENTLY" value="false" />
     <option name="INTEGRATE_RUN_RESOLVE" value="true" />
     <option name="INTEGRATE_REVERT_UNCHANGED" value="true" />
-    <option name="SERVER_TIMEOUT" value="20000" />
   </component>
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="true" id="Add" />
@@ -323,7 +643,7 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -337,49 +657,11 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\bundles" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Resource Bundle 'resources'" />
-          <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee\view\login" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\WEB-INF" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -393,23 +675,15 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\test" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee\servlets" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\test\be\kdg\yahtzee" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -423,27 +697,19 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\test" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\test\be\kdg\yahtzee" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee\servlets" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee\servlets\login" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\test\be\kdg\yahtzee\game" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -457,23 +723,11 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee\model" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -487,27 +741,19 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee\model" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee\model\users" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -521,27 +767,23 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee\model" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee\model\game" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee\model" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -555,19 +797,27 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee\model" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg\yahtzee\model\remoteObjects" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -581,15 +831,33 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Luc\Bureaublad\Yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg" />
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\src\be\kdg" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 05-02-07.ipr" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Yahtzee Dimi 09-02-07" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\databasescripts" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -606,7 +874,7 @@
       <showLibraryContents />
       <hideEmptyPackages />
       <abbreviatePackageNames />
-      <showStructure ProjectPane="false" PackagesPane="false" Scope="false" Favorites="false" />
+      <showStructure Favorites="false" Scope="false" PackagesPane="false" ProjectPane="false" />
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
@@ -646,19 +914,114 @@
     <option name="SHOW_DIALOG" value="true" />
   </component>
   <component name="RecentsManager" />
-  <component name="RestoreUpdateTree" />
-  <component name="RunManager" selected="Application.TestAllUsers">
-    <tempConfiguration default="false" name="TestAllUsers" type="Application" factoryName="Application" enabled="false" merge="false">
-      <option name="MAIN_CLASS_NAME" value="be.kdg.yahtzee.view.login.RunLogin" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+  <component name="RestoreUpdateTree">
+    <UpdateInfo date="11-3-07 12:46" ActionInfo="Update">
+      <UpdatedFiles>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated from server" />
+          <option name="myStatusName" value="Changed on server" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CHANGED_ON_SERVER" />
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Updated" />
+            <option name="myStatusName" value="Changed" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="UPDATED" />
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\resources\admin\administrator.jsp</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\resources\css\adminStyle.css</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\resources\css\gameStyle.css</PATH>
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\resources\player\game.jsp</PATH>
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Created" />
+            <option name="myStatusName" value="Created" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="CREATED" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Deleted" />
+            <option name="myStatusName" value="Deleted" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="true" />
+            <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Restored" />
+            <option name="myStatusName" value="Will be restored" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="RESTORED" />
+            <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\WEB-INF\appcontext.xml</PATH>
+          </FILE-GROUP>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Modified" />
+          <option name="myStatusName" value="Modified" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MODIFIED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with conflicts" />
+          <option name="myStatusName" value="Will be merged with conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_CONFLICTS" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged" />
+          <option name="myStatusName" value="Will be merged" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED" />
+          <PATH>C:\Documents and Settings\Eigenaar\Bureaublad\yahtzee\yahtzeesiebedimiluc\yahtzee\resources\player\gameRoom.js</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Not in repository" />
+          <option name="myStatusName" value="Not in repository" />
+          <option name="mySupportsDeletion" value="true" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UNKNOWN" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally added" />
+          <option name="myStatusName" value="Locally added" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_ADDED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally removed" />
+          <option name="myStatusName" value="Locally removed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_REMOVED" />
+        </FILE-GROUP>
+      </UpdatedFiles>
+    </UpdateInfo>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Unnamed">
+    <tempConfiguration default="false" name="TestGameRoom" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
+      <pattern value="be.kdg.yahtzee.game.*" />
+      <module name="Yahtzee Dimi 09-02-07" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <module name="Yahtzee Dimi 09-02-07" />
+      <option name="PACKAGE_NAME" value="be.kdg.yahtzee.game" />
+      <option name="MAIN_CLASS_NAME" value="be.kdg.yahtzee.game.TestGameRoom" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ADDITIONAL_CLASS_PATH" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="1532" />
+        <option name="DEBUG_PORT" value="3668" />
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
@@ -669,6 +1032,42 @@
         <option name="Make" value="true" />
       </method>
     </tempConfiguration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
+      <option name="WORKING_DIRECTORY" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="8080" />
+      <option name="LOCAL" value="true" />
+      <option name="OPEN_IN_BROWSER" value="true" />
+      <option name="OPEN_IN_BROWSER_URL" value="/" />
+      <option name="COMMON_VM_ARGUMENTS" value="" />
+      <J2EE_MODULE DEPLOYMENT_SOURCE_NAME="exploded">
+        <option name="CONTEXT_PATH" value="/" />
+        <option name="MODULE_NAME" value="Yahtzee Dimi 09-02-07" />
+        <option name="DEPLOY" value="false" />
+      </J2EE_MODULE>
+      <option name="DEPLOY_TOMCAT_MANAGER" value="false" />
+      <option name="BASE_DIRECTORY_NAME" value="" />
+      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false">
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" />
@@ -681,13 +1080,6 @@
       <method>
         <option name="Make" value="true" />
       </method>
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
       <module name="" />
@@ -708,36 +1100,73 @@
         <option name="Make" value="true" />
       </method>
     </configuration>
-    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
-      <option name="WORKING_DIRECTORY" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="8080" />
-      <option name="LOCAL" value="true" />
-      <option name="OPEN_IN_BROWSER" value="true" />
-      <option name="OPEN_IN_BROWSER_URL" value="/" />
-      <option name="COMMON_VM_ARGUMENTS" value="" />
-      <J2EE_MODULE DEPLOYMENT_SOURCE_NAME="exploded">
-        <option name="CONTEXT_PATH" value="/" />
-        <option name="MODULE_NAME" value="Yahtzee Dimi 09-02-07" />
-        <option name="DEPLOY" value="false" />
-      </J2EE_MODULE>
-      <option name="DEPLOY_TOMCAT_MANAGER" value="false" />
-      <option name="BASE_DIRECTORY_NAME" value="" />
-      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
+    <configuration default="false" name="Create Stub Skeleton" type="Application" factoryName="Application" enabled="false" merge="false">
+      <option name="MAIN_CLASS_NAME" value="org.apache.axis.wsdl.WSDL2Java" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="--server-side --skeletonDeploy true YahtzeeService.wsdl" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/src" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <module name="Yahtzee Dimi 09-02-07" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method>
+        <option name="Make" value="true" />
+      </method>
     </configuration>
-    <configuration default="false" name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
+    <configuration default="false" name="Deploy" type="Application" factoryName="Application" enabled="false" merge="false">
+      <option name="MAIN_CLASS_NAME" value="org.apache.axis.client.AdminClient" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="deploy.wsdd" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <module name="Yahtzee Dimi 09-02-07" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method>
+        <option name="Make" value="true" />
+      </method>
+    </configuration>
+    <configuration default="false" name="Test" type="Application" factoryName="Application" enabled="false" merge="false">
+      <option name="MAIN_CLASS_NAME" value="be.kdg.yahtzee.model.remoteObjects.Test" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <module name="Yahtzee Dimi 09-02-07" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method>
+        <option name="Make" value="true" />
+      </method>
+    </configuration>
+    <configuration default="false" name="test dao" type="Application" factoryName="Application" enabled="false" merge="false">
+      <option name="MAIN_CLASS_NAME" value="be.kdg.yahtzee.model.remoteObjects.TestDao" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <module name="Yahtzee Dimi 09-02-07" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="1543" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method>
+        <option name="Make" value="true" />
+      </method>
+    </configuration>
+    <configuration default="false" name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat">
       <option name="WORKING_DIRECTORY" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="8080" />
@@ -817,8 +1246,6 @@
     <option name="PROJECT" value="" />
     <option name="VIEW" value="" />
     <option name="ALTERNATIVE_WORKING_PATH" value="" />
-    <option name="LOCK_ON_CHECKOUT" value="false" />
-    <option name="UNLOCK_ON_CHECKIN" value="false" />
   </component>
   <component name="StructuralSearchPlugin" />
   <component name="StructureViewFactory">
@@ -858,7 +1285,6 @@
     <option name="MERGE_DRY_RUN" value="false" />
     <configuration useDefault="false">C:\Documents and Settings\Eigenaar\Application Data\Subversion</configuration>
     <checkoutURL>https://yahtzeesiebedimiluc.googlecode.com/svn/trunk/</checkoutURL>
-    <upgradeMode>none</upgradeMode>
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -875,24 +1301,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1288" height="778" extended-state="0" />
+    <frame x="-4" y="-4" width="1288" height="780" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32927817" order="0" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3271028" order="1" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31143552" order="0" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3262519" order="1" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="1" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33846155" order="8" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3383915" order="8" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="6" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979724" order="1" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3271028" order="8" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39076924" order="2" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3262519" order="8" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37632778" order="2" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
       <window_info id="File View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39757207" order="4" />
@@ -921,7 +1347,7 @@
     <option name="PERFORM_COMMIT_IN_BACKGROUND" value="false" />
     <option name="PUT_FOCUS_INTO_COMMENT" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gui Lay-outs aangemaakt voor&#10;- ChooseLanguageFrame&#10;- GameRoomFrame&#10;- LoginFrame&#10;- RegisterFrame&#10;- StartGameFrame" />
+    <option name="LAST_COMMIT_MESSAGE" value="Webservices" />
     <option name="SAVE_LAST_COMMIT_MESSAGE" value="true" />
     <option name="CHECKIN_DIALOG_SPLITTER_PROPORTION" value="0.8" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
@@ -934,7 +1360,6 @@
     <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="gamemanager&#10;getcreator toegevoegd" />
     <MESSAGE value="gamemanager&#10; startgame (plaats gewijzigd)" />
     <MESSAGE value="game.jsp verwijderd&#10;scoreCard.tag  verwijderd&#10;scoreCard2.tag verwijderd" />
     <MESSAGE value="game2.jsp gewijzigd naar game.jsp" />
@@ -944,6 +1369,7 @@
     <MESSAGE value="poging tot leave game, lukt niet helemaal :s" />
     <MESSAGE value="comments in util package" />
     <MESSAGE value="Gui Lay-outs aangemaakt voor&#10;- ChooseLanguageFrame&#10;- GameRoomFrame&#10;- LoginFrame&#10;- RegisterFrame&#10;- StartGameFrame" />
+    <MESSAGE value="Webservices" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -976,7 +1402,6 @@
     <GetOptions>
       <option name="REPLACE_WRITABLE" value="0" />
       <option name="MAKE_WRITABLE" value="false" />
-      <option name="ANSWER_NEGATIVELY" value="false" />
       <option name="ANSWER_POSITIVELY" value="false" />
       <option name="RECURSIVE" value="false" />
     </GetOptions>
@@ -1004,125 +1429,112 @@
     <option name="myLastEditedConfigurable" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build.xml">
+    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/YahtzeeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="40" selection-start="636" selection-end="636" vertical-scroll-proportion="0.83692306">
+        <state line="52" column="30" selection-start="5168" selection-end="5168" vertical-scroll-proportion="0.7714286">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/model/YahtzeeController.java">
+    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/servlets/YahtzeeServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="40" selection-start="775" selection-end="775" vertical-scroll-proportion="0.68">
+        <state line="27" column="0" selection-start="860" selection-end="1209" vertical-scroll-proportion="0.27868852">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/model/game/GameManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="266" column="0" selection-start="7194" selection-end="7278" vertical-scroll-proportion="0.4857143">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/servlets/login/LoginServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="31" selection-start="2053" selection-end="2053" vertical-scroll-proportion="0.63822526">
+        <state line="30" column="13" selection-start="901" selection-end="901" vertical-scroll-proportion="-0.08571429">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bundles/resources_de.properties">
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/resources/player/gameRoom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.032986112">
+        <state line="2" column="12" selection-start="33" selection-end="33" vertical-scroll-proportion="0.057142857">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/model/users/UserManager.java">
+    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/UserManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="44" selection-start="753" selection-end="821" vertical-scroll-proportion="0.11604095">
+        <state line="158" column="18" selection-start="4924" selection-end="4924" vertical-scroll-proportion="0.8042414">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.5.0_09/src.zip!/javax/swing/AbstractAction.java">
+    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/dao/UserDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="22" selection-start="1413" selection-end="1413" vertical-scroll-proportion="0.33235294">
+        <state line="46" column="22" selection-start="1066" selection-end="1066" vertical-scroll-proportion="0.32300162">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bundles/resources.properties">
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/GameManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="178" column="6" selection-start="3729" selection-end="3729" vertical-scroll-proportion="7.3873014">
+        <state line="80" column="39" selection-start="2180" selection-end="2180" vertical-scroll-proportion="0.47634584">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bundles/resources_en.properties">
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/test/be/kdg/yahtzee/game/TestChat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="175" column="13" selection-start="3687" selection-end="3687" vertical-scroll-proportion="0.73015875">
+        <state line="13" column="6" selection-start="271" selection-end="271" vertical-scroll-proportion="0.4347826">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bundles/resources_nl.properties">
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/users/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="33" selection-start="1094" selection-end="1094" vertical-scroll-proportion="0.8095238">
+        <state line="31" column="0" selection-start="732" selection-end="732" vertical-scroll-proportion="1.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/RunLogin.java">
+    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/model/DwrController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="49" selection-end="49" vertical-scroll-proportion="0.1">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/ChooseLanguageFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="282" selection-end="282" vertical-scroll-proportion="0.3">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/LoginFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="14" selection-start="467" selection-end="467" vertical-scroll-proportion="-1.25">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/RegisterFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="51" selection-start="4258" selection-end="4300" vertical-scroll-proportion="0.4">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#makeComponents#0;class#RegisterFrame#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/StartGameFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="49" selection-start="1928" selection-end="1928" vertical-scroll-proportion="3.35">
+        <state line="28" column="9" selection-start="874" selection-end="874" vertical-scroll-proportion="0.89162564">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/view/login/GameRoomFrame.java">
+    <entry file="file://$PROJECT_DIR$/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="29" selection-start="3123" selection-end="3123" vertical-scroll-proportion="0.65">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-15.04092">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/dwr.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="28" selection-start="580" selection-end="580" vertical-scroll-proportion="0.6086956">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/be/kdg/yahtzee/game/TestGameRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="0" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.65473145">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/be/kdg/yahtzee/model/remoteObjects/YahtzeeSoapBindingImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="16" selection-start="415" selection-end="415" vertical-scroll-proportion="0.3478261">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
