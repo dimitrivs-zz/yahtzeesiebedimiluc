@@ -1,4 +1,4 @@
-<%@ tag import="be.kdg.yahtzee.model.game.Game" %>
+<%@ tag import="be.kdg.yahtzee.model.remoteObjects.game.Game" %>
 <%@ tag body-content="empty" %>
 
 <%@ attribute name="hrefRemove" required="true" %>
@@ -12,16 +12,28 @@
 <f:loadBundle basename="bundles.resources" var="labels"/>
 <table border="1">
     <tr>
-        <td><h:outputText value="#{labels.roomName}"/></td>
-        <td><h:outputText value="#{labels.allGameMax}"/></td>
-        <td><h:outputText value="#{labels.allGameNumber}"/></td>
-        <td><h:outputText value="#{labels.roomState}"/></td>
-        <td colspan="2" align="center"><h:outputText value="#{labels.roomAction}"/></td>
+        <td>
+            <h:outputText value="#{labels.roomName}"/>
+        </td>
+        <td>
+            <h:outputText value="#{labels.allGameMax}"/>
+        </td>
+        <td>
+            <h:outputText value="#{labels.allGameNumber}"/>
+        </td>
+        <td>
+            <h:outputText value="#{labels.roomState}"/>
+        </td>
+        <td colspan="2" align="center">
+            <h:outputText value="#{labels.roomAction}"/>
+        </td>
     </tr>
     <% if (allGames.isEmpty()) {
     %>
     <tr>
-        <td colspan="7" align="center"><h:outputText value="#{labels.allGameNone}"/></td>
+        <td colspan="7" align="center">
+            <h:outputText value="#{labels.allGameNone}"/>
+        </td>
     </tr>
     <% }
         for (Object game1 : allGames) {

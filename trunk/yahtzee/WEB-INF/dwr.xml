@@ -8,17 +8,22 @@
          <param name="class" value="be.kdg.yahtzee.model.chat.Chat"/>
      </create>   -->
         <convert converter="bean" match="be.kdg.yahtzee.model.chat.ChatMessage"/>
+        <!--
+      <create creator="spring" javascript="GameManager">
+          <param name="beanName" value="gameManager"/>
+      </create>
+      <create creator="spring" javascript="UserManager">
+          <param name="beanName" value="userManager"/>
+      </create> -->
 
-        <create creator="spring" javascript="GameManager">
-            <param name="beanName" value="gameManager"/>
+        <create creator="new" javascript="DwrController">
+            <param name="class" value="be.kdg.yahtzee.model.DwrController"/>
         </create>
-        <create creator="spring" javascript="UserManager">
-            <param name="beanName" value="userManager"/>
-        </create>
-        <convert converter="bean" match="be.kdg.yahtzee.model.users.User"/>
-        <convert converter="bean" match="be.kdg.yahtzee.model.game.Game"/>
+
+        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.users.User"/>
+        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.game.Game"/>
         <convert converter="bean" match="be.kdg.yahtzee.model.game.Die"/>
         <convert converter="bean" match="be.kdg.yahtzee.model.game.ScoreAspect"/>
-        <convert converter="bean" match="be.kdg.yahtzee.model.game.Score"/>        
+        <convert converter="bean" match="be.kdg.yahtzee.model.game.Score"/>
     </allow>
 </dwr>

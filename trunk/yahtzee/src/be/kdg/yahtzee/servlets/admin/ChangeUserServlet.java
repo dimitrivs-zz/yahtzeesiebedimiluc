@@ -8,7 +8,10 @@
 package be.kdg.yahtzee.servlets.admin;
 
 import be.kdg.yahtzee.beans.UserBean;
-import be.kdg.yahtzee.model.YahtzeeController;
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeControllerServiceLocator;
+import be.kdg.yahtzee.model.remoteObjects.users.Person;
+import be.kdg.yahtzee.model.remoteObjects.users.Role;
+import be.kdg.yahtzee.model.remoteObjects.users.User;
 import be.kdg.yahtzee.servlets.YahtzeeServlet;
 
 import javax.servlet.ServletException;
@@ -21,9 +24,17 @@ public class ChangeUserServlet extends YahtzeeServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
 
-        YahtzeeController yahtzeeController = findYahtzeeController();
+        YahtzeeControllerServiceLocator serviceLocator = new YahtzeeControllerServiceLocator();
+        be.kdg.yahtzee.model.remoteObjects.YahtzeeController yahtzeeController = null;
+        try {
+            yahtzeeController = serviceLocator.getyahtzee();
+        } catch (javax.xml.rpc.ServiceException e) {
 
-        UserBean userBean = new UserBean(yahtzeeController, username);
+        }
+
+        User user = yahtzeeController.findUser(username);
+
+        UserBean userBean = new UserBean(yahtzeeController, user.getUserId(), user.getUsername(), user.getPassword(), (Role) user.getRole(), (Person) user.getPerson());
         HttpSession session = request.getSession();
         session.setAttribute("userchangeBean", userBean);
 

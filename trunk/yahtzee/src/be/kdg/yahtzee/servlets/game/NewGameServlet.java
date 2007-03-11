@@ -9,8 +9,8 @@ package be.kdg.yahtzee.servlets.game;
 
 import be.kdg.yahtzee.beans.GameBean;
 import be.kdg.yahtzee.beans.UserBean;
-import be.kdg.yahtzee.model.YahtzeeController;
-import be.kdg.yahtzee.model.users.User;
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.model.remoteObjects.users.User;
 import be.kdg.yahtzee.servlets.YahtzeeServlet;
 
 import javax.servlet.ServletException;
@@ -18,8 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 
 public class NewGameServlet extends YahtzeeServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,9 +37,9 @@ public class NewGameServlet extends YahtzeeServlet {
             check = true;
         }
 
-        Set<Object> games = new HashSet<Object>(yahtzeeController.getGames());
+        //Set<Object> games = new HashSet<Object>(yahtzeeController.getGames());
 
-        session.setAttribute("games", games);
+        //session.setAttribute("games", games);
         if (!check) {
             GameBean gameBean = new GameBean(yahtzeeController, gameName);
             session.setAttribute("gameBean", gameBean);

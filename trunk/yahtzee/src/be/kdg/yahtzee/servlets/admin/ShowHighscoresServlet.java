@@ -7,8 +7,8 @@
 
 package be.kdg.yahtzee.servlets.admin;
 
-import be.kdg.yahtzee.model.YahtzeeController;
 import be.kdg.yahtzee.model.game.Highscore;
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
 import be.kdg.yahtzee.servlets.YahtzeeServlet;
 
 import javax.servlet.ServletException;
@@ -26,13 +26,13 @@ public class ShowHighscoresServlet extends YahtzeeServlet {
         String filter = request.getParameter("filter");
 
         YahtzeeController yahtzeeController = findYahtzeeController();
-
+        /*
         if (filter.equals("top10")) {
             highscores = new ArrayList<Highscore>(yahtzeeController.getTop10Highscores());
         }
         if (filter.equals("allScores")) {
             highscores = new ArrayList<Highscore>(yahtzeeController.getHighscores());
-        }
+        } */
 
         HttpSession session = request.getSession();
         session.setAttribute("highscores", highscores);

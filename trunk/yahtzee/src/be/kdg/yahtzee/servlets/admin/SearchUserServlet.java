@@ -7,8 +7,9 @@
 
 package be.kdg.yahtzee.servlets.admin;
 
-import be.kdg.yahtzee.model.YahtzeeController;
-import be.kdg.yahtzee.model.users.User;
+
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.model.remoteObjects.users.User;
 import be.kdg.yahtzee.servlets.YahtzeeServlet;
 
 import javax.servlet.ServletException;
@@ -25,7 +26,13 @@ public class SearchUserServlet extends YahtzeeServlet {
 
         YahtzeeController yahtzeeController = findYahtzeeController();
 
-        List<User> allUsers = new ArrayList<User>(yahtzeeController.findUsersByKeyword(keyword));
+        List<User> allUsersList = new ArrayList<User>();
+
+        java.lang.Object[] allUsers = yahtzeeController.findUsersByKeyword(keyword);
+
+        for (int i = 0; i < allUsers.length; i++) {
+            allUsersList.add((User) allUsers[i]);
+        }
 
         HttpSession session = request.getSession();
         session.setAttribute("allUsers", allUsers);

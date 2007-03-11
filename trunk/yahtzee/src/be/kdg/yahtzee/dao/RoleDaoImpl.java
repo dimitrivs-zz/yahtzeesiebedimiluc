@@ -8,9 +8,9 @@
 package be.kdg.yahtzee.dao;
 
 import be.kdg.yahtzee.model.users.Role;
-import org.hibernate.SessionFactory;
-import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.List;
 
@@ -18,7 +18,8 @@ import java.util.List;
  * Implementation of the RoleDao interface.
  * This class provides database connectivity for accessing role data.
  */
-public class RoleDaoImpl extends HibernateDaoSupport implements RoleDao {
+public class RoleDaoImpl {
+
 
     public RoleDaoImpl() {
     }
@@ -30,8 +31,12 @@ public class RoleDaoImpl extends HibernateDaoSupport implements RoleDao {
      * @return Role object
      */
     public Role getRole(int roleId) {
-        HibernateTemplate hibernateTemplate = getHibernateTemplate();
-        return (Role) hibernateTemplate.get(Role.class, roleId);
+        Session session;
+        session = HibernateUtil.getSession();
+
+        Query query = session.createQuery("from Role where roleId = :id");
+        query.setInteger("id", roleId);
+        return (Role) query.uniqueResult();
     }
 
     /**
@@ -40,8 +45,12 @@ public class RoleDaoImpl extends HibernateDaoSupport implements RoleDao {
      * @return List containing all the roles in the database.
      */
     public List<Role> getRoles() {
-        HibernateTemplate hibernateTemplate = getHibernateTemplate();
-        return hibernateTemplate.find("from Role");
+        Session session;
+        session = HibernateUtil.getSession();
+        Query query = session.createQuery("from Role");
+
+        List<Role> roles = query.list();
+        return roles;
     }
 
     /**
@@ -50,8 +59,11 @@ public class RoleDaoImpl extends HibernateDaoSupport implements RoleDao {
      * @param role Role object to be saved in the database.
      */
     public void saveRole(Role role) {
-        HibernateTemplate hibernateTemplate = getHibernateTemplate();
-        hibernateTemplate.saveOrUpdate(role);
+        Session session;
+        session = HibernateUtil.getSession();
+        Transaction tx = session.beginTransaction();
+        session.save(role);
+        tx.commit();
     }
 
     /**
@@ -60,8 +72,11 @@ public class RoleDaoImpl extends HibernateDaoSupport implements RoleDao {
      * @param role Role object to be deleted from the database.
      */
     public void deleteRole(Role role) {
-        HibernateTemplate hibernateTemplate = getHibernateTemplate();
-        hibernateTemplate.delete(role);
+        Session session;
+        session = HibernateUtil.getSession();
+        Transaction tx = session.beginTransaction();
+        session.delete(role);
+        tx.commit();
     }
 
     /**
@@ -70,7 +85,8 @@ public class RoleDaoImpl extends HibernateDaoSupport implements RoleDao {
      * @param sessionFactory SessionFactory object containing database session.
      * @return HibernateTemplate object
      */
+    /*
     public HibernateTemplate createHibernateTemplate(SessionFactory sessionFactory) {
         return super.createHibernateTemplate(sessionFactory);    //To change body of overridden methods use File | Settings | File Templates.
-    }
+    } */
 }

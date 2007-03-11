@@ -8,17 +8,18 @@
 package be.kdg.yahtzee.dao;
 
 import be.kdg.yahtzee.model.users.User;
-import org.hibernate.SessionFactory;
-import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Implementation of the UserDao interface.
  * This class provides database connectivity for accessing user data.
  */
-public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
+public class UserDaoImpl {
+    private Session session;
 
     public UserDaoImpl() {
     }
@@ -30,8 +31,12 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
      * @return User object
      */
     public User getUser(int userId) {
-        HibernateTemplate hibernateTemplate = getHibernateTemplate();
-        return (User) hibernateTemplate.get(User.class, userId);
+        Session session;
+        session = HibernateUtil.getSession();
+
+        Query query = session.createQuery("from User where userId = :id");
+        query.setInteger("id", userId);
+        return (User) query.uniqueResult();
     }
 
     /**
@@ -39,9 +44,13 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
      *
      * @return List containing all the users in the database.
      */
-    public List<User> getUsers() {
-        HibernateTemplate hibernateTemplate = getHibernateTemplate();
-        return hibernateTemplate.find("from User");
+    public Collection getUsers() {
+        Session session;
+        session = HibernateUtil.getSession();
+        Query query = session.createQuery("from User");
+
+        Collection users = query.list();
+        return users;
     }
 
     /**
@@ -50,8 +59,11 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
      * @param user User object to be saved in the database.
      */
     public void saveUser(User user) {
-        HibernateTemplate hibernateTemplate = getHibernateTemplate();
-        hibernateTemplate.saveOrUpdate(user);
+        Session session;
+        session = HibernateUtil.getSession();
+        Transaction tx = session.beginTransaction();
+        session.saveOrUpdate(user);
+        tx.commit();
     }
 
     /**
@@ -60,8 +72,11 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
      * @param user User object to be deleted from the database.
      */
     public void deleteUser(User user) {
-        HibernateTemplate hibernateTemplate = getHibernateTemplate();
-        hibernateTemplate.delete(user);
+        Session session;
+        session = HibernateUtil.getSession();
+        Transaction tx = session.beginTransaction();
+        session.delete(user);
+        tx.commit();
     }
 
     /**
@@ -70,7 +85,8 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
      * @param sessionFactory SessionFactory object containing database session.
      * @return HibernateTemplate object
      */
+    /*
     public HibernateTemplate createHibernateTemplate(SessionFactory sessionFactory) {
         return super.createHibernateTemplate(sessionFactory);    //To change body of overridden methods use File | Settings | File Templates.
-    }
+    } */
 }

@@ -11,7 +11,7 @@ import be.kdg.yahtzee.model.users.User;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Interface for database access for the users.
@@ -31,7 +31,7 @@ public interface UserDao {
      *
      * @return List containing all the users in the database.
      */
-    public List getUsers();
+    public Collection getUsers();
 
     /**
      * Method for saving a user to the database.

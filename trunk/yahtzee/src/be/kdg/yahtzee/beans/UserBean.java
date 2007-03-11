@@ -7,8 +7,12 @@
 
 package be.kdg.yahtzee.beans;
 
-import be.kdg.yahtzee.model.YahtzeeController;
-import be.kdg.yahtzee.model.users.User;
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.model.remoteObjects.users.Person;
+import be.kdg.yahtzee.model.remoteObjects.users.Role;
+import be.kdg.yahtzee.model.remoteObjects.users.User;
+
+import java.rmi.RemoteException;
 
 /**
  * Bean class for getting and passing user information between
@@ -16,7 +20,11 @@ import be.kdg.yahtzee.model.users.User;
  */
 public class UserBean {
     private YahtzeeController yahtzeeController;
+    private int userId;
+    private Person person;
     private String username;
+    private String password;
+    private Role role;
 
     public UserBean() {
     }
@@ -27,9 +35,14 @@ public class UserBean {
      * @param yahtzeeController Main controller.
      * @param username          Username of the user for which the bean needs to be created.
      */
-    public UserBean(YahtzeeController yahtzeeController, String username) {
+
+    public UserBean(YahtzeeController yahtzeeController, int userID, String username, String encryptedPassword, Role role, Person person) {
         this.yahtzeeController = yahtzeeController;
+        this.userId = userID;
         this.username = username;
+        this.password = encryptedPassword;
+        this.person = person;
+        this.role = role;
     }
 
     /**
@@ -46,9 +59,9 @@ public class UserBean {
      *
      * @return String containing id of the User.
      */
-    public int getUserId() {
-        User user = yahtzeeController.findUser(username);
-        return user.getUserId();
+
+    public int getUserId() throws RemoteException {
+        return userId;
     }
 
     /**
@@ -56,9 +69,8 @@ public class UserBean {
      *
      * @return String containing name of the User.
      */
-    public String getName() {
-        User user = yahtzeeController.findUser(username);
-        return user.getFirstname() + " " + user.getSurname();
+    public String getName() throws RemoteException {
+        return person.getFirstName() + " " + person.getSurname();
     }
 
     /**
@@ -66,9 +78,8 @@ public class UserBean {
      *
      * @return String containing surname of the User.
      */
-    public String getSurname() {
-        User user = yahtzeeController.findUser(username);
-        return user.getSurname();
+    public String getSurname() throws RemoteException {
+        return person.getSurname();
     }
 
     /**
@@ -76,9 +87,8 @@ public class UserBean {
      *
      * @return String containing firstname of the User.
      */
-    public String getFirstname() {
-        User user = yahtzeeController.findUser(username);
-        return user.getFirstname();
+    public String getFirstname() throws RemoteException {
+        return person.getFirstName();
     }
 
     /**
@@ -86,9 +96,8 @@ public class UserBean {
      *
      * @return String containing password of the User.
      */
-    public String getPassword() {
-        User user = yahtzeeController.findUser(username);
-        return user.getPassword();
+    public String getPassword() throws RemoteException {
+        return password;
     }
 
     /**
@@ -96,9 +105,8 @@ public class UserBean {
      *
      * @return String containing emailaddress of the User.
      */
-    public String getEmail() {
-        User user = yahtzeeController.findUser(username);
-        return user.getPerson().getEmail();
+    public String getEmail() throws RemoteException {
+        return person.getEmail();
     }
 
     /**
@@ -106,9 +114,8 @@ public class UserBean {
      *
      * @return String containing telephone of the User.
      */
-    public String getTelephone() {
-        User user = yahtzeeController.findUser(username);
-        return user.getPerson().getTelephone();
+    public String getTelephone() throws RemoteException {
+        return person.getTelephone();
     }
 
     /**
@@ -116,9 +123,8 @@ public class UserBean {
      *
      * @return String containing street of the User.
      */
-    public String getStreet() {
-        User user = yahtzeeController.findUser(username);
-        return user.getAddress().getStreet();
+    public String getStreet() throws RemoteException {
+        return person.getAddress().getStreet();
     }
 
     /**
@@ -126,9 +132,8 @@ public class UserBean {
      *
      * @return String containing number of the User.
      */
-    public String getNumber() {
-        User user = yahtzeeController.findUser(username);
-        return user.getAddress().getNumber();
+    public String getNumber() throws RemoteException {
+        return person.getAddress().getNumber();
     }
 
     /**
@@ -136,9 +141,8 @@ public class UserBean {
      *
      * @return String containing zipcode of the User.
      */
-    public String getZip() {
-        User user = yahtzeeController.findUser(username);
-        return user.getAddress().getZip();
+    public String getZip() throws RemoteException {
+        return person.getAddress().getZip();
     }
 
     /**
@@ -146,9 +150,8 @@ public class UserBean {
      *
      * @return String containing city of the User.
      */
-    public String getCity() {
-        User user = yahtzeeController.findUser(username);
-        return user.getAddress().getCity();
+    public String getCity() throws RemoteException {
+        return person.getAddress().getCity();
     }
 
     /**
@@ -156,9 +159,8 @@ public class UserBean {
      *
      * @return String containing country of the User.
      */
-    public String getCountry() {
-        User user = yahtzeeController.findUser(username);
-        return user.getAddress().getCountry();
+    public String getCountry() throws RemoteException {
+        return person.getAddress().getCountry();
     }
 
     /**
@@ -166,9 +168,8 @@ public class UserBean {
      *
      * @return String containing rolename of the User.
      */
-    public String getRole() {
-        User user = yahtzeeController.findUser(username);
-        return user.getRole().getName();
+    public String getRole() throws RemoteException {
+        return role.getName();
     }
 
     /**
@@ -176,7 +177,7 @@ public class UserBean {
      *
      * @return Integer containing highscore of the User.
      */
-    public int getHighestScore() {
+    public int getHighestScore() throws RemoteException {
         User user = yahtzeeController.findUser(username);
         return yahtzeeController.getHighestScore(user);
     }

@@ -8,9 +8,9 @@
 package be.kdg.yahtzee.dao;
 
 import be.kdg.yahtzee.model.game.Highscore;
-import org.hibernate.SessionFactory;
-import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ import java.util.List;
  * Implementation of the HighScoreDao interface.
  * This class provides database connectivity for accessing highscore data.
  */
-public class HighscoreDaoImpl extends HibernateDaoSupport implements HighscoreDao {
+public class HighscoreDaoImpl {
 
     public HighscoreDaoImpl() {
     }
@@ -30,8 +30,12 @@ public class HighscoreDaoImpl extends HibernateDaoSupport implements HighscoreDa
      * @return Highscore object containing wanted highscore.
      */
     public Highscore getHighscore(int highscoreId) {
-        HibernateTemplate hibernateTemplate = getHibernateTemplate();
-        return (Highscore) hibernateTemplate.get(Highscore.class, highscoreId);
+        Session session;
+        session = HibernateUtil.getSession();
+
+        Query query = session.createQuery("from Highscore where highscoreId = :id");
+        query.setInteger("id", highscoreId);
+        return (Highscore) query.uniqueResult();
     }
 
     /**
@@ -40,8 +44,12 @@ public class HighscoreDaoImpl extends HibernateDaoSupport implements HighscoreDa
      * @return List containing all the highscores in the database.
      */
     public List<Highscore> getHighscores() {
-        HibernateTemplate hibernateTemplate = getHibernateTemplate();
-        return hibernateTemplate.find("from Highscore");
+        Session session;
+        session = HibernateUtil.getSession();
+        Query query = session.createQuery("from Highscore");
+
+        List<Highscore> highscores = query.list();
+        return highscores;
     }
 
     /**
@@ -50,8 +58,12 @@ public class HighscoreDaoImpl extends HibernateDaoSupport implements HighscoreDa
      * @return Sorted List containing all the highscores in the database.
      */
     public List<Highscore> getSortedHighscores() {
-        HibernateTemplate hibernateTemplate = getHibernateTemplate();
-        return hibernateTemplate.find("from Highscore order by score desc");
+        Session session;
+        session = HibernateUtil.getSession();
+        Query query = session.createQuery("from Highscore");
+
+        List<Highscore> roles = query.list();
+        return roles;
     }
 
     /**
@@ -60,8 +72,11 @@ public class HighscoreDaoImpl extends HibernateDaoSupport implements HighscoreDa
      * @param highscore Highscore object to be saved in the database.
      */
     public void saveHighscore(Highscore highscore) {
-        HibernateTemplate hibernateTemplate = getHibernateTemplate();
-        hibernateTemplate.saveOrUpdate(highscore);
+        Session session;
+        session = HibernateUtil.getSession();
+        Transaction tx = session.beginTransaction();
+        session.save(highscore);
+        tx.commit();
     }
 
     /**
@@ -70,8 +85,11 @@ public class HighscoreDaoImpl extends HibernateDaoSupport implements HighscoreDa
      * @param highscore Highscore object to be deleted from the database.
      */
     public void deleteHighscore(Highscore highscore) {
-        HibernateTemplate hibernateTemplate = getHibernateTemplate();
-        hibernateTemplate.delete(highscore);
+        Session session;
+        session = HibernateUtil.getSession();
+        Transaction tx = session.beginTransaction();
+        session.delete(highscore);
+        tx.commit();
     }
 
     /**
@@ -80,7 +98,8 @@ public class HighscoreDaoImpl extends HibernateDaoSupport implements HighscoreDa
      * @param sessionFactory SessionFactory object containing database session.
      * @return HibernateTemplate object
      */
+    /*
     public HibernateTemplate createHibernateTemplate(SessionFactory sessionFactory) {
         return super.createHibernateTemplate(sessionFactory);
-    }
+    }*/
 }

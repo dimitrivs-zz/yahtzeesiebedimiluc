@@ -27,7 +27,6 @@ public class UserManager {
 
     private Map<String, Role> roles = new HashMap<String, Role>();
 
-
     public UserManager() {
         initLogger(Level.DEBUG);
         logger.info("usermanager started");
@@ -63,7 +62,13 @@ public class UserManager {
     // ----getMethoden
 
     public List<User> getUsers() {
-        return Collections.unmodifiableList(userDao.getUsers());
+        List qsfd = new ArrayList();
+        qsfd.addAll(userDao.getUsers());
+        return Collections.unmodifiableList(qsfd);
+        /*
+        List usersList = new ArrayList();
+        usersList.addAll(users);
+        return usersList;  */
     }
 
     public List<User> getOnlineUsers() {
@@ -167,7 +172,7 @@ public class UserManager {
             user.setPassword(security.encrypt(password));
             userDao.saveUser(user);
         }
-    } 
+    }
 
     // --- removeMethoden
 
@@ -215,7 +220,14 @@ public class UserManager {
 
     // --- userRoleMethoden
 
-    public boolean isUserInRole(User user, Role role) {
+    public boolean isUserInRole(String username, String kindOfUser) {
+        User user = getUser(username);
+        Role role = null;
+        if (kindOfUser.equals("admin")) {
+            role = getRole("Administrator");
+        } else {
+            role = getRole("Player");
+        }
         return user.getRole().equals(role);
     }
     /*
