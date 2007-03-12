@@ -1,8 +1,8 @@
 function refresh()
 {
-    getGames()
-    getOnlineUsers()
-    //getGlobalChatMessages()
+    //getGames()
+    //getOnlineUsers()
+    getGlobalChatMessages()
 }
 
 function getGames() {
@@ -18,11 +18,11 @@ function sendMessage()
     var text = DWRUtil.getValue("text");
     var name = DWRUtil.getValue("name");
     DWRUtil.setValue("text", "");
-    GameManager.addGlobalMessage(name + " : " + text + "<br/>", gotMessages);
+    DwrController.addGlobalMessage(name + " : " + text + "<br/>", gotMessages);
 }
 
 function getGlobalChatMessages() {
-    GameManager.getGlobalMessages(gotMessages);
+    DwrController.getGlobalMessages(gotMessages);
 }
 
 function onlineUserList(messages) {

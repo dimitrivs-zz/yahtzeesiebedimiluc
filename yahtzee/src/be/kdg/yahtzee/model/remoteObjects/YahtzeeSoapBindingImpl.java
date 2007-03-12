@@ -8,15 +8,12 @@
 package be.kdg.yahtzee.model.remoteObjects;
 
 
-import be.kdg.yahtzee.model.game.Die;
-import be.kdg.yahtzee.model.game.Game;
-import be.kdg.yahtzee.model.game.Highscore;
+import be.kdg.yahtzee.model.chat.ChatMessage;
+import be.kdg.yahtzee.model.game.*;
 import be.kdg.yahtzee.model.users.User;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObjects.YahtzeeController {
     private UserManager userManager;
@@ -196,21 +193,51 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public void addGlobalMessage(java.lang.String in0) throws java.rmi.RemoteException {
+        gameManager.addGlobalMessage(in0);
     }
 
     public java.lang.Object[] getGlobalMessages() throws java.rmi.RemoteException {
-        return null;
+        return (convertListChatMessages(gameManager.getGlobalMessages()));
     }
 
     // Converters
 
     //--- listen
 
+    private java.util.HashMap convertMap(Map<String, Score> scoreMap) {
+        /*Map returnMap = new HashMap<String, Score>();
+        for (Iterator it = scoreMap.entrySet().iterator(); it.hasNext();) {
+            Map.Entry entry = (Map.Entry) it.next();
+            String key = (String) entry.getKey();
+            Score value = (Score)entry.getValue();
+            returnMap.put(key, value);
+        }
+        return returnMap;*/
+        return new HashMap(scoreMap);
+    }
+
+    private java.lang.Object[] convertListChatMessages(List<ChatMessage> chatList) {
+        List returnlist = new ArrayList();
+        for (ChatMessage chatMessage : chatList) {
+            String message = chatMessage.getText();
+            returnlist.add(message);
+        }
+        return returnlist.toArray();
+    }
+
     private java.lang.Object[] convertListUsers(List<User> userlist) {
         List returnlist = new ArrayList();
         for (User user : userlist) {
             be.kdg.yahtzee.model.remoteObjects.users.User userRem = convertUserObject(user);
             returnlist.add(userRem);
+        }
+        return returnlist.toArray();
+    }
+
+    private java.lang.Object[] convertListScorePosibilities(List<ScoreAspect> scoreposlist) {
+        List returnlist = new ArrayList();
+        for (ScoreAspect scoreAspect : scoreposlist) {
+            returnlist.add(scoreAspect);
         }
         return returnlist.toArray();
     }
@@ -332,7 +359,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     // ---- game objecten
 
     private be.kdg.yahtzee.model.remoteObjects.game.Game convertGameObject(be.kdg.yahtzee.model.game.Game game) {
-        return new be.kdg.yahtzee.model.remoteObjects.game.Game(convertUserObject(game.getActivePlayer()), convertChatObject(game.getChat()), convertUserObject(game.getCreator()), convertListDie(game.getDiceList()), convertListDie(game.getDiceList()), game.getGameName(), game.getMaxPlayer(), game.getNumberOfPlayers(), convertScoreObject(game.getScore()), null, null, game.getState(), convertSetUsers(game.getUsers()));
+        return new be.kdg.yahtzee.model.remoteObjects.game.Game(convertUserObject(game.getActivePlayer()), convertChatObject(game.getChat()), convertUserObject(game.getCreator()), convertListDie(game.getDiceList()), convertListDie(game.getDiceList()), game.getGameName(), game.getMaxPlayer(), game.getNumberOfPlayers(), convertScoreObject(game.getScore()), convertListScorePosibilities(game.getScorePossibilities()), convertMap(game.getScores()), game.getState(), convertSetUsers(game.getUsers()));
     }
 
     private be.kdg.yahtzee.model.remoteObjects.game.Die convertDieObject(be.kdg.yahtzee.model.game.Die die) {
