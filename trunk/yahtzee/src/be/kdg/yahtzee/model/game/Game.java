@@ -709,8 +709,8 @@ public class Game {
      *
      * @return Score object of active player.
      */
-    public Score getScore() {
-        return scores.get(activePlayer.getUsername());
+    public Score getScore(String username) {
+        return scores.get(username);
     }
 
     /**

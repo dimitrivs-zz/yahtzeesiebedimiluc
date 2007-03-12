@@ -21,9 +21,11 @@
         </create>
 
         <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.users.User"/>
+        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.users.Address"/>
+        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.users.Person"/>
+        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.users.Role"/>
+
         <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.game.Game"/>
-        <convert converter="bean" match="be.kdg.yahtzee.model.game.Die"/>
-        <convert converter="bean" match="be.kdg.yahtzee.model.game.ScoreAspect"/>
-        <convert converter="bean" match="be.kdg.yahtzee.model.game.Score"/>
+        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.game.Score"/>
     </allow>
 </dwr>

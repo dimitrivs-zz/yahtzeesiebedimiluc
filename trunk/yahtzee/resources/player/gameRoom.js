@@ -1,6 +1,6 @@
 function refresh()
 {
-    //getGames()
+    getGames()
     //getOnlineUsers()
     getGlobalChatMessages()
 }
@@ -73,7 +73,7 @@ function gotMessages(messages)
     var chatlog = "";
     for (var data in messages)
     {
-        chatlog = messages[data].text + chatlog;
+        chatlog = messages[data] + chatlog;
     }
     DWRUtil.setValue("chatlog", chatlog);
     var objDiv = document.getElementById("chatlog");

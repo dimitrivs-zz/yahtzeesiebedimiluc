@@ -116,6 +116,11 @@ public class User {
         return role;
     }
 
+
+    public String toString() {
+        return userId + " " + username;
+    }
+
     public void setRole(Role role) {
         this.role = role;
     }

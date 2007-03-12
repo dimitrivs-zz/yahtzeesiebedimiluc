@@ -61,21 +61,14 @@ public class DwrController {
 
     public List getGlobalMessages() throws RemoteException {
         List allGlobalMessagesList = new ArrayList();
-        System.out.println("Voor ophalen");
-
         java.lang.Object[] allGlobalMessages = yahtzeeController.getGlobalMessages();
-        System.out.println("Na ophalen");
-
         for (int i = 0; i < allGlobalMessages.length; i++) {
-            System.out.println("Er zijn messages" + allGlobalMessages[i]);
             allGlobalMessagesList.add(allGlobalMessages[i]);
         }
         return allGlobalMessagesList;
     }
 
     public void addGlobalMessage(String text) throws RemoteException {
-        System.out.println("Message toegevoegd");
-
         yahtzeeController.addGlobalMessage(text);
     }
 }
