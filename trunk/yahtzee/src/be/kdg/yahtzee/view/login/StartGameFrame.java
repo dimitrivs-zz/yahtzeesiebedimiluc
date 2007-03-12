@@ -1,12 +1,16 @@
 package be.kdg.yahtzee.view.login;
 
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.model.remoteObjects.users.User;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
-public class StartGameFrame extends JFrame implements ActionListener {
+public class StartGameFrame extends YahtzeeSwing implements ActionListener {
     private JPanel titlePnl;
     private JPanel inputPnl;
     private JPanel buttonPnl;
@@ -14,6 +18,8 @@ public class StartGameFrame extends JFrame implements ActionListener {
     private JLabel titleLbl;
     private JLabel gameNameLbl;
     private JLabel numberLbl;
+    private JLabel errorLbl;
+
     private JComboBox numberCombo;
     private DefaultComboBoxModel comboModel;
     private JTextField gameNameTxt;
@@ -23,11 +29,17 @@ public class StartGameFrame extends JFrame implements ActionListener {
 
     private GameRoomFrame gameRoomFrame;
     private ResourceBundle resources;
+    private YahtzeeController yahtzeeController;
+    private String username;
 
-    public StartGameFrame(String title, ResourceBundle resources, GameRoomFrame gameRoomFrame) {
-        super(title);
+    public StartGameFrame(String title, ResourceBundle resources, GameRoomFrame gameRoomFrame, String username) {
+        setFrameTitle(title);
+
         this.resources = resources;
+        this.yahtzeeController = findYahtzeeController();
         this.gameRoomFrame = gameRoomFrame;
+        this.username = username;
+
         makeComponents();
         makeLayout();
         addListeners();
@@ -42,6 +54,7 @@ public class StartGameFrame extends JFrame implements ActionListener {
         titleLbl = new JLabel("Start a new game:");
         gameNameLbl = new JLabel("Game Name");
         numberLbl = new JLabel("Number of Players");
+        errorLbl = new JLabel();
 
         gameNameTxt = new JTextField();
         comboModel = new DefaultComboBoxModel();
@@ -61,11 +74,12 @@ public class StartGameFrame extends JFrame implements ActionListener {
 
         titlePnl.add(titleLbl);
 
-        inputPnl.setLayout(new GridLayout(2, 2, 2, 2));
+        inputPnl.setLayout(new GridLayout(3, 2, 2, 2));
         inputPnl.add(gameNameLbl);
         inputPnl.add(gameNameTxt);
         inputPnl.add(numberLbl);
         inputPnl.add(numberCombo);
+        inputPnl.add(errorLbl);
 
         buttonPnl.add(okBtn);
         buttonPnl.add(cancelBtn);
@@ -93,8 +107,21 @@ public class StartGameFrame extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == okBtn) {
-            new GameFrame(gameNameTxt.getText(), resources, numberCombo.getSelectedIndex() + 1);
-            this.dispose();
+            User user = null;
+
+            try {
+                user = yahtzeeController.findUser(username);
+
+                if (!yahtzeeController.createGame(gameNameTxt.getText(), numberCombo.getSelectedIndex() + 1, user)) {
+                    new GameFrame(gameNameTxt.getText(), resources, numberCombo.getSelectedIndex() + 1);
+                    this.dispose();
+                } else {
+                    errorLbl.setText("U zit reeds in een game!");
+                }
+            } catch (RemoteException e1) {
+            }
         }
+
     }
 }
+

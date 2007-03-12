@@ -1,14 +1,16 @@
 package be.kdg.yahtzee.view.login;
 
-import be.kdg.yahtzee.model.YahtzeeController;
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.model.remoteObjects.users.Address;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
-public class RegisterFrame extends JFrame implements ActionListener {
+public class RegisterFrame extends YahtzeeSwing implements ActionListener {
     private JLabel usernameLbl;
     private JLabel passwordLbl;
     private JLabel repeatPasswordLbl;
@@ -23,6 +25,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
     private JLabel countryLbl;
     private JLabel languageLbl;
     private JLabel titleLbl;
+    private JLabel errorLbl;
     private JTextField usernameTxt;
     private JTextField mailTxt;
     private JTextField firstnameTxt;
@@ -48,8 +51,11 @@ public class RegisterFrame extends JFrame implements ActionListener {
     private YahtzeeController yahtzeeController;
 
     public RegisterFrame(String title, ResourceBundle resources, LoginFrame loginFrame) {
-        super(title);
+        setFrameTitle(title);
+
         this.resources = resources;
+        this.yahtzeeController = findYahtzeeController();
+
         this.loginFrame = loginFrame;
         makeComponents();
         makeLayout();
@@ -75,6 +81,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
         String cancelString = resources.getString("cancel");
         String registerString = resources.getString("registerButton");
 
+        errorLbl = new JLabel();
         titleLbl = new JLabel(titleString);
         usernameLbl = new JLabel(usernameString);
         passwordLbl = new JLabel(passwordString);
@@ -115,7 +122,7 @@ public class RegisterFrame extends JFrame implements ActionListener {
         titlePnl.setLayout(new FlowLayout());
         titlePnl.add(titleLbl);
 
-        inputPnl.setLayout(new GridLayout(13, 2, 2, 2));
+        inputPnl.setLayout(new GridLayout(14, 2, 2, 2));
         inputPnl.add(usernameLbl);
         inputPnl.add(usernameTxt);
         inputPnl.add(passwordLbl);
@@ -142,11 +149,12 @@ public class RegisterFrame extends JFrame implements ActionListener {
         inputPnl.add(countryTxt);
         inputPnl.add(languageLbl);
         inputPnl.add(languageLst);
-
+        inputPnl.add(errorLbl);
 
         buttonPnl.setLayout(new FlowLayout());
         buttonPnl.add(registerButton);
         buttonPnl.add(cancelButton);
+
         content.add(titlePnl, BorderLayout.NORTH);
         content.add(inputPnl, BorderLayout.CENTER);
         content.add(buttonPnl, BorderLayout.SOUTH);
@@ -170,10 +178,29 @@ public class RegisterFrame extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == registerButton) {
-            loginFrame.changeMessage("Registratie gefixed ");
-            loginFrame.setVisible(true);
-            this.dispose();
+            String password1 = new String(passwordTxt.getPassword());
+            String password2 = new String(repeatPasswordTxt.getPassword());
+
+            if (usernameTxt.getText().equals("") || password1.equals("") || password2.equals("") || mailTxt.getText().equals("")) {
+                errorLbl.setText("Parameters not found in request");
+            } else {
+                if (!password1.equals(password2)) {
+                    errorLbl.setText("Passwords Mismatch");
+                } else {
+                    Address address = new Address(streetTxt.getText(), numberTxt.getText(), zipTxt.getText(), cityTxt.getText(), countryTxt.getText());
+
+                    try {
+                        yahtzeeController.createPlayer(usernameTxt.getText(), password1, surnameTxt.getText(), firstnameTxt.getText(), mailTxt.getText(), telephoneTxt.getText(), address);
+                    } catch (RemoteException e1) {
+                    }
+
+                    loginFrame.changeMessage("Registratie voltooid");
+                    loginFrame.setVisible(true);
+                    this.dispose();
+                }
+            }
         }
+
         if (e.getSource() == cancelButton) {
             loginFrame.changeMessage("");
             loginFrame.setVisible(true);

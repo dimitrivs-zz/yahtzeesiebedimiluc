@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ResourceBundle;
 
-public class ChooseLanguageFrame extends JFrame implements ActionListener {
+public class ChooseLanguageFrame extends YahtzeeSwing implements ActionListener {
     private JButton dutchBtn;
     private JButton frenchBtn;
     private JButton germanBtn;
@@ -23,11 +23,11 @@ public class ChooseLanguageFrame extends JFrame implements ActionListener {
     private JLabel titleLbl;
     private JPanel overviewPnl;
 
-    ResourceBundle resources;
+    private ResourceBundle resources;
 
 
     public ChooseLanguageFrame(String title) {
-        super(title);
+        setFrameTitle(title);
 
         makeComponents();
         makeLayout();
