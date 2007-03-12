@@ -25,7 +25,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public void addMessage(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException {
-
+        gameManager.addMessage(in0, in1);
     }
 
     public void createPlayer(java.lang.String in0, java.lang.String in1, java.lang.String in2, java.lang.String in3, java.lang.String in4, java.lang.String in5, be.kdg.yahtzee.model.remoteObjects.users.Address in6) throws java.rmi.RemoteException {
@@ -45,8 +45,12 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public void changePassWord(be.kdg.yahtzee.model.remoteObjects.users.User in0, java.lang.String in1, java.lang.String in2) throws java.rmi.RemoteException {
-        userManager = null;
-        gameManager = null;
+        User user = userManager.getUser(in0.getUsername());
+        if (in1.equals("online")) {
+            user.setOnline(true);
+        } else {
+            user.setOnline(false);
+        }
     }
 
     public void removeUser(java.lang.String in0) throws java.rmi.RemoteException {
@@ -69,7 +73,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public java.lang.Object[] getOnlineUsers() throws java.rmi.RemoteException {
-        return null;
+        return convertListUsers(userManager.getOnlineUsers());
     }
 
     public boolean isPlayer(java.lang.String in0) throws java.rmi.RemoteException {
@@ -101,6 +105,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public void removeGame(java.lang.String in0) throws java.rmi.RemoteException {
+        gameManager.removeGame(in0);
     }
 
     public be.kdg.yahtzee.model.remoteObjects.game.Game getGame(java.lang.String in0) throws java.rmi.RemoteException {
@@ -108,7 +113,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public java.lang.String getCreator(java.lang.String in0) throws java.rmi.RemoteException {
-        return null;
+        return gameManager.getCreator(in0);
     }
 
     public java.lang.Object[] getGames() throws java.rmi.RemoteException {
@@ -116,11 +121,11 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public java.lang.Object[] getUsersOfGame(java.lang.String in0) throws java.rmi.RemoteException {
-        return null;
+        return convertSetUsers(gameManager.getUsersOfGame(in0));
     }
 
     public java.lang.String startGame(java.lang.String in0) throws java.rmi.RemoteException {
-        return null;
+        return gameManager.startGame(in0);
     }
 
     public boolean joinGame(java.lang.String in0, be.kdg.yahtzee.model.remoteObjects.users.User in1) throws java.rmi.RemoteException {
@@ -136,7 +141,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public java.lang.Object[] getDiceList(java.lang.String in0) throws java.rmi.RemoteException {
-        return null;
+        return convertListDies(gameManager.getDiceList(in0));
     }
 
     public boolean fixDie(java.lang.String in0, int in1) throws java.rmi.RemoteException {
@@ -148,16 +153,16 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public java.lang.String getActivePlayer(java.lang.String in0) throws java.rmi.RemoteException {
-        return null;
+        return gameManager.getActivePlayer(in0);
     }
 
     public java.lang.String getGameState(java.lang.String in0) throws java.rmi.RemoteException {
-        return null;
+        return gameManager.getGameState(in0);
     }
 
     public be.kdg.yahtzee.model.remoteObjects.game.Score selectScore(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException {
         //return gameManager.selectScore(in0, in1);
-        return null;
+        return convertScoreObject(gameManager.selectScore(in0, in1));
     }
 
     public java.util.HashMap getScores(java.lang.String in0) throws java.rmi.RemoteException {
@@ -169,7 +174,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public java.lang.Object[] getScorePossibilities(java.lang.String in0) throws java.rmi.RemoteException {
-        return null;
+        return convertListScorePosibilities(gameManager.getScorePossibilities(in0));
     }
 
     public java.lang.Object[] getHighscores() throws java.rmi.RemoteException {
@@ -189,7 +194,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public java.lang.Object[] getMessages(java.lang.String in0) throws java.rmi.RemoteException {
-        return null;
+        return convertListChatMessages(gameManager.getMessages(in0));
     }
 
     public void addGlobalMessage(java.lang.String in0) throws java.rmi.RemoteException {

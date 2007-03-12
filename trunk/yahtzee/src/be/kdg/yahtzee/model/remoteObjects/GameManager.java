@@ -463,7 +463,7 @@ public class GameManager {
      * @param gameName String game name
      * @return List with dices in a game.
      */
-    public List getDiceList(String gameName) {
+    public List<Die> getDiceList(String gameName) {
         Game game = getGame(gameName);
         return game.getDiceList();
     }
