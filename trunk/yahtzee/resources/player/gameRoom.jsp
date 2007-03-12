@@ -14,10 +14,11 @@
 </title>
     <link href="../css/gameroomStyle.css" rel="stylesheet" type="text/css"/>
     <script type='text/javascript' src='/dwr/engine.js'></script>
-    <script type='text/javascript' src='/dwr/interface/GameManager.js'></script>
-    <script type='text/javascript' src='/dwr/interface/UserManager.js'></script>
+    <!--<script type='text/javascript' src='/dwr/interface/GameManager.js'></script>
+    <script type='text/javascript' src='/dwr/interface/UserManager.js'></script>  -->
     <script type='text/javascript' src='/dwr/util.js'></script>
     <script type='text/javascript' src='gameRoom.js'></script>
+    <script type='text/javascript' src='/dwr/interface/DwrController.js'></script>
 </head>
 <body onload='refresh()'>
 <div id="container">

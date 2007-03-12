@@ -101,6 +101,6 @@
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
       />
-      <parameter name="scope" value="application">
+      <parameter name="scope" value="application"/>
   </service>
 </deployment>
