@@ -17,7 +17,7 @@
     </head>
     <body>
     <div id="adminSource">
-        <table align="center">
+        <table class="topscore">
             <tr>
                 <td id="logout">
                     <a href="../logout/LogoutServlet" class="special">
