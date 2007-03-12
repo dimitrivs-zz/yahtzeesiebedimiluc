@@ -5,11 +5,11 @@
 
 <jsp:useBean id="highscores" class="java.util.ArrayList" scope="session"/>
 
-<table border="1">
+<table border="0">
     <tr>
-        <td>Rank</td>
-        <td>Username</td>
-        <td>Score</td>
+        <th>Rank</th>
+        <th>Username</th>
+        <th>Score</th>
     </tr>
     <% if (highscores.isEmpty()) {
     %>

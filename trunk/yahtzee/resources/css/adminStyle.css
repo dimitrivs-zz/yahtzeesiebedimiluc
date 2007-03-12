@@ -116,6 +116,17 @@ table.center, table.border {
     height: auto;
 }
 
+table.topscore td table, table.topscore td table th {
+    border: 1px solid #ffffff;
+    border-collapse: collapse;
+    padding: 2px 5px 2px 5px;
+}
+
+table.topscore td table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 table.border, table.border td, table.border tr, table.border th {
     margin-top: 2px;
     margin-left: 5px;
