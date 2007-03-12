@@ -135,7 +135,6 @@ public class User implements java.io.Serializable {
      * @param online
      */
     public void setOnline(boolean online) {
-        System.out.println("User komt online");
         this.online = online;
     }
 

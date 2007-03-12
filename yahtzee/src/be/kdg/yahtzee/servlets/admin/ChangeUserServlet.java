@@ -8,7 +8,7 @@
 package be.kdg.yahtzee.servlets.admin;
 
 import be.kdg.yahtzee.beans.UserBean;
-import be.kdg.yahtzee.model.remoteObjects.YahtzeeControllerServiceLocator;
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
 import be.kdg.yahtzee.model.remoteObjects.users.Person;
 import be.kdg.yahtzee.model.remoteObjects.users.Role;
 import be.kdg.yahtzee.model.remoteObjects.users.User;
@@ -24,13 +24,7 @@ public class ChangeUserServlet extends YahtzeeServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
 
-        YahtzeeControllerServiceLocator serviceLocator = new YahtzeeControllerServiceLocator();
-        be.kdg.yahtzee.model.remoteObjects.YahtzeeController yahtzeeController = null;
-        try {
-            yahtzeeController = serviceLocator.getyahtzee();
-        } catch (javax.xml.rpc.ServiceException e) {
-
-        }
+        YahtzeeController yahtzeeController = findYahtzeeController();
 
         User user = yahtzeeController.findUser(username);
 

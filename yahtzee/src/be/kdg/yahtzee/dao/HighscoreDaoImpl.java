@@ -60,10 +60,10 @@ public class HighscoreDaoImpl {
     public List<Highscore> getSortedHighscores() {
         Session session;
         session = HibernateUtil.getSession();
-        Query query = session.createQuery("from Highscore");
+        Query query = session.createQuery("from Highscore order by score desc");
 
-        List<Highscore> roles = query.list();
-        return roles;
+        List<Highscore> highscores = query.list();
+        return highscores;
     }
 
     /**
