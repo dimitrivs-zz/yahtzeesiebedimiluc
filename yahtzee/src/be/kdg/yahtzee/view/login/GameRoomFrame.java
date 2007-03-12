@@ -27,11 +27,13 @@ public class GameRoomFrame extends JFrame implements ActionListener {
     private JPanel gamePnl;
 
     private ResourceBundle resources;
+    private String username;
 
-    public GameRoomFrame(String title, ResourceBundle resources) {
+    public GameRoomFrame(String title, ResourceBundle resources, String username) {
         super(title);
 
         this.resources = resources;
+        this.username = username;
 
         makeComponents();
         makeLayout();
@@ -101,7 +103,7 @@ public class GameRoomFrame extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == startBtn) {
-            new StartGameFrame("Yahtzee Game", resources, this);
+            new StartGameFrame("Yahtzee Game", resources, this, username);
             this.setVisible(false);
         }
 

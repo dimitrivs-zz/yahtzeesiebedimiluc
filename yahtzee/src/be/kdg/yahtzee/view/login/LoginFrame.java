@@ -7,16 +7,18 @@
 
 package be.kdg.yahtzee.view.login;
 
-import be.kdg.yahtzee.model.YahtzeeController;
-import be.kdg.yahtzee.model.users.User;
+import be.kdg.util.Security;
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.model.remoteObjects.users.User;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
-public class LoginFrame extends JFrame implements ActionListener {
+public class LoginFrame extends YahtzeeSwing implements ActionListener {
     private JLabel titleLbl;
     private JLabel usernameLbl;
     private JLabel passwordLbl;
@@ -35,10 +37,10 @@ public class LoginFrame extends JFrame implements ActionListener {
     private YahtzeeController yahtzeeController;
 
     public LoginFrame(String title, ResourceBundle resources) {
-        super(title);
+        setFrameTitle(title);
 
         this.resources = resources;
-        yahtzeeController = new YahtzeeController();
+        this.yahtzeeController = findYahtzeeController();
 
         makeComponents();
         makeLayout();
@@ -98,11 +100,18 @@ public class LoginFrame extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginBtn) {
-            User user = yahtzeeController.findUser(usernameTxt.getText());
+            User user = null;
+            try {
+                user = yahtzeeController.findUser(usernameTxt.getText());
+            } catch (RemoteException e1) {
+
+            }
+
+            String password = Security.getInstance().encrypt(new String(passwordTxt.getPassword()));
 
             if (user != null) {
-                if (user.getPassword().equals(passwordTxt.getPassword()) && !user.isBlocked()) {
-                    new GameRoomFrame("Yahtzee GameRoom", resources);
+                if (user.getPassword().equals(password) && !user.isBlocked()) {
+                    new GameRoomFrame("Yahtzee GameRoom", resources, usernameTxt.getText());
                     this.dispose();
                 } else {
                     changeMessage(resources.getString("swingLoginError"));
@@ -110,8 +119,6 @@ public class LoginFrame extends JFrame implements ActionListener {
             } else {
                 changeMessage(resources.getString("swingLoginError"));
             }
-            new GameRoomFrame("Yahtzee", resources);
-            this.dispose();
         }
 
         if (e.getSource() == registerBtn) {
@@ -133,5 +140,4 @@ public class LoginFrame extends JFrame implements ActionListener {
     public void changeMessage(String message) {
         errorLbl.setText(message);
     }
-
 }
