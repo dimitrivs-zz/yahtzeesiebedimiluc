@@ -205,15 +205,15 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     //--- listen
 
     private java.util.HashMap convertMap(Map<String, Score> scoreMap) {
-        /*Map returnMap = new HashMap<String, Score>();
+        Map returnMap = new HashMap<String, Score>();
         for (Iterator it = scoreMap.entrySet().iterator(); it.hasNext();) {
             Map.Entry entry = (Map.Entry) it.next();
             String key = (String) entry.getKey();
-            Score value = (Score)entry.getValue();
+            Score value = (Score) entry.getValue();
             returnMap.put(key, value);
         }
-        return returnMap;*/
-        return new HashMap(scoreMap);
+        return new HashMap(returnMap);
+        //return new HashMap(scoreMap);
     }
 
     private java.lang.Object[] convertListChatMessages(List<ChatMessage> chatList) {
@@ -278,13 +278,18 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     private be.kdg.yahtzee.model.remoteObjects.game.Die[] convertListDie(List<Die> dielist) {
-        List returnlist = new ArrayList();
+        be.kdg.yahtzee.model.remoteObjects.game.Die[] returnlist = new be.kdg.yahtzee.model.remoteObjects.game.Die[0];
+        int i = 0;
         for (Die die : dielist) {
             be.kdg.yahtzee.model.remoteObjects.game.Die dieRem = convertDieObject(die);
-            returnlist.add(dieRem);
+            returnlist[i] = dieRem;
+            i++;
         }
-        be.kdg.yahtzee.model.remoteObjects.game.Die[] dieqsdf = (be.kdg.yahtzee.model.remoteObjects.game.Die[]) returnlist.toArray();
-        return dieqsdf;
+        System.out.println("komt hier");
+        //be.kdg.yahtzee.model.remoteObjects.game.Die[] dieqsdf = (be.kdg.yahtzee.model.remoteObjects.game.Die[]) returnlist.toArray();
+        System.out.println("komt niet");
+
+        return returnlist;
     }
     /*
        private java.lang.Object[] convertListScoreAspect(List<ScoreAspect> scorelist){
@@ -309,11 +314,13 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     private be.kdg.yahtzee.model.users.Role convertRoleRemObject(be.kdg.yahtzee.model.remoteObjects.users.Role remRole) {
-        return new be.kdg.yahtzee.model.users.Role(remRole.getName());
+        return userManager.getRole(remRole.getName());
+        //return new be.kdg.yahtzee.model.users.Role(remRole.getName());
     }
 
     private be.kdg.yahtzee.model.users.User convertUserRemObject(be.kdg.yahtzee.model.remoteObjects.users.User remUser) {
-        return new be.kdg.yahtzee.model.users.User(remUser.getUsername(), remUser.getPassword(), remUser.getSurname(), remUser.getFirstname(), convertPersonRemObject(remUser.getPerson()).getEmail(), remUser.getTelephone(), convertRoleRemObject(remUser.getRole()), convertAddressRemObject(remUser.getAddress()));
+        return userManager.getUser(remUser.getUsername());
+        //return new be.kdg.yahtzee.model.users.User(remUser.getUsername(), remUser.getPassword(), remUser.getSurname(), remUser.getFirstname(), convertPersonRemObject(remUser.getPerson()).getEmail(), remUser.getTelephone(), convertRoleRemObject(remUser.getRole()), convertAddressRemObject(remUser.getAddress()));
     }
 
     // ------game objecten
@@ -359,7 +366,32 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     // ---- game objecten
 
     private be.kdg.yahtzee.model.remoteObjects.game.Game convertGameObject(be.kdg.yahtzee.model.game.Game game) {
-        return new be.kdg.yahtzee.model.remoteObjects.game.Game(convertUserObject(game.getActivePlayer()), convertChatObject(game.getChat()), convertUserObject(game.getCreator()), convertListDie(game.getDiceList()), convertListDie(game.getDiceList()), game.getGameName(), game.getMaxPlayer(), game.getNumberOfPlayers(), convertScoreObject(game.getScore()), convertListScorePosibilities(game.getScorePossibilities()), convertMap(game.getScores()), game.getState(), convertSetUsers(game.getUsers()));
+        System.out.println(convertUserObject(game.getActivePlayer()).getUsername());
+        System.out.println(convertChatObject(game.getChat()).getMessages());
+        System.out.println(convertUserObject(game.getCreator()).getUsername());
+        System.out.println(convertListDie(game.getDiceList()));
+        System.out.println(game.getGameName());
+        System.out.println(game.getMaxPlayer());
+        System.out.println(game.getNumberOfPlayers());
+        System.out.println(game.getMaxPlayer());
+        System.out.println(convertScoreObject(game.getScore("username")));
+        System.out.println(convertListScorePosibilities(game.getScorePossibilities()));
+        System.out.println(convertMap(game.getScores()));
+        System.out.println(game.getState());
+        System.out.println(convertSetUsers(game.getUsers()));
+
+        return new be.kdg.yahtzee.model.remoteObjects.game.Game(
+                convertUserObject(game.getActivePlayer()),
+                convertChatObject(game.getChat()),
+                convertUserObject(game.getCreator()),
+                convertListDie(game.getDiceList()),
+                game.getGameName(), game.getMaxPlayer(),
+                game.getNumberOfPlayers(),
+                convertScoreObject(game.getScore("username")),
+                convertListScorePosibilities(game.getScorePossibilities()),
+                game.getState(),
+                convertSetUsers(game.getUsers())
+        );
     }
 
     private be.kdg.yahtzee.model.remoteObjects.game.Die convertDieObject(be.kdg.yahtzee.model.game.Die die) {

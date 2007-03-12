@@ -41,14 +41,12 @@ public class Game implements java.io.Serializable {
             be.kdg.yahtzee.model.remoteObjects.users.User activePlayer,
             be.kdg.yahtzee.model.remoteObjects.chat.Chat chat,
             be.kdg.yahtzee.model.remoteObjects.users.User creator,
-            java.lang.Object[] diceList,
             be.kdg.yahtzee.model.remoteObjects.game.Die[] die,
             java.lang.String gameName,
             int maxPlayer,
             int numberOfPlayers,
             be.kdg.yahtzee.model.remoteObjects.game.Score score,
             java.lang.Object[] scorePossibilities,
-            java.util.HashMap scores,
             java.lang.String state,
             java.lang.Object[] users) {
         this.activePlayer = activePlayer;

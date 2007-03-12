@@ -205,6 +205,8 @@ public class UserManager {
         if (user.getPassword().equals(security.encrypt(orgPass))) {
             if (password.equals(password2) && password.length() > 5) {
                 user.setPassword(security.encrypt(password));
+                System.out.println("qsfqsdfqsdfqsdf" + user);
+
                 userDao.saveUser(user);
                 logger.info("User " + user.getUsername() + " changed his password");
                 return true;
