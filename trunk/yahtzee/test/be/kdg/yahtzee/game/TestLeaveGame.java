@@ -1,7 +1,7 @@
 package be.kdg.yahtzee.game;
 
 import be.kdg.yahtzee.model.game.Game;
-import be.kdg.yahtzee.model.game.GameManager;
+import be.kdg.yahtzee.model.remoteObjects.GameManager;
 import be.kdg.yahtzee.model.users.User;
 import junit.framework.TestCase;
 import org.junit.After;
