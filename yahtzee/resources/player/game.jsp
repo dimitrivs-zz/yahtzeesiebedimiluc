@@ -55,7 +55,7 @@ function getActivePlayer() {
                             window.location = '../../game/FinishGameServlet?game=${gameBean.gameName}';
                         } else {
                             clearTimeout(keepDiceUpdatedTimeout);
-                            //calculateScores();
+                            calculateScores();
                             document.getElementById('btnRoll').style.visibility = 'visible';
                             document.getElementById('btnRoll').disabled = false;
                         }

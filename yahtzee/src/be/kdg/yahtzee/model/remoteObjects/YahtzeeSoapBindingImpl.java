@@ -37,7 +37,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public be.kdg.yahtzee.model.remoteObjects.game.Score getScore(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException {
-        return null;
+        return convertScoreObject(gameManager.getScore(in0, in1));
     }
 
     public void addMessage(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException {
@@ -387,7 +387,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     // ---- game objecten
 
     private be.kdg.yahtzee.model.remoteObjects.game.Game convertGameObject(be.kdg.yahtzee.model.game.Game game) {
-        System.out.println(convertUserObject(game.getActivePlayer()).getUsername());
+        /*System.out.println(convertUserObject(game.getActivePlayer()).getUsername());
         System.out.println(convertChatObject(game.getChat()).getMessages());
         System.out.println(convertUserObject(game.getCreator()).getUsername());
         System.out.println(convertListDie(game.getDiceList()));
@@ -399,17 +399,17 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
         System.out.println(convertListScorePosibilities(game.getScorePossibilities()));
         System.out.println(convertMap(game.getScores()));
         System.out.println(game.getState());
-        System.out.println(convertSetUsers(game.getUsers()));
+        System.out.println(convertSetUsers(game.getUsers())); */
 
         return new be.kdg.yahtzee.model.remoteObjects.game.Game(
-                convertUserObject(game.getActivePlayer()),
-                convertChatObject(game.getChat()),
-                convertUserObject(game.getCreator()),
-                convertListDie(game.getDiceList()),
+                //convertUserObject(game.getActivePlayer()),
+                //convertChatObject(game.getChat()),
+                //convertUserObject(game.getCreator()),
+                //convertListDie(game.getDiceList()),
                 game.getGameName(), game.getMaxPlayer(),
                 game.getNumberOfPlayers(),
-                convertScoreObject(game.getScore("username")),
-                convertListScorePosibilities(game.getScorePossibilities()),
+                //convertScoreObject(game.getScore("username")),
+                //convertListScorePosibilities(game.getScorePossibilities()),
                 game.getState(),
                 convertSetUsers(game.getUsers())
         );
@@ -424,7 +424,28 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     private be.kdg.yahtzee.model.remoteObjects.game.Score convertScoreObject(be.kdg.yahtzee.model.game.Score score) {
-        return new be.kdg.yahtzee.model.remoteObjects.game.Score();
+        return new be.kdg.yahtzee.model.remoteObjects.game.Score(
+                score.getCarre(), score.isCarreFixed(),
+                score.getChance(), score.isChanceFixed(),
+                score.getFives(), score.isFivesFixed(),
+                score.getFours(), score.isFoursFixed(),
+                score.getFullHouse(), score.isFullHouseFixed(),
+                score.getLargeStreet(), score.isLargeStreetFixed(),
+                score.getOnes(), score.isOnesFixed(),
+                score.getSixes(), score.isSixesFixed(),
+                score.getSmallStreet(), score.isSmallStreetFixed(),
+                score.getThreeOfAKind(), score.isThreeOfAKindFixed(),
+                score.getThrees(), score.isThreesFixed(),
+                score.getTotalLowerHalf(),
+                score.getTotalScore(),
+                score.getTotalUpperHalf(),
+                score.getTwos(), score.isTwosFixed(),
+                score.getUpperHalfBonus(),
+                score.getUpperHalfWithoutBonus(),
+                score.getYahtzee(),
+                score.getYahtzeeBonus(),
+                score.isYahtzeeFixed()
+        );
     }
 
     // ------chat objecten
