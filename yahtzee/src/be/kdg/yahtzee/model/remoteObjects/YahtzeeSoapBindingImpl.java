@@ -36,7 +36,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
         return null;
     }
 
-    public be.kdg.yahtzee.model.game.Score getScore(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException {
+    public be.kdg.yahtzee.model.remoteObjects.game.Score getScore(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException {
         return null;
     }
 
@@ -256,7 +256,8 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     private java.lang.Object[] convertListScorePosibilities(List<ScoreAspect> scoreposlist) {
         List returnlist = new ArrayList();
         for (ScoreAspect scoreAspect : scoreposlist) {
-            returnlist.add(scoreAspect);
+            be.kdg.yahtzee.model.remoteObjects.game.ScoreAspect scoreaspectRem = convertScoreAspectObject(scoreAspect);
+            returnlist.add(scoreaspectRem);
         }
         return returnlist.toArray();
     }
@@ -416,6 +417,10 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
 
     private be.kdg.yahtzee.model.remoteObjects.game.Die convertDieObject(be.kdg.yahtzee.model.game.Die die) {
         return new be.kdg.yahtzee.model.remoteObjects.game.Die(die.isDieFixed(), die.isDieFixed(), die.getDieId(), die.getValue());
+    }
+
+    private be.kdg.yahtzee.model.remoteObjects.game.ScoreAspect convertScoreAspectObject(ScoreAspect scoreAspect) {
+        return new be.kdg.yahtzee.model.remoteObjects.game.ScoreAspect(scoreAspect.getDescription(), scoreAspect.isFixed(), scoreAspect.getPoints());
     }
 
     private be.kdg.yahtzee.model.remoteObjects.game.Score convertScoreObject(be.kdg.yahtzee.model.game.Score score) {

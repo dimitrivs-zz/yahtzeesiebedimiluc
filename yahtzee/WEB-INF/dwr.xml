@@ -27,5 +27,8 @@
 
         <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.game.Game"/>
         <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.game.Score"/>
+        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.game.ScoreAspect"/>
+        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.game.Highscore"/>
+        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.game.Die"/>
     </allow>
 </dwr>

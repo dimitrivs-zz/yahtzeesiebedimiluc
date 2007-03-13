@@ -1,7 +1,7 @@
 function refresh()
 {
     getGames()
-    getOnlineUsers()
+    //getOnlineUsers()
     getGlobalChatMessages()
 }
 

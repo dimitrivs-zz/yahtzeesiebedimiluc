@@ -84,6 +84,8 @@ public interface YahtzeeController extends java.rmi.Remote {
 
     public java.util.HashMap getScores(java.lang.String in0) throws java.rmi.RemoteException;
 
+    public be.kdg.yahtzee.model.remoteObjects.game.Score getScore(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException;
+
     public int getPlayerScore(be.kdg.yahtzee.model.remoteObjects.users.User in0, java.lang.String in1) throws java.rmi.RemoteException;
 
     public java.lang.Object[] getScorePossibilities(java.lang.String in0) throws java.rmi.RemoteException;
