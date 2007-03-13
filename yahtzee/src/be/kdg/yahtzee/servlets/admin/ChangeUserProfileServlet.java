@@ -17,7 +17,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Map;
 
 public class ChangeUserProfileServlet extends YahtzeeServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,8 +37,18 @@ public class ChangeUserProfileServlet extends YahtzeeServlet {
 
         User user = yahtzeeController.findUser(username);
 
-        Map<String, Role> roles = yahtzeeController.getRoles();
-        Role role = roles.get(roleName);
+        //Map<String, Role> roles = yahtzeeController.getRoles();
+        Role role = null;
+
+
+        java.lang.Object[] allRoles = yahtzeeController.getRolesList();
+
+        for (int i = 0; i < allRoles.length; i++) {
+            System.out.println(allRoles[i]);
+            if (roleName.equals(((Role) allRoles[i]).getName())) {
+                role = (Role) allRoles[i];
+            }
+        }
 
         if (yahtzeeController.isLastAdministrator() && roleName.equals("Player") && user.getRole().getName().equals("Administrator")) {
             request.setAttribute("message", "U kan de laatste administrator niet verwijderen...");

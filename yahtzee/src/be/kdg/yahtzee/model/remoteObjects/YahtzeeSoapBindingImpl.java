@@ -9,7 +9,11 @@ package be.kdg.yahtzee.model.remoteObjects;
 
 
 import be.kdg.yahtzee.model.chat.ChatMessage;
-import be.kdg.yahtzee.model.game.*;
+import be.kdg.yahtzee.model.game.Die;
+import be.kdg.yahtzee.model.game.Game;
+import be.kdg.yahtzee.model.game.Highscore;
+import be.kdg.yahtzee.model.game.ScoreAspect;
+import be.kdg.yahtzee.model.users.Role;
 import be.kdg.yahtzee.model.users.User;
 
 import java.rmi.RemoteException;
@@ -33,7 +37,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public java.lang.Object[] getRolesList() throws java.rmi.RemoteException {
-        return null;
+        return convertMap(userManager.getRoles());
     }
 
     public be.kdg.yahtzee.model.remoteObjects.game.Score getScore(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException {
@@ -223,15 +227,16 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
 
     //--- listen
 
-    private java.util.HashMap convertMap(Map<String, Score> scoreMap) {
-        Map returnMap = new HashMap<String, Score>();
+    private java.lang.Object[] convertMap(Map<String, Role> scoreMap) {
+        List returnList = new ArrayList();
         for (Iterator it = scoreMap.entrySet().iterator(); it.hasNext();) {
             Map.Entry entry = (Map.Entry) it.next();
-            String key = (String) entry.getKey();
-            Score value = (Score) entry.getValue();
-            returnMap.put(key, value);
+            String key = entry.getKey().toString();
+            Role value = (Role) entry.getValue();
+            returnList.add(value);
+            System.out.println(value.getName());
         }
-        return new HashMap(returnMap);
+        return returnList.toArray();
         //return new HashMap(scoreMap);
     }
 
