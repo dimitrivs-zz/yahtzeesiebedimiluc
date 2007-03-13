@@ -16,6 +16,8 @@ public interface YahtzeeController extends java.rmi.Remote {
 
     public java.lang.Object[] getRolesList() throws java.rmi.RemoteException;
 
+    public be.kdg.yahtzee.model.remoteObjects.game.Score getScore(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException;
+
     public void createPlayer(java.lang.String in0, java.lang.String in1, java.lang.String in2, java.lang.String in3, java.lang.String in4, java.lang.String in5, be.kdg.yahtzee.model.remoteObjects.users.Address in6) throws java.rmi.RemoteException;
 
     public void createAdministrator(java.lang.String in0, java.lang.String in1, java.lang.String in2, java.lang.String in3, java.lang.String in4, java.lang.String in5, be.kdg.yahtzee.model.remoteObjects.users.Address in6) throws java.rmi.RemoteException;
@@ -83,8 +85,6 @@ public interface YahtzeeController extends java.rmi.Remote {
     public be.kdg.yahtzee.model.remoteObjects.game.Score selectScore(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException;
 
     public java.util.HashMap getScores(java.lang.String in0) throws java.rmi.RemoteException;
-
-    public be.kdg.yahtzee.model.remoteObjects.game.Score getScore(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException;
 
     public int getPlayerScore(be.kdg.yahtzee.model.remoteObjects.users.User in0, java.lang.String in1) throws java.rmi.RemoteException;
 
