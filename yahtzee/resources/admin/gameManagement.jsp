@@ -28,7 +28,7 @@
             </h2>
             <a href="/faces/admin/administrator.jsp" class="special"> &lt;
                 <h:outputText value="#{labels.adminBack}"/>
-            </a> | <a href="remove.html" class="special">Remove all idle and empty games</a>
+            </a><span class="spacer"> | </span><a href="remove.html" class="special">Remove all idle and empty games</a>
         </div>
         <div id="overview">
             <yahtzee:showAllGames hrefRemove="/admin/RemoveGameServlet" hrefWatch="/admin/WatchGameServlet"/>

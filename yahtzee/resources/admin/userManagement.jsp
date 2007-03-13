@@ -28,7 +28,7 @@
             </h2>
             <a href="/faces/admin/administrator.jsp" class="special"> &lt;
                 <h:outputText value="#{labels.adminBack}"/>
-            </a> | <a href="/faces/admin/createUser.jsp" class="special">
+            </a><span class="spacer"> | </span><a href="/faces/admin/createUser.jsp" class="special">
             <h:outputText value="#{labels.userAdd}"/>
         </a>
 

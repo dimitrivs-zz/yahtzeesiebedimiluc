@@ -25,9 +25,17 @@
                 </td>
             </tr>
             <tr>
-                <td><h1>
-                    <h:outputText value="#{labels.scoreManTitle}"/>
-                </h1></td>
+                <td>
+                    <h1>
+                        <h:outputText value="#{labels.admin}"/>
+                    </h1>
+
+                    <h2>
+                        <h:outputText value="#{labels.scoreManTitle}"/>
+                    </h2></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td><a href="/admin/ShowHighscoresServlet?filter=top10">
@@ -38,6 +46,9 @@
                 <td><a href="/admin/ShowHighscoresServlet?filter=allScores">
                     <h:outputText value="#{labels.scoreManAll}"/>
                 </a></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
             </tr>
         </table>
         <a href="/faces/admin/administrator.jsp" class="special">
