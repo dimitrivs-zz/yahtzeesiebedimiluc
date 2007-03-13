@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Date;
+import java.util.Calendar;
 
 public class FinishGameServlet extends YahtzeeServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,9 +23,9 @@ public class FinishGameServlet extends YahtzeeServlet {
         User user = yahtzeeController.findUser(userBean.getUsername());
 
         int score = yahtzeeController.getPlayerScore(user, gameName);
-        Date now = new Date();
+        Calendar cal = java.util.GregorianCalendar.getInstance();
 
-        yahtzeeController.saveHighscore(user, score, null);
+        yahtzeeController.saveHighscore(user, score, cal);
         yahtzeeController.leaveGame(gameName, user);
 
         response.sendRedirect("/faces/player/gameFinish.jsp");

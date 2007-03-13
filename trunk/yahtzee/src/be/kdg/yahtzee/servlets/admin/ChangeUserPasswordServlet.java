@@ -24,7 +24,7 @@ public class ChangeUserPasswordServlet extends YahtzeeServlet {
         String password2 = request.getParameter("pw2");
         YahtzeeController yahtzeeController = findYahtzeeController();
         User orgUser = yahtzeeController.findUser(orgUsername);
-        yahtzeeController.changePassWord(orgUser, orgPass, password, password2);
+        yahtzeeController.changePassWord(orgUser, orgUser.getPassword(), password, password2);
 
         request.setAttribute("message", "Het wachtwoord werd succesvol gewijzigd");
         forward("/faces/admin/changeUser.jsp", request, response);
