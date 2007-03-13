@@ -7,39 +7,47 @@
 
 package be.kdg.yahtzee.view.login;
 
+import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.model.remoteObjects.game.Game;
+import be.kdg.yahtzee.model.remoteObjects.users.User;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
-public class GameRoomFrame extends JFrame implements ActionListener {
+public class GameRoomFrame extends YahtzeeSwing implements ActionListener {
     private JLabel titletableLbl;
-    private JTable gameTable;
+    private JList gameList;
+    private DefaultListModel listModel;
     private JButton startBtn;
     private JButton joinBtn;
     private JButton profileBtn;
     private JButton logoutBtn;
 
     private JPanel titlePnl;
+    private JScrollPane gamePane;
     private JPanel gameSummaryPnl;
     private JPanel buttonPnl;
-    private JPanel gamePnl;
 
     private ResourceBundle resources;
+    private YahtzeeController yahtzeeController;
     private String username;
 
     public GameRoomFrame(String title, ResourceBundle resources, String username) {
-        super(title);
+        setFrameTitle(title);
 
         this.resources = resources;
         this.username = username;
+        this.yahtzeeController = findYahtzeeController();
 
         makeComponents();
         makeLayout();
+        fillGameList();
         addListeners();
         showFrame();
-
     }
 
     private void makeComponents() {
@@ -55,12 +63,13 @@ public class GameRoomFrame extends JFrame implements ActionListener {
         profileBtn = new JButton(profileString);
         logoutBtn = new JButton(logoutString);
 
-        gameTable = new JTable(10, 4);
+        listModel = new DefaultListModel();
+        gameList = new JList(listModel);
 
         titlePnl = new JPanel();
+        gamePane = new JScrollPane(gameList);
         gameSummaryPnl = new JPanel();
         buttonPnl = new JPanel();
-        gamePnl = new JPanel();
     }
 
     private void makeLayout() {
@@ -74,13 +83,23 @@ public class GameRoomFrame extends JFrame implements ActionListener {
         buttonPnl.add(profileBtn);
         buttonPnl.add(logoutBtn);
 
-        gamePnl.add(gameTable);
-
-        gameSummaryPnl.add(gamePnl, BorderLayout.CENTER);
+        gameSummaryPnl.add(gamePane, BorderLayout.CENTER);
         gameSummaryPnl.add(buttonPnl, BorderLayout.EAST);
 
         content.add(titlePnl, BorderLayout.NORTH);
         content.add(gameSummaryPnl, BorderLayout.CENTER);
+    }
+
+    private void fillGameList() {
+        try {
+            java.lang.Object[] games = yahtzeeController.getGames();
+
+            for (int i = 0; i < games.length; i++) {
+                Game game = (Game) games[i];
+                listModel.addElement(game);
+            }
+        } catch (RemoteException e) {
+        }
     }
 
     private void addListeners() {
@@ -92,7 +111,7 @@ public class GameRoomFrame extends JFrame implements ActionListener {
 
     private void showFrame() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(600, 400);
+        setSize(400, 200);
         Dimension d = this.getToolkit().getScreenSize();
         setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
         pack();
@@ -108,7 +127,21 @@ public class GameRoomFrame extends JFrame implements ActionListener {
         }
 
         if (e.getSource() == joinBtn) {
+            User user = null;
+            Game game = null;
 
+            try {
+                user = yahtzeeController.findUser(username);
+                game = (Game) gameList.getSelectedValue();
+
+                if (!yahtzeeController.joinGame(game.getGameName(), user)) {
+
+                } else {
+                    new GameFrame(game.getGameName(), resources, game.getMaxPlayer());
+                    this.dispose();
+                }
+            } catch (RemoteException e1) {
+            }
         }
 
         if (e.getSource() == profileBtn) {
@@ -120,5 +153,16 @@ public class GameRoomFrame extends JFrame implements ActionListener {
             new LoginFrame("Yahtzee", resources);
             this.dispose();
         }
+    }
+
+    protected void addGame(String gamename) {
+        Game game = null;
+
+        try {
+            game = yahtzeeController.getGame(gamename);
+        } catch (RemoteException e) {
+        }
+
+        listModel.addElement(game);
     }
 }

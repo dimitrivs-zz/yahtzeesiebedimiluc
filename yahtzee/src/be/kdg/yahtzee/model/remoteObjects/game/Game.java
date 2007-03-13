@@ -581,4 +581,7 @@ public class Game implements java.io.Serializable {
                         _javaType, _xmlType, typeDesc);
     }
 
+    public String toString() {
+        return gameName + " - " + numberOfPlayers + "/" + maxPlayer;
+    }
 }
