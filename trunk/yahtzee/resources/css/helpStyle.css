@@ -1,0 +1,69 @@
+html {
+    background-image: url( ../images/background.png );
+    background-attachment: fixed;
+    color: #FFFFFF;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFFF00;
+    padding: 0px;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFFF00;
+    font-size: 20px;
+}
+
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFFF00;
+}
+
+td {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#bv {
+    margin-right: 20px;
+    color: #FFFFFF
+}
+
+strong {
+    color: #FFFF00
+}
+
+a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+a:link {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+a:active {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
