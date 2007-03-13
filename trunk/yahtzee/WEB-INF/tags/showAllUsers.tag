@@ -13,18 +13,18 @@
 <f:loadBundle basename="bundles.resources" var="labels"/>
 <table border="1">
     <tr>
-        <td align="center">
+        <th align="center">
             <h:outputText value="#{labels.allUserID}"/>
-        </td>
-        <td align="center">
+        </th>
+        <th align="center">
             <h:outputText value="#{labels.userName}"/>
-        </td>
-        <td align="center">
+        </th>
+        <th align="center">
             <h:outputText value="#{labels.userName}"/>
-        </td>
-        <td colspan="3" align="center">
+        </th>
+        <th colspan="3" align="center">
             <h:outputText value="#{labels.allUserActions}"/>
-        </td>
+        </th>
     </tr>
     <% if (allUsers.isEmpty()) {
     %>
@@ -38,7 +38,7 @@
             User user = (User) user1;
     %>
     <tr>
-        <td><%= user.getUserId()%>
+        <td class="center"><%= user.getUserId()%>
         </td>
         <td><%= user.getUsername()%>
         </td>
