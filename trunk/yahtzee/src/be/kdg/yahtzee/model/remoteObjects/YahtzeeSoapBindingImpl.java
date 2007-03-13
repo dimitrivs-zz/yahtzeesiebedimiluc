@@ -24,6 +24,18 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
         gameManager = GameManager.getInstance();
     }
 
+    public be.kdg.yahtzee.model.remoteObjects.game.Highscore getHighscore() throws java.rmi.RemoteException {
+        return null;
+    }
+
+    public be.kdg.yahtzee.model.remoteObjects.game.ScoreAspect getScoreAspect() throws java.rmi.RemoteException {
+        return null;
+    }
+
+    public java.lang.Object[] getRolesList() throws java.rmi.RemoteException {
+        return null;
+    }
+
     public void addMessage(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException {
         gameManager.addMessage(in0, in1);
     }
@@ -45,12 +57,10 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public void changePassWord(be.kdg.yahtzee.model.remoteObjects.users.User in0, java.lang.String in1, java.lang.String in2) throws java.rmi.RemoteException {
-        User user = userManager.getUser(in0.getUsername());
-        if (in1.equals("online")) {
-            user.setOnline(true);
-        } else {
-            user.setOnline(false);
-        }
+
+    }
+
+    public void setOnline(be.kdg.yahtzee.model.remoteObjects.users.User in0, boolean in1) throws java.rmi.RemoteException {
     }
 
     public void removeUser(java.lang.String in0) throws java.rmi.RemoteException {
@@ -331,7 +341,8 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     // ------game objecten
 
     private be.kdg.yahtzee.model.game.Game convertGameRemObject(be.kdg.yahtzee.model.remoteObjects.game.Game remGame) {
-        return new be.kdg.yahtzee.model.game.Game(remGame.getGameName(), remGame.getMaxPlayer(), convertUserRemObject(remGame.getCreator()));
+        return gameManager.getGame(remGame.getGameName());
+        //return new be.kdg.yahtzee.model.game.Game(remGame.getGameName(), remGame.getMaxPlayer(), convertUserRemObject(remGame.getCreator()));
     }
 
     private be.kdg.yahtzee.model.game.Die convertDieRemObject(be.kdg.yahtzee.model.remoteObjects.game.Die remDie) {

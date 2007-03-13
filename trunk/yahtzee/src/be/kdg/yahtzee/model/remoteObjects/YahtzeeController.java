@@ -10,6 +10,12 @@ package be.kdg.yahtzee.model.remoteObjects;
 public interface YahtzeeController extends java.rmi.Remote {
     public void addMessage(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException;
 
+    public be.kdg.yahtzee.model.remoteObjects.game.Highscore getHighscore() throws java.rmi.RemoteException;
+
+    public be.kdg.yahtzee.model.remoteObjects.game.ScoreAspect getScoreAspect() throws java.rmi.RemoteException;
+
+    public java.lang.Object[] getRolesList() throws java.rmi.RemoteException;
+
     public void createPlayer(java.lang.String in0, java.lang.String in1, java.lang.String in2, java.lang.String in3, java.lang.String in4, java.lang.String in5, be.kdg.yahtzee.model.remoteObjects.users.Address in6) throws java.rmi.RemoteException;
 
     public void createAdministrator(java.lang.String in0, java.lang.String in1, java.lang.String in2, java.lang.String in3, java.lang.String in4, java.lang.String in5, be.kdg.yahtzee.model.remoteObjects.users.Address in6) throws java.rmi.RemoteException;
@@ -19,6 +25,8 @@ public interface YahtzeeController extends java.rmi.Remote {
     public boolean changePassWord(be.kdg.yahtzee.model.remoteObjects.users.User in0, java.lang.String in1, java.lang.String in2, java.lang.String in3) throws java.rmi.RemoteException;
 
     public void changePassWord(be.kdg.yahtzee.model.remoteObjects.users.User in0, java.lang.String in1, java.lang.String in2) throws java.rmi.RemoteException;
+
+    public void setOnline(be.kdg.yahtzee.model.remoteObjects.users.User in0, boolean in1) throws java.rmi.RemoteException;
 
     public void removeUser(java.lang.String in0) throws java.rmi.RemoteException;
 
