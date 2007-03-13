@@ -12,21 +12,21 @@
 <f:loadBundle basename="bundles.resources" var="labels"/>
 <table border="1">
     <tr>
-        <td>
+        <th>
             <h:outputText value="#{labels.roomName}"/>
-        </td>
-        <td>
+        </th>
+        <th>
             <h:outputText value="#{labels.allGameMax}"/>
-        </td>
-        <td>
+        </th>
+        <th>
             <h:outputText value="#{labels.allGameNumber}"/>
-        </td>
-        <td>
+        </th>
+        <th>
             <h:outputText value="#{labels.roomState}"/>
-        </td>
-        <td colspan="2" align="center">
+        </th>
+        <th colspan="2" align="center">
             <h:outputText value="#{labels.roomAction}"/>
-        </td>
+        </th>
     </tr>
     <% if (allGames.isEmpty()) {
     %>
@@ -42,7 +42,7 @@
     <tr>
         <td><%= game.getGameName()%>
         </td>
-        <td><%= game.getMaxPlayer()%>
+        <td class="center"><%= game.getMaxPlayer()%>
         </td>
         <td><%= game.getNumberOfPlayers()%>
         </td>

@@ -25,7 +25,7 @@
         </td>
         <td><%= highscore.getUser().getUsername()%>
         </td>
-        <td><%= highscore.getScore()%>
+        <td class="center"><%= highscore.getScore()%>
         </td>
     </tr>
 
