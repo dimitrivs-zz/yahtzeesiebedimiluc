@@ -15,7 +15,7 @@
     <h:outputText value="#{labels.gameTitle}"/>
     (${gameBean.gameName})</title>
 <script type='text/javascript' src='/dwr/engine.js'></script>
-<script type='text/javascript' src='/dwr/interface/GameManager.js'></script>
+<script type='text/javascript' src='/dwr/interface/DwrController.js'></script>
 <script type='text/javascript' src='/dwr/util.js'></script>
 
 <script type="text/javascript">
@@ -29,7 +29,7 @@ var numberTurnsOld = 0;
 
 function init() {
     loadPlayers();
-    GameManager.getCreator('${gameBean.gameName}',
+    DwrController.getCreator('${gameBean.gameName}',
             function(creator) {
                 if (creator != '${userBean.username}') {
                     document.getElementById('btnStart').style.visibility = 'hidden';
@@ -41,7 +41,7 @@ function init() {
 }
 
 function getActivePlayer() {
-    GameManager.getActivePlayer('${gameBean.gameName}',
+    DwrController.getActivePlayer('${gameBean.gameName}',
             function(playerName) {
                 if (activePlayer == '') {
                     activePlayer = playerName;
@@ -55,7 +55,7 @@ function getActivePlayer() {
                             window.location = '../../game/FinishGameServlet?game=${gameBean.gameName}';
                         } else {
                             clearTimeout(keepDiceUpdatedTimeout);
-                            calculateScores();
+                            //calculateScores();
                             document.getElementById('btnRoll').style.visibility = 'visible';
                             document.getElementById('btnRoll').disabled = false;
                         }
@@ -73,7 +73,7 @@ function loadPlayers() {
     document.getElementById('p2table').style.visibility = 'hidden';
     document.getElementById('p3table').style.visibility = 'hidden';
     document.getElementById('p4table').style.visibility = 'hidden';
-    GameManager.getUsersOfGame('${gameBean.gameName}', playersLoaded);
+    DwrController.getUsersOfGame('${gameBean.gameName}', playersLoaded);
 }
 function playersLoaded(players) {
     playersArray.length = 0;
@@ -86,7 +86,7 @@ function playersLoaded(players) {
         DWRUtil.setValue('p' + i + 'name', players[user].username);
     }
     loadPlayerTimeout = setTimeout('loadPlayers()', 1000);
-    GameManager.getGameState('${gameBean.gameName}', function(state) {
+    DwrController.getGameState('${gameBean.gameName}', function(state) {
         if (state == 'Busy') {
             startGame();
         }
@@ -94,7 +94,7 @@ function playersLoaded(players) {
 }
 
 function keepPlayersUpdated() {
-    GameManager.getUsersOfGame('${gameBean.gameName}',
+    DwrController.getUsersOfGame('${gameBean.gameName}',
             function(playersList) {
                 if (playersList.length != playersArray.length) {
                     var testArray = new Array();
@@ -131,14 +131,14 @@ function removePlayer(playerUsername) {
 
 function startGame() {
     DWRUtil.setValue('gameState', '<h:outputText value="#{labels.gameStarting}"/>...');
-    GameManager.startGame('${gameBean.gameName}', gameStarted);
+    DwrController.startGame('${gameBean.gameName}', gameStarted);
 }
 
 function gameStarted(state) {
     if (state == 'Busy') {
         document.getElementById('btnStart').style.visibility = 'hidden';
         document.getElementById('btnStart').disabled = true;
-        GameManager.getActivePlayer('${gameBean.gameName}',
+        DwrController.getActivePlayer('${gameBean.gameName}',
                 function(player) {
                     if (player == '${userBean.username}') {
                         document.getElementById('btnRoll').style.visibility = 'visible';
@@ -158,7 +158,7 @@ function gameStarted(state) {
     }
 }
 function keepDiceUpdated() {
-    GameManager.getDiceList('${gameBean.gameName}',
+    DwrController.getDiceList('${gameBean.gameName}',
             function(diceList) {
                 var i = 0;
                 resetDice();
@@ -185,7 +185,7 @@ function keepDiceUpdated() {
 
 function rollDice() {
     if (numberRolls < 3) {
-        GameManager.playRound('${gameBean.gameName}', getDice);
+        DwrController.playRound('${gameBean.gameName}', getDice);
         numberRolls++;
         if (numberRolls == 3) {
             document.getElementById('btnRoll').style.visibility = 'hidden';
@@ -205,7 +205,7 @@ function getDice(diceList) {
         }
         i++;
     }
-    GameManager.getScorePossibilities('${gameBean.gameName}', showScorePossibilities);
+    DwrController.getScorePossibilities('${gameBean.gameName}', showScorePossibilities);
 }
 
 function showScorePossibilities(scorePossibilitiesList) {
@@ -221,7 +221,7 @@ function showScorePossibilities(scorePossibilitiesList) {
 }
 
 function selectScore(scoreDescription) {
-    GameManager.selectScore('${gameBean.gameName}', scoreDescription, emptyFunc);
+    DwrController.selectScore('${gameBean.gameName}', scoreDescription, emptyFunc);
     resetDice();
     document.getElementById('possibleScores').style.visibility = 'hidden';
     //document.getElementById('scoresContainer').style.visibility = 'hidden';
@@ -240,7 +240,7 @@ var cellFuncs = [
 var count = 1;
 
 function calculateScores() {
-    GameManager.getScores('${gameBean.gameName}',
+    DwrController.getScores('${gameBean.gameName}',
             function(scores) {
                 var scoreArray = new Array();
                 var i = 1;
@@ -285,14 +285,14 @@ function resetDice() {
 function fixDice(diceNr, state) {
     if (activePlayer == '${userBean.username}') {
         if (state) {
-            GameManager.fixDie('${gameBean.gameName}', diceNr);
+            DwrController.fixDie('${gameBean.gameName}', diceNr);
             document.getElementById('dice' + diceNr + 'notFixed').style.visibility = 'hidden';
             document.getElementById('dice' + diceNr + 'fixedImg').src = '../../images/die' + document.getElementById('dice' + diceNr + 'notFixedImg').alt + '.png';
             document.getElementById('dice' + diceNr + 'fixedImg').alt = document.getElementById('dice' + diceNr + 'notFixedImg').alt;
             //DWRUtil.setValue('dice' + diceNr + 'fixed', DWRUtil.getValue('dice' + diceNr + 'notFixed'));
             document.getElementById('dice' + diceNr + 'fixed').style.visibility = 'visible';
         } else {
-            GameManager.unfixDie('${gameBean.gameName}', diceNr);
+            DwrController.unfixDie('${gameBean.gameName}', diceNr);
             document.getElementById('dice' + diceNr + 'fixed').style.visibility = 'hidden';
             document.getElementById('dice' + diceNr + 'notFixedImg').src = '../../images/die' + document.getElementById('dice' + diceNr + 'fixedImg').alt + '.png';
             document.getElementById('dice' + diceNr + 'notFixedImg').alt = document.getElementById('dice' + diceNr + 'fixedImg').alt;
@@ -308,16 +308,16 @@ function sendMessage() {
     var text = DWRUtil.getValue("text");
     if (text != '' && text != ' ') {
         DWRUtil.setValue("text", "");
-        GameManager.addMessage("${userBean.name}: " + text + "\n", '${gameBean.gameName}', gotMessages);
+        DwrController.addMessage("${userBean.name}: " + text + "\n", '${gameBean.gameName}', gotMessages);
     }
 }
 function checkMessages() {
-    GameManager.getMessages('${gameBean.gameName}', gotMessages);
+    DwrController.getMessages('${gameBean.gameName}', gotMessages);
 }
 function gotMessages(messages) {
     var chatlog = "";
     for (var data in messages) {
-        chatlog = messages[data].text + chatlog;
+        chatlog = messages[data] + chatlog;
     }
     DWRUtil.setValue("chatlog", chatlog);
     setTimeout("checkMessages()", 1000);

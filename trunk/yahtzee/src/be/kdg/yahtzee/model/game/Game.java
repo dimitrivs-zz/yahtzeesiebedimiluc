@@ -705,9 +705,9 @@ public class Game {
     }
 
     /**
-     * Method for getting the score of the active player.
+     * Method for getting the score of a player.
      *
-     * @return Score object of active player.
+     * @return Score object of a player.
      */
     public Score getScore(String username) {
         return scores.get(username);

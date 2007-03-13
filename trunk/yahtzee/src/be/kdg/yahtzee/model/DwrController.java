@@ -1,22 +1,16 @@
 package be.kdg.yahtzee.model;
 
 import be.kdg.yahtzee.model.remoteObjects.YahtzeeControllerServiceLocator;
+import be.kdg.yahtzee.model.remoteObjects.game.Die;
 import be.kdg.yahtzee.model.remoteObjects.game.Game;
+import be.kdg.yahtzee.model.remoteObjects.game.Score;
+import be.kdg.yahtzee.model.remoteObjects.game.ScoreAspect;
 import be.kdg.yahtzee.model.remoteObjects.users.User;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Eigenaar
- * Date: 11-mrt-2007
- * Time: 9:05:32
- * To change this template use File | Settings | File Templates.
- */
+
 public class DwrController {
     be.kdg.yahtzee.model.remoteObjects.YahtzeeController yahtzeeController;
 
@@ -29,6 +23,7 @@ public class DwrController {
         }
     }
 
+    // ----- global functions -----
     public Set<Game> getGames() throws RemoteException {
         Set<Game> allGamesList = new HashSet<Game>();
 
@@ -40,8 +35,6 @@ public class DwrController {
             allGamesList.add((Game) allGames[i]);
             System.out.println("Game : " + ((Game) allGames[i]).getGameName() + " added");
         }
-
-        System.out.println("Groote games DWR SET: " + allGamesList.size());
 
         return allGamesList;
     }
@@ -71,4 +64,98 @@ public class DwrController {
     public void addGlobalMessage(String text) throws RemoteException {
         yahtzeeController.addGlobalMessage(text);
     }
+
+    // ----- game functions -----
+    public String getCreator(String gameName) throws RemoteException {
+        return yahtzeeController.getCreator(gameName);
+    }
+
+    public String getActivePlayer(String gameName) throws RemoteException {
+        return yahtzeeController.getActivePlayer(gameName);
+    }
+
+    public Set<User> getUsersOfGame(String gameName) throws RemoteException {
+        Set<User> allUsersList = new HashSet<User>();
+        java.lang.Object[] allUsersArray = yahtzeeController.getUsersOfGame(gameName);
+        for (int i = 0; i < allUsersArray.length; i++) {
+            allUsersList.add((User) allUsersArray[i]);
+        }
+        return allUsersList;
+    }
+
+    public String getGameState(String gameName) throws RemoteException {
+        return yahtzeeController.getGameState(gameName);
+    }
+
+    public String startGame(String gameName) throws RemoteException {
+        return yahtzeeController.startGame(gameName);
+    }
+
+    public List<Die> getDiceList(String gameName) throws RemoteException {
+        List<Die> allDiceList = new ArrayList<Die>();
+        java.lang.Object[] allDie = yahtzeeController.getDiceList(gameName);
+        for (int i = 0; i < allDie.length; i++) {
+            allDiceList.add((Die) allDie[i]);
+        }
+        return allDiceList;
+    }
+
+    public List<Die> playRound(String gameName) throws RemoteException {
+        List<Die> allDiceList = new ArrayList<Die>();
+        java.lang.Object[] allDie = yahtzeeController.playGameRound(gameName);
+        for (int i = 0; i < allDie.length; i++) {
+            allDiceList.add((Die) allDie[i]);
+        }
+        return allDiceList;
+    }
+
+    public List<ScoreAspect> getScorePossibilities(String gameName) throws RemoteException {
+        List<ScoreAspect> allScoreList = new ArrayList<ScoreAspect>();
+        java.lang.Object[] allScore = yahtzeeController.getScorePossibilities(gameName);
+        for (int i = 0; i < allScore.length; i++) {
+            allScoreList.add((ScoreAspect) allScore[i]);
+        }
+        return allScoreList;
+    }
+
+    public Score selectScore(String gameName, String scoreChoice) throws RemoteException {
+        return yahtzeeController.selectScore(gameName, scoreChoice);
+    }
+
+    public void fixDie(String gameName, int dieId) throws RemoteException {
+        yahtzeeController.fixDie(gameName, dieId);
+    }
+
+    public void unfixDie(String gameName, int dieId) throws RemoteException {
+        yahtzeeController.unfixDie(gameName, dieId);
+    }
+
+    public Map getScores(String gameName) throws RemoteException {
+        //Map<String, Score> scores = new HashMap<String, Score>();
+        //Set<User> users = getUsersOfGame(gameName);
+        Game game = yahtzeeController.getGame(gameName);
+        System.out.println(game.getScores());
+        return game.getScores();
+    }
+
+    public void addMessage(String text, String gameName) throws RemoteException {
+        yahtzeeController.addMessage(text, gameName);
+    }
+
+    /**
+     * Method for getting the messages of a chat in a game.
+     *
+     * @param gameName String name of game.
+     * @return List with chatMessages of a game.
+     */
+    public List getMessages(String gameName) throws RemoteException {
+        List allMessagesList = new ArrayList();
+        java.lang.Object[] allMessages = yahtzeeController.getMessages(gameName);
+        for (int i = 0; i < allMessages.length; i++) {
+            allMessagesList.add(allMessages[i]);
+        }
+        return allMessagesList;
+    }
+
+
 }
