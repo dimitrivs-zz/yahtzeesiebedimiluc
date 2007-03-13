@@ -112,11 +112,11 @@ public class GameRoomFrame extends JFrame implements ActionListener {
         }
 
         if (e.getSource() == profileBtn) {
-
+            new ChangeProfileFrame("Yahtzee Profile", resources, this, username);
+            this.setVisible(false);
         }
 
         if (e.getSource() == logoutBtn) {
-
             new LoginFrame("Yahtzee", resources);
             this.dispose();
         }

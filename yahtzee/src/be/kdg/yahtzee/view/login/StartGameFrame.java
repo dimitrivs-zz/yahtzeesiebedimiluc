@@ -93,6 +93,7 @@ public class StartGameFrame extends YahtzeeSwing implements ActionListener {
 
     public void addListeners() {
         okBtn.addActionListener(this);
+        cancelBtn.addActionListener(this);
     }
 
     public void showFrame() {
@@ -120,6 +121,11 @@ public class StartGameFrame extends YahtzeeSwing implements ActionListener {
                 }
             } catch (RemoteException e1) {
             }
+        }
+
+        if (e.getSource() == cancelBtn) {
+            gameRoomFrame.setVisible(true);
+            this.dispose();
         }
 
     }
