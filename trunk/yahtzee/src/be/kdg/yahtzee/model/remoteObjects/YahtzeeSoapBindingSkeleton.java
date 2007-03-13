@@ -7,8 +7,6 @@
 
 package be.kdg.yahtzee.model.remoteObjects;
 
-import java.rmi.RemoteException;
-
 public class YahtzeeSoapBindingSkeleton implements be.kdg.yahtzee.model.remoteObjects.YahtzeeController, org.apache.axis.wsdl.Skeleton {
     private be.kdg.yahtzee.model.remoteObjects.YahtzeeController impl;
     private static java.util.Map _myOperations = new java.util.Hashtable();
@@ -623,7 +621,7 @@ public class YahtzeeSoapBindingSkeleton implements be.kdg.yahtzee.model.remoteOb
         ((java.util.List) _myOperations.get("getGlobalMessages")).add(_oper);
     }
 
-    public YahtzeeSoapBindingSkeleton() throws RemoteException {
+    public YahtzeeSoapBindingSkeleton() {
         this.impl = new be.kdg.yahtzee.model.remoteObjects.YahtzeeSoapBindingImpl();
     }
 
