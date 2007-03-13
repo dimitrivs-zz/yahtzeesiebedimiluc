@@ -35,7 +35,7 @@ public class SearchUserServlet extends YahtzeeServlet {
         }
 
         HttpSession session = request.getSession();
-        session.setAttribute("allUsers", allUsers);
+        session.setAttribute("allUsers", allUsersList);
 
         forward("/faces/admin/userManagement.jsp", request, response);
     }
