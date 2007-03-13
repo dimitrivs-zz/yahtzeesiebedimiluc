@@ -24,7 +24,7 @@ public class TestSearch extends TestCase {
 
     @Before
     public void setUp() throws RemoteException {
-        userManager = new UserManager();
+        userManager = new UserManager(true);
     }
 
     @After

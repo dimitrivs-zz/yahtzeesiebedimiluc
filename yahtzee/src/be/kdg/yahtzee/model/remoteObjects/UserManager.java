@@ -51,36 +51,6 @@ public class UserManager {
             roles.put(role.getName(), role);
         }
         logger.info("Roles loaded in model aantal : " + roles.size());
-
-        //createRole("Administrator");
-        //createRole("Player");
-
-        /*
-        UserDaoImpl userDao = new UserDaoImpl();
-        RoleDaoImpl roleDao = new RoleDaoImpl();
-
-        Configuration configuration = new Configuration();
-        configuration.setProperty(Environment.DRIVER, "com.mysql.jdbc.Driver");
-        configuration.setProperty(Environment.URL, "jdbc:mysql://localhost:3306/yahtzee");
-        configuration.setProperty(Environment.USER, "yahtzee");
-        configuration.setProperty(Environment.PASS, "yahtzee");
-        configuration.setProperty(Environment.DIALECT, HSQLDialect.class.getName());
-        configuration.setProperty(Environment.SHOW_SQL, "true");
-        //configuration.setProperty(Environment.HBM2DDL_AUTO, "create");
-        configuration.addClass(User.class);
-        configuration.addClass(Role.class);
-
-        this.sessionFactory = configuration.buildSessionFactory();
-
-        userDao.setSessionFactory(sessionFactory);
-        roleDao.setSessionFactory(sessionFactory);
-
-        this.session = SessionFactoryUtils.getSession(sessionFactory, true);
-        TransactionSynchronizationManager.bindResource(sessionFactory,
-                new SessionHolder(session));
-
-        userManager.setUserDao(userDao);
-        userManager.setRoleDao(roleDao);*/
     }
 
     public static UserManager getInstance() throws RemoteException {
@@ -176,13 +146,13 @@ public class UserManager {
 
     public User createAdministrator(String username, String plainPassword, String surname, String firstName, String email, String telephone, Address address) {
         Role role = roles.get("Administrator");
-        //logger.info("Administrator " + username + "met role " + ((Role) roles.get("Administrator")).getName() + " created");
+        logger.info("Administrator " + username + " created");
         return createUser(username, plainPassword, surname, firstName, email, telephone, role, address);
     }
 
     public User createPlayer(String username, String plainPassword, String surname, String firstName, String email, String telephone, Address address) {
         Role role = roles.get("Player");
-        //logger.info("Player " + username + "met role " + ((Role) roles.get("player")).getName() + " created");
+        logger.info("Player " + username + " created");
         return createUser(username, plainPassword, surname, firstName, email, telephone, role, address);
     }
 
@@ -202,7 +172,7 @@ public class UserManager {
 
     public boolean changePassword(User user, String orgPass, String password, String password2) {
         Security security = Security.getInstance();
-        if (user.getPassword().equals(security.encrypt(orgPass))) {
+        if (user.getPassword().equals(security.encrypt(orgPass)) || user.getPassword().equals(orgPass)) {
             if (password.equals(password2) && password.length() > 5) {
                 user.setPassword(security.encrypt(password));
                 System.out.println("qsfqsdfqsdfqsdf" + user);

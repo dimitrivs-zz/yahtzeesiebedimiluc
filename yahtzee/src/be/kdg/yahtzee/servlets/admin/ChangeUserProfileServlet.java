@@ -44,7 +44,7 @@ public class ChangeUserProfileServlet extends YahtzeeServlet {
         java.lang.Object[] allRoles = yahtzeeController.getRolesList();
 
         for (int i = 0; i < allRoles.length; i++) {
-            System.out.println(allRoles[i]);
+            System.out.println(((Role) allRoles[i]).getName() + "  " + roleName);
             if (roleName.equals(((Role) allRoles[i]).getName())) {
                 role = (Role) allRoles[i];
             }

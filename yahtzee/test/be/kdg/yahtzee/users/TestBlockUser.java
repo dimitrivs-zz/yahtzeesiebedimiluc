@@ -23,7 +23,7 @@ public class TestBlockUser extends TestCase {
 
     @Before
     public void setUp() throws RemoteException {
-        userManager = new UserManager();
+
     }
 
     @After
@@ -34,6 +34,7 @@ public class TestBlockUser extends TestCase {
     @Test
     public void testBlockUser() throws Exception {
         Address address = new Address("Nationalestraat", "5", "2000", "Antwerpen", "Belgium");
+
         userManager.createPlayer("haha", "hahahahahaha", "klant 2", "NEEEE", "klant2@klant.be", "2439479", address);
         userManager.createPlayer("bla", "blablabla", "klant 1", "JAA", "klant1@klant.be", "7832723", address);
 

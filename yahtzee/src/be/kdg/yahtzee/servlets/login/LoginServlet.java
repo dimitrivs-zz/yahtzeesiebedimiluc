@@ -64,7 +64,7 @@ public class LoginServlet extends YahtzeeServlet {
         }
 
         if (loginOK) {
-            yahtzeeController.changePassWord(user, "online", "qsdf");
+            yahtzeeController.setOnline(user, true);
             logger.info("User " + user.getUsername() + " logged in");
             makeUserBean(request, user, yahtzeeController);
             forwardUser(request, response, username, yahtzeeController);

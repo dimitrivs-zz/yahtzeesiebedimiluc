@@ -60,6 +60,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
         return convertUserObject(userManager.changeUser(convertUserRemObject(in0), in1, in2, in3, in4, convertAddressRemObject(in5), convertRoleRemObject(in6)));
     }
 
+
     public boolean changePassWord(be.kdg.yahtzee.model.remoteObjects.users.User in0, java.lang.String in1, java.lang.String in2, java.lang.String in3) throws java.rmi.RemoteException {
         return userManager.changePassword(convertUserRemObject(in0), in1, in2, in3);
     }
@@ -69,6 +70,12 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public void setOnline(be.kdg.yahtzee.model.remoteObjects.users.User in0, boolean in1) throws java.rmi.RemoteException {
+        User user = userManager.getUser(in0.getUsername());
+        if (in1) {
+            user.setOnline(true);
+        } else {
+            user.setOnline(false);
+        }
     }
 
     public void removeUser(java.lang.String in0) throws java.rmi.RemoteException {
@@ -204,7 +211,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     }
 
     public void saveHighscore(be.kdg.yahtzee.model.remoteObjects.users.User in0, int in1, java.util.Calendar in2) throws java.rmi.RemoteException {
-        gameManager.saveHighscore(convertUserRemObject(in0), in1, null);
+        gameManager.saveHighscore(convertUserRemObject(in0), in1, convertCalender(in2));
     }
 
     public int getHighestScore(be.kdg.yahtzee.model.remoteObjects.users.User in0) throws java.rmi.RemoteException {
@@ -232,7 +239,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
         for (Iterator it = scoreMap.entrySet().iterator(); it.hasNext();) {
             Map.Entry entry = (Map.Entry) it.next();
             String key = entry.getKey().toString();
-            Role value = (Role) entry.getValue();
+            be.kdg.yahtzee.model.remoteObjects.users.Role value = convertRoleObject((Role) entry.getValue());
             returnList.add(value);
             System.out.println(value.getName());
         }
@@ -279,7 +286,8 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
     private java.lang.Object[] convertListHighscores(List<Highscore> highscorelist) {
         List returnlist = new ArrayList();
         for (Highscore highscore : highscorelist) {
-            returnlist.add(highscore);
+            be.kdg.yahtzee.model.remoteObjects.game.Highscore highScoreRem = convertHighsScoreObject(highscore);
+            returnlist.add(highScoreRem);
         }
         return returnlist.toArray();
     }
@@ -330,6 +338,17 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
 
     // ------user objecten
 
+    private Date convertCalender(java.util.Calendar in2) {
+        java.sql.Date sqlDate = new java.sql.Date(in2.getTimeInMillis());
+        return sqlDate;
+    }
+
+    private java.util.Calendar convertDate(Date in2) {
+        Calendar cal = java.util.GregorianCalendar.getInstance();
+        cal.set(in2.getYear(), in2.getMonth(), in2.getDate());
+        return cal;
+    }
+
     private be.kdg.yahtzee.model.users.Address convertAddressRemObject(be.kdg.yahtzee.model.remoteObjects.users.Address remAddress) {
         return new be.kdg.yahtzee.model.users.Address(remAddress.getCity(), remAddress.getCountry(), remAddress.getNumber(), remAddress.getStreet(), remAddress.getZip());
     }
@@ -379,6 +398,10 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
 
     private be.kdg.yahtzee.model.remoteObjects.users.Person convertPersonObject(be.kdg.yahtzee.model.users.Person person) {
         return new be.kdg.yahtzee.model.remoteObjects.users.Person(convertAddressObject(person.getAddress()), person.getEmail(), person.getFirstName(), person.getSurname(), person.getTelephone());
+    }
+
+    private be.kdg.yahtzee.model.remoteObjects.game.Highscore convertHighsScoreObject(be.kdg.yahtzee.model.game.Highscore highscore) {
+        return new be.kdg.yahtzee.model.remoteObjects.game.Highscore(highscore.getHighscoreId(), highscore.getScore(), convertDate(highscore.getTimestamp()), convertUserObject(highscore.getUser()));
     }
 
     private be.kdg.yahtzee.model.remoteObjects.users.Role convertRoleObject(be.kdg.yahtzee.model.users.Role role) {
