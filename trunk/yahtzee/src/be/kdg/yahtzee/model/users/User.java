@@ -88,6 +88,14 @@ public class User {
         this.person.setAddress(address);
     }
 
+    public String getEmail() {
+        return this.getPerson().getEmail();
+    }
+
+    public void setEmail(String mail) {
+        this.person.setEmail(mail);
+    }
+
     public String getTelephone() {
         return this.person.getTelephone();
     }
@@ -115,7 +123,6 @@ public class User {
     public Role getRole() {
         return role;
     }
-
 
     public String toString() {
         return userId + " " + username;
