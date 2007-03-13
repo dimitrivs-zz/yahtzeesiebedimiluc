@@ -36,6 +36,10 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.model.remoteObject
         return null;
     }
 
+    public be.kdg.yahtzee.model.game.Score getScore(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException {
+        return null;
+    }
+
     public void addMessage(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException {
         gameManager.addMessage(in0, in1);
     }

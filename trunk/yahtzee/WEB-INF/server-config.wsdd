@@ -11,7 +11,7 @@
                                xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
 
                              <!-- Services from YahtzeeControllerService WSDL service -->
-
+                           
                              <service name="yahtzee" provider="java:RPC" style="rpc" use="encoded">
                                  <parameter name="wsdlTargetNamespace" value="http://remoteObjects.model.yahtzee.kdg.be"/>
                                  <parameter name="wsdlServiceElement" value="YahtzeeControllerService"/>
