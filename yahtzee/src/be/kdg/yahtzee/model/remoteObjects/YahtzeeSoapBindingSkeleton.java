@@ -45,6 +45,39 @@ public class YahtzeeSoapBindingSkeleton implements be.kdg.yahtzee.model.remoteOb
         }
         ((java.util.List) _myOperations.get("addMessage")).add(_oper);
         _params = new org.apache.axis.description.ParameterDesc[]{
+        };
+        _oper = new org.apache.axis.description.OperationDesc("getHighscore", _params, new javax.xml.namespace.QName("", "getHighscoreReturn"));
+        _oper.setReturnType(new javax.xml.namespace.QName("http://game.remoteObjects.model.yahtzee.kdg.be", "Highscore"));
+        _oper.setElementQName(new javax.xml.namespace.QName("http://remoteObjects.model.yahtzee.kdg.be", "getHighscore"));
+        _oper.setSoapAction("");
+        _myOperationsList.add(_oper);
+        if (_myOperations.get("getHighscore") == null) {
+            _myOperations.put("getHighscore", new java.util.ArrayList());
+        }
+        ((java.util.List) _myOperations.get("getHighscore")).add(_oper);
+        _params = new org.apache.axis.description.ParameterDesc[]{
+        };
+        _oper = new org.apache.axis.description.OperationDesc("getScoreAspect", _params, new javax.xml.namespace.QName("", "getScoreAspectReturn"));
+        _oper.setReturnType(new javax.xml.namespace.QName("http://game.remoteObjects.model.yahtzee.kdg.be", "ScoreAspect"));
+        _oper.setElementQName(new javax.xml.namespace.QName("http://remoteObjects.model.yahtzee.kdg.be", "getScoreAspect"));
+        _oper.setSoapAction("");
+        _myOperationsList.add(_oper);
+        if (_myOperations.get("getScoreAspect") == null) {
+            _myOperations.put("getScoreAspect", new java.util.ArrayList());
+        }
+        ((java.util.List) _myOperations.get("getScoreAspect")).add(_oper);
+        _params = new org.apache.axis.description.ParameterDesc[]{
+        };
+        _oper = new org.apache.axis.description.OperationDesc("getRolesList", _params, new javax.xml.namespace.QName("", "getRolesListReturn"));
+        _oper.setReturnType(new javax.xml.namespace.QName("http://remoteObjects.model.yahtzee.kdg.be", "ArrayOf_xsd_anyType"));
+        _oper.setElementQName(new javax.xml.namespace.QName("http://remoteObjects.model.yahtzee.kdg.be", "getRolesList"));
+        _oper.setSoapAction("");
+        _myOperationsList.add(_oper);
+        if (_myOperations.get("getRolesList") == null) {
+            _myOperations.put("getRolesList", new java.util.ArrayList());
+        }
+        ((java.util.List) _myOperations.get("getRolesList")).add(_oper);
+        _params = new org.apache.axis.description.ParameterDesc[]{
                 new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false),
                 new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false),
                 new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false),
@@ -124,6 +157,18 @@ public class YahtzeeSoapBindingSkeleton implements be.kdg.yahtzee.model.remoteOb
             _myOperations.put("changePassWord", new java.util.ArrayList());
         }
         ((java.util.List) _myOperations.get("changePassWord")).add(_oper);
+        _params = new org.apache.axis.description.ParameterDesc[]{
+                new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://users.remoteObjects.model.yahtzee.kdg.be", "User"), be.kdg.yahtzee.model.remoteObjects.users.User.class, false, false),
+                new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"), boolean.class, false, false),
+        };
+        _oper = new org.apache.axis.description.OperationDesc("setOnline", _params, null);
+        _oper.setElementQName(new javax.xml.namespace.QName("http://remoteObjects.model.yahtzee.kdg.be", "setOnline"));
+        _oper.setSoapAction("");
+        _myOperationsList.add(_oper);
+        if (_myOperations.get("setOnline") == null) {
+            _myOperations.put("setOnline", new java.util.ArrayList());
+        }
+        ((java.util.List) _myOperations.get("setOnline")).add(_oper);
         _params = new org.apache.axis.description.ParameterDesc[]{
                 new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false),
         };
@@ -577,6 +622,21 @@ public class YahtzeeSoapBindingSkeleton implements be.kdg.yahtzee.model.remoteOb
         impl.addMessage(in0, in1);
     }
 
+    public be.kdg.yahtzee.model.remoteObjects.game.Highscore getHighscore() throws java.rmi.RemoteException {
+        be.kdg.yahtzee.model.remoteObjects.game.Highscore ret = impl.getHighscore();
+        return ret;
+    }
+
+    public be.kdg.yahtzee.model.remoteObjects.game.ScoreAspect getScoreAspect() throws java.rmi.RemoteException {
+        be.kdg.yahtzee.model.remoteObjects.game.ScoreAspect ret = impl.getScoreAspect();
+        return ret;
+    }
+
+    public java.lang.Object[] getRolesList() throws java.rmi.RemoteException {
+        java.lang.Object[] ret = impl.getRolesList();
+        return ret;
+    }
+
     public void createPlayer(java.lang.String in0, java.lang.String in1, java.lang.String in2, java.lang.String in3, java.lang.String in4, java.lang.String in5, be.kdg.yahtzee.model.remoteObjects.users.Address in6) throws java.rmi.RemoteException {
         impl.createPlayer(in0, in1, in2, in3, in4, in5, in6);
     }
@@ -597,6 +657,10 @@ public class YahtzeeSoapBindingSkeleton implements be.kdg.yahtzee.model.remoteOb
 
     public void changePassWord(be.kdg.yahtzee.model.remoteObjects.users.User in0, java.lang.String in1, java.lang.String in2) throws java.rmi.RemoteException {
         impl.changePassWord(in0, in1, in2);
+    }
+
+    public void setOnline(be.kdg.yahtzee.model.remoteObjects.users.User in0, boolean in1) throws java.rmi.RemoteException {
+        impl.setOnline(in0, in1);
     }
 
     public void removeUser(java.lang.String in0) throws java.rmi.RemoteException {

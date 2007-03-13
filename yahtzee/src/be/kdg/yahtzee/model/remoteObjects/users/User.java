@@ -120,7 +120,7 @@ public class User implements java.io.Serializable {
 
 
     /**
-     * Gets the online value for this User.
+     * Gets the online value for thirs User.
      *
      * @return online
      */
