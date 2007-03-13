@@ -176,13 +176,13 @@ public class UserManager {
 
     public User createAdministrator(String username, String plainPassword, String surname, String firstName, String email, String telephone, Address address) {
         Role role = roles.get("Administrator");
-        logger.info("Administrator " + username + "met role " + ((Role) roles.get("Administrator")).getName() + " created");
+        //logger.info("Administrator " + username + "met role " + ((Role) roles.get("Administrator")).getName() + " created");
         return createUser(username, plainPassword, surname, firstName, email, telephone, role, address);
     }
 
     public User createPlayer(String username, String plainPassword, String surname, String firstName, String email, String telephone, Address address) {
         Role role = roles.get("Player");
-        logger.info("Player " + username + "met role " + ((Role) roles.get("player")).getName() + " created");
+        //logger.info("Player " + username + "met role " + ((Role) roles.get("player")).getName() + " created");
         return createUser(username, plainPassword, surname, firstName, email, telephone, role, address);
     }
 

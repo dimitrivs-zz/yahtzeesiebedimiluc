@@ -2,8 +2,8 @@ package be.kdg.yahtzee.game;
 
 import be.kdg.yahtzee.model.game.Die;
 import be.kdg.yahtzee.model.game.Game;
-import be.kdg.yahtzee.model.game.GameManager;
 import be.kdg.yahtzee.model.game.ScoreAspect;
+import be.kdg.yahtzee.model.remoteObjects.GameManager;
 import be.kdg.yahtzee.model.users.Address;
 import be.kdg.yahtzee.model.users.Role;
 import be.kdg.yahtzee.model.users.User;
