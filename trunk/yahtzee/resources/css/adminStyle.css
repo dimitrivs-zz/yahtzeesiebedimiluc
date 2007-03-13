@@ -150,6 +150,10 @@ input.btn, input.text, select {
     font-weight: bold;
 }
 
+span.spacer {
+    color: #FFFF00;
+}
+
 body {
     text-align: center;
 }

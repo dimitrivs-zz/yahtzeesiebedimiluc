@@ -26,14 +26,22 @@
                 </td>
             </tr>
             <tr>
-                <td><h1>
-                    <h:outputText value="#{labels.showScoreTitle}"/>
-                </h1></td>
+                <td>
+                    <h1>
+                        <h:outputText value="#{labels.admin}"/>
+                    </h1>
+
+                    <h2>
+                        <h:outputText value="#{labels.showScoreTitle}"/>
+                    </h2></td>
             </tr>
             <tr>
                 <td>
                     <yahtzee:showHighscores/>
                 </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
             </tr>
         </table>
         <a href="/faces/admin/highscoreManagement.jsp" class="special">
