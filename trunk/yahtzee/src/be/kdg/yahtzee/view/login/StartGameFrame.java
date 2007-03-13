@@ -113,7 +113,8 @@ public class StartGameFrame extends YahtzeeSwing implements ActionListener {
             try {
                 user = yahtzeeController.findUser(username);
 
-                if (!yahtzeeController.createGame(gameNameTxt.getText(), numberCombo.getSelectedIndex() + 1, user)) {
+                if (yahtzeeController.createGame(gameNameTxt.getText(), numberCombo.getSelectedIndex() + 1, user)) {
+                    gameRoomFrame.addGame(gameNameTxt.getText());
                     new GameFrame(gameNameTxt.getText(), resources, numberCombo.getSelectedIndex() + 1);
                     this.dispose();
                 } else {
