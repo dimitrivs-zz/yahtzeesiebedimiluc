@@ -103,7 +103,7 @@
                    onclick="window.open('info.jsp','Info','width=300,height=225,scrollbars=no,toolbar=no,location=no,resizable=no,menubar=no'); return false">
                     <h:outputText value="#{labels.roomInfo}"/>
                 </a> | <a href="help.html"
-                          onclick="window.open('help.html','Help','width=400,height=400,scrollbars=yes,toolbar=no,location=no,resizable=no,menubar=no'); return false">
+                          onclick="window.open('help.jsp','Help','width=500,height=400,scrollbars=yes,toolbar=no,location=no,resizable=no,menubar=no'); return false">
                 <h:outputText value="#{labels.roomHelp}"/>
             </a>
             </div>
