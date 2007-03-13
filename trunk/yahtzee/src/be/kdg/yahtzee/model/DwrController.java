@@ -131,11 +131,12 @@ public class DwrController {
     }
 
     public Map getScores(String gameName) throws RemoteException {
-        //Map<String, Score> scores = new HashMap<String, Score>();
-        //Set<User> users = getUsersOfGame(gameName);
-        Game game = yahtzeeController.getGame(gameName);
-        System.out.println(game.getScores());
-        return game.getScores();
+        Map<String, Score> scores = new HashMap<String, Score>();
+        Set<User> users = getUsersOfGame(gameName);
+        for (User user : users) {
+            scores.put(user.getUsername(), yahtzeeController.getScore(gameName, user.getUsername()));
+        }
+        return scores;
     }
 
     public void addMessage(String text, String gameName) throws RemoteException {

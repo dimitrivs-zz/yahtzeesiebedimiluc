@@ -446,6 +446,11 @@ public class GameManager {
         return game.getScores();
     }
 
+    public Score getScore(String gameName, String username) {
+        Game game = getGame(gameName);
+        return game.getScore(username);
+    }
+
     /**
      * Method for getting the state of a game.
      *
