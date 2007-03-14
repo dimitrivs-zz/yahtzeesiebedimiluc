@@ -103,21 +103,21 @@ public class LoginFrame extends YahtzeeSwing implements ActionListener {
             User user = null;
             try {
                 user = yahtzeeController.findUser(usernameTxt.getText());
-            } catch (RemoteException e1) {
+                String password = Security.getInstance().encrypt(new String(passwordTxt.getPassword()));
 
-            }
-
-            String password = Security.getInstance().encrypt(new String(passwordTxt.getPassword()));
-
-            if (user != null) {
-                if (user.getPassword().equals(password) && !user.isBlocked()) {
-                    new GameRoomFrame("Yahtzee GameRoom", resources, usernameTxt.getText());
-                    this.dispose();
+                if (user != null) {
+                    if (user.getPassword().equals(password) && !user.isBlocked()) {
+                        yahtzeeController.setOnline(user, true);
+                        new GameRoomFrame("Yahtzee GameRoom", resources, usernameTxt.getText());
+                        this.dispose();
+                    } else {
+                        changeMessage(resources.getString("swingLoginError"));
+                    }
                 } else {
                     changeMessage(resources.getString("swingLoginError"));
                 }
-            } else {
-                changeMessage(resources.getString("swingLoginError"));
+            } catch (RemoteException e1) {
+
             }
         }
 
