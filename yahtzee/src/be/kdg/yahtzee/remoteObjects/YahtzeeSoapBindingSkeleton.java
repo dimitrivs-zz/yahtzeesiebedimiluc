@@ -68,17 +68,6 @@ public class YahtzeeSoapBindingSkeleton implements be.kdg.yahtzee.remoteObjects.
         ((java.util.List) _myOperations.get("getScoreAspect")).add(_oper);
         _params = new org.apache.axis.description.ParameterDesc[]{
         };
-        _oper = new org.apache.axis.description.OperationDesc("gameFinished", _params, new javax.xml.namespace.QName("", "gameFinishedReturn"));
-        _oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
-        _oper.setElementQName(new javax.xml.namespace.QName("http://remoteObjects.yahtzee.kdg.be", "gameFinished"));
-        _oper.setSoapAction("");
-        _myOperationsList.add(_oper);
-        if (_myOperations.get("gameFinished") == null) {
-            _myOperations.put("gameFinished", new java.util.ArrayList());
-        }
-        ((java.util.List) _myOperations.get("gameFinished")).add(_oper);
-        _params = new org.apache.axis.description.ParameterDesc[]{
-        };
         _oper = new org.apache.axis.description.OperationDesc("getRolesList", _params, new javax.xml.namespace.QName("", "getRolesListReturn"));
         _oper.setReturnType(new javax.xml.namespace.QName("http://remoteObjects.yahtzee.kdg.be", "ArrayOf_xsd_anyType"));
         _oper.setElementQName(new javax.xml.namespace.QName("http://remoteObjects.yahtzee.kdg.be", "getRolesList"));
@@ -101,6 +90,18 @@ public class YahtzeeSoapBindingSkeleton implements be.kdg.yahtzee.remoteObjects.
             _myOperations.put("getScore", new java.util.ArrayList());
         }
         ((java.util.List) _myOperations.get("getScore")).add(_oper);
+        _params = new org.apache.axis.description.ParameterDesc[]{
+                new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false),
+        };
+        _oper = new org.apache.axis.description.OperationDesc("gameFinished", _params, new javax.xml.namespace.QName("", "gameFinishedReturn"));
+        _oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        _oper.setElementQName(new javax.xml.namespace.QName("http://remoteObjects.yahtzee.kdg.be", "gameFinished"));
+        _oper.setSoapAction("");
+        _myOperationsList.add(_oper);
+        if (_myOperations.get("gameFinished") == null) {
+            _myOperations.put("gameFinished", new java.util.ArrayList());
+        }
+        ((java.util.List) _myOperations.get("gameFinished")).add(_oper);
         _params = new org.apache.axis.description.ParameterDesc[]{
                 new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false),
                 new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false),
@@ -656,11 +657,6 @@ public class YahtzeeSoapBindingSkeleton implements be.kdg.yahtzee.remoteObjects.
         return ret;
     }
 
-    public boolean gameFinished() throws java.rmi.RemoteException {
-        boolean ret = impl.gameFinished();
-        return ret;
-    }
-
     public java.lang.Object[] getRolesList() throws java.rmi.RemoteException {
         java.lang.Object[] ret = impl.getRolesList();
         return ret;
@@ -668,6 +664,11 @@ public class YahtzeeSoapBindingSkeleton implements be.kdg.yahtzee.remoteObjects.
 
     public be.kdg.yahtzee.remoteObjects.game.Score getScore(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException {
         be.kdg.yahtzee.remoteObjects.game.Score ret = impl.getScore(in0, in1);
+        return ret;
+    }
+
+    public boolean gameFinished(java.lang.String in0) throws java.rmi.RemoteException {
+        boolean ret = impl.gameFinished(in0);
         return ret;
     }
 

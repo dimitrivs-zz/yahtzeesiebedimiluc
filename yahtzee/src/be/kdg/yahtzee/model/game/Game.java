@@ -16,6 +16,8 @@ import java.util.*;
  * Class representing one Game in the yahtzee application.
  */
 public class Game {
+    public static final Game NULL_Game = new Game("null");
+
     private String gameName;
     private int maxPlayer;
     private User creator;
@@ -33,6 +35,12 @@ public class Game {
 
     private ScoreCalculator scoreCalculator;
 
+    public Game(String nullGame) {
+        this.gameName = "gameName";
+        this.maxPlayer = 0;
+        this.activePlayer = User.NULL_USER;
+    }
+
     //Nodig voor testGame - tijdelijk
 
     /**
@@ -42,6 +50,7 @@ public class Game {
      * @param maxPlayer Integer value maximum number of players.
      * @param user      User object creator of the game.
      */
+
     public Game(String gameName, int maxPlayer, User user) {
         this.gameName = gameName;
         this.maxPlayer = maxPlayer;
