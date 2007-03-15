@@ -10,6 +10,9 @@ package be.kdg.yahtzee.view.login;
 import be.kdg.util.Security;
 import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
 import be.kdg.yahtzee.model.remoteObjects.users.User;
+import be.kdg.yahtzee.view.YahtzeeSwing;
+import be.kdg.yahtzee.view.game.GameRoomFrame;
+import be.kdg.yahtzee.view.register.RegisterFrame;
 
 import javax.swing.*;
 import java.awt.*;
