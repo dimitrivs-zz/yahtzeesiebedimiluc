@@ -51,14 +51,14 @@ function getActivePlayer() {
                     DWRUtil.setValue('gameState', playerName + ' <h:outputText value="#{labels.gamePlaying}"/>...');
                     numberRolls = 0;
                     if (playerName == '${userBean.username}') {
-                        if (numberTurns > 12) {
-                            window.location = '../../game/FinishGameServlet?game=${gameBean.gameName}';
-                        } else {
-                            clearTimeout(keepDiceUpdatedTimeout);
-                            calculateScores();
-                            document.getElementById('btnRoll').style.visibility = 'visible';
-                            document.getElementById('btnRoll').disabled = false;
-                        }
+                        //if (numberTurns > 12) {
+                        //    window.location = '../../game/FinishGameServlet?game=${gameBean.gameName}';
+                        //} else {
+                        clearTimeout(keepDiceUpdatedTimeout);
+                        calculateScores();
+                        document.getElementById('btnRoll').style.visibility = 'visible';
+                        document.getElementById('btnRoll').disabled = false;
+                        //}
                     }
                     resetDice();
                     activePlayer = playerName;
@@ -147,7 +147,7 @@ function gameStarted(state) {
                         keepDiceUpdated();
                     }
                     calculateScores();
-                    keepPlayersUpdated();
+                    //keepPlayersUpdated();
                     DWRUtil.setValue('gameState', player + ' <h:outputText value="#{labels.gamePlaying}"/>...');
                 }
                 );

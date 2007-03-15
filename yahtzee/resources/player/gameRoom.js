@@ -17,8 +17,10 @@ function sendMessage()
 {
     var text = DWRUtil.getValue("text");
     var name = DWRUtil.getValue("name");
-    DWRUtil.setValue("text", "");
-    DwrController.addGlobalMessage(name + " : " + text + "<br/>", gotMessages);
+    if (text != '' && text != ' ') {
+        DWRUtil.setValue("text", "");
+        DwrController.addGlobalMessage(name + " : " + text + "<br/>", gotMessages);
+    }
 }
 
 function getGlobalChatMessages() {
