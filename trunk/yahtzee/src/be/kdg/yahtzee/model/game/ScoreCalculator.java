@@ -1,6 +1,6 @@
 package be.kdg.yahtzee.model.game;
 
-import static be.kdg.util.ScorePoints.*;
+import static be.kdg.yahtzee.model.game.ScorePoints.*;
 import be.kdg.yahtzee.model.users.User;
 
 import java.util.*;

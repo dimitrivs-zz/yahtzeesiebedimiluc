@@ -5,7 +5,7 @@
  *
  */
 
-package be.kdg.util;
+package be.kdg.yahtzee.model.game;
 
 /**
  * This class contains only static variables.
