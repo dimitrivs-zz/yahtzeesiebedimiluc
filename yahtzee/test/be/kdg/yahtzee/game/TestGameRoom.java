@@ -2,8 +2,8 @@ package be.kdg.yahtzee.game;
 
 import be.kdg.yahtzee.model.game.EnumState;
 import be.kdg.yahtzee.model.game.Game;
-import be.kdg.yahtzee.model.remoteObjects.GameManager;
 import be.kdg.yahtzee.model.users.User;
+import be.kdg.yahtzee.remoteObjects.GameManager;
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;

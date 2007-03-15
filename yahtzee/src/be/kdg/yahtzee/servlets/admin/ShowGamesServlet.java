@@ -7,8 +7,8 @@
 
 package be.kdg.yahtzee.servlets.admin;
 
-import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
-import be.kdg.yahtzee.model.remoteObjects.game.Game;
+import be.kdg.yahtzee.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.remoteObjects.game.Game;
 import be.kdg.yahtzee.servlets.YahtzeeServlet;
 
 import javax.servlet.ServletException;

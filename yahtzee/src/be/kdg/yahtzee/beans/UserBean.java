@@ -7,10 +7,10 @@
 
 package be.kdg.yahtzee.beans;
 
-import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
-import be.kdg.yahtzee.model.remoteObjects.users.Person;
-import be.kdg.yahtzee.model.remoteObjects.users.Role;
-import be.kdg.yahtzee.model.remoteObjects.users.User;
+import be.kdg.yahtzee.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.remoteObjects.users.Person;
+import be.kdg.yahtzee.remoteObjects.users.Role;
+import be.kdg.yahtzee.remoteObjects.users.User;
 
 import java.rmi.RemoteException;
 

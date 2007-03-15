@@ -7,8 +7,8 @@
 
 package be.kdg.yahtzee.servlets.register;
 
-import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
-import be.kdg.yahtzee.model.remoteObjects.users.Address;
+import be.kdg.yahtzee.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.remoteObjects.users.Address;
 import be.kdg.yahtzee.servlets.YahtzeeServlet;
 
 import javax.servlet.ServletException;

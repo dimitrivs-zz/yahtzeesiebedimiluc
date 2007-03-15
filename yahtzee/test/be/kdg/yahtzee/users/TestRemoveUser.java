@@ -1,9 +1,9 @@
 package be.kdg.yahtzee.users;
 
 
-import be.kdg.yahtzee.model.remoteObjects.UserManager;
 import be.kdg.yahtzee.model.users.Address;
 import be.kdg.yahtzee.model.users.User;
+import be.kdg.yahtzee.remoteObjects.UserManager;
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
