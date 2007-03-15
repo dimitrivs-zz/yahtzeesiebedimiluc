@@ -28,7 +28,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.remoteObjects.Yaht
         gameManager = GameManager.getInstance();
     }
 
-    public boolean gameFinished() throws java.rmi.RemoteException {
+    public boolean gameFinished(String s) throws java.rmi.RemoteException {
         return false;
     }
 

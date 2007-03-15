@@ -14,11 +14,11 @@ public interface YahtzeeController extends java.rmi.Remote {
 
     public be.kdg.yahtzee.remoteObjects.game.ScoreAspect getScoreAspect() throws java.rmi.RemoteException;
 
-    public boolean gameFinished() throws java.rmi.RemoteException;
-
     public java.lang.Object[] getRolesList() throws java.rmi.RemoteException;
 
     public be.kdg.yahtzee.remoteObjects.game.Score getScore(java.lang.String in0, java.lang.String in1) throws java.rmi.RemoteException;
+
+    public boolean gameFinished(java.lang.String in0) throws java.rmi.RemoteException;
 
     public void createPlayer(java.lang.String in0, java.lang.String in1, java.lang.String in2, java.lang.String in3, java.lang.String in4, java.lang.String in5, be.kdg.yahtzee.remoteObjects.users.Address in6) throws java.rmi.RemoteException;
 

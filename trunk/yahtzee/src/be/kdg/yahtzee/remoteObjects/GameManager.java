@@ -147,7 +147,7 @@ public class GameManager {
                 return game;
             }
         }
-        return null;
+        return Game.NULL_Game;
     }
 
     /**
@@ -159,7 +159,7 @@ public class GameManager {
      * @return boolean value of success.
      */
     public boolean createGame(String gameName, int maxPlayer, User user) {
-        if (getGame(gameName) != null) {
+        if (getGame(gameName) != Game.NULL_Game) {
             logger.debug("Game : " + gameName + " kon niet worden gemaakt reden: het spel bestaat al");
             return false;
         }

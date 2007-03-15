@@ -38,14 +38,7 @@
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
       />
-      <typeMapping
-        xmlns:ns="http://xml.apache.org/xml-soap"
-        qname="ns:mapItem"
-        type="java:org.apache.xml.xml_soap.MapItem"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-      />
+
       <arrayMapping
         xmlns:ns="http://remoteObjects.yahtzee.kdg.be"
         qname="ns:ArrayOf_xsd_anyType"
