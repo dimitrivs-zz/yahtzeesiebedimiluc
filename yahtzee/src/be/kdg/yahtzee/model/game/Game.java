@@ -241,15 +241,6 @@ public class Game {
             diceGen.rollDice();
             diceList = diceGen.getDice();
 
-            System.out.println("");
-            System.out.println("Roll Statistics");
-            System.out.println("---------------");
-
-            for (Die die : diceList) {
-                System.out.print(die.getValue() + " ");
-            }
-            System.out.println("\n---------------");
-
             calculateScores();
         }
         return diceList;
@@ -377,7 +368,6 @@ public class Game {
         if (scoreChoice.equals("chance"))
             score.setChance(scorePoints);
 
-        System.out.println("Score geregistreerd : " + scorePoints + " voor " + scoreChoice);
         int turns = numberTurns.get(activePlayer.getUsername());
         turns++;
         numberTurns.put(activePlayer.getUsername(), turns);
