@@ -25,7 +25,7 @@ public class TestLogin extends TestCase {
 
     @Before
     public void setUp() throws RemoteException {
-        userManager = new UserManager(true);
+        userManager = new UserManager();
     }
 
     @After

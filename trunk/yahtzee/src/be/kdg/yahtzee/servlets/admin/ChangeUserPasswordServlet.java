@@ -19,7 +19,7 @@ import java.io.IOException;
 public class ChangeUserPasswordServlet extends YahtzeeServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String orgUsername = request.getParameter("orgUser");
-        String orgPass = request.getParameter("orgPass");
+        //String orgPass = request.getParameter("orgPass");
         String password = request.getParameter("pw");
         String password2 = request.getParameter("pw2");
         YahtzeeController yahtzeeController = findYahtzeeController();

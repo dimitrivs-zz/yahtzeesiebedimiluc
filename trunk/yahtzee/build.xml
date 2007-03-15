@@ -29,12 +29,6 @@
         <path id="project.classpath">
             <pathelement location="${build.dir}"/>
             <pathelement location="${lib.dir}/servlet.jar"/>
-            <pathelement location="${lib.dir}/log4j-1.2.11.jar"/>
-            <pathelement location="${lib.dir}/hibernate3.jar"/>
-            <pathelement location="${lib.dir}/spring.jar"/>
-            <pathelement location="${lib.dir}/mysql-connector-java-5.0.3-bin.jar"/>
-            <pathelement location="${lib.dir}/spring-hibernate.jar"/>
-            <pathelement location="${lib.dir}/spring-beans.jar"/>
             <pathelement location="${lib.dir}/*"/>
         </path>
     </target>
