@@ -1,4 +1,6 @@
-package be.kdg.yahtzee.view.login;
+package be.kdg.yahtzee.view.game;
+
+import be.kdg.yahtzee.view.bundles.ChooseLanguageFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,12 +45,12 @@ public class GameFrame extends JFrame implements ActionListener {
 
         titleLbl = new JLabel("YAHTZEE");
 
-        ImageIcon die1 = createImageIcon("images/die1.png");
-        ImageIcon die2 = createImageIcon("images/die2.png");
-        ImageIcon die3 = createImageIcon("images/die3.png");
-        ImageIcon die4 = createImageIcon("images/die4.png");
-        ImageIcon die5 = createImageIcon("images/die5.png");
-        ImageIcon die6 = createImageIcon("images/die6.png");
+        ImageIcon die1 = createImageIcon("../images/die1.png");
+        ImageIcon die2 = createImageIcon("../images/die2.png");
+        ImageIcon die3 = createImageIcon("../images/die3.png");
+        ImageIcon die4 = createImageIcon("../images/die4.png");
+        ImageIcon die5 = createImageIcon("../images/die5.png");
+        ImageIcon die6 = createImageIcon("../images/die6.png");
 
         dice1Btn = new JToggleButton(die1);
         dice2Btn = new JToggleButton(die2);

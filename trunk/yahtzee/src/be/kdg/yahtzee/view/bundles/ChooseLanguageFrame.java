@@ -5,7 +5,10 @@
  *
  */
 
-package be.kdg.yahtzee.view.login;
+package be.kdg.yahtzee.view.bundles;
+
+import be.kdg.yahtzee.view.YahtzeeSwing;
+import be.kdg.yahtzee.view.login.LoginFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,11 +40,11 @@ public class ChooseLanguageFrame extends YahtzeeSwing implements ActionListener 
 
     private void makeComponents() {
 
-        ImageIcon dutchFlag = createImageIcon("images/netherlands.gif");
-        ImageIcon frenchFlag = createImageIcon("images/france.gif");
-        ImageIcon ukFlag = createImageIcon("images/UnitedKingdom.gif");
-        ImageIcon germanFlag = createImageIcon("images/germany.gif");
-        ImageIcon spanishFlag = createImageIcon("images/spain.gif");
+        ImageIcon dutchFlag = createImageIcon("../images/netherlands.gif");
+        ImageIcon frenchFlag = createImageIcon("../images/france.gif");
+        ImageIcon ukFlag = createImageIcon("../images/UnitedKingdom.gif");
+        ImageIcon germanFlag = createImageIcon("../images/germany.gif");
+        ImageIcon spanishFlag = createImageIcon("../images/spain.gif");
 
         dutchBtn = new JButton("Nederlands", dutchFlag);
         dutchBtn.setHorizontalAlignment(SwingConstants.LEFT);

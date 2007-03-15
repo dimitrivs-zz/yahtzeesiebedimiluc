@@ -1,7 +1,8 @@
-package be.kdg.yahtzee.view.login;
+package be.kdg.yahtzee.view.game;
 
 import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
 import be.kdg.yahtzee.model.remoteObjects.users.User;
+import be.kdg.yahtzee.view.YahtzeeSwing;
 
 import javax.swing.*;
 import java.awt.*;

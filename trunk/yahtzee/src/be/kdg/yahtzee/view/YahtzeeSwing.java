@@ -1,4 +1,4 @@
-package be.kdg.yahtzee.view.login;
+package be.kdg.yahtzee.view;
 
 import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
 import be.kdg.yahtzee.model.remoteObjects.YahtzeeControllerServiceLocator;
