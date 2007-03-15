@@ -7,9 +7,9 @@
 
 package be.kdg.yahtzee.view.game;
 
-import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
-import be.kdg.yahtzee.model.remoteObjects.game.Game;
-import be.kdg.yahtzee.model.remoteObjects.users.User;
+import be.kdg.yahtzee.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.remoteObjects.game.Game;
+import be.kdg.yahtzee.remoteObjects.users.User;
 import be.kdg.yahtzee.view.YahtzeeSwing;
 import be.kdg.yahtzee.view.login.LoginFrame;
 import be.kdg.yahtzee.view.player.ChangeProfileFrame;

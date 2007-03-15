@@ -29,6 +29,7 @@ public class Game {
     private List<User> userList;
     private Map<String, Integer> possibleScores;
     private int numberOfRolls;
+    private Map<String, Integer> numberTurns;
 
     private ScoreCalculator scoreCalculator;
 
@@ -58,6 +59,8 @@ public class Game {
         scores.put(user.getUsername(), new Score());
         activePlayer = user;
         userList.add(user);
+        numberTurns = new HashMap<String, Integer>();
+        numberTurns.put(user.getUsername(), 0);
         creator = user;
         diceGen = new DiceGenerator();
         possibleScores = new HashMap<String, Integer>();
@@ -175,6 +178,7 @@ public class Game {
     public void joinGame(User user) {
         users.add(user);
         userList.add(user);
+        numberTurns.put(user.getUsername(), 0);
         scores.put(user.getUsername(), new Score());
     }
 
@@ -187,6 +191,7 @@ public class Game {
         users.remove(user);
         userList.remove(user);
         scores.remove(user.getUsername());
+        numberTurns.remove(user.getUsername());
         if (user.getUsername().equals(activePlayer.getUsername()) && users.size() != 0) {
             resetRound();
             getNextPlayer();
@@ -373,9 +378,11 @@ public class Game {
             score.setChance(scorePoints);
 
         System.out.println("Score geregistreerd : " + scorePoints + " voor " + scoreChoice);
+        int turns = numberTurns.get(activePlayer.getUsername());
+        turns++;
+        numberTurns.put(activePlayer.getUsername(), turns);
         resetRound();
         getNextPlayer();
-
         return score;
     }
 

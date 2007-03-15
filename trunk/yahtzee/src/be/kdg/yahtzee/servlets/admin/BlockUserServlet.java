@@ -22,12 +22,15 @@ public class BlockUserServlet extends YahtzeeServlet {
 
         YahtzeeController yahtzeeController = findYahtzeeController();
 
-        if (blocked.equals("true")) {
-            yahtzeeController.blockUser(username);
+        if (yahtzeeController.isLastAdministrator() && yahtzeeController.isAdministrator(username)) {
+            request.setAttribute("message", "U kan de laatste administrator niet blokkeren...");
         } else {
-            yahtzeeController.unblockUser(username);
+            if (blocked.equals("true")) {
+                yahtzeeController.blockUser(username);
+            } else {
+                yahtzeeController.unblockUser(username);
+            }
         }
-
         forward("/admin/ShowUsersServlet", request, response);
     }
 }
