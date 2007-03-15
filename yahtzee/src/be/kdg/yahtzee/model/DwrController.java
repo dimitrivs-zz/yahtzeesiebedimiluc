@@ -1,3 +1,11 @@
+/*
+ * Project Software Development
+ * Karel de Grote-Hogeschool
+ * 2006-2007
+ *
+ */
+
+
 package be.kdg.yahtzee.model;
 
 import be.kdg.yahtzee.remoteObjects.YahtzeeControllerServiceLocator;
