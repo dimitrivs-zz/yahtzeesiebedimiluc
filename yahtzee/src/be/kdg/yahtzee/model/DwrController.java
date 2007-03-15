@@ -37,11 +37,8 @@ public class DwrController {
 
         java.lang.Object[] allGames = yahtzeeController.getGames();
 
-        System.out.println("Groote games DWR: " + allGames.length);
-
         for (int i = 0; i < allGames.length; i++) {
             allGamesList.add((Game) allGames[i]);
-            System.out.println("Game : " + ((Game) allGames[i]).getGameName() + " added");
         }
 
         return allGamesList;
@@ -51,8 +48,6 @@ public class DwrController {
         List<User> allUsersList = new ArrayList<User>();
 
         java.lang.Object[] allUsers = yahtzeeController.getOnlineUsers();
-
-        System.out.println("Groote online users DWR: " + allUsers.length);
 
         for (int i = 0; i < allUsers.length; i++) {
             allUsersList.add((User) allUsers[i]);

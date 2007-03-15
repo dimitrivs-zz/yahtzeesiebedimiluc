@@ -62,9 +62,9 @@ public class AdminFilter implements Filter {
                 filterChain.doFilter(servletRequest, servletResponse);
             } else {
                 if (yahtzeeController.isPlayer(userBean.getUsername())) {
-                    ((HttpServletResponse) servletResponse).sendRedirect("/player/gameRoom.jsp");
+                    ((HttpServletResponse) servletResponse).sendRedirect("/faces/player/gameRoom.jsp");
                 } else {
-                    ((HttpServletResponse) servletResponse).sendRedirect("/");
+                    ((HttpServletResponse) servletResponse).sendRedirect("/faces/");
                 }
             }
         } else {

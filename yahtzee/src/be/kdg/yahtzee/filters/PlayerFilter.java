@@ -59,12 +59,12 @@ public class PlayerFilter implements Filter {
             }
 
             if (yahtzeeController.isAdministrator(userBean.getUsername())) {
-                ((HttpServletResponse) servletResponse).sendRedirect("/admin/administrator.jsp");
+                ((HttpServletResponse) servletResponse).sendRedirect("/faces/admin/administrator.jsp");
             } else {
                 filterChain.doFilter(servletRequest, servletResponse);
             }
         } else {
-            ((HttpServletResponse) servletResponse).sendRedirect("/");
+            ((HttpServletResponse) servletResponse).sendRedirect("/faces/");
         }
     }
 
