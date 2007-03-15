@@ -1,18 +1,18 @@
 package be.kdg.yahtzee.model;
 
-import be.kdg.yahtzee.model.remoteObjects.YahtzeeControllerServiceLocator;
-import be.kdg.yahtzee.model.remoteObjects.game.Die;
-import be.kdg.yahtzee.model.remoteObjects.game.Game;
-import be.kdg.yahtzee.model.remoteObjects.game.Score;
-import be.kdg.yahtzee.model.remoteObjects.game.ScoreAspect;
-import be.kdg.yahtzee.model.remoteObjects.users.User;
+import be.kdg.yahtzee.remoteObjects.YahtzeeControllerServiceLocator;
+import be.kdg.yahtzee.remoteObjects.game.Die;
+import be.kdg.yahtzee.remoteObjects.game.Game;
+import be.kdg.yahtzee.remoteObjects.game.Score;
+import be.kdg.yahtzee.remoteObjects.game.ScoreAspect;
+import be.kdg.yahtzee.remoteObjects.users.User;
 
 import java.rmi.RemoteException;
 import java.util.*;
 
 
 public class DwrController {
-    be.kdg.yahtzee.model.remoteObjects.YahtzeeController yahtzeeController;
+    be.kdg.yahtzee.remoteObjects.YahtzeeController yahtzeeController;
 
     public DwrController() {
         YahtzeeControllerServiceLocator serviceLocator = new YahtzeeControllerServiceLocator();

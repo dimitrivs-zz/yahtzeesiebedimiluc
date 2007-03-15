@@ -1,121 +1,121 @@
-                           <!-- Use this file to deploy some handlers/chains and services      -->
-                           <!-- Two ways to do this:                                           -->
-                           <!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
-                           <!--      after the axis server is running                          -->
-                           <!-- or                                                             -->
-                           <!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
-                           <!--      from the same directory that the Axis engine runs         -->
+                               <!-- Use this file to deploy some handlers/chains and services      -->
+                               <!-- Two ways to do this:                                           -->
+                               <!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+                               <!--      after the axis server is running                          -->
+                               <!-- or                                                             -->
+                               <!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+                               <!--      from the same directory that the Axis engine runs         -->
 
-                           <deployment
-                               xmlns="http://xml.apache.org/axis/wsdd/"
-                               xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+                               <deployment
+                                   xmlns="http://xml.apache.org/axis/wsdd/"
+                                   xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
 
-                             <!-- Services from YahtzeeControllerService WSDL service -->
-                           
-                             <service name="yahtzee" provider="java:RPC" style="rpc" use="encoded">
-                                 <parameter name="wsdlTargetNamespace" value="http://remoteObjects.model.yahtzee.kdg.be"/>
-                                 <parameter name="wsdlServiceElement" value="YahtzeeControllerService"/>
-                                 <parameter name="schemaUnqualified" value="http://game.remoteObjects.model.yahtzee.kdg.be,http://chat.remoteObjects.model.yahtzee.kdg.be,http://remoteObjects.model.yahtzee.kdg.be,http://users.remoteObjects.model.yahtzee.kdg.be,http://xml.apache.org/xml-soap"/>
-                                 <parameter name="wsdlServicePort" value="yahtzee"/>
-                                 <parameter name="className" value="be.kdg.yahtzee.model.remoteObjects.YahtzeeSoapBindingSkeleton"/>
-                                 <parameter name="wsdlPortType" value="YahtzeeController"/>
-                                 <parameter name="typeMappingVersion" value="1.2"/>
-                                 <parameter name="allowedMethods" value="*"/>
+                                 <!-- Services from YahtzeeControllerService WSDL service -->
 
-                                 <typeMapping
-                                   xmlns:ns="http://game.remoteObjects.model.yahtzee.kdg.be"
-                                   qname="ns:Score"
-                                   type="java:be.kdg.yahtzee.model.remoteObjects.game.Score"
-                                   serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-                                   deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-                                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-                                 />
-                                 <typeMapping
-                                   xmlns:ns="http://xml.apache.org/xml-soap"
-                                   qname="ns:mapItem"
-                                   type="java:org.apache.xml.xml_soap.MapItem"
-                                   serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-                                   deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-                                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-                                 />
-                                 <typeMapping
-                                   xmlns:ns="http://game.remoteObjects.model.yahtzee.kdg.be"
-                                   qname="ns:Highscore"
-                                   type="java:be.kdg.yahtzee.model.remoteObjects.game.Highscore"
-                                   serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-                                   deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-                                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-                                 />
-                                 <arrayMapping
-                                   xmlns:ns="http://remoteObjects.model.yahtzee.kdg.be"
-                                   qname="ns:ArrayOf_xsd_anyType"
-                                   type="java:java.lang.Object[]"
-                                   innerType="cmp-ns:anyType" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
-                                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-                                 />
-                                 <typeMapping
-                                   xmlns:ns="http://game.remoteObjects.model.yahtzee.kdg.be"
-                                   qname="ns:Die"
-                                   type="java:be.kdg.yahtzee.model.remoteObjects.game.Die"
-                                   serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-                                   deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-                                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-                                 />
-                                 <typeMapping
-                                   xmlns:ns="http://game.remoteObjects.model.yahtzee.kdg.be"
-                                   qname="ns:Game"
-                                   type="java:be.kdg.yahtzee.model.remoteObjects.game.Game"
-                                   serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-                                   deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-                                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-                                 />
-                                 <typeMapping
-                                   xmlns:ns="http://users.remoteObjects.model.yahtzee.kdg.be"
-                                   qname="ns:User"
-                                   type="java:be.kdg.yahtzee.model.remoteObjects.users.User"
-                                   serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-                                   deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-                                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-                                 />
-                                 <typeMapping
-                                   xmlns:ns="http://users.remoteObjects.model.yahtzee.kdg.be"
-                                   qname="ns:Person"
-                                   type="java:be.kdg.yahtzee.model.remoteObjects.users.Person"
-                                   serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-                                   deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-                                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-                                 />
-                                 <typeMapping
-                                   xmlns:ns="http://users.remoteObjects.model.yahtzee.kdg.be"
-                                   qname="ns:Role"
-                                   type="java:be.kdg.yahtzee.model.remoteObjects.users.Role"
-                                   serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-                                   deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-                                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-                                 />
-                                 <typeMapping
-                                   xmlns:ns="http://game.remoteObjects.model.yahtzee.kdg.be"
-                                   qname="ns:ScoreAspect"
-                                   type="java:be.kdg.yahtzee.model.remoteObjects.game.ScoreAspect"
-                                   serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-                                   deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-                                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-                                 />
-                                 <typeMapping
-                                   xmlns:ns="http://users.remoteObjects.model.yahtzee.kdg.be"
-                                   qname="ns:Address"
-                                   type="java:be.kdg.yahtzee.model.remoteObjects.users.Address"
-                                   serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-                                   deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-                                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-                                 />
-                                 <typeMapping
-                                   xmlns:ns="http://chat.remoteObjects.model.yahtzee.kdg.be"
-                                   qname="ns:Chat"
-                                   type="java:be.kdg.yahtzee.model.remoteObjects.chat.Chat"
-                                   serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-                                   deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-                                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-                                 />
-                             </service>
-                           </deployment>
+                                 <service name="yahtzee" provider="java:RPC" style="rpc" use="encoded">
+                                     <parameter name="wsdlTargetNamespace" value="http://remoteObjects.yahtzee.kdg.be"/>
+                                     <parameter name="wsdlServiceElement" value="YahtzeeControllerService"/>
+                                     <parameter name="schemaUnqualified" value="http://game.remoteObjects.yahtzee.kdg.be,http://chat.remoteObjects.yahtzee.kdg.be,http://remoteObjects.yahtzee.kdg.be,http://xml.apache.org/xml-soap,http://users.remoteObjects.yahtzee.kdg.be"/>
+                                     <parameter name="wsdlServicePort" value="yahtzee"/>
+                                     <parameter name="className" value="be.kdg.yahtzee.remoteObjects.YahtzeeSoapBindingSkeleton"/>
+                                     <parameter name="wsdlPortType" value="YahtzeeController"/>
+                                     <parameter name="typeMappingVersion" value="1.2"/>
+                                     <parameter name="allowedMethods" value="*"/>
+
+                                     <typeMapping
+                                       xmlns:ns="http://users.remoteObjects.yahtzee.kdg.be"
+                                       qname="ns:Role"
+                                       type="java:be.kdg.yahtzee.remoteObjects.users.Role"
+                                       serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                                       deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                                       encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                                     />
+                                     <typeMapping
+                                       xmlns:ns="http://game.remoteObjects.yahtzee.kdg.be"
+                                       qname="ns:Game"
+                                       type="java:be.kdg.yahtzee.remoteObjects.game.Game"
+                                       serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                                       deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                                       encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                                     />
+                                     <typeMapping
+                                       xmlns:ns="http://xml.apache.org/xml-soap"
+                                       qname="ns:mapItem"
+                                       type="java:org.apache.xml.xml_soap.MapItem"
+                                       serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                                       deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                                       encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                                     />
+                                     <arrayMapping
+                                       xmlns:ns="http://remoteObjects.yahtzee.kdg.be"
+                                       qname="ns:ArrayOf_xsd_anyType"
+                                       type="java:java.lang.Object[]"
+                                       innerType="cmp-ns:anyType" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
+                                       encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                                     />
+                                     <typeMapping
+                                       xmlns:ns="http://game.remoteObjects.yahtzee.kdg.be"
+                                       qname="ns:Score"
+                                       type="java:be.kdg.yahtzee.remoteObjects.game.Score"
+                                       serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                                       deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                                       encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                                     />
+                                     <typeMapping
+                                       xmlns:ns="http://game.remoteObjects.yahtzee.kdg.be"
+                                       qname="ns:Die"
+                                       type="java:be.kdg.yahtzee.remoteObjects.game.Die"
+                                       serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                                       deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                                       encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                                     />
+                                     <typeMapping
+                                       xmlns:ns="http://users.remoteObjects.yahtzee.kdg.be"
+                                       qname="ns:User"
+                                       type="java:be.kdg.yahtzee.remoteObjects.users.User"
+                                       serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                                       deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                                       encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                                     />
+                                     <typeMapping
+                                       xmlns:ns="http://users.remoteObjects.yahtzee.kdg.be"
+                                       qname="ns:Person"
+                                       type="java:be.kdg.yahtzee.remoteObjects.users.Person"
+                                       serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                                       deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                                       encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                                     />
+                                     <typeMapping
+                                       xmlns:ns="http://users.remoteObjects.yahtzee.kdg.be"
+                                       qname="ns:Address"
+                                       type="java:be.kdg.yahtzee.remoteObjects.users.Address"
+                                       serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                                       deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                                       encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                                     />
+                                     <typeMapping
+                                       xmlns:ns="http://game.remoteObjects.yahtzee.kdg.be"
+                                       qname="ns:Highscore"
+                                       type="java:be.kdg.yahtzee.remoteObjects.game.Highscore"
+                                       serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                                       deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                                       encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                                     />
+                                     <typeMapping
+                                       xmlns:ns="http://game.remoteObjects.yahtzee.kdg.be"
+                                       qname="ns:ScoreAspect"
+                                       type="java:be.kdg.yahtzee.remoteObjects.game.ScoreAspect"
+                                       serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                                       deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                                       encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                                     />
+                                     <typeMapping
+                                       xmlns:ns="http://chat.remoteObjects.yahtzee.kdg.be"
+                                       qname="ns:Chat"
+                                       type="java:be.kdg.yahtzee.remoteObjects.chat.Chat"
+                                       serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+                                       deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+                                       encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                                     />
+                                 </service>
+                               </deployment>

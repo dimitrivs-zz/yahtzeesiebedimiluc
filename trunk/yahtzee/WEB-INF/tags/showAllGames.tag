@@ -1,4 +1,4 @@
-<%@ tag import="be.kdg.yahtzee.model.remoteObjects.game.Game" %>
+<%@ tag import="be.kdg.yahtzee.remoteObjects.game.Game" %>
 <%@ tag body-content="empty" %>
 
 <%@ attribute name="hrefRemove" required="true" %>

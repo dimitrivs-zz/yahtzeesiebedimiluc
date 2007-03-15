@@ -1,5 +1,5 @@
-<%@ tag import="be.kdg.yahtzee.model.remoteObjects.users.Role" %>
-<%@ tag import="be.kdg.yahtzee.model.remoteObjects.users.User" %>
+<%@ tag import="be.kdg.yahtzee.remoteObjects.users.Role" %>
+<%@ tag import="be.kdg.yahtzee.remoteObjects.users.User" %>
 <%@ tag body-content="empty" %>
 <%@ attribute name="hrefRemove" required="true" %>
 <%@ attribute name="hrefChange" required="true" %>

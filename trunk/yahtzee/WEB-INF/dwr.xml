@@ -7,7 +7,7 @@
      <create creator="new" javascript="Chat">
          <param name="class" value="be.kdg.yahtzee.model.chat.Chat"/>
      </create>   -->
-        <convert converter="bean" match="be.kdg.yahtzee.model.chat.ChatMessage"/>
+        <convert converter="bean" match="be.kdg.yahtzee.chat.ChatMessage"/>
         <!--
       <create creator="spring" javascript="GameManager">
           <param name="beanName" value="gameManager"/>
@@ -20,15 +20,15 @@
             <param name="class" value="be.kdg.yahtzee.model.DwrController"/>
         </create>
 
-        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.users.User"/>
-        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.users.Address"/>
-        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.users.Person"/>
-        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.users.Role"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.users.User"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.users.Address"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.users.Person"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.users.Role"/>
 
-        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.game.Game"/>
-        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.game.Score"/>
-        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.game.ScoreAspect"/>
-        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.game.Highscore"/>
-        <convert converter="bean" match="be.kdg.yahtzee.model.remoteObjects.game.Die"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.game.Game"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.game.Score"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.game.ScoreAspect"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.game.Highscore"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.game.Die"/>
     </allow>
 </dwr>

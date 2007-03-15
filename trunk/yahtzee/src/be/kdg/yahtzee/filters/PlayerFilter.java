@@ -8,7 +8,7 @@
 package be.kdg.yahtzee.filters;
 
 import be.kdg.yahtzee.beans.UserBean;
-import be.kdg.yahtzee.model.remoteObjects.YahtzeeControllerServiceLocator;
+import be.kdg.yahtzee.remoteObjects.YahtzeeControllerServiceLocator;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -51,7 +51,7 @@ public class PlayerFilter implements Filter {
             UserBean userBean = (UserBean) session.getAttribute("userBean");
 
             YahtzeeControllerServiceLocator serviceLocator = new YahtzeeControllerServiceLocator();
-            be.kdg.yahtzee.model.remoteObjects.YahtzeeController yahtzeeController = null;
+            be.kdg.yahtzee.remoteObjects.YahtzeeController yahtzeeController = null;
             try {
                 yahtzeeController = serviceLocator.getyahtzee();
             } catch (javax.xml.rpc.ServiceException e) {

@@ -1,4 +1,4 @@
-<%@ tag import="be.kdg.yahtzee.model.remoteObjects.game.Highscore" %>
+<%@ tag import="be.kdg.yahtzee.remoteObjects.game.Highscore" %>
 <%@ tag body-content="empty" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

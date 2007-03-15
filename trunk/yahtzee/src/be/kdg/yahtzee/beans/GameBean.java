@@ -7,8 +7,8 @@
 
 package be.kdg.yahtzee.beans;
 
-import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
-import be.kdg.yahtzee.model.remoteObjects.game.Game;
+import be.kdg.yahtzee.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.remoteObjects.game.Game;
 
 import java.rmi.RemoteException;
 
