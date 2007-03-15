@@ -18,12 +18,13 @@ import java.rmi.RemoteException;
  * Time: 18:33:49
  * To change this template use File | Settings | File Templates.
  */
+
 public class TestChangePassword extends TestCase {
     private UserManager userManager;
 
     @Before
     public void setUp() throws RemoteException {
-        userManager = new UserManager(true);
+        userManager = new UserManager();
     }
 
     @After
