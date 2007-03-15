@@ -77,16 +77,6 @@ public class UserManager {
 
     // ---------- User methoden
 
-    // --- Nodig voor beans
-    /*
-  public void setUserDao(UserDao userDao) {
-      this.userDao = userDao;
-      for (Object o : userDao.getUsers()) {
-          User user = (User) o;
-          users.add(user);
-      }
-  }  */
-
     // ----getMethoden
 
     public List<User> getUsers() throws RemoteException {
@@ -265,33 +255,6 @@ public class UserManager {
         }
         return user.getRole().equals(role);
     }
-
-    /*
-    public void addUserToRole(User user, Role role) {
-        user.setRole(role);
-        userDao.saveUser(user);
-        logger.info("User " + user.getUsername() + " removed");
-    } */
-
-    // --- Andere methoden
-    /*
-  public int getNumberOfUsers() {
-      return users.size();
-  }  */
-
-    // ----------- Role methdoen
-
-    // --- Nodig voor beans
-    /*
-  public void setRoleDao(RoleDao roleDao) {
-      this.roleDao = roleDao;
-      for (Object o : roleDao.getRoles()) {
-          Role role = (Role) o;
-          roles.put(role.getName(), role);
-      }
-      createRole("Administrator");
-      createRole("Player");
-  }  */
 
     // --- getMethoden
 

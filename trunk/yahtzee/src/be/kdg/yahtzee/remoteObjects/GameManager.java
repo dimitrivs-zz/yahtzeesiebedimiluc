@@ -57,21 +57,6 @@ public class GameManager {
     }
 
     /**
-     * Method for setting the highscoreDao
-     *
-     * @param highscoreDao HighScoreDao object
-     */
-    /*
-    public void setHighscoreDao(HighscoreDao highscoreDao) {
-        this.highscoreDao = highscoreDao;
-
-        for (Object o : highscoreDao.getHighscores()) {
-            Highscore highscore = (Highscore) o;
-            highscores.add(highscore);
-        }
-    }*/
-
-    /**
      * Method for getting all highscores.
      *
      * @return List with all highscores.

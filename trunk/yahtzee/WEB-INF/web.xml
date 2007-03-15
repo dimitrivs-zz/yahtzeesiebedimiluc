@@ -13,7 +13,7 @@
 
     <filter-mapping>
         <filter-name>PlayerFilter</filter-name>
-        <url-pattern>/player/*</url-pattern>
+        <url-pattern>/faces/player/*</url-pattern>
     </filter-mapping>
 
     <filter>
@@ -22,7 +22,7 @@
     </filter>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
-        <url-pattern>/admin/*</url-pattern>
+        <url-pattern>/faces/admin/*</url-pattern>
     </filter-mapping>
 
     <!-- Servlets -->

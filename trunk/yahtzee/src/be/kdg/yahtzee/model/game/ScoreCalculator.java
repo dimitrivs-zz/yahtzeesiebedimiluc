@@ -41,8 +41,6 @@ public class ScoreCalculator {
         fillDiceValues();
         Collections.sort(diceValueList);
 
-        System.out.println(diceValueList);
-
         calculateOnes();
         calculateTwos();
         calculateThrees();
