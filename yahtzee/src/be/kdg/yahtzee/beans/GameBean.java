@@ -11,8 +11,6 @@ import be.kdg.yahtzee.model.remoteObjects.YahtzeeController;
 import be.kdg.yahtzee.model.remoteObjects.game.Game;
 
 import java.rmi.RemoteException;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Bean class for getting and passing game information between
@@ -34,20 +32,6 @@ public class GameBean {
     public GameBean(YahtzeeController yahtzeeController, String gameName) {
         this.yahtzeeController = yahtzeeController;
         this.gameName = gameName;
-    }
-
-    /**
-     * Method for getting the users joined in the game.
-     *
-     * @return Set containing the Users in the Game.
-     */
-    public Set getUsersOfGame() throws RemoteException {
-        Game game = yahtzeeController.getGame(gameName);
-        Set usersGame = new HashSet();
-        for (int i = 0; i < game.getUsers().length; i++) {
-            usersGame.add(game.getUsers()[i]);
-        }
-        return usersGame;
     }
 
     /**

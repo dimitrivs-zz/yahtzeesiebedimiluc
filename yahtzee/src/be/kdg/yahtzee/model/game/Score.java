@@ -7,8 +7,8 @@
 
 package be.kdg.yahtzee.model.game;
 
-import static be.kdg.util.ScorePoints.BONUS;
-import static be.kdg.util.ScorePoints.YAHTZEEBONUS;
+import static be.kdg.yahtzee.model.game.ScorePoints.BONUS;
+import static be.kdg.yahtzee.model.game.ScorePoints.YAHTZEEBONUS;
 
 /**
  * Class representing a Score in the yahtzee game.
