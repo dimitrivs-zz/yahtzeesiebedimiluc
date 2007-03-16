@@ -223,6 +223,9 @@ public class GameManager {
         game.leaveGame(user);
         updateState(game);
         logger.info("User : " + user.getUsername() + " left game: " + gameName);
+        if (game.getNumberOfPlayers() == 0) {
+            removeGame(gameName);
+        }
     }
 
     /**
@@ -485,5 +488,10 @@ public class GameManager {
             }
         }
         return 0;
+    }
+
+    public boolean gameFinished(String gameName) {
+        Game game = getGame(gameName);
+        return game.isGameFinished();
     }
 }

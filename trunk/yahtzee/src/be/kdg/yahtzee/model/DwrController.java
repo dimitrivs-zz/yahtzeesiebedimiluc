@@ -142,6 +142,15 @@ public class DwrController {
         return scores;
     }
 
+    public boolean isGameFinished(String gameName) throws RemoteException {
+        return yahtzeeController.gameFinished(gameName);
+    }
+
+    public void leaveGame(String gameName, String username) throws RemoteException {
+        User user = yahtzeeController.findUser(username);
+        yahtzeeController.leaveGame(gameName, user);
+    }
+
     public void addMessage(String text, String gameName) throws RemoteException {
         yahtzeeController.addMessage(text, gameName);
     }
