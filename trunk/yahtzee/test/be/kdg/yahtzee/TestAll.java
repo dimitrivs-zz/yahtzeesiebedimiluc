@@ -19,7 +19,8 @@ public class TestAll {
                 "be.kdg.yahtzee.users.TestOnlineUsers",
                 "be.kdg.yahtzee.users.TestRegistratieUser",
                 "be.kdg.yahtzee.users.TestRemoveUser",
-                "be.kdg.yahtzee.users.TestSearch");
+                "be.kdg.yahtzee.users.TestSearch",
+                "be.kdg.yahtzee.util.testInputValidation");
     }
 }
 

@@ -23,7 +23,7 @@ public class TestBlockUser extends TestCase {
 
     @Before
     public void setUp() throws RemoteException {
-
+        userManager = new UserManager();
     }
 
     @After
