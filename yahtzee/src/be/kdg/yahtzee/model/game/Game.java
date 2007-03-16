@@ -431,4 +431,14 @@ public class Game {
     public int getPlayerScore(User user) {
         return scores.get(user.getUsername()).getTotalScore();
     }
+
+    public boolean isGameFinished() {
+        boolean gameFinished = true;
+        for (String username : numberTurns.keySet()) {
+            if (!(numberTurns.get(username) > 12)) {
+                gameFinished = false;
+            }
+        }
+        return gameFinished;
+    }
 }

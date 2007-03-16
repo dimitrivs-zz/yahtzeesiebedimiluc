@@ -21,6 +21,10 @@
 <script type="text/javascript">
 var loadPlayerTimeout;
 var keepDiceUpdatedTimeout;
+var getActivePlayerTimeout;
+var keepPlayersUpdatedTimeout;
+var gotMessagesTimeout;
+var isGameFinishedTimeout;
 var playersArray = new Array();
 var activePlayer = '';
 var numberRolls = 0;
@@ -38,6 +42,25 @@ function init() {
             );
     document.getElementById('btnRoll').style.visibility = 'hidden';
     getActivePlayer();
+    isGameFinished();
+}
+
+function isGameFinished() {
+    DwrController.isGameFinished('${gameBean.gameName}',
+            function(gameStateFinished) {
+                if (gameStateFinished) {
+                    clearTimeout(getActivePlayerTimeout);
+                    clearTimeout(loadPlayerTimeout);
+                    clearTimeout(keepPlayersUpdatedTimeout);
+                    clearTimeout(keepDiceUpdatedTimeout);
+                    clearTimeout(gotMessagesTimeout);
+                    clearTimeout(isGameFinishedTimeout);
+                    DWRUtil.setValue('gameState', 'Game finished. Redirecting...');
+                    window.location = '../../game/FinishGameServlet?game=${gameBean.gameName}';
+                }
+            }
+            );
+    isGameFinishedTimeout = setTimeout("isGameFinished()", 1000);
 }
 
 function getActivePlayer() {
@@ -65,7 +88,7 @@ function getActivePlayer() {
                 }
             }
             );
-    setTimeout('getActivePlayer()', 1000);
+    getActivePlayerTimeout = setTimeout('getActivePlayer()', 1000);
 }
 
 function loadPlayers() {
@@ -119,7 +142,7 @@ function keepPlayersUpdated() {
                 }
             }
             );
-    setTimeout('keepPlayersUpdated()', 5000);
+    keepPlayersUpdatedTimeout = setTimeout('keepPlayersUpdated()', 5000);
 }
 
 function removePlayer(playerUsername) {
@@ -147,7 +170,11 @@ function gameStarted(state) {
                         keepDiceUpdated();
                     }
                     calculateScores();
-                    //keepPlayersUpdated();
+                    keepPlayersUpdated();
+                    document.getElementById('p1name').style.visibility = 'hidden';
+                    document.getElementById('p2name').style.visibility = 'hidden';
+                    document.getElementById('p3name').style.visibility = 'hidden';
+                    document.getElementById('p4name').style.visibility = 'hidden';
                     DWRUtil.setValue('gameState', player + ' <h:outputText value="#{labels.gamePlaying}"/>...');
                 }
                 );
@@ -167,19 +194,16 @@ function keepDiceUpdated() {
                     if (!diceList[die].dieFixed) {
                         document.getElementById('dice' + i + 'notFixedImg').src = '../../images/die' + diceList[die].value + '.png';
                         document.getElementById('dice' + i + 'notFixedImg').alt = diceList[die].value;
-                        //DWRUtil.setValue('dice' + i + 'notFixed', diceList[die].value);
                         document.getElementById('dice' + i + 'notFixed').style.visibility = 'visible';
                     } else {
                         document.getElementById('dice' + i + 'fixedImg').src = '../../images/die' + diceList[die].value + '.png';
                         document.getElementById('dice' + i + 'fixedImg').alt = diceList[die].value;
-                        //DWRUtil.setValue('dice' + i + 'fixed', diceList[die].value);
                         document.getElementById('dice' + i + 'fixed').style.visibility = 'visible';
                     }
                     i++;
                 }
             }
             );
-    //calculateScores();
     keepDiceUpdatedTimeout = setTimeout('keepDiceUpdated()', 2000);
 }
 
@@ -197,7 +221,6 @@ function getDice(diceList) {
     var i = 0;
     for (var die in diceList)
     {
-        //DWRUtil.setValue('dice' + i + 'notFixed', diceList[die].value);
         document.getElementById('dice' + i + 'notFixedImg').alt = diceList[die].value;
         document.getElementById('dice' + i + 'notFixedImg').src = '../../images/die' + diceList[die].value + '.png';
         if (!diceList[die].dieFixed) {
@@ -217,14 +240,12 @@ function showScorePossibilities(scorePossibilitiesList) {
     table += '</table>';
     DWRUtil.setValue('possibleScores', table);
     document.getElementById('possibleScores').style.visibility = 'visible';
-    //document.getElementById('scoresContainer').style.visibility = 'visible';
 }
 
 function selectScore(scoreDescription) {
     DwrController.selectScore('${gameBean.gameName}', scoreDescription, emptyFunc);
     resetDice();
     document.getElementById('possibleScores').style.visibility = 'hidden';
-    //document.getElementById('scoresContainer').style.visibility = 'hidden';
     document.getElementById('btnRoll').style.visibility = 'hidden';
     document.getElementById('btnRoll').disabled = true;
     calculateScores();
@@ -246,25 +267,26 @@ function calculateScores() {
                 var i = 1;
                 for (var score in scores) {
                     DWRUtil.removeAllRows('p' + i + 'score');
-                    scoreArray[0] = scores[score].ones;
-                    scoreArray[1] = scores[score].twos;
-                    scoreArray[2] = scores[score].threes;
-                    scoreArray[3] = scores[score].fours;
-                    scoreArray[4] = scores[score].fives;
-                    scoreArray[5] = scores[score].sixes;
-                    scoreArray[6] = scores[score].upperHalfWithoutBonus;
-                    scoreArray[7] = scores[score].upperHalfBonus;
-                    scoreArray[8] = scores[score].totalUpperHalf;
-                    scoreArray[9] = scores[score].threeOfAKind;
-                    scoreArray[10] = scores[score].carre;
-                    scoreArray[11] = scores[score].fullHouse;
-                    scoreArray[12] = scores[score].smallStreet;
-                    scoreArray[13] = scores[score].largeStreet;
-                    scoreArray[14] = scores[score].yahtzee;
-                    scoreArray[15] = scores[score].chance;
-                    scoreArray[16] = scores[score].yahtzeeBonus;
-                    scoreArray[17] = scores[score].totalLowerHalf;
-                    scoreArray[18] = scores[score].totalScore;
+                    scoreArray[0] = '<b>' + score + '</b>';
+                    scoreArray[1] = scores[score].ones;
+                    scoreArray[2] = scores[score].twos;
+                    scoreArray[3] = scores[score].threes;
+                    scoreArray[4] = scores[score].fours;
+                    scoreArray[5] = scores[score].fives;
+                    scoreArray[6] = scores[score].sixes;
+                    scoreArray[7] = scores[score].upperHalfWithoutBonus;
+                    scoreArray[8] = scores[score].upperHalfBonus;
+                    scoreArray[9] = scores[score].totalUpperHalf;
+                    scoreArray[10] = scores[score].threeOfAKind;
+                    scoreArray[11] = scores[score].carre;
+                    scoreArray[12] = scores[score].fullHouse;
+                    scoreArray[13] = scores[score].smallStreet;
+                    scoreArray[14] = scores[score].largeStreet;
+                    scoreArray[15] = scores[score].yahtzee;
+                    scoreArray[16] = scores[score].chance;
+                    scoreArray[17] = scores[score].yahtzeeBonus;
+                    scoreArray[18] = scores[score].totalLowerHalf;
+                    scoreArray[19] = scores[score].totalScore;
                     DWRUtil.addRows('p' + i + 'score', scoreArray, cellFuncs);
                     i++
                 }
@@ -289,14 +311,12 @@ function fixDice(diceNr, state) {
             document.getElementById('dice' + diceNr + 'notFixed').style.visibility = 'hidden';
             document.getElementById('dice' + diceNr + 'fixedImg').src = '../../images/die' + document.getElementById('dice' + diceNr + 'notFixedImg').alt + '.png';
             document.getElementById('dice' + diceNr + 'fixedImg').alt = document.getElementById('dice' + diceNr + 'notFixedImg').alt;
-            //DWRUtil.setValue('dice' + diceNr + 'fixed', DWRUtil.getValue('dice' + diceNr + 'notFixed'));
             document.getElementById('dice' + diceNr + 'fixed').style.visibility = 'visible';
         } else {
             DwrController.unfixDie('${gameBean.gameName}', diceNr);
             document.getElementById('dice' + diceNr + 'fixed').style.visibility = 'hidden';
             document.getElementById('dice' + diceNr + 'notFixedImg').src = '../../images/die' + document.getElementById('dice' + diceNr + 'fixedImg').alt + '.png';
             document.getElementById('dice' + diceNr + 'notFixedImg').alt = document.getElementById('dice' + diceNr + 'fixedImg').alt;
-            //DWRUtil.setValue('dice' + diceNr + 'notFixed', DWRUtil.getValue('dice' + diceNr + 'fixed'));
             document.getElementById('dice' + diceNr + 'notFixed').style.visibility = 'visible';
         }
     }
@@ -320,7 +340,7 @@ function gotMessages(messages) {
         chatlog = messages[data] + chatlog;
     }
     DWRUtil.setValue("chatlog", chatlog);
-    setTimeout("checkMessages()", 1000);
+    gotMessagesTimeout = setTimeout("checkMessages()", 1000);
 }
 
 </script>

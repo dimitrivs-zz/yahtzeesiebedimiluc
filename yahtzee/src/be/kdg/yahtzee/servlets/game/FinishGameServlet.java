@@ -10,6 +10,7 @@ package be.kdg.yahtzee.servlets.game;
 
 import be.kdg.yahtzee.beans.UserBean;
 import be.kdg.yahtzee.remoteObjects.YahtzeeController;
+import be.kdg.yahtzee.remoteObjects.game.Score;
 import be.kdg.yahtzee.remoteObjects.users.User;
 import be.kdg.yahtzee.servlets.YahtzeeServlet;
 
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Map;
 
 public class FinishGameServlet extends YahtzeeServlet {
@@ -38,12 +40,13 @@ public class FinishGameServlet extends YahtzeeServlet {
         yahtzeeController.saveHighscore(user, score, cal);
 
         //scores to session for game summary
-        Map scores = yahtzeeController.getScores(gameName);
+        Map<String, Score> scores = new HashMap<String, Score>();
+        Object[] users = yahtzeeController.getUsersOfGame(gameName);
+        for (Object o : users) {
+            scores.put(((User) o).getUsername(), yahtzeeController.getScore(gameName, ((User) o).getUsername()));
+        }
         session.setAttribute("scores", scores);
 
-        // remove player from game
-        yahtzeeController.leaveGame(gameName, user);
-
-        response.sendRedirect("/faces/player/gameFinish2.jsp");
+        response.sendRedirect("/faces/player/gameFinish.jsp");
     }
 }

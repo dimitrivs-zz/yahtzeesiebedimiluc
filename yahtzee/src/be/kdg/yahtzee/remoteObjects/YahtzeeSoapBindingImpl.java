@@ -29,7 +29,7 @@ public class YahtzeeSoapBindingImpl implements be.kdg.yahtzee.remoteObjects.Yaht
     }
 
     public boolean gameFinished(String s) throws java.rmi.RemoteException {
-        return false;
+        return gameManager.gameFinished(s);
     }
 
     public be.kdg.yahtzee.remoteObjects.game.Highscore getHighscore() throws java.rmi.RemoteException {

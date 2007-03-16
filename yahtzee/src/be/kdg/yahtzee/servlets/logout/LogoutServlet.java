@@ -55,7 +55,7 @@ public class LogoutServlet extends YahtzeeServlet {
         YahtzeeController yahtzeeController = findYahtzeeController();
         UserBean userBean = (UserBean) session.getAttribute("userBean");
         User user = yahtzeeController.findUser(userBean.getUsername());
-        yahtzeeController.setOnline(user, true);
+        yahtzeeController.setOnline(user, false);
 
         logger.info("User " + user.getUsername() + " logged out");
 
