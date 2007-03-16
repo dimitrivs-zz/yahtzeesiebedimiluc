@@ -406,6 +406,7 @@ public class Game {
     /**
      * Method for getting the score of a player.
      *
+     * @param username de username
      * @return Score object of a player.
      */
     public Score getScore(String username) {

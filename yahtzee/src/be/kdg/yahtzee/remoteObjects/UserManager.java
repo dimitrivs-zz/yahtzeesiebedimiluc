@@ -80,9 +80,9 @@ public class UserManager {
     // ----getMethoden
 
     public List<User> getUsers() throws RemoteException {
-        List qsfd = new ArrayList();
-        qsfd.addAll(userDao.getUsers());
-        return Collections.unmodifiableList(qsfd);
+        List<User> userList = new ArrayList<User>();
+        userList.addAll(userDao.getUsers());
+        return Collections.unmodifiableList(userList);
         /*
         List usersList = new ArrayList();
         usersList.addAll(users);
@@ -166,7 +166,6 @@ public class UserManager {
             if (password.equals(password2) && password.length() > 5) {
                 user.setPassword(security.encrypt(password));
                 System.out.println("qsfqsdfqsdfqsdf" + user);
-
                 userDao.saveUser(user);
                 logger.info("User " + user.getUsername() + " changed his password");
                 return true;
