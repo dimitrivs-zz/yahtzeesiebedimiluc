@@ -1,0 +1,160 @@
+#container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+}
+
+#login {
+    background-image: url( ../images/loginBg.png );
+    background-repeat: no-repeat;
+    width: 430px;
+    height: 210px;
+    margin: 15px 20px 10px 20px;
+}
+
+#showProfile {
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url( ../images/showProfileBg.png );
+    background-repeat: no-repeat;
+    width: 430px;
+    height: 275px;
+}
+
+#register {
+    background-image: url( ../images/registerBg.png );
+    background-repeat: no-repeat;
+    width: 450px;
+    height: 525px;
+    margin: 15px 20px 10px 20px;
+}
+
+#message {
+    color: #ffffff;
+}
+
+#profile {
+    background-image: url( ../images/profileBg.png );
+    background-repeat: no-repeat;
+    width: 450px;
+    height: 625px;
+    margin: 15px 20px 10px 20px;
+}
+
+#newGame {
+    background-image: url( ../images/newGameBg.png );
+    background-repeat: no-repeat;
+    width: 420px;
+    height: 320px;
+    margin: 15px 20px 10px 20px;
+}
+
+#info {
+    margin-top: -15px;
+}
+
+img.logo {
+    width: 180px;
+    height: 79px;
+}
+
+img, #login, #register, #newGame, #profile, #showProfile {
+    behavior: url( ../css/iepngfix/iepngfix.htc )
+}
+
+input.btn {
+    background-color: #ffffff;
+    color: #006600;
+}
+
+input.btn, input.text, select {
+    border-color: #336699;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+html {
+    background-image: url( ../images/background.png );
+    background-repeat: no-repeat;
+}
+
+body {
+    text-align: center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    vertical-align: middle;
+}
+
+form, td {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+form {
+    margin: 10px 20px 10px 20px;
+}
+
+div.hr {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 1px;
+    width: 400px;
+    background: #ffffff;
+}
+
+div.hr hr {
+    display: none;
+}
+
+#center {
+    text-align: center;
+}
+
+a:link {
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+a:visited {
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+a:active {
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #00CC00;
+}
+
+a.back:link {
+    text-decoration: none;
+    color: #FFFF00;
+}
+
+a.back:visited {
+    text-decoration: none;
+    color: #FFFF00;
+}
+
+a.back:active {
+    text-decoration: none;
+    color: #FFFF00;
+}
+
+a.back:hover {
+    text-decoration: underline;
+    color: #FFFF00;
+}

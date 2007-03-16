@@ -1,0 +1,260 @@
+/* CSS Document */
+#container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+}
+
+#header {
+    background-image: url( ../images/roomHeaderBg.png );
+    background-repeat: no-repeat;
+    width: 900px;
+    height: 100px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#links {
+    margin: 35px 35px 0px 0px;
+    float: right;
+    color: #FFFFFF;
+}
+
+#roomsContainer {
+    background-image: url( ../images/gameBodyBg.png );
+    background-repeat: no-repeat;
+    width: 900px;
+    height: 520px;
+}
+
+#rooms {
+    width: 600px;
+    height: 380px;
+    float: left;
+}
+
+#roomsWrapper {
+    margin: 0px 60px 0px 60px;
+    width: 780px;
+    height: 380px;
+}
+
+#footer {
+    clear: both;
+}
+
+#chat {
+    width: 175px;
+    height: 380px;
+    float: right;
+}
+
+#footerTekst {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+    width: 780px;
+    margin-left: 60px;
+}
+
+img.logo {
+    width: 180px;
+    height: 79px;
+}
+
+#logo {
+    margin: 10px 0px 0px 25px;
+    float: left;
+}
+
+#roomTable {
+    width: 600px;
+    height: auto;
+}
+
+#gamesWrapper {
+    width: 600px;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#games {
+    width: 600px;
+}
+
+#users {
+    padding: 0px;
+    margin: 0px;
+    float: left;
+}
+
+#onlineContainer {
+    padding-left: 60px;
+    margin: -10px 0px 10px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+span.welkom, #users {
+    font-weight: bold;
+    color: #FFFF00;
+
+}
+
+.tekst {
+    padding: 20px 0px 0px 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+}
+
+.top, .bottom {
+    border-color: #336699;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+    background-color: #FFFFFF;
+    width: 160px;
+}
+
+.top {
+    overflow: auto;
+    margin: 0px 5px 0px 5px;
+    border: solid 1px #336699;
+    height: 250px;
+}
+
+.bottom {
+    width: 157px;
+    margin: 10px 5px 0px 5px;
+}
+
+input.btn {
+    margin: 0px 5px 0px 5px;
+    margin-top: 10px;
+}
+
+input.btn {
+    border-color: #336699;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: #006600;
+    width: 162px;
+}
+
+textarea.bottom {
+    border: solid 1px #336699;
+    margin-top: 10px;
+    height: 50px;
+}
+
+img, #header, #roomsContainer {
+    behavior: url( ../css/iepngfix/iepngfix.htc )
+}
+
+html {
+    background-image: url( ../images/background.png );
+    background-repeat: no-repeat;
+    scrollbar-face-color: #00AA00;
+    scrollbar-highlight-color: #FFFFFF;
+    scrollbar-arrow-color: #FFFFFF;
+    scrollbar-track-color: #00CC00;
+}
+
+table {
+    margin-top: 2px;
+    margin-left: 5px;
+    margin-bottom: 0px;
+    width: 595px;
+    height: auto;
+}
+
+table, th, td {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #666666;
+    color: #FFFFFF;
+}
+
+td, td.center {
+    padding: 2px 0px 2px 0px;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+table.header, table.header th {
+    border-collapse: collapse;
+    border: 1px solid #ffffff;
+}
+
+table.games {
+    margin-top: 0px;
+}
+
+table.games td {
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    border-top: none;
+}
+
+td.center {
+    text-align: center;
+}
+
+td {
+    text-align: left;
+    padding-left: 10px;
+}
+
+h2 {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+h3.chatTekst {
+    margin: 0px 5px 0px 5px;
+}
+
+h3 {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+}
+
+div.hr {
+    margin: 10px 0px 10px 60px;
+    height: 1px;
+    width: 780px;
+    background: #ffffff;
+}
+
+div.hr hr {
+    display: none;
+}
+
+a:link {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+a:active {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #00CC00;
+}

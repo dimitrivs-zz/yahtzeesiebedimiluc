@@ -1,0 +1,102 @@
+<project name="yahtzee" default="package">
+
+    <!--
+        Start eerst tomcat5!
+        Roep dan in browser op met http://localhost:8080/yahtzee
+
+        Locatie Tomcat: C:\Program Files\Apache Software Foundation\Tomcat 5.0
+    -->
+
+    <target name="init">
+        <description>Initialize the properties</description>
+        <property name="app.name" value="yahtzee"/>
+        <property name="out.dir" value="./build"/>
+        <property name="build.dir" value="${out.dir}/classes"/>
+        <property name="doc.dir" value="${out.dir}/doc"/>
+        <property name="lib.dir" value="./lib"/>
+        <property name="src.dir" value="./src"/>
+        <property name="dist.dir" value="${out.dir}/dist"/>
+        <property name="war.dir" value="${out.dir}/war"/>
+        <property name="war.name" value="${app.name}.war"/>
+        <property name="package.names" value="be.kdg.yahtzee.*"/>
+        <property name="jsp.dir" value="./resources"/>
+        <property name="web-inf.dir" value="WEB-INF"/>
+        <property name="web-inf.lib" value="${web-inf.dir}/lib"/>
+        <property name="web-inf.classes" value="${web-inf.dir}/classes"/>
+        <property name="catalina-home-dir" value="C:\Program Files\Apache Software Foundation\Tomcat 5.0"/>
+        <property name="catalina-deploy-dir" value="${catalina-home-dir}/webapps"/>
+
+        <path id="project.classpath">
+            <pathelement location="${build.dir}"/>
+            <pathelement location="${lib.dir}/servlet.jar"/>
+            <pathelement location="${lib.dir}/log4j-1.2.11.jar"/>
+            <pathelement location="${lib.dir}/hibernate3.jar"/>
+            <pathelement location="${lib.dir}/spring.jar"/>
+            <pathelement location="${lib.dir}/mysql-connector-java-5.0.3-bin.jar"/>
+            <pathelement location="${lib.dir}/spring-hibernate.jar"/>
+            <pathelement location="${lib.dir}/spring-beans.jar"/>
+            <pathelement location="${lib.dir}/axis.jar"/>
+            <pathelement location="${lib.dir}/wsdl.jar"/>
+            <pathelement location="${lib.dir}/saaj.jar"/>
+            <pathelement location="${lib.dir}/jaxrpc.jar"/>
+            <pathelement location="${lib.dir}/*"/>
+        </path>
+    </target>
+
+    <target name="clean" depends="init">
+        <description>Remove old directories</description>
+        <delete dir="${out.dir}"/>
+        <delete file="${catalina-deploy-dir}/${war.name}"/>
+        <delete dir="${catalina-deploy-dir}/${app.name}"/>
+    </target>
+
+    <target name="prepare" depends="clean">
+        <description>Creates the necessary directories</description>
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${doc.dir}"/>
+        <mkdir dir="${war.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+    </target>
+
+    <target name="compile" depends="prepare">
+        <description>Compiles the program</description>
+        <javac srcdir="${src.dir}" destdir="${build.dir}">
+            <classpath refid="project.classpath"/>
+        </javac>
+    </target>
+
+    <!--
+      Als je vertrekt vanuit een klassiek IntelliJ project moet je de
+      html en jsp bestanden uit de "resources" directory halen!
+    -->
+
+    <target name="package" depends="compile">
+        <description>Package the class files into a war</description>
+        <war destfile="${war.dir}/${war.name}" webxml="WEB-INF/web.xml">
+            <zipfileset dir="${jsp.dir}" prefix="."/>
+            <zipfileset dir="${lib.dir}" prefix="${web-inf.lib}"/>
+            <zipfileset dir="${src.dir}" prefix="${web-inf.classes}">
+            </zipfileset>
+            <zipfileset dir="${web-inf.dir}" prefix="${web-inf.dir}">
+                <include name="dwr.xml"/>
+                <include name="faces-config.xml"/>
+                <include name="appcontext.xml"/>
+            </zipfileset>
+            <classes dir="${build.dir}"/>
+        </war>
+    </target>
+
+    <target name="remove" depends="init" description="remove application">
+        <delete file="${catalina-deploy-dir}/${war.name}"/>
+        <delete dir="${catalina-deploy-dir}/${app.name}"/>
+        <!-- needed? -->
+    </target>
+
+    <target name="deploy" depends="package" description="local hot deploy to tomcat">
+        <copy file="${war.dir}/${war.name}" todir="${catalina-deploy-dir}"/>
+    </target>
+
+    <target name="all" depends="init, clean, prepare, compile, package,remove, deploy">
+        <description>Excecutes all targets</description>
+    </target>
+</project>

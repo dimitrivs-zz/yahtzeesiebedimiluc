@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN" "http://www.getahead.ltd.uk/dwr//dwr10.dtd">
+
+<dwr>
+    <allow>
+        <!--
+     <create creator="new" javascript="Chat">
+         <param name="class" value="be.kdg.yahtzee.model.chat.Chat"/>
+     </create>   -->
+        <convert converter="bean" match="be.kdg.yahtzee.chat.ChatMessage"/>
+        <!--
+      <create creator="spring" javascript="GameManager">
+          <param name="beanName" value="gameManager"/>
+      </create>
+      <create creator="spring" javascript="UserManager">
+          <param name="beanName" value="userManager"/>
+      </create> -->
+
+        <create creator="new" javascript="DwrController">
+            <param name="class" value="be.kdg.yahtzee.model.DwrController"/>
+        </create>
+
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.users.User"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.users.Address"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.users.Person"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.users.Role"/>
+
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.game.Game"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.game.Score"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.game.ScoreAspect"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.game.Highscore"/>
+        <convert converter="bean" match="be.kdg.yahtzee.remoteObjects.game.Die"/>
+    </allow>
+</dwr>

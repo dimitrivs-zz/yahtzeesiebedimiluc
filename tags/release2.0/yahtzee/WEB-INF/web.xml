@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+
+    <!-- Filters -->
+    <filter>
+        <filter-name>PlayerFilter</filter-name>
+        <filter-class>be.kdg.yahtzee.filters.PlayerFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>PlayerFilter</filter-name>
+        <url-pattern>/faces/player/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>be.kdg.yahtzee.filters.AdminFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/faces/admin/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Servlets -->
+    <servlet>
+        <servlet-name>LanguageServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.bundles.LanguageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LanguageServlet</servlet-name>
+        <url-pattern>/bundles/LanguageServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.login.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login/LoginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.logout.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout/LogoutServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreatePlayerServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.register.CreatePlayerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreatePlayerServlet</servlet-name>
+        <url-pattern>/register/CreatePlayerServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NewGameServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.game.NewGameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewGameServlet</servlet-name>
+        <url-pattern>/game/NewGameServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JoinGameServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.game.JoinGameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JoinGameServlet</servlet-name>
+        <url-pattern>/game/JoinGameServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LeaveGameServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.game.LeaveGameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LeaveGameServlet</servlet-name>
+        <url-pattern>/game/LeaveGameServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FinishGameServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.game.FinishGameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FinishGameServlet</servlet-name>
+        <url-pattern>/game/FinishGameServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ShowProfileServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.profile.ShowProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowProfileServlet</servlet-name>
+        <url-pattern>/profile/ShowProfileServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ChangeProfileServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.profile.ChangeProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangeProfileServlet</servlet-name>
+        <url-pattern>/profile/ConfirmChangeProfileServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ChangePasswordServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.profile.ChangePasswordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangePasswordServlet</servlet-name>
+        <url-pattern>/profile/ConfirmChangePasswordServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreateUserServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.CreateUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateUserServlet</servlet-name>
+        <url-pattern>/admin/CreateUserServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RemoveUserServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.RemoveUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoveUserServlet</servlet-name>
+        <url-pattern>/admin/RemoveUserServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ShowUsersServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.ShowUsersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowUsersServlet</servlet-name>
+        <url-pattern>/admin/ShowUsersServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ChangeUserPasswordServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.ChangeUserPasswordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangeUserPasswordServlet</servlet-name>
+        <url-pattern>/admin/ChangeUserPasswordServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ChangeUserServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.ChangeUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangeUserServlet</servlet-name>
+        <url-pattern>/admin/ChangeUserServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ChangeUserProfileServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.ChangeUserProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangeUserProfileServlet</servlet-name>
+        <url-pattern>/admin/ChangeUserProfileServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ShowGamesServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.ShowGamesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowGamesServlet</servlet-name>
+        <url-pattern>/admin/ShowGamesServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RemoveGameServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.RemoveGameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoveGameServlet</servlet-name>
+        <url-pattern>/admin/RemoveGameServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>WatchGameServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.WatchGameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WatchGameServlet</servlet-name>
+        <url-pattern>/admin/WatchGameServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BlockUserServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.BlockUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BlockUserServlet</servlet-name>
+        <url-pattern>/admin/BlockUserServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SearchUserServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.SearchUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchUserServlet</servlet-name>
+        <url-pattern>/admin/SearchUserServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ShowHighscoresServlet</servlet-name>
+        <servlet-class>be.kdg.yahtzee.servlets.admin.ShowHighscoresServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowHighscoresServlet</servlet-name>
+        <url-pattern>/admin/ShowHighscoresServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- JavaServer Faces Servlet -->
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- DWR (ajax) Servlet -->
+    <servlet>
+        <display-name>DWR Servlet</display-name>
+        <servlet-name>dwr-invoker</servlet-name>
+        <servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dwr-invoker</servlet-name>
+        <url-pattern>/dwr/*</url-pattern>
+    </servlet-mapping>
+
+    <listener>
+        <listener-class>
+            org.apache.axis.transport.http.AxisHTTPSessionListener
+        </listener-class>
+    </listener>
+
+    <servlet>
+        <display-name>Apache Axis Servlet</display-name>
+        <servlet-name>AxisServlet</servlet-name>
+        <servlet-class>
+            org.apache.axis.transport.http.AxisServlet
+        </servlet-class>
+    </servlet>
+
+    <servlet>
+        <display-name>Axis Admin Servlet</display-name>
+
+        <servlet-name>AdminServlet</servlet-name>
+
+        <servlet-class>
+
+            org.apache.axis.transport.http.AdminServlet
+
+        </servlet-class>
+        <load-on-startup>100</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <display-name>SOAPMonitorService</display-name>
+
+        <servlet-name>SOAPMonitorService</servlet-name>
+
+        <servlet-class>
+
+            org.apache.axis.monitor.SOAPMonitorService
+
+        </servlet-class>
+
+        <init-param>
+            <param-name>SOAPMonitorPort</param-name>
+            <param-value>5001</param-value>
+        </init-param>
+        <load-on-startup>100</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AxisServlet</servlet-name>
+        <url-pattern>/servlet/AxisServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AxisServlet</servlet-name>
+        <url-pattern>*.jws</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AxisServlet</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SOAPMonitorService</servlet-name>
+        <url-pattern>/SOAPMonitor</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>5</session-timeout>
+    </session-config>
+
+    <mime-mapping>
+        <extension>wsdl</extension>
+        <mime-type>text/xml</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>xsd</extension>
+        <mime-type>text/xml</mime-type>
+    </mime-mapping>
+</web-app>
